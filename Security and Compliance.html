@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Security & Compliance Cheatsheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      color: #232f3e;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 10px;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+    }
+    
+    .section-title {
+      background: #232f3e;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    
+    .service-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .service-name {
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #0073bb;
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .service-icon {
+      width: 30px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 50%;
+      display: inline-block;
+      height: 30px;
+      line-height: 30px;
+      margin-left: 10px;
+    }
+    
+    .protection { background-color: #FF9AA2; }  /* Pink */
+    .encryption { background-color: #C7CEEA; }  /* Light Blue */
+    .compliance { background-color: #B5EAD7; }  /* Light Green */
+    .detection { background-color: #FFDAC1; }   /* Light Orange */
+    .tracking { background-color: #E2F0CB; }    /* Light Yellow-Green */
+    .management { background-color: #DCD3FF; }  /* Light Purple */
+    
+    .keyword {
+      font-weight: bold;
+      padding: 0 3px;
+      border-radius: 3px;
+    }
+    
+    .key-protection { background-color: #FF9AA2; }
+    .key-encryption { background-color: #C7CEEA; }
+    .key-compliance { background-color: #B5EAD7; }
+    .key-detection { background-color: #FFDAC1; }
+    .key-tracking { background-color: #E2F0CB; }
+    .key-management { background-color: #DCD3FF; }
+    
+    .mnemonic {
+      font-style: italic;
+      font-size: 0.9em;
+      margin-top: 8px;
+      padding: 5px;
+      background-color: #f8f8f8;
+      border-left: 3px solid #ff9900;
+    }
+    
+    .root-privileges {
+      background-color: #ffebee;
+      border: 1px dashed #f44336;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    
+    .root-privileges h3 {
+      color: #d32f2f;
+      margin-top: 0;
+    }
+    
+    .remember {
+      background-color: #fff3e0;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AWS Security & Compliance Cheatsheet - CCP Exam</h1>
+    
+    <!-- Protection Services -->
+    <div class="section">
+      <div class="section-title">Protection Services</div>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-name">
+            AWS Shield <span class="service-icon protection">P</span>
+          </div>
+          <p><span class="keyword key-protection">DDoS protection</span> service that safeguards applications running on AWS.</p>
+          <ul>
+            <li><strong>Standard:</strong> Automatic protection for all AWS customers</li>
+            <li><strong>Advanced:</strong> Enhanced protection + <span class="keyword key-protection">24/7 support</span></li>
+          </ul>
+          <div class="mnemonic">Remember: "Shield PROTECTS like a superhero against DDoS villains"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            AWS WAF <span class="service-icon protection">P</span>
+          </div>
+          <p><span class="keyword key-protection">Web Application Firewall</span> that filters and monitors HTTP/HTTPS requests.</p>
+          <ul>
+            <li>Create <span class="keyword key-protection">rules</span> to block common attack patterns</li>
+            <li>Protects against SQL injection and XSS</li>
+          </ul>
+          <div class="mnemonic">Remember: "WAF is the bouncer at your web door checking IDs"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            Network Firewall <span class="service-icon protection">P</span>
+          </div>
+          <p><span class="keyword key-protection">VPC-level protection</span> against network threats.</p>
+          <ul>
+            <li>Stateful, managed firewall service</li>
+            <li>Protects <span class="keyword key-protection">entire VPC</span> from network attacks</li>
+          </ul>
+          <div class="mnemonic">Remember: "Network Firewall is your VPC's shield wall"</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Encryption Services -->
+    <div class="section">
+      <div class="section-title">Encryption & Certificate Services</div>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-name">
+            AWS KMS <span class="service-icon encryption">E</span>
+          </div>
+          <p><span class="keyword key-encryption">Key Management Service</span> for creating and controlling encryption keys.</p>
+          <ul>
+            <li><span class="keyword key-encryption">AWS-managed keys</span></li>
+            <li>Integrated with many AWS services</li>
+          </ul>
+          <div class="mnemonic">Remember: "AWS KMS keeps the KEYS to your encrypted kingdom"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            AWS CloudHSM <span class="service-icon encryption">E</span>
+          </div>
+          <p><span class="keyword key-encryption">Hardware Security Module</span> for regulatory compliance needs.</p>
+          <ul>
+            <li><span class="keyword key-encryption">Customer-managed keys</span></li>
+            <li>Dedicated hardware for compliance requirements</li>
+          </ul>
+          <div class="mnemonic">Remember: "HSM = Hardware Security Module where YOU manage the keys"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            Certificate Manager <span class="service-icon encryption">E</span>
+          </div>
+          <p>Provision, manage, and deploy <span class="keyword key-encryption">SSL/TLS certificates</span>.</p>
+          <ul>
+            <li>Free public certificates for your domains</li>
+            <li>Automatic renewal</li>
+          </ul>
+          <div class="mnemonic">Remember: "ACM = Always Certified and Managed SSL certificates"</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Compliance Services -->
+    <div class="section">
+      <div class="section-title">Compliance Services</div>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-name">
+            AWS Artifact <span class="service-icon compliance">C</span>
+          </div>
+          <p>Access to AWS <span class="keyword key-compliance">compliance reports</span> and agreements.</p>
+          <ul>
+            <li>ISO, PCI-DSS, SOC reports</li>
+            <li>Self-service portal for compliance documentation</li>
+          </ul>
+          <div class="mnemonic">Remember: "Artifact = Your compliance ART collection"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            AWS Config <span class="service-icon compliance">C</span>
+          </div>
+          <p>Track resource <span class="keyword key-compliance">configuration changes</span> and evaluate compliance.</p>
+          <ul>
+            <li>Records configuration history</li>
+            <li>Checks resources against <span class="keyword key-compliance">compliance rules</span></li>
+          </ul>
+          <div class="mnemonic">Remember: "Config CONFIGures your compliance CONFIGurations"</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Detection Services -->
+    <div class="section">
+      <div class="section-title">Detection & Monitoring Services</div>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-name">
+            GuardDuty <span class="service-icon detection">D</span>
+          </div>
+          <p><span class="keyword key-detection">Threat detection</span> service that continuously monitors for malicious activity.</p>
+          <ul>
+            <li>Analyzes VPC, DNS, and CloudTrail logs</li>
+            <li>Uses ML to identify <span class="keyword key-detection">suspicious behavior</span></li>
+          </ul>
+          <div class="mnemonic">Remember: "GuardDuty is your AWS security GUARD on DUTY"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            Inspector <span class="service-icon detection">D</span>
+          </div>
+          <p>Automated <span class="keyword key-detection">vulnerability assessment</span> service.</p>
+          <ul>
+            <li>Scans <span class="keyword key-detection">EC2, ECR images, and Lambda</span> functions</li>
+            <li>Finds software vulnerabilities and network exposure</li>
+          </ul>
+          <div class="mnemonic">Remember: "Inspector INSPECTS your services for vulnerabilities"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            Macie <span class="service-icon detection">D</span>
+          </div>
+          <p><span class="keyword key-detection">Data security</span> service that uses ML to discover sensitive data.</p>
+          <ul>
+            <li>Discovers <span class="keyword key-detection">PII and sensitive data</span> in S3 buckets</li>
+            <li>Alerts on potential data security risks</li>
+          </ul>
+          <div class="mnemonic">Remember: "Macie TRACES your sensitive data whereabouts"</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Tracking Services -->
+    <div class="section">
+      <div class="section-title">Tracking & Logging Services</div>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-name">
+            CloudTrail <span class="service-icon tracking">T</span>
+          </div>
+          <p><span class="keyword key-tracking">API activity tracking</span> for governance and auditing.</p>
+          <ul>
+            <li>Records all <span class="keyword key-tracking">AWS account activity</span></li>
+            <li>Who did what, when, and from where</li>
+          </ul>
+          <div class="mnemonic">Remember: "CloudTrail leaves a TRAIL of user activity in the cloud"</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Management Services -->
+    <div class="section">
+      <div class="section-title">Security Management Services</div>
+      <div class="services">
+        <div class="service-card">
+          <div class="service-name">
+            Security Hub <span class="service-icon management">M</span>
+          </div>
+          <p>Central place to view and manage <span class="keyword key-management">security alerts</span> across accounts.</p>
+          <ul>
+            <li>Aggregates findings from multiple AWS services</li>
+            <li>Conducts <span class="keyword key-management">continuous security checks</span></li>
+          </ul>
+          <div class="mnemonic">Remember: "Security Hub is your security command CENTER"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            Amazon Detective <span class="service-icon management">M</span>
+          </div>
+          <p>Analyzes and visualizes security data to identify <span class="keyword key-management">root causes</span>.</p>
+          <ul>
+            <li>Investigates <span class="keyword key-management">suspicious activities</span></li>
+            <li>Uses ML to analyze events over time</li>
+          </ul>
+          <div class="mnemonic">Remember: "Detective DETECTS the root cause of security issues"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            Firewall Manager <span class="service-icon management">M</span>
+          </div>
+          <p>Centrally configure and manage <span class="keyword key-management">firewall rules</span> across accounts.</p>
+          <ul>
+            <li>Manages <span class="keyword key-management">WAF, Shield, and Network Firewall</span></li>
+            <li>Works across entire AWS Organizations</li>
+          </ul>
+          <div class="mnemonic">Remember: "Firewall Manager MANAGES all your firewalls from one place"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            IAM Access Analyzer <span class="service-icon management">M</span>
+          </div>
+          <p>Identifies resources shared with <span class="keyword key-management">external entities</span>.</p>
+          <ul>
+            <li>Helps identify unintended access to resources</li>
+            <li>Monitors for <span class="keyword key-management">overly permissive policies</span></li>
+          </ul>
+          <div class="mnemonic">Remember: "Access Analyzer ANALYZES who can ACCESS your resources"</div>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-name">
+            AWS Abuse <span class="service-icon management">M</span>
+          </div>
+          <p>Process to report <span class="keyword key-management">abusive or illegal</span> use of AWS resources.</p>
+          <ul>
+            <li>Report suspected abuse</li>
+            <li>AWS investigates reported resources</li>
+          </ul>
+          <div class="mnemonic">Remember: "AWS Abuse stops ABUSIVE resource usage"</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Root User Privileges -->
+    <div class="root-privileges">
+      <h3>Root User Privileges - CRITICAL TO REMEMBER</h3>
+      <p>Only the root user can:</p>
+      <ul>
+        <li><span class="keyword key-management">Change account settings</span></li>
+        <li><span class="keyword key-management">Close your AWS account</span></li>
+        <li><span class="keyword key-management">Change or cancel AWS Support plan</span></li>
+        <li><span class="keyword key-management">Register as seller in Reserved Instance Marketplace</span></li>
+      </ul>
+      <div class="mnemonic">Remember with "CCRS": Close account, Change settings, Reserved Instance seller, Support plan changes</div>
+    </div>
+    
+    <!-- Memory Aid -->
+    <div class="remember">
+      <h3>Security Services Memory Aid: "PECDTM"</h3>
+      <p>
+        <span class="keyword key-protection">P</span>rotection (Shield, WAF, Network Firewall)<br>
+        <span class="keyword key-encryption">E</span>ncryption (KMS, CloudHSM, Certificate Manager)<br>
+        <span class="keyword key-compliance">C</span>ompliance (Artifact, Config)<br>
+        <span class="keyword key-detection">D</span>etection (GuardDuty, Inspector, Macie)<br>
+        <span class="keyword key-tracking">T</span>racking (CloudTrail)<br>
+        <span class="keyword key-management">M</span>anagement (Security Hub, Detective, Firewall Manager, Access Analyzer)
+      </p>
+    </div>
+    
+  </div>
+</body>
+</html>

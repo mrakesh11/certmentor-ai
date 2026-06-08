@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Database Certification Cheatsheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1 {
+            color: #232f3e;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9900;
+        }
+        
+        .db-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .db-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .db-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .db-title {
+            background-color: #232f3e;
+            color: white;
+            padding: 8px;
+            margin: -15px -15px 15px -15px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .serverless-badge {
+            background-color: #ff9900;
+            color: #232f3e;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background-color: #ffeb99;
+            padding: 0 3px;
+            font-weight: bold;
+        }
+        
+        .property {
+            margin: 8px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .property-name {
+            font-weight: bold;
+            width: 100px;
+            color: #0073bb;
+        }
+        
+        .memory-tips {
+            background-color: #e6f7ff;
+            padding: 10px;
+            border-left: 4px solid #0073bb;
+            margin: 10px 0;
+            font-style: italic;
+        }
+        
+        .category-heading {
+            background-color: #ff9900;
+            color: #232f3e;
+            padding: 10px;
+            margin: 20px 0 15px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #f2f2f2;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>AWS Databases - Cloud Practitioner Cheatsheet</h1>
+    
+    <div class="category-heading">Relational Databases (OLTP)</div>
+    <div class="db-container">
+        <div class="db-card">
+            <div class="db-title">Amazon RDS</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Relational Database Service for <span class="highlight">OLTP</span> (Online Transaction Processing)</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Engines:</span>
+                <span>MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, IBM Db2</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Traditional applications, ERP, CRM, e-commerce</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Scaling:</span>
+                <span>Vertical scaling (increase instance size)</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Instance hours, storage, I/O operations, backup storage</span>
+            </div>
+            <div class="memory-tips">
+                Remember: RDS is <span class="highlight">managed</span> (AWS handles patching, backups, high availability), but <span class="highlight">not serverless</span> (you provision and pay for instances even when idle).
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">Amazon Aurora</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>AWS-proprietary relational database with MySQL/PostgreSQL compatibility</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Benefits:</span>
+                <span><span class="highlight">5x performance</span> of MySQL, <span class="highlight">3x</span> of PostgreSQL</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Storage:</span>
+                <span>Auto-expanding from 10GB to 128TB</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Replicas:</span>
+                <span>Up to 15 read replicas with <span class="highlight">sub-10ms replica lag</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Pay for compute and storage used (more efficient than RDS)</span>
+            </div>
+            <div class="memory-tips">
+                Think: "Aurora is <span class="highlight">AWS's premium</span> version of MySQL/PostgreSQL" with <span class="highlight">superior performance, availability, and cost efficiency</span>.
+            </div>
+        </div>
+    </div>
+    
+    <div class="category-heading">RDS Deployment Options</div>
+    <table class="comparison-table">
+        <tr>
+            <th>Feature</th>
+            <th>Multi-AZ</th>
+            <th>Read Replicas</th>
+            <th>Multi-Region</th>
+        </tr>
+        <tr>
+            <td><strong>Purpose</strong></td>
+            <td><span class="highlight">High Availability</span></td>
+            <td><span class="highlight">Performance Scaling</span></td>
+            <td><span class="highlight">Global Distribution</span></td>
+        </tr>
+        <tr>
+            <td><strong>Function</strong></td>
+            <td>Synchronous replication to standby in different AZ</td>
+            <td>Asynchronous replication for read traffic</td>
+            <td>Asynchronous replication across regions</td>
+        </tr>
+        <tr>
+            <td><strong>Failover</strong></td>
+            <td><span class="highlight">Automatic</span></td>
+            <td>Manual (can promote to primary)</td>
+            <td>Manual</td>
+        </tr>
+        <tr>
+            <td><strong>Use Case</strong></td>
+            <td>Mission-critical production</td>
+            <td>Read-heavy workloads</td>
+            <td>Global applications, disaster recovery</td>
+        </tr>
+    </table>
+    
+    <div class="category-heading">NoSQL Databases</div>
+    <div class="db-container">
+        <div class="db-card">
+            <div class="db-title">
+                Amazon DynamoDB
+                <span class="serverless-badge">Serverless</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span><span class="highlight">Key-Value</span> and document database</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Performance:</span>
+                <span><span class="highlight">Single-digit millisecond</span> latency</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Scaling:</span>
+                <span>Automatic scaling with no downtime</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Capacity:</span>
+                <span>Provisioned or On-Demand capacity modes</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Provisioned read/write capacity or pay-per-request</span>
+            </div>
+            <div class="memory-tips">
+                Remember: DynamoDB is <span class="highlight">fully serverless</span> (no servers to manage), <span class="highlight">infinitely scalable</span>, and integrates natively with Lambda for event-driven architectures.
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">DynamoDB Accelerator (DAX)</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>In-memory cache for DynamoDB</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Performance:</span>
+                <span>Reduces response times from <span class="highlight">milliseconds to microseconds</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Read-heavy workloads or requiring microsecond latency</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>DAX node-hours (similar to ElastiCache)</span>
+            </div>
+            <div class="memory-tips">
+                Think: "DAX is to DynamoDB what ElastiCache is to RDS" - it's an <span class="highlight">in-memory acceleration layer</span>.
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">Amazon DocumentDB</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Document database with <span class="highlight">MongoDB compatibility</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Nickname:</span>
+                <span>"Aurora for MongoDB"</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Data Format:</span>
+                <span>JSON documents (NoSQL)</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Scaling:</span>
+                <span>Scale compute and storage separately</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Instance hours, storage, I/O operations</span>
+            </div>
+            <div class="memory-tips">
+                Think: "If you want MongoDB but <span class="highlight">fully managed by AWS</span> with the same architecture benefits as Aurora."
+            </div>
+        </div>
+    </div>
+    
+    <div class="category-heading">In-Memory Databases</div>
+    <div class="db-container">
+        <div class="db-card">
+            <div class="db-title">Amazon ElastiCache</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>In-memory cache for <span class="highlight">data caching</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Engines:</span>
+                <span>Redis and Memcached</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Real-time applications, caching, session stores, gaming leaderboards</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Node-hours, data transfer</span>
+            </div>
+            <div class="memory-tips">
+                Remember the key differences:
+                <br>- <span class="highlight">Redis</span>: Advanced data structures, persistence, replication
+                <br>- <span class="highlight">Memcached</span>: Simple object caching, multi-threading, no persistence
+            </div>
+        </div>
+    </div>
+    
+    <div class="category-heading">Data Warehousing & Analytics</div>
+    <div class="db-container">
+        <div class="db-card">
+            <div class="db-title">Amazon Redshift</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Data Warehouse for <span class="highlight">OLAP</span> (Online Analytical Processing)</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Query:</span>
+                <span>SQL-based for analytics</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Performance:</span>
+                <span>10x faster than traditional warehouses with <span class="highlight">columnar storage</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Size:</span>
+                <span>Petabyte-scale</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Node-hours, backup storage</span>
+            </div>
+            <div class="memory-tips">
+                Key difference from RDS: <span class="highlight">OLAP vs. OLTP</span> - Redshift is for <span class="highlight">analyzing massive datasets</span>, not processing transactions.
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">
+                Amazon Athena
+                <span class="serverless-badge">Serverless</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Interactive query service for <span class="highlight">S3 data</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Query:</span>
+                <span>Standard SQL</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>One-time queries, data exploration, analyze logs</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span><span class="highlight">Pay per query / TB scanned</span></span>
+            </div>
+            <div class="memory-tips">
+                Think: "SQL queries <span class="highlight">directly on S3 data</span> without loading into a database first. Perfect for <span class="highlight">ad-hoc analysis</span>."
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">
+                Amazon EMR (Elastic MapReduce)
+            </div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Managed <span class="highlight">Hadoop</span> framework</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Tools:</span>
+                <span>Hadoop, Spark, HBase, Presto, Flink</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Big data processing, machine learning, predictive analytics</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>EC2 instance hours + storage</span>
+            </div>
+            <div class="memory-tips">
+                Remember: EMR is for <span class="highlight">batch processing massive datasets</span> using open-source tools, but you still manage clusters.
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">
+                Amazon QuickSight
+                <span class="serverless-badge">Serverless</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Business Intelligence & <span class="highlight">visualization service</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Integration:</span>
+                <span>AWS data sources, on-premises databases</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Dashboards, interactive reports, embedded analytics</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Per user/month or per session</span>
+            </div>
+            <div class="memory-tips">
+                Think: "<span class="highlight">Last mile</span> of your data pipeline - turns raw data into meaningful visualizations for business users."
+            </div>
+        </div>
+    </div>
+    
+    <div class="category-heading">Specialized Databases</div>
+    <div class="db-container">
+        <div class="db-card">
+            <div class="db-title">
+                Amazon QLDB (Quantum Ledger Database)
+            </div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span><span class="highlight">Immutable</span> transaction ledger database</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Key Feature:</span>
+                <span>Cryptographically verifiable transaction history</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Financial records, supply chain, insurance claims, registrations</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Storage used + I/O operations</span>
+            </div>
+            <div class="memory-tips">
+                Think: "When you need a <span class="highlight">trusted, immutable history</span> of all data changes with built-in verification."
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">Amazon Managed Blockchain</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Managed blockchain network service</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Frameworks:</span>
+                <span>Hyperledger Fabric & Ethereum</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Multi-party applications, decentralized transactions</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Network resources, storage, data processing</span>
+            </div>
+            <div class="memory-tips">
+                Remember: For <span class="highlight">decentralized applications</span> where multiple parties need to share data without a central trusted authority.
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">Amazon Neptune</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span><span class="highlight">Graph database</span> service</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Query:</span>
+                <span>Gremlin, SPARQL, openCypher</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Knowledge graphs, social networks, fraud detection, recommendation engines</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Instance hours, storage, I/O operations</span>
+            </div>
+            <div class="memory-tips">
+                Remember: Perfect for data with <span class="highlight">complex relationships</span> - think "anything with connections between entities."
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">Amazon Timestream</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span><span class="highlight">Time-series</span> database service</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Performance:</span>
+                <span>1000x faster than relational databases for time-series</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>IoT applications, DevOps monitoring, industrial telemetry</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Data ingestion, storage, queries</span>
+            </div>
+            <div class="memory-tips">
+                Think: "When your data is <span class="highlight">timestamp-based</span> and you need to track changes over time at scale."
+            </div>
+        </div>
+    </div>
+    
+    <div class="category-heading">Data Migration & Integration</div>
+    <div class="db-container">
+        <div class="db-card">
+            <div class="db-title">AWS Database Migration Service (DMS)</div>
+            <div class="property">
+                <span class="property-name">Purpose:</span>
+                <span>Migrate databases to AWS with <span class="highlight">minimal downtime</span></span>
+            </div>
+            <div class="property">
+                <span class="property-name">Support:</span>
+                <span>Homogeneous and heterogeneous migrations</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Database migration, continuous replication, data consolidation</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Compute resources used + data transfer</span>
+            </div>
+            <div class="memory-tips">
+                Remember: DMS can migrate <span class="highlight">between different database types</span> (e.g., Oracle to Aurora) with Schema Conversion Tool (SCT).
+            </div>
+        </div>
+        
+        <div class="db-card">
+            <div class="db-title">AWS Glue</div>
+            <div class="property">
+                <span class="property-name">Type:</span>
+                <span>Managed <span class="highlight">ETL</span> (Extract, Transform, Load) service</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Features:</span>
+                <span>Data catalog, job scheduler, development endpoints</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Use Case:</span>
+                <span>Data preparation for analytics, unified data catalog</span>
+            </div>
+            <div class="property">
+                <span class="property-name">Cost Metric:</span>
+                <span>Crawler runtime, ETL job duration, DPU-hours</span>
+            </div>
+            <div class="memory-tips">
+                Think: "<span class="highlight">Serverless data integration</span> service that makes it easy to prepare data for analytics."
+            </div>
+        </div>
+    </div>
+    
+    <div class="category-heading">Quick Reference: Serverless Database Options</div>
+    <table class="comparison-table">
+        <tr>
+            <th>Database Service</th>
+            <th>Type</th>
+            <th>Use Case</th>
+            <th>Pricing Model</th>
+        </tr>
+        <tr>
+            <td><span class="highlight">DynamoDB</span></td>
+            <td>NoSQL Key-Value</td>
+            <td>High-scale applications, low-latency requirements</td>
+            <td>Pay for RCU/WCU or on-demand</td>
+        </tr>
+        <tr>
+            <td><span class="highlight">Aurora Serverless</span></td>
+            <td>Relational (MySQL/PostgreSQL)</td>
+            <td>Variable workloads, development/test</td>
+            <td>Pay per second of usage</td>
+        </tr>
+        <tr>
+            <td><span class="highlight">Athena</span></td>
+            <td>Interactive Query</td>
+            <td>Ad-hoc queries on S3 data</td>
+            <td>Pay per TB scanned</td>
+        </tr>
+        <tr>
+            <td><span class="highlight">QuickSight</span></td>
+            <td>Business Intelligence</td>
+            <td>Data visualization, dashboards</td>
+            <td>Pay per user/session</td>
+        </tr>
+    </table>
+    
+    <div class="memory-tips" style="margin-top: 30px; font-size: 1.1em; text-align: center; padding: 15px;">
+        <strong>Key Exam Pattern:</strong> AWS provides <span class="highlight">specialized database solutions</span> for different data types and usage patterns. Choose the right database based on:
+        <ul style="text-align: left; margin-top: 10px;">
+            <li>Data structure (relational vs non-relational)</li>
+            <li>Access patterns (OLTP vs OLAP)</li>
+            <li>Scaling requirements</li>
+            <li>Serverless vs provisioned capacity</li>
+        </ul>
+    </div>
+</body>
+</html>

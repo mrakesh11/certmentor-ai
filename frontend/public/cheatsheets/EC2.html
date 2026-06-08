@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1, h2, h3 {
+      color: #0066cc;
+    }
+    
+    h1 {
+      text-align: center;
+      border-bottom: 2px solid #0066cc;
+      padding-bottom: 10px;
+    }
+    
+    h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+      margin-top: 30px;
+    }
+    
+    .highlight {
+      background-color: #ffffcc;
+      padding: 3px;
+      font-weight: bold;
+    }
+    
+    .important {
+      border-left: 4px solid #ff6600;
+      padding-left: 10px;
+      background-color: #fff3e6;
+      margin: 15px 0;
+      padding: 10px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .mnemonic {
+      background-color: #e6f5ff;
+      border: 1px solid #99ccff;
+      padding: 10px;
+      margin: 15px 0;
+      border-radius: 5px;
+    }
+    
+    .use-case {
+      background-color: #e6fff2;
+      padding: 5px;
+      border-radius: 3px;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+    }
+    
+    .connection {
+      display: flex;
+      margin: 20px 0;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    
+    .connection-card {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px 0;
+      width: 48%;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .connection-card h4 {
+      margin-top: 0;
+      color: #0066cc;
+    }
+    
+    .exam-tip {
+      background-color: #ffe6e6;
+      border-left: 4px solid #ff3333;
+      padding: 10px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>AWS EC2 Study Guide for Cloud Practitioner</h1>
+  
+  <div class="section">
+    <h2>🖥️ What is Amazon EC2?</h2>
+    <p><span class="highlight">Amazon Elastic Compute Cloud (EC2)</span> is a web service that provides <b>resizable compute capacity</b> in the cloud. It's like having virtual servers in AWS's data centers.</p>
+    
+    <div class="important">
+      <p><strong>Key Concept:</strong> EC2 allows you to provision and scale computing resources on-demand without investing in hardware upfront.</p>
+    </div>
+    
+    <h3>Core Concepts of EC2:</h3>
+    <ul>
+      <li><strong>Instances</strong>: Virtual servers you can provision with various configurations</li>
+      <li><strong>AMI (Amazon Machine Image)</strong>: Templates containing software configurations (OS, application server, applications)</li>
+      <li><strong>Instance Types</strong>: Different CPU, memory, storage, and networking capacity configurations</li>
+      <li><strong>Security Groups</strong>: Virtual firewalls that control traffic to your instances</li>
+      <li><strong>Key Pairs</strong>: Secure login credentials for your instances</li>
+    </ul>
+  </div>
+  
+  <div class="section">
+    <h2>💰 EC2 Purchasing Options</h2>
+    
+    <div class="mnemonic">
+      <h4>Mnemonic: "SORD"</h4>
+      <p><strong>S</strong>pot - <strong>O</strong>n-Demand - <strong>R</strong>eserved - <strong>D</strong>edicated</p>
+    </div>
+    
+    <table>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Use Cases</th>
+        <th>Cost</th>
+        <th>Exam Tips</th>
+      </tr>
+      <tr>
+        <td><span class="highlight">On-Demand Instances</span></td>
+        <td>Pay by the hour or second with no long-term commitments</td>
+        <td class="use-case">
+          • Short-term workloads<br>
+          • Testing and development<br>
+          • Applications with unpredictable workloads<br>
+          • First time applications
+        </td>
+        <td>Highest cost per hour, no upfront payment</td>
+        <td>Default option, maximum flexibility, no discounts</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Reserved Instances</span></td>
+        <td>Commitment for 1 or 3 years with significant discounts</td>
+        <td class="use-case">
+          • Steady-state applications<br>
+          • Predictable workloads<br>
+          • Applications requiring reserved capacity<br>
+          • Databases
+        </td>
+        <td>Up to 72% discount compared to On-Demand</td>
+        <td>Three payment options: All Upfront, Partial Upfront, No Upfront</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Spot Instances</span></td>
+        <td>Unused EC2 capacity available at steep discounts, with potential for interruption</td>
+        <td class="use-case">
+          • Batch processing jobs<br>
+          • Data analysis<br>
+          • Non-critical background processing<br>
+          • Workloads with flexible start/end times
+        </td>
+        <td>Up to 90% discount compared to On-Demand</td>
+        <td>Can be terminated by AWS with 2-minute warning when capacity is needed back</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Dedicated Hosts</span></td>
+        <td>Physical servers dedicated entirely to your use</td>
+        <td class="use-case">
+          • Compliance requirements<br>
+          • Server-bound software licenses<br>
+          • Organizations with strict regulatory/corporate requirements
+        </td>
+        <td>Most expensive option</td>
+        <td>Allows you to use your existing per-socket, per-core, or per-VM software licenses</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Dedicated Instances</span></td>
+        <td>Instances that run on hardware dedicated to a single customer</td>
+        <td class="use-case">
+          • Compliance requirements<br>
+          • When you need isolation at the instance level
+        </td>
+        <td>Premium pricing</td>
+        <td>Different from Dedicated Hosts - hardware may be shared with other instances from same AWS account</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Savings Plans</span></td>
+        <td>Commitment to a consistent amount of usage ($/hour) for 1 or 3 years</td>
+        <td class="use-case">
+          • Organizations wanting flexibility across instance families<br>
+          • When you want commitment discounts but need flexibility
+        </td>
+        <td>Similar discounts to Reserved Instances</td>
+        <td>More flexible than RIs - applies to EC2, Fargate, and Lambda</td>
+      </tr>
+    </table>
+    
+    <div class="exam-tip">
+      <h4>Exam Tip:</h4>
+      <p>Questions often ask which option is most cost-effective for specific scenarios. Remember:</p>
+      <ul>
+        <li>If workload is temporary or unpredictable → <strong>On-Demand</strong></li>
+        <li>If workload is stable/predictable for 1+ years → <strong>Reserved</strong></li>
+        <li>If workload is flexible in timing and can handle interruptions → <strong>Spot</strong></li>
+        <li>If you have specific licensing or compliance needs → <strong>Dedicated</strong></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>🔄 How EC2 Connects with Other AWS Services</h2>
+    
+    <div class="connection">
+      <div class="connection-card">
+        <h4>EC2 + S3</h4>
+        <p>EC2 instances can store and retrieve data from S3 buckets to persist data beyond instance termination.</p>
+        <p><strong>Example:</strong> Web servers on EC2 storing user uploads in S3</p>
+      </div>
+      <div class="connection-card">
+        <h4>EC2 + EBS</h4>
+        <p>Elastic Block Store provides persistent block-level storage volumes for EC2 instances.</p>
+        <p><strong>Example:</strong> Database servers needing persistent storage</p>
+      </div>
+      <div class="connection-card">
+        <h4>EC2 + ELB</h4>
+        <p>Elastic Load Balancing distributes incoming traffic across multiple EC2 instances for high availability.</p>
+        <p><strong>Example:</strong> Web application scaling to handle varying loads</p>
+      </div>
+      <div class="connection-card">
+        <h4>EC2 + Auto Scaling</h4>
+        <p>Auto Scaling automatically adjusts EC2 capacity based on demand.</p>
+        <p><strong>Example:</strong> Automatically scaling out when traffic increases</p>
+      </div>
+      <div class="connection-card">
+        <h4>EC2 + VPC</h4>
+        <p>EC2 instances are launched within a Virtual Private Cloud for network isolation.</p>
+        <p><strong>Example:</strong> Creating public and private subnets for different tiers</p>
+      </div>
+      <div class="connection-card">
+        <h4>EC2 + IAM</h4>
+        <p>Identity and Access Management controls who can access and manage EC2 resources.</p>
+        <p><strong>Example:</strong> Creating roles for EC2 to access other AWS services</p>
+      </div>
+      <div class="connection-card">
+        <h4>EC2 + CloudWatch</h4>
+        <p>CloudWatch monitors EC2 instances and sets alarms based on metrics.</p>
+        <p><strong>Example:</strong> Monitoring CPU utilization and triggering alerts</p>
+      </div>
+      <div class="connection-card">
+        <h4>EC2 + SNS</h4>
+        <p>Simple Notification Service can send notifications based on EC2 events.</p>
+        <p><strong>Example:</strong> Getting alerts when instances terminate</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>🔍 EC2 Instance Types</h2>
+    
+    <div class="mnemonic">
+      <h4>Mnemonic: "FIGHT DR MC PX"</h4>
+      <p><strong>F</strong>PGAS - <strong>I</strong>nference - <strong>G</strong>eneral Purpose - <strong>H</strong>igh Performance Computing - <strong>T</strong>rn</p>
+      <p><strong>D</strong>ense Storage - <strong>R</strong>AM Optimized</p>
+      <p><strong>M</strong>ain General Purpose - <strong>C</strong>ompute Optimized - <strong>P</strong>revious Generation - <strong>X</strong>-treme Memory</p>
+    </div>
+    
+    <table>
+      <tr>
+        <th>Family</th>
+        <th>Use Case</th>
+        <th>Exam Tips</th>
+      </tr>
+      <tr>
+        <td><span class="highlight">General Purpose (T, M)</span></td>
+        <td>Web servers, development environments, small databases</td>
+        <td>T instances are burstable (CPU credits), M instances provide balanced resources</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Compute Optimized (C)</span></td>
+        <td>Batch processing, scientific modeling, gaming servers, high-performance web servers</td>
+        <td>High performance processors, best price-to-compute performance</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Memory Optimized (R, X, z)</span></td>
+        <td>Memory-intensive applications, database servers, big data processing engines</td>
+        <td>Fast performance for workloads processing large datasets in memory</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Storage Optimized (D, H, I)</span></td>
+        <td>Distributed file systems, data warehousing, high-frequency OLTP systems</td>
+        <td>Designed for high sequential read/write access to large datasets</td>
+      </tr>
+      <tr>
+        <td><span class="highlight">Accelerated Computing (P, G, F)</span></td>
+        <td>Machine learning, graphics processing, gaming, high-performance computing</td>
+        <td>Use hardware accelerators (co-processors) to perform functions like graphics processing</td>
+      </tr>
+    </table>
+    
+    <div class="important">
+      <h4>Popular Instance Types to Remember:</h4>
+      <ul>
+        <li><strong>t2.micro</strong> - Free tier eligible, general purpose, burstable performance</li>
+        <li><strong>m5.large</strong> - General purpose, balanced compute/memory</li>
+        <li><strong>c5.large</strong> - Compute optimized for CPU-intensive workloads</li>
+        <li><strong>r5.large</strong> - Memory optimized for memory-intensive workloads</li>
+        <li><strong>d2.xlarge</strong> - Storage optimized for high disk throughput</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>⚡ AWS Compute Optimizer</h2>
+    
+    <p><span class="highlight">AWS Compute Optimizer</span> is a service that analyzes the configuration and utilization metrics of your AWS resources to provide recommendations for optimizing performance and cost.</p>
+    
+    <div class="important">
+      <p><strong>Key Benefits:</strong></p>
+      <ul>
+        <li>Identifies under-provisioned resources that might cause poor application performance</li>
+        <li>Identifies over-provisioned resources that may lead to unnecessary infrastructure costs</li>
+        <li>Provides specific instance type recommendations with projected performance risk and cost impact</li>
+      </ul>
+    </div>
+    
+    <h3>How Compute Optimizer Works with EC2:</h3>
+    <ol>
+      <li>Analyzes EC2 instance specifications and CloudWatch metrics</li>
+      <li>Identifies patterns in resource usage using machine learning</li>
+      <li>Generates recommendations for right-sizing your instances</li>
+      <li>Provides projected utilization metrics for recommended instances</li>
+    </ol>
+    
+    <div class="exam-tip">
+      <h4>Exam Tip:</h4>
+      <p>For questions about optimizing EC2 costs or performance, remember that AWS Compute Optimizer:</p>
+      <ul>
+        <li>Uses at least 14 days of metric data to make recommendations</li>
+        <li>Supports EC2 instances, Auto Scaling groups, EBS volumes, Lambda functions, and more</li>
+        <li>Is a <strong>free</strong> service available to all AWS customers</li>
+        <li>Helps determine if your instances are the right size (neither over nor under-provisioned)</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="section">
+    <h2>🧠 Memorization Techniques for EC2</h2>
+    
+    <h3>1. Visual Associations</h3>
+    <ul>
+      <li><strong>On-Demand</strong> → Imagine an "on-demand" TV service where you watch and pay only for what you need, when you need it</li>
+      <li><strong>Reserved</strong> → Picture a restaurant with a "Reserved" sign on a table - secured for long-term use</li>
+      <li><strong>Spot</strong> → Think of a "spotlight" that can suddenly move away (instance can be terminated)</li>
+      <li><strong>Dedicated</strong> → Visualize a private office with your name on the door (no sharing)</li>
+    </ul>
+    
+    <h3>2. Scenario-Based Memory Hooks</h3>
+    <ul>
+      <li><strong>On-Demand</strong> → "Last-minute shopping" (you pay full price but get exactly what you need)</li>
+      <li><strong>Reserved</strong> → "Annual gym membership" (pay upfront for long-term savings)</li>
+      <li><strong>Spot</strong> → "Flash sale" (great discounts but limited availability)</li>
+      <li><strong>Dedicated</strong> → "Custom-built home" (expensive but built to your specifications)</li>
+    </ul>
+    
+    <h3>3. Acronyms for EC2 and Related Services</h3>
+    <div class="mnemonic">
+      <h4>"VINES" for EC2 setup process:</h4>
+      <p><strong>V</strong>PC selection → <strong>I</strong>nstance type → <strong>N</strong>etwork settings → <strong>E</strong>BS volumes → <strong>S</strong>ecurity groups</p>
+    </div>
+    
+    <h3>4. Comparison Table for Quick Review</h3>
+    <table>
+      <tr>
+        <th>If you need...</th>
+        <th>Then choose...</th>
+      </tr>
+      <tr>
+        <td>Maximum flexibility, no commitment</td>
+        <td>On-Demand</td>
+      </tr>
+      <tr>
+        <td>Predictable workload running for 1+ years</td>
+        <td>Reserved Instances</td>
+      </tr>
+      <tr>
+        <td>Non-critical workload, willing to accept interruptions for savings</td>
+        <td>Spot Instances</td>
+      </tr>
+      <tr>
+        <td>Need to bring your own licenses or have strict compliance</td>
+        <td>Dedicated Hosts</td>
+      </tr>
+      <tr>
+        <td>Need flexible commitment discounts across EC2, Lambda, Fargate</td>
+        <td>Savings Plans</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="section">
+    <h2>📝 Practice Questions</h2>
+    
+    <ol>
+      <li>
+        <p><strong>Your company runs a critical application that needs to be available 24/7 and requires consistent performance. The workload is steady and predictable for the next 3 years. Which EC2 purchasing option is most cost-effective?</strong></p>
+        <p>Answer: Reserved Instances (3-year term)</p>
+      </li>
+      <li>
+        <p><strong>You're running a non-critical data processing job that can be interrupted. You want to minimize costs. Which EC2 purchasing option should you choose?</strong></p>
+        <p>Answer: Spot Instances</p>
+      </li>
+      <li>
+        <p><strong>Which AWS service would help you identify if your EC2 instances are over or under-provisioned?</strong></p>
+        <p>Answer: AWS Compute Optimizer</p>
+      </li>
+      <li>
+        <p><strong>You have software with licensing that's tied to the physical CPU cores. Which EC2 option is best suited for this requirement?</strong></p>
+        <p>Answer: Dedicated Hosts</p>
+      </li>
+      <li>
+        <p><strong>Which EC2 instance family would be most appropriate for a high-performance database with large memory requirements?</strong></p>
+        <p>Answer: Memory Optimized (R family)</p>
+      </li>
+    </ol>
+  </div>
+  
+  <div class="section">
+    <h2>🔑 Key Takeaways</h2>
+    
+    <div class="important">
+      <ol>
+        <li>EC2 provides resizable compute capacity in the cloud - virtual servers on-demand</li>
+        <li>Purchase options (SORD): Spot, On-Demand, Reserved, Dedicated - each has specific use cases</li>
+        <li>Instance families serve different workload needs (FIGHT DR MC PX)</li>
+        <li>EC2 integrates with many AWS services to create complete solutions</li>
+        <li>AWS Compute Optimizer helps ensure your instances are correctly sized</li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>

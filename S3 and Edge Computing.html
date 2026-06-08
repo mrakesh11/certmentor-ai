@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      max-width: 100%;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .card {
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      background-color: #fff;
+    }
+    .header {
+      background-color: #232F3E;
+      color: white;
+      padding: 15px;
+      border-radius: 8px 8px 0 0;
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2 {
+      background-color: #FF9900;
+      color: #232F3E;
+      padding: 8px 12px;
+      border-radius: 5px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+    .concept {
+      font-weight: bold;
+      color: #0073BB;
+    }
+    .exam-focus {
+      background-color: #FFFF99;
+      font-weight: bold;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+    .key-term {
+      color: #C94F17;
+      font-weight: bold;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    th {
+      background-color: #232F3E;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .comparison-highlight {
+      background-color: #E6F7FF;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    .note {
+      background-color: #FFEDCC;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    .feature-icon {
+      width: 20px;
+      height: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FF9900;
+      color: white;
+      border-radius: 50%;
+      margin-right: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="header">
+        <span>☁️</span> AWS S3 Cheat Sheet - Cloud Practitioner
+      </div>
+      
+      <h2>S3 Basics</h2>
+      <p><span class="concept">Amazon S3 (Simple Storage Service)</span> is an <span class="exam-focus">object storage service</span> offering industry-leading scalability, availability, security, and performance.</p>
+      
+      <div class="comparison-highlight">
+        <p><span class="key-term">Buckets vs Objects:</span></p>
+        <ul>
+          <li><span class="key-term">Bucket</span>: Container for objects, requires <span class="exam-focus">globally unique name</span>, tied to a <span class="exam-focus">specific region</span></li>
+          <li><span class="key-term">Object</span>: File + metadata, identified by a <span class="exam-focus">key</span> (file path)</li>
+          <li>Max object size: <span class="exam-focus">5TB</span></li>
+          <li>Must use <span class="exam-focus">Multi-part upload</span> for files >5GB</li>
+        </ul>
+      </div>
+      
+      <h2>Security Features</h2>
+      <ul>
+        <li><span class="key-term">IAM Policies</span>: Controls which users/roles can access buckets/objects</li>
+        <li><span class="key-term">Bucket Policies</span>: JSON-based policies attached to buckets for <span class="exam-focus">cross-account access</span></li>
+        <li><span class="key-term">Block Public Access</span>: Additional layer to prevent public access</li>
+        <li><span class="key-term">S3 Encryption</span>: 
+          <ul>
+            <li>Server-Side Encryption (SSE): <span class="exam-focus">SSE-S3</span>, <span class="exam-focus">SSE-KMS</span>, <span class="exam-focus">SSE-C</span></li>
+            <li>Client-Side Encryption</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h2>Core Features</h2>
+      <div class="grid">
+        <div>
+          <p><span class="feature-icon">W</span> <span class="key-term">S3 Website Hosting</span></p>
+          <ul>
+            <li>Host <span class="exam-focus">static websites</span></li>
+            <li>URL format: <code>http://bucket-name.s3-website-region.amazonaws.com</code></li>
+            <li>Requires <span class="exam-focus">public read access</span> on objects</li>
+          </ul>
+        </div>
+        
+        <div>
+          <p><span class="feature-icon">V</span> <span class="key-term">S3 Versioning</span></p>
+          <ul>
+            <li>Keep <span class="exam-focus">multiple versions</span> of objects</li>
+            <li>Protects against <span class="exam-focus">accidental deletions</span></li>
+            <li>Can't be disabled once enabled (only suspended)</li>
+            <li>Integrates with <span class="exam-focus">lifecycle rules</span></li>
+          </ul>
+        </div>
+        
+        <div>
+          <p><span class="feature-icon">R</span> <span class="key-term">S3 Replication</span></p>
+          <ul>
+            <li><span class="exam-focus">Cross-Region Replication (CRR)</span></li>
+            <li><span class="exam-focus">Same-Region Replication (SRR)</span></li>
+            <li>Requires versioning enabled on source & destination</li>
+            <li>Not retroactive for existing objects</li>
+          </ul>
+        </div>
+      </div>
+      
+      <h2>S3 Storage Classes</h2>
+      <p>Choose the right storage class based on <span class="exam-focus">access patterns, durability, and cost</span>.</p>
+      
+      <table>
+        <tr>
+          <th>Storage Class</th>
+          <th>Use Case</th>
+          <th>Key Characteristics</th>
+        </tr>
+        <tr>
+          <td><span class="key-term">S3 Standard</span></td>
+          <td>Frequently accessed data</td>
+          <td><span class="exam-focus">99.99% availability</span>, low latency, high throughput</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">S3 Intelligent-Tiering</span></td>
+          <td>Unknown or changing access patterns</td>
+          <td><span class="exam-focus">Automatic cost optimization</span>, monthly monitoring fee</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">S3 Standard-IA</span> (Infrequent Access)</td>
+          <td>Long-lived, less frequently accessed data</td>
+          <td><span class="exam-focus">Lower cost than Standard</span>, retrieval fee, minimum 30-day storage</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">S3 One Zone-IA</span></td>
+          <td>Non-critical, infrequently accessed data</td>
+          <td><span class="exam-focus">Single AZ storage</span> (99.5% availability), cheaper than Standard-IA</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">S3 Glacier Instant Retrieval</span></td>
+          <td>Archived data needing immediate access</td>
+          <td><span class="exam-focus">Millisecond retrieval</span>, minimum 90-day storage</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">S3 Glacier Flexible Retrieval</span></td>
+          <td>Archived data (no immediate need)</td>
+          <td><span class="exam-focus">Retrieval options</span>: Expedited (1-5 min), Standard (3-5 hrs), Bulk (5-12 hrs)</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">S3 Glacier Deep Archive</span></td>
+          <td>Long-term archival, rarely accessed</td>
+          <td><span class="exam-focus">Lowest cost</span>, retrieval time: Standard (12 hrs), Bulk (48 hrs)</td>
+        </tr>
+      </table>
+      
+      <div class="note">
+        <p><strong>Exam tip:</strong> Remember the <span class="exam-focus">durability across all storage classes is 99.999999999% (11 9's)</span></p>
+      </div>
+      
+      <h2>Snow Family</h2>
+      <p>Physical devices for <span class="exam-focus">data migration</span> and <span class="exam-focus">edge computing</span>.</p>
+      
+      <table>
+        <tr>
+          <th>Device</th>
+          <th>Storage Capacity</th>
+          <th>Use Case</th>
+        </tr>
+        <tr>
+          <td><span class="key-term">Snowcone</span></td>
+          <td>8 TB</td>
+          <td>Small-scale data transfer, edge computing</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">Snowball Edge</span></td>
+          <td>Up to 80 TB</td>
+          <td>Large data transfer, rugged conditions, local processing</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">Snowmobile</span></td>
+          <td>Up to 100 PB</td>
+          <td>Exabyte-scale data transfer (shipping container)</td>
+        </tr>
+      </table>
+      
+      <p><span class="key-term">OpsHub</span>: Desktop application to <span class="exam-focus">manage Snow Family devices</span> without command-line knowledge</p>
+      
+      <h2>Storage Gateway</h2>
+      <p><span class="concept">Hybrid storage service</span> that enables on-premises applications to use AWS cloud storage.</p>
+      
+      <table>
+        <tr>
+          <th>Type</th>
+          <th>Function</th>
+        </tr>
+        <tr>
+          <td><span class="key-term">File Gateway</span></td>
+          <td>NFS/SMB interface to store files as S3 objects</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">Volume Gateway</span></td>
+          <td>iSCSI interface for block storage backed by S3</td>
+        </tr>
+        <tr>
+          <td><span class="key-term">Tape Gateway</span></td>
+          <td>Virtual tape library backed by S3 and Glacier</td>
+        </tr>
+      </table>
+      
+      <h2>S3 Advanced Features</h2>
+      <ul>
+        <li><span class="key-term">Lifecycle Rules</span>: Automate <span class="exam-focus">transitioning objects</span> between storage classes or <span class="exam-focus">expiring objects</span></li>
+        <li><span class="key-term">S3 Object Lock</span>: Write-once-read-many (WORM) model</li>
+        <li><span class="key-term">S3 Access Points</span>: Dedicated access points for managing data access at scale</li>
+        <li><span class="key-term">S3 Batch Operations</span>: Perform operations on millions of objects with a single request</li>
+      </ul>
+      
+      <div class="note">
+        <p><strong>Key Exam Concepts:</strong></p>
+        <ul>
+          <li>S3 offers <span class="exam-focus">unlimited storage</span> with individual objects up to 5TB</li>
+          <li>Bucket names must be <span class="exam-focus">globally unique</span> (across all AWS accounts)</li>
+          <li>Data consistency model: <span class="exam-focus">strong read-after-write consistency</span></li>
+          <li>S3 can be accessed via <span class="exam-focus">console, CLI, SDK, and REST API</span></li>
+          <li>S3 URLs: <code>https://bucket-name.s3.region.amazonaws.com/key</code></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

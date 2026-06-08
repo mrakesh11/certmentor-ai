@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #232f3e;
+      text-align: center;
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 10px;
+    }
+    
+    h2 {
+      color: #232f3e;
+      background-color: #ff9900;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 25px;
+    }
+    
+    .section {
+      margin-bottom: 30px;
+    }
+    
+    .item {
+      margin-bottom: 15px;
+      border-left: 4px solid #1da1f2;
+      padding-left: 15px;
+    }
+    
+    .keyword {
+      font-weight: bold;
+      border-radius: 3px;
+      padding: 2px 5px;
+    }
+    
+    /* Color coding */
+    .security {
+      background-color: #ffcccc;
+      color: #990000;
+    }
+    
+    .cost {
+      background-color: #ccffcc;
+      color: #006600;
+    }
+    
+    .governance {
+      background-color: #ccccff;
+      color: #000066;
+    }
+    
+    .monitoring {
+      background-color: #fff2cc;
+      color: #806600;
+    }
+    
+    .organization {
+      background-color: #e6ccff;
+      color: #660066;
+    }
+    
+    .mnemonic {
+      font-style: italic;
+      background-color: #f9f9f9;
+      border: 1px dashed #ccc;
+      padding: 8px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+    
+    .tip {
+      background-color: #e6f7ff;
+      border-left: 4px solid #1890ff;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 0 5px 5px 0;
+    }
+    
+    .detail {
+      font-size: 0.9em;
+      margin-top: 5px;
+      padding-left: 10px;
+      border-left: 2px dotted #ccc;
+    }
+    
+    .exam-focus {
+      background-color: #fff0f5;
+      border: 1px solid #ffcccc;
+      padding: 5px;
+      margin-top: 5px;
+      font-size: 0.9em;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AWS CCP Exam Cheatsheet</h1>
+    
+    <div class="section">
+      <h2>📊 Account Best Practices</h2>
+      
+      <div class="item">
+        <span class="keyword organization">Organizations</span>: Manage multiple AWS accounts from a single place
+        <div class="detail">
+          <strong>Key features:</strong> Consolidated billing, hierarchical organization with OUs (Organizational Units), centralized compliance policy management
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know that Organizations provides consolidated billing and lets you apply policies across multiple accounts
+        </div>
+        <div class="mnemonic">Think: "One Organization to Rule Them All" - centralized management for multiple accounts</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword security">SCP</span> (Service Control Policies): Restrict account permissions
+        <div class="detail">
+          <strong>Important:</strong> SCPs are applied at the organization, OU, or account level and define maximum permissions (they don't grant permissions)
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Understand SCPs restrict what actions accounts can perform, even for the root user
+        </div>
+        <div class="mnemonic">SCP = Security Control Policies - they control what services can be used</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword governance">AWS Control Tower</span>: Easy setup of multi-account environments with best practices
+        <div class="detail">
+          <strong>Features:</strong> Account factory for standardized provisioning, guardrails (preventive/detective controls), dashboard for visibility
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know it helps set up and govern a secure, compliant multi-account AWS environment
+        </div>
+        <div class="mnemonic">Think of an actual control tower - provides visibility and control over multiple accounts</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">Tags & Cost Allocation Tags</span>: Label resources for management and detailed billing
+        <div class="detail">
+          <strong>Types:</strong> User-defined tags (created by you), AWS-generated tags (created by AWS). Must be activated in Billing console to appear in cost reports.
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know that tags need to be activated as cost allocation tags before they appear in billing reports
+        </div>
+        <div class="mnemonic">Tags = T.A.G.S = Track And Group Spending</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword security">IAM Best Practices</span>:
+        <ul>
+          <li><span class="security">MFA</span> (Multi-Factor Authentication) - uses a second device to verify identity</li>
+          <li><span class="security">Least-privilege</span> principle - grant only permissions needed</li>
+          <li>Strong <span class="security">password policy</span> - enforce complexity requirements</li>
+          <li>Regular <span class="security">password rotation</span> - change passwords periodically</li>
+          <li>Use <span class="security">IAM roles</span> for EC2 instead of storing credentials</li>
+          <li>Use <span class="security">IAM user groups</span> to assign permissions to multiple users</li>
+        </ul>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> The CCP exam heavily tests IAM best practices, especially related to security
+        </div>
+        <div class="mnemonic">Remember "MLP-R" - MFA, Least-privilege, Password policy, Rotation</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword governance">AWS Config</span>: Records resource configurations and compliance
+        <div class="detail">
+          <strong>Features:</strong> Resource inventory, configuration history, configuration change notification, compliance rules and auditing
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Understand Config's role in tracking resource changes and evaluating compliance
+        </div>
+        <div class="mnemonic">Config = Configuration + Compliance Guarantee</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword organization">CloudFormation</span>: Deploy infrastructure as code across accounts/regions
+        <div class="detail">
+          <strong>Key components:</strong> Templates (JSON/YAML), Stacks (resources created), StackSets (deploy across regions/accounts)
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know it's for automating infrastructure deployment and ensuring consistency
+        </div>
+        <div class="mnemonic">Think: "Form clouds" - it forms your AWS infrastructure</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword monitoring">Trusted Advisor</span>: Provides recommendations for best practices
+        <div class="detail">
+          <strong>Five categories checked:</strong> Cost Optimization, Performance, Security, Fault Tolerance, Service Limits
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Remember the five categories and that different support plans get different levels of advisor checks
+        </div>
+        <div class="mnemonic">Like having a trusted AWS expert advisor on your team</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword monitoring">Logging Best Practices</span>:
+        <ul>
+          <li>Send <span class="monitoring">Service Logs</span> to S3 or CloudWatch - for detailed operational analysis</li>
+          <li>Store <span class="monitoring">Access Logs</span> centrally - track who accessed what resources</li>
+          <li>Use <span class="monitoring">CloudTrail</span> to record API calls - enabled by default for 90 days, can be configured for permanent storage</li>
+        </ul>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know which service logs what: CloudTrail logs API calls, S3 Access Logs track object access, etc.
+        </div>
+        <div class="mnemonic">"SAC" = Service logs, Access logs, CloudTrail</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword security">Compromised Account Steps</span>:
+        <ul>
+          <li>Change <span class="security">root password</span> and enable MFA immediately</li>
+          <li><span class="security">Delete and rotate</span> all passwords/keys/tokens</li>
+          <li><span class="security">Contact AWS support</span> via Support Center</li>
+          <li>Check <span class="security">CloudTrail</span> for unauthorized activity</li>
+          <li>Review <span class="security">billing</span> for unexpected charges</li>
+        </ul>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Understand the immediate steps needed to contain a security breach
+        </div>
+        <div class="mnemonic">"CRC" = Change, Rotate, Contact</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword governance">AWS Service Catalog</span>: Pre-defined resources for users created by admins
+        <div class="detail">
+          <strong>Benefits:</strong> Standardization, self-service provisioning, centralized control, and versioning of approved resources
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Understand it allows admins to create and manage approved services for users
+        </div>
+        <div class="mnemonic">Think: "Shopping catalog" for approved AWS resources</div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>💰 Billing and Costing Tools</h2>
+      
+      <div class="item">
+        <span class="keyword cost">AWS Compute Optimizer</span>: Recommends optimal resource configurations
+        <div class="detail">
+          <strong>Analyzes:</strong> EC2 instances, Auto Scaling groups, EBS volumes, Lambda functions, and more to find optimal AWS resource configurations
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know it uses machine learning to analyze patterns and provide cost-saving recommendations
+        </div>
+        <div class="mnemonic">CO = Cost Optimization - analyzes usage and recommends savings</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">AWS Pricing Calculator</span>: Estimates cost of services
+        <div class="detail">
+          <strong>Features:</strong> Create estimates for specific use cases, compare different instance types/regions, share estimates with others via URL
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know this is the tool to estimate AWS costs before deployment
+        </div>
+        <div class="mnemonic">The "Price is Right" tool - helps predict costs before deploying</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">AWS Billing Dashboard</span>: High-level overview + free tier usage
+        <div class="detail">
+          <strong>Shows:</strong> Month-to-date spend, forecasted spend, free tier usage tracking, service breakdown, top services by spend
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know it's where to find basic billing information and free tier usage status
+        </div>
+        <div class="mnemonic">Your financial "dashboard" - shows costs at a glance</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">Cost Allocation Tags</span>: Tag resources for detailed cost reports
+        <div class="detail">
+          <strong>Types:</strong> AWS-generated (aws:) and user-defined (user:) tags. Must be activated in billing console before they appear in reports.
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Remember tags must be explicitly activated as cost allocation tags to see them in billing reports
+        </div>
+        <div class="mnemonic">CAT = Categorize All Transactions</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">Cost and Usage Reports</span>: Most comprehensive billing dataset
+        <div class="detail">
+          <strong>Features:</strong> Most detailed cost data available, can break down to hourly level, includes resource IDs, tags, and pricing details
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know this provides the most granular level of AWS cost and usage data available
+        </div>
+        <div class="mnemonic">CUR = Complete Usage Record - most detailed billing info available</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">Cost Explorer</span>: Visualize, understand and forecast costs
+        <div class="detail">
+          <strong>Features:</strong> Interactive graphs, cost forecasting up to 12 months, granular filtering (service, account, tag, etc.), savings recommendations
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Understand it provides visualization tools for analyzing past costs and forecasting future spending
+        </div>
+        <div class="mnemonic">Think: "Exploring" your costs with visual graphs and forecasts</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword monitoring">Billing Alarms</span>: Set in us-east-1 region for overall/per-service billing alerts
+        <div class="detail">
+          <strong>Important:</strong> Must be created in the us-east-1 (N. Virginia) region only, uses CloudWatch alarms, monitors estimated charges
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Remember billing alarms must be set in us-east-1 regardless of where your resources are
+        </div>
+        <div class="mnemonic">Remember "East Coast Money" - billing alarms are only in us-east-1</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">AWS Budgets</span>: Advanced cost tracking with customizable alerts
+        <div class="detail">
+          <strong>Types:</strong> Cost budgets, Usage budgets, Reservation budgets (RI tracking), Savings Plans budgets
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know Budgets is more advanced than billing alarms and allows for actions when thresholds are exceeded
+        </div>
+        <div class="mnemonic">Budgets = Better Understanding & Detailed Governance of Expenses Track & Savings</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword cost">Savings Plans</span>: Flexible pricing model for long-term savings
+        <div class="detail">
+          <strong>Types:</strong> Compute Savings Plans (most flexible, any region/family/size/OS), EC2 Instance Savings Plans (specific family in region), SageMaker Savings Plans
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Understand it's a flexible alternative to Reserved Instances with 1-3 year commitments
+        </div>
+        <div class="mnemonic">SP = Save Plenty - commitment-based discount program</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword monitoring">Cost Anomaly Detection</span>: Uses ML to identify unusual spending
+        <div class="detail">
+          <strong>Features:</strong> Creates spending baselines, detects anomalies using ML, provides root cause analysis, sends alerts
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Know it automatically detects unusual spending patterns using machine learning
+        </div>
+        <div class="mnemonic">CAD = Catches Abnormal Disbursements - finds strange spending patterns</div>
+      </div>
+      
+      <div class="item">
+        <span class="keyword monitoring">Service Quotas</span>: Alerts when approaching service limits
+        <div class="detail">
+          <strong>Features:</strong> View default quotas, request increases, set CloudWatch alarms to track usage against limits
+        </div>
+        <div class="exam-focus">
+          <strong>Exam focus:</strong> Understand it helps manage service limits and avoid hitting them unexpectedly
+        </div>
+        <div class="mnemonic">SQ = Safety Quantities - prevents hitting service limits</div>
+      </div>
+    </div>
+    
+    <div class="tip">
+      <strong>Exam Tip:</strong> For the AWS Certified Cloud Practitioner exam, focus on understanding <span class="security">when</span> to use each service rather than <span class="security">how</span> to implement them. Know the basic purpose of each service and which ones work together.
+    </div>
+    
+    <div class="tip">
+      <strong>Memory Tip:</strong> Group these services by function:
+      <ul>
+        <li><span class="security">Security</span>: IAM, MFA, SCP, CloudTrail</li>
+        <li><span class="cost">Cost Management</span>: Tags, Cost Explorer, Budgets, Savings Plans, Compute Optimizer</li>
+        <li><span class="monitoring">Monitoring</span>: CloudTrail, Trusted Advisor, Billing Alarms, Cost Anomaly Detection</li>
+        <li><span class="governance">Governance</span>: Control Tower, Config, Service Catalog</li>
+        <li><span class="organization">Organization</span>: Organizations, CloudFormation</li>
+      </ul>
+    </div>
+    
+    <div class="tip">
+      <strong>CCP Exam Strategy:</strong> The CCP exam frequently asks scenario-based questions about which service to use for a specific need. For example, "A company wants to identify unusual spending patterns automatically" (Answer: Cost Anomaly Detection).
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Deployment Services Cheatsheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #232f3e;
+      margin-bottom: 30px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #545b64;
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      width: 300px;
+      border-top: 5px solid;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    .key {
+      color: #d13212;
+      font-weight: bold;
+    }
+
+    .key-blue {
+      color: #1166bb;
+      font-weight: bold;
+    }
+
+    .key-green {
+      color: #1e8900;
+      font-weight: bold;
+    }
+
+    .key-purple {
+      color: #8b46af;
+      font-weight: bold;
+    }
+
+    .mnemonic {
+      background-color: #ffeeba;
+      padding: 8px;
+      border-radius: 5px;
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      color: #232f3e;
+      border-bottom: 2px solid #ffa724;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    .note {
+      background-color: #e6f7ff;
+      padding: 10px;
+      border-radius: 5px;
+      border-left: 4px solid #1166bb;
+    }
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-color: #ffa724;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .pipeline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: #f0f7ff;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+
+    .pipeline-step {
+      text-align: center;
+      width: 120px;
+    }
+
+    .arrow {
+      color: #1166bb;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>AWS Deployment Services Cheatsheet</h1>
+  <p class="subtitle">CCP Exam Quick Reference Guide</p>
+
+  <div class="section">
+    <h2 class="section-title">Deployment Services Overview</h2>
+    
+    <div class="container">
+      <div class="card" style="border-top-color: #FF9900;">
+        <h2><div class="icon">CF</div>CloudFormation</h2>
+        <ul>
+          <li><span class="key">Infrastructure as Code</span> service</li>
+          <li><span class="key-blue">AWS-only</span> resource management</li>
+          <li>Deploy <span class="key">entire infrastructures</span> with templates</li>
+          <li>Can be repeated across <span class="key">Regions & Accounts</span></li>
+          <li>Templates written in <span class="key-blue">YAML or JSON</span></li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>C</strong>loud<strong>F</strong>ormation = <strong>C</strong>reate <strong>F</strong>ull infrastructure from code
+        </div>
+      </div>
+
+      <div class="card" style="border-top-color: #16BE47;">
+        <h2><div class="icon">EB</div>Elastic Beanstalk</h2>
+        <ul>
+          <li><span class="key">Platform as a Service (PaaS)</span> solution</li>
+          <li><span class="key-blue">AWS-only</span> managed service</li>
+          <li>Limited to <span class="key">specific languages</span> or <span class="key-blue">Docker</span></li>
+          <li>Consistent deployment with <span class="key">predefined architectures</span></li>
+          <li>Example: <span class="key-blue">ALB + EC2 + RDS</span></li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>EB</strong> = <strong>E</strong>asy <strong>B</strong>utton for deploying applications
+        </div>
+      </div>
+      
+      <div class="card" style="border-top-color: #FF5252;">
+        <h2><div class="icon">CD</div>CodeDeploy</h2>
+        <ul>
+          <li><span class="key">Hybrid</span> deployment service</li>
+          <li>Deploy & upgrade <span class="key">applications on servers</span></li>
+          <li>Works with <span class="key-blue">EC2, on-premises</span> servers</li>
+          <li>Automates application <span class="key">deployment & updates</span></li>
+          <li>Minimizes <span class="key-green">downtime</span> during deployment</li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>C</strong>ode<strong>D</strong>eploy = <strong>C</strong>ontinuously <strong>D</strong>istribute applications
+        </div>
+      </div>
+      
+      <div class="card" style="border-top-color: #8B46AF;">
+        <h2><div class="icon">SM</div>Systems Manager</h2>
+        <ul>
+          <li><span class="key">Hybrid</span> management service</li>
+          <li><span class="key-green">Patch, configure, run commands</span> at scale</li>
+          <li>Manage <span class="key">EC2 and on-premises</span> resources</li>
+          <li>Provides <span class="key-blue">operational insights</span></li>
+          <li>Helps maintain <span class="key">security & compliance</span></li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>S</strong>ystems <strong>M</strong>anager = <strong>S</strong>ervers <strong>M</strong>anagement in bulk
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Developer Tools - CI/CD Pipeline</h2>
+    
+    <div class="pipeline">
+      <div class="pipeline-step">
+        <div class="icon" style="background-color: #1166bb;">1</div>
+        <strong>CodeCommit</strong>
+        <div>Source Control</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="pipeline-step">
+        <div class="icon" style="background-color: #16BE47;">2</div>
+        <strong>CodeBuild</strong>
+        <div>Build & Test</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="pipeline-step">
+        <div class="icon" style="background-color: #FF5252;">3</div>
+        <strong>CodeDeploy</strong>
+        <div>Deploy</div>
+      </div>
+      <div class="arrow">→</div>
+      <div class="pipeline-step">
+        <div class="icon" style="background-color: #8B46AF;">4</div>
+        <strong>Production</strong>
+        <div>Servers/Services</div>
+      </div>
+    </div>
+    
+    <div class="note">
+      <strong>Mnemonic:</strong> The CI/CD pipeline follows the "CBDP" order: <strong>C</strong>ommit → <strong>B</strong>uild → <strong>D</strong>eploy → <strong>P</strong>roduction
+    </div>
+
+    <div class="container">
+      <div class="card" style="border-top-color: #1166bb;">
+        <h2><div class="icon">CC</div>CodeCommit</h2>
+        <ul>
+          <li><span class="key">Private Git repository</span> service</li>
+          <li>Fully managed <span class="key-blue">source control</span> service</li>
+          <li>Provides <span class="key">version control</span></li>
+          <li>Integrated with other <span class="key-green">AWS services</span></li>
+          <li>Secure & <span class="key-purple">highly available</span></li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>C</strong>ode<strong>C</strong>ommit = <strong>C</strong>entral <strong>C</strong>ode storage
+        </div>
+      </div>
+
+      <div class="card" style="border-top-color: #16BE47;">
+        <h2><div class="icon">CB</div>CodeBuild</h2>
+        <ul>
+          <li><span class="key">Fully managed build service</span></li>
+          <li><span class="key-blue">Compiles code, runs tests</span>, produces packages</li>
+          <li>Runs in <span class="key">scalable containers</span></li>
+          <li>No build servers to <span class="key-green">manage</span></li>
+          <li>Pay only for <span class="key">compute time used</span></li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>C</strong>ode<strong>B</strong>uild = <strong>C</strong>ompile & <strong>B</strong>uild in the cloud
+        </div>
+      </div>
+      
+      <div class="card" style="border-top-color: #8B46AF;">
+        <h2><div class="icon">CP</div>CodePipeline</h2>
+        <ul>
+          <li><span class="key">Continuous delivery service</span></li>
+          <li><span class="key-blue">Orchestrates</span> the entire release process</li>
+          <li>Automates <span class="key">build, test, deployment</span> stages</li>
+          <li>Integrates with <span class="key-green">AWS & third-party tools</span></li>
+          <li>Visualizes <span class="key">workflow</span> stages</li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>C</strong>ode<strong>P</strong>ipeline = <strong>C</strong>onnects the <strong>P</strong>ieces together
+        </div>
+      </div>
+      
+      <div class="card" style="border-top-color: #FF9900;">
+        <h2><div class="icon">CA</div>CodeArtifact</h2>
+        <ul>
+          <li><span class="key">Artifact repository service</span></li>
+          <li>Store & share <span class="key-blue">software packages</span></li>
+          <li>Manages <span class="key">code dependencies</span></li>
+          <li>Works with common <span class="key-green">package managers</span></li>
+          <li>Secure & <span class="key-purple">scalable</span></li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>C</strong>ode<strong>A</strong>rtifact = <strong>C</strong>ode <strong>A</strong>ssets storage
+        </div>
+      </div>
+      
+      <div class="card" style="border-top-color: #16BE47;">
+        <h2><div class="icon">CDK</div>AWS CDK</h2>
+        <ul>
+          <li><span class="key">Cloud Development Kit</span></li>
+          <li>Define infrastructure using <span class="key-blue">programming languages</span></li>
+          <li>Supports <span class="key">TypeScript, Python, Java</span> & more</li>
+          <li>Creates <span class="key-green">CloudFormation templates</span></li>
+          <li>Enables <span class="key-purple">infrastructure as actual code</span></li>
+        </ul>
+        <div class="mnemonic">
+          Remember: <strong>CDK</strong> = <strong>C</strong>ode <strong>D</strong>efines <strong>K</strong>loud resources
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Key Comparisons for CCP Exam</h2>
+    
+    <div class="note">
+      <strong>Deployment Tools Comparison:</strong>
+      <ul>
+        <li><strong>CloudFormation</strong> = Complete infrastructure as code (servers, databases, networks)</li>
+        <li><strong>Elastic Beanstalk</strong> = Platform as a service for developers (uploads code, AWS handles the rest)</li>
+        <li><strong>CodeDeploy</strong> = Application deployment to existing servers</li>
+        <li><strong>Systems Manager</strong> = Manage and configure existing servers</li>
+      </ul>
+    </div>
+    
+    <div class="note">
+      <strong>Developer Tools Memory Device:</strong> "CCBDPA"
+      <ul>
+        <li><strong>C</strong>odeCommit: Store code (Git)</li>
+        <li><strong>C</strong>odeBuild: Build & test code</li>
+        <li><strong>C</strong>odeDeploy: Deploy code to servers</li>
+        <li><strong>C</strong>odePipeline: Automate the entire process</li>
+        <li><strong>C</strong>odeArtifact: Store dependencies</li>
+        <li><strong>AWS CDK</strong>: Define infrastructure with programming languages</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      ✅ AWS Systems Manager → The Boss, manages AWS resources.
+      ✅ SSM Session Manager → The Remote Control, lets you securely connect to servers.
+      ✅ SSM Parameter Store → The Secret Keeper, safely stores sensitive info.
+      
+    </div>
+  </div>
+</body>
+</html>

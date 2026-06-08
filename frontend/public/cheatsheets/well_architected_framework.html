@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS Well-Architected Framework Cheat Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 5px;
+    }
+    h1 {
+      text-align: center;
+      color: #232f3e;
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #232f3e;
+      border-left: 4px solid #ff9900;
+      padding-left: 10px;
+      margin-top: 30px;
+    }
+    h3 {
+      color: #0073bb;
+      margin-top: 20px;
+    }
+    .box {
+      background-color: #f9f9f9;
+      border-left: 4px solid #0073bb;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    .pillar {
+      background-color: #232f3e;
+      color: white;
+      padding: 10px 15px;
+      margin: 20px 0 10px 0;
+      border-radius: 4px;
+      border-left: 5px solid #ff9900;
+    }
+    .highlight {
+      font-weight: bold;
+      color: #ff9900;
+      background-color: #fffae6;
+      padding: 0 3px;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .service {
+      background-color: #e6f7ff;
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      border: 1px solid #b3e0ff;
+    }
+    ul {
+      padding-left: 20px;
+      list-style-type: none;
+    }
+    li {
+      margin-bottom: 6px;
+      position: relative;
+      padding-left: 20px;
+    }
+    li:before {
+      content: "•";
+      color: #ff9900;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+    .key-term {
+      text-decoration: underline;
+      text-decoration-color: #ff9900;
+    }
+    .pillars-summary {
+      background-color: #fff4e6;
+      border: 2px solid #ff9900;
+      padding: 15px 20px;
+      margin: 25px 0;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .pillar-name {
+      display: inline-block;
+      background-color: #232f3e;
+      color: white;
+      margin: 5px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      font-weight: bold;
+      border: 2px solid #ff9900;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AWS Well-Architected Framework Cheat Sheet</h1>
+    
+    <div class="pillars-summary">
+      <h2 style="border:none; color:#ff9900; text-align:center; margin:0 0 15px 0;">The 6 Pillars - Quick Reference</h2>
+      <div class="pillar-name">1. Operational Excellence</div>
+      <div class="pillar-name">2. Security</div>
+      <div class="pillar-name">3. Reliability</div>
+      <div class="pillar-name">4. Performance Efficiency</div>
+      <div class="pillar-name">5. Cost Optimization</div>
+      <div class="pillar-name">6. Sustainability</div>
+      <p style="margin-top:15px; font-weight:bold;">Remember: These pillars are <span class="highlight">not trade-offs, they're a synergy</span></p>
+    </div>
+    
+    <div class="box">
+      <h3>General Guiding Principles</h3>
+      <ul>
+        <li><span class="highlight">Stop guessing</span> your capacity needs</li>
+        <li><span class="highlight">Test systems at production scale</span></li>
+        <li><span class="highlight">Automate</span> to make architectural experimentation easier</li>
+        <li>Allow for <span class="highlight">evolutionary architectures</span></li>
+        <li>Design based on <span class="highlight">changing requirements</span></li>
+        <li>Drive architectures using <span class="highlight">data</span></li>
+        <li>Improve through <span class="highlight">game days</span></li>
+        <li>Simulate applications for <span class="highlight">flash sale days</span></li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>AWS Cloud Best Practices – Design Principles</h3>
+      <ul>
+        <li><span class="highlight">Scalability</span>: vertical & horizontal</li>
+        <li><span class="highlight">Disposable Resources</span>: servers should be disposable & easily configured</li>
+        <li><span class="highlight">Automation</span>: Serverless, Infrastructure as a Service, Auto Scaling</li>
+        <li><span class="highlight">Loose Coupling</span>:
+          <ul>
+            <li>Break down monoliths into smaller, loosely coupled components</li>
+            <li>A change or failure in one component should <span class="highlight">not cascade</span> to other components</li>
+          </ul>
+        </li>
+        <li><span class="highlight">Services, not Servers</span>:
+          <ul>
+            <li>Don't use just EC2</li>
+            <li>Use managed services, databases, serverless, etc.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h2>The 6 Pillars of Well-Architected Framework</h2>
+    <p class="key-term">Remember: The 6 pillars are <span class="highlight">not trade-offs, they're a synergy</span></p>
+
+    <div class="pillar">
+      <h2>1. Operational Excellence</h2>
+    </div>
+    <p><span class="key-term">Definition:</span> <span class="highlight">Ability to run and monitor systems</span> to deliver business value and to <span class="highlight">continually improve</span> supporting processes and procedures</p>
+    
+    <h3>Design Principles</h3>
+    <ul>
+      <li><span class="highlight">Perform operations as code</span> - Infrastructure as code</li>
+      <li>Make <span class="highlight">frequent, small, reversible changes</span> - So that in case of any failure, you can reverse it</li>
+      <li><span class="highlight">Refine operations procedures frequently</span> - And ensure team familiarity</li>
+      <li><span class="highlight">Anticipate failure</span></li>
+      <li><span class="highlight">Learn from all operational failures</span></li>
+      <li>Use <span class="highlight">managed services</span> - to reduce operational burden</li>
+      <li>Implement <span class="highlight">observability</span> for actionable insights</li>
+    </ul>
+
+    <h3>Key AWS Services</h3>
+    <div class="services">
+      <div class="service">AWS CloudFormation</div>
+      <div class="service">AWS Config</div>
+      <div class="service">AWS CloudTrail</div>
+      <div class="service">Amazon CloudWatch</div>
+      <div class="service">AWS X-Ray</div>
+      <div class="service">AWS CodeBuild</div>
+      <div class="service">AWS CodeCommit</div>
+      <div class="service">AWS CodeDeploy</div>
+      <div class="service">AWS CodePipeline</div>
+    </div>
+
+    <div class="pillar">
+      <h2>2. Security</h2>
+    </div>
+    <p><span class="key-term">Definition:</span> <span class="highlight">Ability to protect</span> information, systems, and assets while delivering business value through <span class="highlight">risk assessments and mitigation strategies</span></p>
+    
+    <h3>Design Principles</h3>
+    <ul>
+      <li>Implement a <span class="highlight">strong identity foundation</span>
+        <ul>
+          <li>Centralize privilege management</li>
+          <li>Reduce reliance on long-term credentials</li>
+          <li><span class="highlight">Principle of least privilege</span> - IAM</li>
+        </ul>
+      </li>
+      <li>Enable <span class="highlight">traceability</span> - Integrate logs and metrics</li>
+      <li>Apply security at <span class="highlight">all layers</span> - Network, VPC, subnet, load balancer, instance, OS, application</li>
+      <li><span class="highlight">Automate security</span> best practices</li>
+      <li><span class="highlight">Protect data</span> in transit and at rest - Encryption, tokenization, access control</li>
+      <li>Keep <span class="highlight">people away from data</span> - Reduce direct access needs</li>
+      <li>Prepare for <span class="highlight">security events</span> - Run incident response simulations</li>
+      <li><span class="highlight">Shared Responsibility Model</span></li>
+    </ul>
+
+    <h3>Key AWS Services</h3>
+    <div class="services">
+      <div class="service">IAM</div>
+      <div class="service">AWS-STS</div>
+      <div class="service">MFA token</div>
+      <div class="service">AWS Organizations</div>
+      <div class="service">AWS Config</div>
+      <div class="service">AWS CloudTrail</div>
+      <div class="service">Amazon CloudWatch</div>
+      <div class="service">Amazon CloudFront</div>
+      <div class="service">Amazon VPC</div>
+      <div class="service">AWS Shield</div>
+      <div class="service">AWS WAF</div>
+      <div class="service">Amazon Inspector</div>
+      <div class="service">KMS</div>
+      <div class="service">S3</div>
+      <div class="service">ELB</div>
+      <div class="service">Amazon EBS</div>
+      <div class="service">Amazon RDS</div>
+    </div>
+
+    <div class="pillar">
+      <h2>3. Reliability</h2>
+    </div>
+    <p><span class="key-term">Definition:</span> <span class="highlight">Ability of a system to recover</span> from infrastructure or service disruptions, <span class="highlight">dynamically acquire computing resources</span> to meet demand, and <span class="highlight">mitigate disruptions</span></p>
+    
+    <h3>Design Principles</h3>
+    <ul>
+      <li><span class="highlight">Test recovery procedures</span> - Use automation to simulate failures</li>
+      <li><span class="highlight">Automatically recover from failure</span> - Anticipate and remediate failures before they occur</li>
+      <li><span class="highlight">Scale horizontally</span> to increase aggregate system availability - Distribute requests across multiple resources</li>
+      <li><span class="highlight">Stop guessing capacity</span> - Maintain optimal level to satisfy demand - Use Auto Scaling</li>
+      <li><span class="highlight">Manage change in automation</span> - Use automation to make changes to infrastructure</li>
+    </ul>
+
+    <h3>Key AWS Services</h3>
+    <div class="services">
+      <div class="service">IAM</div>
+      <div class="service">Amazon VPC</div>
+      <div class="service">Service Quotas</div>
+      <div class="service">AWS Trusted Advisor</div>
+      <div class="service">Amazon CloudWatch</div>
+      <div class="service">AWS CloudTrail</div>
+      <div class="service">AWS Config</div>
+      <div class="service">AWS Auto Scaling</div>
+      <div class="service">AWS CloudFormation</div>
+      <div class="service">Amazon S3</div>
+      <div class="service">Amazon S3 Glacier</div>
+      <div class="service">Amazon Route 53</div>
+    </div>
+
+    <div class="pillar">
+      <h2>4. Performance Efficiency</h2>
+    </div>
+    <p><span class="key-term">Definition:</span> <span class="highlight">Ability to use computing resources efficiently</span> to meet system requirements, and to <span class="highlight">maintain that efficiency</span> as demand changes and technologies evolve</p>
+    
+    <h3>Design Principles</h3>
+    <ul>
+      <li><span class="highlight">Democratize advanced technologies</span> - Advanced technologies become services so you can focus on product development</li>
+      <li><span class="highlight">Go global in minutes</span> - Easy deployment in multiple regions</li>
+      <li>Use <span class="highlight">serverless architectures</span> - Avoid burden of managing servers</li>
+      <li><span class="highlight">Experiment more often</span> - Easy to carry out comparative testing</li>
+      <li><span class="highlight">Mechanical sympathy</span> - Be aware of all AWS services</li>
+    </ul>
+
+    <h3>Key AWS Services</h3>
+    <div class="services">
+      <div class="service">AWS Auto Scaling</div>
+      <div class="service">Amazon EBS</div>
+      <div class="service">Amazon S3</div>
+      <div class="service">AWS Lambda</div>
+      <div class="service">Amazon RDS</div>
+      <div class="service">AWS CloudFormation</div>
+      <div class="service">Amazon CloudWatch</div>
+      <div class="service">Amazon ElastiCache</div>
+      <div class="service">AWS Snowball</div>
+      <div class="service">Amazon CloudFront</div>
+    </div>
+
+    <div class="pillar">
+      <h2>5. Cost Optimization</h2>
+    </div>
+    <p><span class="key-term">Definition:</span> <span class="highlight">Ability to run systems to deliver business value at the lowest price point</span></p>
+    
+    <h3>Design Principles</h3>
+    <ul>
+      <li><span class="highlight">Adopt a consumption mode</span> - Pay only for what you use</li>
+      <li><span class="highlight">Measure overall efficiency</span> - Use CloudWatch</li>
+      <li><span class="highlight">Stop spending money on data center operations</span> - AWS handles infrastructure so you can focus on projects</li>
+      <li><span class="highlight">Analyze and attribute expenditure</span> - Accurate identification of system usage and costs, helps measure ROI - Use tags</li>
+      <li>Use <span class="highlight">managed services</span> to reduce cost of ownership - Managed services offer lower cost per transaction</li>
+    </ul>
+
+    <h3>Key AWS Services</h3>
+    <div class="services">
+      <div class="service">AWS Budgets</div>
+      <div class="service">AWS Cost and Usage Report</div>
+      <div class="service">AWS Cost Explorer</div>
+      <div class="service">Reserved Instance Reporting</div>
+      <div class="service">Spot instance</div>
+      <div class="service">Reserved instance</div>
+      <div class="service">Amazon S3 Glacier</div>
+      <div class="service">AWS Trusted Advisor</div>
+      <div class="service">AWS Auto Scaling</div>
+      <div class="service">AWS Lambda</div>
+    </div>
+
+    <div class="pillar">
+      <h2>6. Sustainability</h2>
+    </div>
+    <p><span class="key-term">Definition:</span> <span class="highlight">Minimizing the environmental impacts</span> of running cloud workloads</p>
+    
+    <h3>Design Principles</h3>
+    <ul>
+      <li><span class="highlight">Understand your impact</span> – establish performance indicators, evaluate improvements</li>
+      <li><span class="highlight">Establish sustainability goals</span> – Set long-term goals, model ROI</li>
+      <li><span class="highlight">Maximize utilization</span> – Right size workloads to maximize energy efficiency and minimize idle resources</li>
+      <li><span class="highlight">Adopt new, more efficient hardware and software</span> – Design for flexibility to adopt new technologies</li>
+      <li>Use <span class="highlight">managed services</span> – Shared services reduce infrastructure; automate sustainability best practices</li>
+      <li><span class="highlight">Reduce downstream impact</span> – Reduce energy/resources required to use your services</li>
+    </ul>
+
+    <h3>Key AWS Services</h3>
+    <div class="services">
+      <div class="service">EC2 Auto Scaling</div>
+      <div class="service">Lambda</div>
+      <div class="service">Fargate</div>
+      <div class="service">Cost Explorer</div>
+      <div class="service">EC2 (Graviton, T)</div>
+      <div class="service">Spot Instances</div>
+      <div class="service">EFS-IA</div>
+      <div class="service">S3 Glacier</div>
+      <div class="service">EBS Cold HDD</div>
+      <div class="service">S3 Intelligent Tiering</div>
+      <div class="service">Data Lifecycle Manager</div>
+      <div class="service">RDS</div>
+      <div class="service">Aurora</div>
+      <div class="service">DynamoDB</div>
+      <div class="service">CloudFront</div>
+    </div>
+
+    <div class="box">
+      <h3>AWS Well-Architected Tool</h3>
+      <p><span class="highlight">Free tool to review your architectures</span> against the 6 pillars of Well-Architected Framework and adopt architectural best practices</p>
+      <h4>How it works:</h4>
+      <ul>
+        <li>Select your workload and answer questions</li>
+        <li>Review your answers against the 6 pillars</li>
+        <li>Obtain advice: get videos and documentation, generate a report, see results in a dashboard</li>
+      </ul>
+    </div>
+
+    <div class="box">
+      <h3>Exam Tips</h3>
+      <ul>
+        <li>Know the 6 pillars by name: <span class="highlight">Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization, Sustainability</span></li>
+        <li>Remember that the 6 pillars are <span class="highlight">not trade-offs</span> but work in <span class="highlight">synergy</span></li>
+        <li>Know the <span class="highlight">key services</span> associated with each pillar</li>
+        <li>Understand the <span class="highlight">design principles</span> for each pillar</li>
+        <li>Be able to identify which pillar applies to specific scenarios</li>
+        <li>Focus on <span class="highlight">highlighted terms</span> as they're likely to appear in MCQs</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

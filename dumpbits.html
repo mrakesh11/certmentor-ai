@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dump Bits - AWS CLF-C02</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #0a0f1d;
+            --bg-nav: rgba(10, 15, 29, 0.85);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-blue: #00d2ff;
+            --accent-purple: #7a22ff;
+            --correct-green: #10b981;
+            --wrong-red: #ef4444;
+            --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(circle at top right, rgba(0, 210, 255, 0.05), transparent 40%);
+        }
+
+        /* Navbar */
+        nav {
+            background: var(--bg-nav);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo, .nav-logo i {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .back-link {
+            color: var(--text-main);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Main App Container */
+        .app-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 5%;
+        }
+
+        .quiz-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 3rem;
+            width: 100%;
+            max-width: 800px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .question-number {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .badge-placeholder {
+            background: rgba(122, 34, 255, 0.2);
+            color: var(--accent-purple);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .option {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.1rem;
+        }
+
+        .option:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent-blue);
+        }
+
+        .option.selected {
+            border-color: var(--accent-blue);
+            background: rgba(0, 210, 255, 0.1);
+        }
+
+        .option.correct {
+            border-color: var(--correct-green);
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--correct-green);
+        }
+
+        .option.wrong {
+            border-color: var(--wrong-red);
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--wrong-red);
+            opacity: 0.7;
+        }
+
+        .option-letter {
+            background: rgba(255, 255, 255, 0.1);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .quiz-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-reveal {
+            background: transparent;
+            border: 2px solid var(--accent-purple);
+            color: var(--accent-purple);
+        }
+
+        .btn-reveal:hover {
+            background: var(--accent-purple);
+            color: white;
+        }
+
+        .btn-next {
+            background: var(--gradient-primary);
+            color: white;
+            opacity: 0.5;
+            cursor: not-allowed;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-next.ready {
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .btn-next.ready:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4);
+        }
+
+        .explanation-box {
+            display: none;
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 4px solid var(--correct-green);
+            border-radius: 0 10px 10px 0;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .explanation-box.show {
+            display: block;
+        }
+
+        .explanation-box h4 {
+            color: var(--correct-green);
+            margin-bottom: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <i class="fa-brands fa-aws"></i>
+            AWS CLF-C02
+        </a>
+        <a href="index.html" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </nav>
+
+    <div class="app-container">
+        <div class="quiz-card">
+            <div class="quiz-header">
+                <div class="question-number">Question <span id="q-num">1</span> of 400</div>
+                <div class="badge-placeholder">PLACEHOLDER MODE</div>
+            </div>
+
+            <div class="question-text" id="q-text">
+                Which AWS service can be used to track, record, and audit API calls made within an AWS account?
+            </div>
+
+            <div class="options" id="options-container">
+                <div class="option" data-id="A" onclick="selectOption(this)">
+                    <div class="option-letter">A</div>
+                    <div class="option-text">Amazon CloudWatch</div>
+                </div>
+                <div class="option" data-id="B" onclick="selectOption(this)">
+                    <div class="option-letter">B</div>
+                    <div class="option-text">AWS CloudTrail</div>
+                </div>
+                <div class="option" data-id="C" onclick="selectOption(this)">
+                    <div class="option-letter">C</div>
+                    <div class="option-text">AWS IAM</div>
+                </div>
+                <div class="option" data-id="D" onclick="selectOption(this)">
+                    <div class="option-letter">D</div>
+                    <div class="option-text">AWS Trusted Advisor</div>
+                </div>
+            </div>
+
+            <div class="explanation-box" id="explanation">
+                <h4>Correct!</h4>
+                <p><strong>AWS CloudTrail</strong> is specifically designed to track user activity and API usage. It provides event history of your AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services.</p>
+            </div>
+
+            <div class="quiz-footer">
+                <button class="btn btn-reveal" id="btn-reveal" onclick="revealAnswer()">Reveal Answer</button>
+                <button class="btn btn-next" id="btn-next" onclick="nextQuestion()">Next Question <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentAnswer = "B"; 
+        let answered = false;
+
+        function selectOption(el) {
+            if(answered) return;
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+        }
+
+        function revealAnswer() {
+            if(answered) return;
+            const selected = document.querySelector('.option.selected');
+            if(!selected) {
+                alert("Please select an option first!");
+                return;
+            }
+            answered = true;
+            document.getElementById('btn-reveal').style.display = 'none';
+            document.getElementById('btn-next').classList.add('ready');
+
+            document.querySelectorAll('.option').forEach(opt => {
+                if(opt.dataset.id === currentAnswer) {
+                    opt.classList.add('correct');
+                } else if (opt.classList.contains('selected')) {
+                    opt.classList.add('wrong');
+                } else {
+                    opt.style.opacity = "0.5";
+                }
+            });
+
+            document.getElementById('explanation').classList.add('show');
+            if(selected.dataset.id !== currentAnswer) {
+                document.querySelector('#explanation h4').innerText = "Incorrect";
+                document.querySelector('#explanation h4').style.color = "var(--wrong-red)";
+                document.getElementById('explanation').style.borderLeftColor = "var(--wrong-red)";
+                document.getElementById('explanation').style.background = "rgba(239, 68, 68, 0.1)";
+            }
+        }
+
+        function nextQuestion() {
+            if(!answered) return;
+            
+            alert("Next question would load here! (Placeholder logic)");
+            
+            answered = false;
+            document.getElementById('btn-reveal').style.display = 'block';
+            document.getElementById('btn-next').classList.remove('ready');
+            document.getElementById('explanation').classList.remove('show');
+            document.getElementById('explanation').style.borderLeftColor = "var(--correct-green)";
+            document.getElementById('explanation').style.background = "rgba(16, 185, 129, 0.1)";
+            document.querySelector('#explanation h4').innerText = "Correct!";
+            document.querySelector('#explanation h4').style.color = "var(--correct-green)";
+            
+            document.querySelectorAll('.option').forEach(opt => {
+                opt.className = 'option';
+                opt.style.opacity = "1";
+            });
+            document.getElementById('q-num').innerText = parseInt(document.getElementById('q-num').innerText) + 1;
+        }
+    </script>
+</body>
+</html>

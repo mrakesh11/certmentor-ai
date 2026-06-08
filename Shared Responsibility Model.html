@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #232f3e;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #232f3e;
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .highlight-aws {
+            background-color: #ff9900;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .highlight-customer {
+            background-color: #1e88e5;
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .model-container {
+            display: flex;
+            margin: 20px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .model-side {
+            flex: 1;
+            padding: 15px;
+        }
+        .aws-side {
+            background-color: #fff9e6;
+            border-right: 1px solid #ddd;
+        }
+        .customer-side {
+            background-color: #e3f2fd;
+        }
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .service-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .service-table th, .service-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .service-table th {
+            background-color: #232f3e;
+            color: white;
+        }
+        .service-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .memory-tip {
+            background-color: #e8f5e9;
+            border-left: 4px solid #43a047;
+            padding: 10px 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AWS Shared Responsibility Model Cheat Sheet</h1>
+        
+        <div class="card">
+            <h2>Core Concept</h2>
+            <p>The AWS Shared Responsibility Model defines security responsibilities between AWS and customers:</p>
+            <ul>
+                <li><span class="highlight-aws">AWS</span> is responsible for <strong>"Security OF the Cloud"</strong></li>
+                <li><span class="highlight-customer">Customer</span> is responsible for <strong>"Security IN the Cloud"</strong></li>
+            </ul>
+            <div class="memory-tip">
+                Remember: AWS secures the infrastructure, you secure what you put in it.
+            </div>
+        </div>
+
+        <div class="model-container">
+            <div class="model-side aws-side">
+                <h2><span class="highlight-aws">AWS Responsibilities</span></h2>
+                <ul>
+                    <li>Global infrastructure</li>
+                    <li>Hardware, software, networking, and facilities</li>
+                    <li>Physical security of data centers</li>
+                    <li>Hypervisor & service platform</li>
+                    <li>Patching underlying infrastructure</li>
+                    <li>Service availability & SLAs</li>
+                    <li>Managed service configuration</li>
+                </ul>
+            </div>
+            <div class="model-side customer-side">
+                <h2><span class="highlight-customer">Customer Responsibilities</span></h2>
+                <ul>
+                    <li>Data encryption & integrity</li>
+                    <li>Identity & access management</li>
+                    <li>Network traffic protection</li>
+                    <li>Operating system configuration</li>
+                    <li>Network & firewall configuration</li>
+                    <li>Client-side data encryption</li>
+                    <li>Server-side encryption</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2>Responsibility by Service Models</h2>
+        <table class="service-table">
+            <tr>
+                <th>Service Model</th>
+                <th>AWS Responsible For</th>
+                <th>Customer Responsible For</th>
+            </tr>
+            <tr>
+                <td><strong>Infrastructure as a Service (IaaS)</strong><br>EC2, EBS, VPC</td>
+                <td>
+                    <span class="highlight-aws">AWS:</span>
+                    <ul>
+                        <li>Hardware/AWS Global Infrastructure</li>
+                        <li>Compute infrastructure</li>
+                        <li>Storage infrastructure</li>
+                        <li>Network infrastructure</li>
+                    </ul>
+                </td>
+                <td>
+                    <span class="highlight-customer">Customer:</span>
+                    <ul>
+                        <li>Guest OS & patches</li>
+                        <li>Applications & data</li>
+                        <li>Identity & access management</li>
+                        <li>Network & firewall config</li>
+                        <li>Client-side data encryption</li>
+                        <li>Server-side encryption</li>
+                        <li>Network traffic protection</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Platform as a Service (PaaS)</strong><br>RDS, EMR, Elastic Beanstalk</td>
+                <td>
+                    <span class="highlight-aws">AWS:</span>
+                    <ul>
+                        <li>Hardware/AWS Global Infrastructure</li>
+                        <li>OS & platform maintenance</li>
+                        <li>Database patching</li>
+                        <li>Platform management</li>
+                    </ul>
+                </td>
+                <td>
+                    <span class="highlight-customer">Customer:</span>
+                    <ul>
+                        <li>Applications & data</li>
+                        <li>Identity & access management</li>
+                        <li>Client-side data encryption</li>
+                        <li>Resource configuration</li>
+                        <li>Network traffic protection</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Software as a Service (SaaS)</strong><br>S3, DynamoDB, SQS, SNS</td>
+                <td>
+                    <span class="highlight-aws">AWS:</span>
+                    <ul>
+                        <li>Hardware/AWS Global Infrastructure</li>
+                        <li>OS & application maintenance</li>
+                        <li>Service configuration</li>
+                        <li>High availability implementation</li>
+                    </ul>
+                </td>
+                <td>
+                    <span class="highlight-customer">Customer:</span>
+                    <ul>
+                        <li>Data management</li>
+                        <li>Identity & access management</li>
+                        <li>Client-side data encryption</li>
+                        <li>Resource access policies</li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+
+        <div class="card">
+            <h2>Service-Specific Responsibilities</h2>
+            
+            <h3>Compute Services (EC2, Lambda)</h3>
+            <ul>
+                <li><span class="highlight-aws">AWS:</span> Infrastructure, hardware, host OS</li>
+                <li><span class="highlight-customer">Customer:</span> AMI selection, updates, data, security groups, IAM</li>
+            </ul>
+
+            <h3>Storage Services (S3, EBS)</h3>
+            <ul>
+                <li><span class="highlight-aws">AWS:</span> Infrastructure, durability, availability</li>
+                <li><span class="highlight-customer">Customer:</span> Data encryption, bucket policies, object ACLs</li>
+            </ul>
+
+            <h3>Database Services (RDS, DynamoDB)</h3>
+            <ul>
+                <li><span class="highlight-aws">AWS:</span> Database engine, patching, backups (if enabled)</li>
+                <li><span class="highlight-customer">Customer:</span> Schema design, data encryption, IAM permissions</li>
+            </ul>
+
+            <h3>Network & Content Delivery (VPC, CloudFront)</h3>
+            <ul>
+                <li><span class="highlight-aws">AWS:</span> Edge locations, infrastructure security</li>
+                <li><span class="highlight-customer">Customer:</span> Network design, security groups, NACLs, SSL certificates</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Key Memory Aids</h2>
+            <div class="memory-tip">
+                <strong>PATCH:</strong> Patching responsibilities
+                <ul>
+                    <li><span class="highlight-aws">AWS</span> patches infrastructure and managed services</li>
+                    <li><span class="highlight-customer">Customer</span> patches guest OS and applications in IaaS</li>
+                </ul>
+            </div>
+            <div class="memory-tip">
+                <strong>DATA:</strong> Customer always owns
+                <ul>
+                    <li>Data classification</li>
+                    <li>Access policies</li>
+                    <li>Tenant isolation</li>
+                    <li>Analytics/monitoring</li>
+                </ul>
+            </div>
+            <div class="memory-tip">
+                <strong>ENCRYPTION:</strong> 
+                <ul>
+                    <li><span class="highlight-customer">Customer</span> is always responsible for data encryption choices</li>
+                    <li>Both client-side and server-side encryption options must be configured by customer</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Exam Tips</h2>
+            <ul>
+                <li>When in doubt, data security, encryption, and access management are <span class="highlight-customer">customer</span> responsibilities</li>
+                <li>Physical infrastructure and availability are always <span class="highlight-aws">AWS</span> responsibilities</li>
+                <li>The more managed the service, the less responsibility for the <span class="highlight-customer">customer</span></li>
+                <li>AWS Config, CloudTrail, and CloudWatch are <span class="highlight-customer">customer</span> responsibilities to configure and monitor</li>
+                <li>Network traffic protection applies to both AWS and customer but in different aspects</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner Comprehensive Exam Cheatsheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            text-align: center;
+            color: #232f3e;
+            border-bottom: 3px solid #ff9900;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #232f3e;
+            background-color: #ffde9e;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #16191f;
+            border-left: 4px solid #ff9900;
+            padding-left: 10px;
+            margin-top: 20px;
+        }
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .subsection {
+            border-top: 1px solid #eaeaea;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        .card {
+            border-left: 4px solid #0073bb;
+            background-color: #f0f8ff;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .exam-tip {
+            border-left: 4px solid #d13212;
+            background-color: #fff4f4;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        .highlight-r {
+            color: #d13212;
+            font-weight: bold;
+        }
+        .highlight-pillar {
+            color: #1e7b34;
+            font-weight: bold;
+        }
+        .highlight-caf {
+            color: #8e44ad;
+            font-weight: bold;
+        }
+        .highlight-key {
+            background-color: #fff2cc;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .definition {
+            background-color: #e1f5fe;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .mnemonic {
+            background-color: #f9fbe7;
+            border: 1px dashed #cddc39;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            vertical-align: top;
+        }
+        th {
+            background-color: #dcedc8;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f8e9;
+        }
+        .service-tag {
+            display: inline-block;
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 6px;
+            border-radius: 3px;
+            margin: 2px;
+            font-size: 0.9em;
+        }
+        .keyword-list {
+            columns: 2;
+            column-gap: 30px;
+        }
+        .keyword-item {
+            break-inside: avoid;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AWS Cloud Practitioner Comprehensive Exam Cheatsheet</h1>
+    
+    <div class="section">
+        <h2>7 R's of Migration</h2>
+        
+        <div class="definition">
+            <strong>Migration in AWS:</strong> The process of moving applications, data, and workloads from on-premises or existing cloud environments to the AWS Cloud, following defined migration strategies.
+        </div>
+        
+        <div class="mnemonic">
+            <strong>Mnemonic:</strong> "<u>R</u>eally <u>R</u>eliable <u>R</u>efactoring <u>R</u>equires <u>R</u>ethinking <u>R</u>etirement <u>R</u>epurchasing"
+        </div>
+        
+        <table>
+            <tr>
+                <th width="15%">Strategy</th>
+                <th width="25%">Definition</th>
+                <th width="30%">Key Characteristics</th>
+                <th width="30%">When to Use</th>
+            </tr>
+            <tr>
+                <td><span class="highlight-r">Rehost</span><br>("Lift and Shift")</td>
+                <td>Migrating applications without changes</td>
+                <td>
+                    • <span class="highlight-key">Fastest migration option</span><br>
+                    • Minimal application changes<br>
+                    • Reduced complexity<br>
+                    • <span class="highlight-key">Often first step</span> in cloud journey
+                </td>
+                <td>
+                    • <span class="highlight-key">Legacy migrations</span><br>
+                    • Conservative cloud strategy<br>
+                    • When time constraints exist<br>
+                    • Large-scale migrations<br>
+                    • <span class="service-tag">EC2</span> <span class="service-tag">VM Import/Export</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-r">Replatform</span><br>("Lift, Tinker, and Shift")</td>
+                <td>Making targeted optimizations while keeping core architecture</td>
+                <td>
+                    • <span class="highlight-key">Moderate changes</span><br>
+                    • Better cloud optimization<br>
+                    • Reduced operational overhead<br>
+                    • Some cloud-native benefits
+                </td>
+                <td>
+                    • <span class="highlight-key">Database migrations</span> to RDS<br>
+                    • Containerizing applications<br>
+                    • Automating key processes<br>
+                    • <span class="service-tag">RDS</span> <span class="service-tag">Elastic Beanstalk</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-r">Refactor</span> / <span class="highlight-r">Re-architect</span></td>
+                <td>Reimagining application architecture using cloud-native capabilities</td>
+                <td>
+                    • <span class="highlight-key">Substantial changes</span><br>
+                    • Maximum cloud benefits<br>
+                    • <span class="highlight-key">Highest long-term value</span><br>
+                    • Most complex option
+                </td>
+                <td>
+                    • Business needs <span class="highlight-key">scale or performance</span><br>
+                    • Adding new features difficult in legacy<br>
+                    • Addressing technical debt<br>
+                    • <span class="service-tag">Lambda</span> <span class="service-tag">DynamoDB</span> <span class="service-tag">API Gateway</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-r">Repurchase</span><br>("Drop and Shop")</td>
+                <td>Switching to different products, typically SaaS</td>
+                <td>
+                    • <span class="highlight-key">Vendor product switch</span><br>
+                    • Eliminates legacy maintenance<br>
+                    • Often involves licensing changes<br>
+                    • Potential business process changes
+                </td>
+                <td>
+                    • Moving from <span class="highlight-key">on-prem to SaaS</span><br>
+                    • End-of-life products<br>
+                    • When vendor support ending<br>
+                    • <span class="service-tag">SaaS offerings</span> <span class="service-tag">AWS Marketplace</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-r">Retain</span><br>("Revisit")</td>
+                <td>Keeping applications in source environment</td>
+                <td>
+                    • <span class="highlight-key">No immediate migration</span><br>
+                    • Keep applications as-is<br>
+                    • Often temporary decision<br>
+                    • Part of phased approach
+                </td>
+                <td>
+                    • <span class="highlight-key">Critical legacy systems</span><br>
+                    • Applications requiring major refactoring<br>
+                    • Compliance/regulatory concerns<br>
+                    • Applications planned for retirement
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-r">Retire</span></td>
+                <td>Removing applications no longer needed</td>
+                <td>
+                    • <span class="highlight-key">Decommissioning</span><br>
+                    • Cost savings focus<br> 
+                    • Reducing security risks<br>
+                    • Resource consolidation
+                </td>
+                <td>
+                    • <span class="highlight-key">Redundant applications</span><br>
+                    • Low business value systems<br>
+                    • Obsolete technology<br>
+                    • Data can be archived in <span class="service-tag">S3 Glacier</span>
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-r">Relocate</span><br>("Hypervisor-level migration")</td>
+                <td>Moving infrastructure without changing architecture</td>
+                <td>
+                    • <span class="highlight-key">VMware-based</span><br>
+                    • No application changes<br>
+                    • <span class="highlight-key">Reuses existing investments</span><br>
+                    • Hybrid cloud enabler
+                </td>
+                <td>
+                    • VMware environments<br>
+                    • <span class="highlight-key">Large VMware footprint</span><br>
+                    • Minimizing business disruption<br>
+                    • <span class="service-tag">VMware Cloud on AWS</span>
+                </td>
+            </tr>
+        </table>
+        
+        <div class="subsection">
+            <h3>AWS Migration Tools and Services</h3>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Purpose</th>
+                    <th>Key Features</th>
+                </tr>
+                <tr>
+                    <td><span class="highlight-key">AWS Migration Hub</span></td>
+                    <td>Single location to track migrations</td>
+                    <td>
+                        • Centralized view of migration progress<br>
+                        • Integrates with other migration tools<br>
+                        • Visualizes application status
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="highlight-key">Application Discovery Service</span></td>
+                    <td>Discovers on-premises applications</td>
+                    <td>
+                        • Agentless and agent-based discovery<br>
+                        • Server utilization data<br>
+                        • Application dependency mapping
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="highlight-key">Database Migration Service (DMS)</span></td>
+                    <td>Migrates databases to AWS</td>
+                    <td>
+                        • Supports homogeneous and heterogeneous migrations<br>
+                        • Minimal downtime<br>
+                        • Continuous data replication
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="highlight-key">Server Migration Service (SMS)</span></td>
+                    <td>Migrates on-premises servers</td>
+                    <td>
+                        • Automates server migrations<br>
+                        • Incremental replication<br>
+                        • Supports VMware, Hyper-V, and physical servers
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> For the CCP exam, know what each "R" stands for and identify when each strategy is most appropriate to use. Remember that <span class="highlight-r">Rehost</span> is the quickest but least optimized, while <span class="highlight-r">Refactor</span> provides the most cloud benefits but requires the most effort and time.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>AWS Well-Architected Framework (6 Pillars)</h2>
+        
+        <div class="definition">
+            <strong>Well-Architected Framework:</strong> A set of best practices and core strategies for architecting systems in AWS cloud, organized into six pillars that guide design decisions.
+        </div>
+        
+        <div class="mnemonic">
+            <strong>Mnemonic:</strong> "<u>O</u>perational <u>R</u>eliable <u>S</u>ecure <u>P</u>erformance <u>C</u>ost <u>S</u>ustainability" = "<u>ORSPC</u>S" or "<u>OR SP CS</u>"
+        </div>
+        
+        <table>
+            <tr>
+                <th width="18%">Pillar</th>
+                <th width="32%">Core Concepts</th>
+                <th width="25%">Key Services</th>
+                <th width="25%">Design Principles</th>
+            </tr>
+            <tr>
+                <td><span class="highlight-pillar">Operational Excellence</span></td>
+                <td>
+                    • <span class="highlight-key">Infrastructure as code</span><br>
+                    • <span class="highlight-key">Observability</span> (monitoring, logging)<br>
+                    • <span class="highlight-key">Automation</span> of processes<br>
+                    • Small, reversible changes<br>
+                    • <span class="highlight-key">Game days</span> (simulating events)
+                </td>
+                <td>
+                    <span class="service-tag">CloudFormation</span><br>
+                    <span class="service-tag">AWS Config</span><br>
+                    <span class="service-tag">CloudWatch</span><br>
+                    <span class="service-tag">CloudTrail</span><br>
+                    <span class="service-tag">EventBridge</span><br>
+                    <span class="service-tag">Systems Manager</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Perform operations as code</span><br>
+                    • Make frequent, small, reversible changes<br>
+                    • Refine operations procedures frequently<br>
+                    • Anticipate failure<br>
+                    • Learn from operational failures
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-pillar">Reliability</span></td>
+                <td>
+                    • <span class="highlight-key">Fault isolation</span> (availability zones)<br>
+                    • <span class="highlight-key">Automated recovery</span><br>
+                    • <span class="highlight-key">Horizontal scaling</span><br>
+                    • <span class="highlight-key">Disaster recovery planning</span><br>
+                    • <span class="highlight-key">Testing recovery procedures</span>
+                </td>
+                <td>
+                    <span class="service-tag">Route 53</span><br>
+                    <span class="service-tag">Auto Scaling</span><br>
+                    <span class="service-tag">CloudWatch</span><br>
+                    <span class="service-tag">S3</span><br>
+                    <span class="service-tag">DynamoDB</span><br>
+                    <span class="service-tag">Shield</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Test recovery procedures</span><br>
+                    • Automatically recover from failure<br>
+                    • Scale horizontally to increase availability<br>
+                    • Stop guessing capacity<br>
+                    • Manage change in automation
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-pillar">Security</span></td>
+                <td>
+                    • <span class="highlight-key">Identity & access management</span><br>
+                    • <span class="highlight-key">Detective controls</span><br>
+                    • <span class="highlight-key">Infrastructure protection</span><br>
+                    • <span class="highlight-key">Data protection</span><br>
+                    • <span class="highlight-key">Incident response</span>
+                </td>
+                <td>
+                    <span class="service-tag">IAM</span><br>
+                    <span class="service-tag">Organizations</span><br>
+                    <span class="service-tag">GuardDuty</span><br>
+                    <span class="service-tag">Inspector</span><br>
+                    <span class="service-tag">Shield</span><br>
+                    <span class="service-tag">WAF</span><br>
+                    <span class="service-tag">KMS</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Implement security at all layers</span><br>
+                    • Enable traceability<br>
+                    • Apply principle of least privilege<br>
+                    • Secure all data in transit and at rest<br>
+                    • Keep people away from data<br>
+                    • Prepare for security events
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-pillar">Performance Efficiency</span></td>
+                <td>
+                    • <span class="highlight-key">Resource selection</span><br>
+                    • <span class="highlight-key">Compute optimization</span><br>
+                    • <span class="highlight-key">Storage optimization</span><br>
+                    • <span class="highlight-key">Database optimization</span><br>
+                    • <span class="highlight-key">Network optimization</span>
+                </td>
+                <td>
+                    <span class="service-tag">Auto Scaling</span><br>
+                    <span class="service-tag">Lambda</span><br>
+                    <span class="service-tag">CloudFront</span><br>
+                    <span class="service-tag">RDS</span><br>
+                    <span class="service-tag">ElastiCache</span><br>
+                    <span class="service-tag">Elastic Beanstalk</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Democratize advanced technologies</span><br>
+                    • Go global in minutes<br>
+                    • Use serverless architectures<br>
+                    • Experiment more often<br>
+                    • Mechanical sympathy (understand hardware)
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-pillar">Cost Optimization</span></td>
+                <td>
+                    • <span class="highlight-key">Right-sizing resources</span><br>
+                    • <span class="highlight-key">Purchasing options</span> (Reserved Instances)<br>
+                    • <span class="highlight-key">Cost-aware architecture</span><br>
+                    • <span class="highlight-key">Tagging and cost allocation</span><br>
+                    • <span class="highlight-key">Measuring efficiency</span>
+                </td>
+                <td>
+                    <span class="service-tag">Cost Explorer</span><br>
+                    <span class="service-tag">Budgets</span><br>
+                    <span class="service-tag">Trusted Advisor</span><br>
+                    <span class="service-tag">Savings Plans</span><br>
+                    <span class="service-tag">Spot Instances</span><br>
+                    <span class="service-tag">AWS Cost & Usage Report</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Adopt consumption model</span><br>
+                    • Measure overall efficiency<br>
+                    • Stop spending money on undifferentiated heavy lifting<br>
+                    • Analyze and attribute expenditure<br>
+                    • Use managed and application-level services
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-pillar">Sustainability</span></td>
+                <td>
+                    • <span class="highlight-key">Efficient resource utilization</span><br>
+                    • <span class="highlight-key">Energy efficiency</span><br>
+                    • <span class="highlight-key">Minimizing required hardware</span><br>
+                    • <span class="highlight-key">Optimizing workloads</span><br>
+                    • <span class="highlight-key">End-user behavior patterns</span>
+                </td>
+                <td>
+                    <span class="service-tag">AWS Carbon Footprint Tool</span><br>
+                    <span class="service-tag">Graviton processors</span><br>
+                    <span class="service-tag">S3 Lifecycle</span><br>
+                    <span class="service-tag">EFS Lifecycle</span><br>
+                    <span class="service-tag">Auto Scaling</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Understand your impact</span><br>
+                    • Establish sustainability goals<br>
+                    • Maximize utilization<br>
+                    • Anticipate and adopt efficient hardware and software<br>
+                    • Use managed services<br>
+                    • Reduce downstream impact
+                </td>
+            </tr>
+        </table>
+        
+        <div class="subsection">
+            <h3>AWS Well-Architected Tool</h3>
+            <div class="definition">
+                A free service that helps you review your architectures against AWS best practices and gives guidance on making improvements.
+            </div>
+            <div class="keyword-list">
+                <div class="keyword-item">• <span class="highlight-key">Workload reviews</span> against the 6 pillars</div>
+                <div class="keyword-item">• <span class="highlight-key">Improvement plans</span> with step-by-step guidance</div>
+                <div class="keyword-item">• <span class="highlight-key">Milestone tracking</span> to measure progress</div>
+                <div class="keyword-item">• <span class="highlight-key">Risk identification</span> in architecture decisions</div>
+                <div class="keyword-item">• <span class="highlight-key">Governance</span> across organization</div>
+                <div class="keyword-item">• <span class="highlight-key">Best practice sharing</span> with stakeholders</div>
+            </div>
+        </div>
+        
+        <div class="exam-tip">
+            <strong>Exam Tip:</strong> For the exam, focus on the <span class="highlight-key">primary goal</span> of each pillar, understand which services align with each pillar, and know the <span class="highlight-key">design principles</span> associated with each. Pay special attention to the newer Sustainability pillar, as it was added most recently.
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>AWS Cloud Adoption Framework (CAF)</h2>
+        
+        <div class="definition">
+            <strong>Cloud Adoption Framework (CAF):</strong> A comprehensive framework that helps organizations develop efficient and effective plans for their cloud adoption journey, addressing gaps in skills and processes.
+        </div>
+        
+        <div class="mnemonic">
+            <strong>Mnemonic:</strong> "<u>B</u>usinesses <u>P</u>refer <u>G</u>ood <u>S</u>ecurity <u>O</u>n <u>P</u>latforms" = "<u>BPGSOP</u>" or think "<u>BP-GSOP</u>"
+        </div>
+        
+        <table>
+            <tr>
+                <th width="15%">Perspective</th>
+                <th width="30%">Key Focus Areas</th>
+                <th width="30%">Core Capabilities</th>
+                <th width="25%">Stakeholders</th>
+            </tr>
+            <tr>
+                <td><span class="highlight-caf">Business</span></td>
+                <td>
+                    • <span class="highlight-key">Value realization</span><br>
+                    • <span class="highlight-key">Business case development</span><br>
+                    • <span class="highlight-key">Strategy alignment</span><br>
+                    • <span class="highlight-key">Prioritization</span><br>
+                    • <span class="highlight-key">Innovation management</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Strategy</span> - Align cloud initiative with business goals<br>
+                    • <span class="highlight-key">Product</span> - Use product-oriented delivery model<br>
+                    • <span class="highlight-key">Marketing</span> - Market cloud value proposition<br>
+                    • <span class="highlight-key">Finance</span> - Financial planning for cloud
+                </td>
+                <td>
+                    • Business Managers<br>
+                    • Finance Managers<br>
+                    • Budget Owners<br>
+                    • Strategy Stakeholders<br>
+                    • Product Managers
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-caf">People</span></td>
+                <td>
+                    • <span class="highlight-key">Culture evolution</span><br>
+                    • <span class="highlight-key">Leadership transformation</span><br>
+                    • <span class="highlight-key">Cloud fluency</span><br>
+                    • <span class="highlight-key">Workforce transformation</span><br>
+                    • <span class="highlight-key">Change acceleration</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Culture</span> - Accelerate cloud adoption through culture<br>
+                    • <span class="highlight-key">Leadership</span> - Sponsor and champion the cloud<br>
+                    • <span class="highlight-key">Learning</span> - Build new cloud skills<br>
+                    • <span class="highlight-key">Organizational Design</span> - Organize teams for cloud
+                </td>
+                <td>
+                    • Human Resources<br>
+                    • Staffing Functions<br>
+                    • People Managers<br>
+                    • Training Teams<br>
+                    • Cloud Center of Excellence
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-caf">Governance</span></td>
+                <td>
+                    • <span class="highlight-key">Portfolio management</span><br>
+                    • <span class="highlight-key">Program & project management</span><br>
+                    • <span class="highlight-key">Benefits management</span><br>
+                    • <span class="highlight-key">Risk management</span><br>
+                    • <span class="highlight-key">Cloud financial management</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Portfolio</span> - Prioritize and manage cloud initiatives<br>
+                    • <span class="highlight-key">Program & Project</span> - Manage cloud projects<br>
+                    • <span class="highlight-key">Data</span> - Apply data governance<br>
+                    • <span class="highlight-key">Benefits</span> - Track benefits realization
+                </td>
+                <td>
+                    • CIO<br>
+                    • Program Managers<br>
+                    • Project Managers<br>
+                    • Enterprise Architects<br>
+                    • PMO
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-caf">Security</span></td>
+                <td>
+                    • <span class="highlight-key">Security control objectives</span><br>
+                    • <span class="highlight-key">Identity & access management</span><br>
+                    • <span class="highlight-key">Threat detection</span><br>
+                    • <span class="highlight-key">Vulnerability management</span><br>
+                    • <span class="highlight-key">Data protection</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Directional</span> - Establish cloud security vision<br>
+                    • <span class="highlight-key">Preventive</span> - Prevent security incidents<br>
+                    • <span class="highlight-key">Detective</span> - Detect and respond to incidents<br>
+                    • <span class="highlight-key">Responsive</span> - Remediate incidents
+                </td>
+                <td>
+                    • CISO<br>
+                    • IT Security Managers<br>
+                    • IT Security Analysts<br>
+                    • Security Architects<br>
+                    • GRC Professionals
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-caf">Operations</span></td>
+                <td>
+                    • <span class="highlight-key">Service monitoring</span><br>
+                    • <span class="highlight-key">Application performance</span><br>
+                    • <span class="highlight-key">Resource inventory</span><br>
+                    • <span class="highlight-key">Business continuity</span><br>
+                    • <span class="highlight-key">IT service catalog</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Observability</span> - Enable monitoring at scale<br>
+                    • <span class="highlight-key">Event Management</span> - Detect and respond to IT events<br>
+                    • <span class="highlight-key">Incident & Problem</span> - Fix unplanned interruptions<br>
+                    • <span class="highlight-key">Change & Release</span> - Maintain IT workloads
+                </td>
+                <td>
+                    • Infrastructure Managers<br>
+                    • Operations Managers<br>
+                    • IT Support Managers<br>
+                    • Site Reliability Engineers<br>
+                    • DevOps Engineers
+                </td>
+            </tr>
+            <tr>
+                <td><span class="highlight-caf">Platform</span></td>
+                <td>
+                    • <span class="highlight-key">Infrastructure as code</span><br>
+                    • <span class="highlight-key">Modernization</span><br>
+                    • <span class="highlight-key">Platform development</span><br>
+                    • <span class="highlight-key">Cloud-native architecture</span><br>
+                    • <span class="highlight-key">Hybrid cloud architecture</span>
+                </td>
+                <td>
+                    • <span class="highlight-key">Compute & Storage</span> - Design compute platforms<br>
+                    •

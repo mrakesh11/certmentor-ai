@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AWS Monitoring Services Cheatsheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #232f3e;
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 10px;
+        }
+        .service {
+            margin-bottom: 30px;
+            border-left: 5px solid #ff9900;
+            padding-left: 15px;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        h2 {
+            color: #232f3e;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        .keyword {
+            font-weight: bold;
+        }
+        .primary {
+            color: #0073bb;
+        }
+        .secondary {
+            color: #d13212;
+        }
+        .tertiary {
+            color: #3b873e;
+        }
+        .accent {
+            color: #7b34dd;
+        }
+        .memory-tip {
+            background-color: #fffde7;
+            padding: 8px;
+            border-radius: 5px;
+            border-left: 3px solid #ffeb3b;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            background-color: #ff9900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+        }
+        .features {
+            margin-left: 20px;
+        }
+        .features li {
+            margin-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AWS Monitoring Services - CCP Exam Cheatsheet</h1>
+        
+        <div class="service">
+            <h2><div class="icon">CW</div>CloudWatch</h2>
+            <p>AWS's primary <span class="keyword primary">monitoring and observability</span> service that provides data and insights for AWS resources and applications.</p>
+            
+            <ul class="features">
+                <li><span class="keyword primary">Metrics:</span> Monitor performance of AWS services and <span class="keyword tertiary">billing metrics</span></li>
+                <li><span class="keyword secondary">Alarms:</span> Automate notifications, perform EC2 actions, notify SNS based on metrics</li>
+                <li><span class="keyword accent">Logs:</span> Collect log files from EC2 instances, servers, Lambda functions</li>
+                <li><span class="keyword tertiary">Events/EventBridge:</span> React to AWS events or trigger rules on a schedule</li>
+            </ul>
+            
+            <div class="memory-tip">
+                🧠 Memory Tip: Think "MALE" - <u>M</u>etrics, <u>A</u>larms, <u>L</u>ogs, <u>E</u>vents - the four core components of CloudWatch
+            </div>
+        </div>
+        
+        <div class="service">
+            <h2><div class="icon">CT</div>CloudTrail</h2>
+            <p>Service that enables <span class="keyword primary">governance, compliance, and audit</span> of your AWS account.</p>
+            
+            <ul class="features">
+                <li><span class="keyword primary">API Tracking:</span> Records <span class="keyword secondary">API calls</span> made within your AWS account</li>
+                <li><span class="keyword accent">CloudTrail Insights:</span> Automated analysis of CloudTrail events to identify unusual activity</li>
+            </ul>
+            
+            <div class="memory-tip">
+                🧠 Memory Tip: CloudT<u>RAIL</u> leaves a "trail" of all API activities - think of it as your AWS account's security camera footage
+            </div>
+        </div>
+        
+        <div class="service">
+            <h2><div class="icon">XR</div>X-Ray</h2>
+            <p>Service that helps developers <span class="keyword primary">analyze and debug</span> distributed applications.</p>
+            
+            <ul class="features">
+                <li><span class="keyword secondary">Trace Requests:</span> Track requests made through distributed applications</li>
+                <li><span class="keyword tertiary">Performance Analysis:</span> Identify bottlenecks and troubleshoot issues</li>
+            </ul>
+            
+            <div class="memory-tip">
+                🧠 Memory Tip: X-Ray lets you see "through" your application like an X-ray sees through your body - revealing the internal structure
+            </div>
+        </div>
+        
+        <div class="service">
+            <h2><div class="icon">HD</div>AWS Health Dashboard</h2>
+            <p>Provides <span class="keyword primary">visibility into resource performance</span> and availability of AWS services.</p>
+            
+            <ul class="features">
+                <li><span class="keyword tertiary">Service Health:</span> Status of all AWS services across all regions</li>
+                <li><span class="keyword accent">Account Health Dashboard:</span> AWS events that impact <span class="keyword secondary">your infrastructure</span></li>
+            </ul>
+            
+            <div class="memory-tip">
+                🧠 Memory Tip: Two levels of health - "general" service health (for everyone) and "your specific" account health
+            </div>
+        </div>
+        
+        <div class="service">
+            <h2><div class="icon">CG</div>Amazon CodeGuru</h2>
+            <p>Developer tool that provides <span class="keyword primary">intelligent recommendations</span> for improving code quality.</p>
+            
+            <ul class="features">
+                <li><span class="keyword secondary">Automated Code Reviews:</span> Identifies critical issues, security vulnerabilities, and hard-to-find bugs</li>
+                <li><span class="keyword accent">Performance Recommendations:</span> Suggests ways to improve application performance</li>
+            </ul>
+            
+            <div class="memory-tip">
+                🧠 Memory Tip: Your code's "guru" (expert advisor) - it's like having an AI code mentor
+            </div>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Primary Purpose</th>
+                    <th>Key Exam Points</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CloudWatch</td>
+                    <td>Monitoring & Alerts</td>
+                    <td>Four core components: Metrics, Alarms, Logs, Events</td>
+                </tr>
+                <tr>
+                    <td>CloudTrail</td>
+                    <td>API Auditing</td>
+                    <td>Records WHO did WHAT in your AWS account</td>
+                </tr>
+                <tr>
+                    <td>X-Ray</td>
+                    <td>Application Tracing</td>
+                    <td>Follows requests through distributed applications</td>
+                </tr>
+                <tr>
+                    <td>Health Dashboard</td>
+                    <td>Service Status</td>
+                    <td>Two types: general service and account-specific</td>
+                </tr>
+                <tr>
+                    <td>CodeGuru</td>
+                    <td>Code Quality</td>
+                    <td>AI-powered code reviews and performance recommendations</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

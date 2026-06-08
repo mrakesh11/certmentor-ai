@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS CLF-C02 Cheatsheet - Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-deep: #0a0f1d;
+            --bg-nav: rgba(10, 15, 29, 0.85);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-blue: #00d2ff;
+            --accent-purple: #7a22ff;
+            --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg-deep); color: var(--text-main); overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(0, 210, 255, 0.05), transparent 25%), radial-gradient(circle at 85% 30%, rgba(122, 34, 255, 0.05), transparent 25%);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulseGlow { 0% { box-shadow: 0 0 10px rgba(0, 210, 255, 0.2); } 50% { box-shadow: 0 0 20px rgba(122, 34, 255, 0.4); } 100% { box-shadow: 0 0 10px rgba(0, 210, 255, 0.2); } }
+
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+        nav {
+            position: fixed; top: 0; width: 100%; background: var(--bg-nav); backdrop-filter: blur(12px); z-index: 1000;
+            border-bottom: 1px solid var(--card-border); padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem; font-weight: 700; background: var(--gradient-primary); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; text-decoration: none; display: flex; align-items: center; gap: 10px;
+        }
+        .nav-logo i { -webkit-text-fill-color: transparent; background: var(--gradient-primary); -webkit-background-clip: text; }
+
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-main); text-decoration: none; font-weight: 400; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-blue); }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+        .hamburger span { width: 25px; height: 3px; background: var(--text-main); transition: 0.3s; }
+        
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: absolute; top: 70px; right: -100%; flex-direction: column; background: var(--bg-nav);
+                backdrop-filter: blur(12px); width: 100%; text-align: center; padding: 2rem 0;
+                border-bottom: 1px solid var(--card-border); transition: 0.4s ease;
+            }
+            .nav-links.active { right: 0; }
+            .hamburger { display: flex; }
+        }
+
+        .hero { padding: 150px 5% 100px; text-align: center; animation: fadeIn 1s ease-out; position: relative; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; }
+        .cta-btn {
+            display: inline-block; padding: 12px 30px; background: var(--gradient-primary); color: white;
+            text-decoration: none; border-radius: 30px; font-weight: 600; font-size: 1.1rem;
+            transition: transform 0.3s; animation: pulseGlow 3s infinite;
+        }
+        .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4); }
+
+        .section-header { text-align: center; margin-bottom: 3rem; }
+        .section-header h2 { font-size: 2.5rem; color: white; }
+        .container { padding: 4rem 5%; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .card {
+            background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 15px; padding: 2rem;
+            backdrop-filter: blur(10px); transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+            text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent-purple); box-shadow: 0 10px 20px rgba(122, 34, 255, 0.15); }
+        .card i { font-size: 3rem; margin-bottom: 1rem; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: white; }
+        .card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        .dump-bits { background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); text-align: center; }
+        .progress-ui {
+            max-width: 600px; margin: 2rem auto; background: var(--card-bg); border: 1px solid var(--card-border);
+            border-radius: 15px; padding: 2rem; backdrop-filter: blur(10px);
+        }
+        .progress-bar-bg { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; margin: 1.5rem 0; overflow: hidden; }
+        .progress-fill { height: 100%; width: 15%; background: var(--gradient-primary); border-radius: 5px; animation: progressAnim 2s ease-out; }
+        @keyframes progressAnim { from { width: 0; } to { width: 15%; } }
+        .btn-outline {
+            display: inline-block; padding: 10px 25px; border: 2px solid var(--accent-blue); color: var(--accent-blue);
+            text-decoration: none; border-radius: 30px; font-weight: 600; transition: 0.3s;
+        }
+        .btn-outline:hover { background: var(--accent-blue); color: var(--bg-deep); }
+
+        .tips-banner {
+            padding: 2rem; background: rgba(122, 34, 255, 0.1); border-left: 5px solid var(--accent-purple);
+            margin: 4rem 5%; border-radius: 0 10px 10px 0; display: flex; align-items: center; gap: 2rem;
+        }
+        @media (max-width: 768px) { .tips-banner { flex-direction: column; text-align: center; } }
+        .tip-icon { font-size: 2.5rem; color: var(--accent-purple); }
+        .ticker-wrap { flex: 1; overflow: hidden; background: var(--card-bg); padding: 10px 20px; border-radius: 5px; }
+        .ticker { display: flex; animation: tickerScroll 20s linear infinite; }
+        .ticker-item { white-space: nowrap; padding-right: 50px; color: #fff; font-weight: 500; }
+        @keyframes tickerScroll { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--card-border); margin-top: 2rem; color: var(--text-muted); }
+        footer .socials { margin-top: 1rem; }
+        footer a { color: var(--text-muted); font-size: 1.5rem; margin: 0 10px; transition: color 0.3s; }
+        footer a:hover { color: var(--accent-blue); }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="nav-logo"><i class="fa-brands fa-aws"></i> AWS CLF-C02</a>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+        <div class="nav-links">
+            <a href="#home">Home</a><a href="#cheatsheets">Cheatsheets</a><a href="#dumpbits">Dump Bits</a><a href="#tips">Tips & Tricks</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Master the AWS Cloud Practitioner</h1>
+        <p>Comprehensive cheatsheets, syllabus tips, and 400+ targeted exam dump questions to guarantee your success.</p>
+        <a href="#cheatsheets" class="cta-btn">Start Studying <i class="fa-solid fa-arrow-right"></i></a>
+    </section>
+
+    <section id="tips" class="tips-banner animate-on-scroll">
+        <i class="fa-solid fa-lightbulb tip-icon"></i>
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <div class="ticker-item">💡 Remember the 6 pillars of Well-Architected Framework!</div>
+                <div class="ticker-item">💡 EC2 is IaaS, RDS is PaaS. Know the Shared Responsibility Model!</div>
+                <div class="ticker-item">💡 TCO Calculator compares on-prem vs AWS costs.</div>
+                <div class="ticker-item">💡 Spot instances can be terminated with 2 min notice.</div>
+                <div class="ticker-item">💡 S3 Standard has 99.999999999% durability.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cheatsheets" class="container">
+        <div class="section-header animate-on-scroll">
+            <h2>Syllabus Cheatsheets</h2>
+            <p style="color: var(--text-muted)">Quick access to core CLF-C02 topics</p>
+        </div>
+        <div class="grid">
+            <a href="6_pillars.html" class="card animate-on-scroll"> <i class="fa-solid fa-building-columns"></i> <h3>6 Pillars</h3> <p>Well-Architected Framework specifics</p> </a>
+            <a href="7Rs_migration.html" class="card animate-on-scroll"> <i class="fa-solid fa-truck-fast"></i> <h3>7 R's Migration</h3> <p>Cloud migration strategies</p> </a>
+            <a href="account_management.html" class="card animate-on-scroll"> <i class="fa-solid fa-users-gear"></i> <h3>Account Mgmt</h3> <p>AWS Organizations & IAM</p> </a>
+            <a href="billing_and_support.html" class="card animate-on-scroll"> <i class="fa-solid fa-file-invoice-dollar"></i> <h3>Billing & Support</h3> <p>Pricing models & support logic</p> </a>
+            <a href="aws_support_plans.html" class="card animate-on-scroll"> <i class="fa-solid fa-life-ring"></i> <h3>Support Plans</h3> <p>Basic, Developer, Business, Enterprise</p> </a>
+            <a href="billing_costs_alarms.html" class="card animate-on-scroll"> <i class="fa-solid fa-bell"></i> <h3>Costs Alarms</h3> <p>Budgets & CloudWatch</p> </a>
+            <a href="cloud_adoption_CAF.html" class="card animate-on-scroll"> <i class="fa-solid fa-cloud"></i> <h3>AWS CAF</h3> <p>Cloud Adoption Framework</p> </a>
+            <a href="databases.html" class="card animate-on-scroll"> <i class="fa-solid fa-database"></i> <h3>Databases</h3> <p>RDS, DynamoDB, Aurora, Redshift</p> </a>
+            <a href="deployment_services.html" class="card animate-on-scroll"> <i class="fa-solid fa-rocket"></i> <h3>Deployment</h3> <p>Beanstalk, CloudFormation</p> </a>
+            <a href="EC2.html" class="card animate-on-scroll"> <i class="fa-solid fa-server"></i> <h3>EC2</h3> <p>Elastic Compute Cloud instances</p> </a>
+            <a href="monitoring.html" class="card animate-on-scroll"> <i class="fa-solid fa-magnifying-glass-chart"></i> <h3>Monitoring</h3> <p>CloudTrail & CloudWatch</p> </a>
+            <a href="other_services.html" class="card animate-on-scroll"> <i class="fa-solid fa-cubes"></i> <h3>Other Services</h3> <p>Misc AWS tools & analytics</p> </a>
+            <a href="S3_edge_computing.html" class="card animate-on-scroll"> <i class="fa-solid fa-hard-drive"></i> <h3>S3 & Edge</h3> <p>Storage classes & CloudFront</p> </a>
+            <a href="security_compliance.html" class="card animate-on-scroll"> <i class="fa-solid fa-shield-halved"></i> <h3>Security</h3> <p>WAF, Shield, KMS, Macie</p> </a>
+            <a href="well_architected_framework.html" class="card animate-on-scroll"> <i class="fa-solid fa-scale-balanced"></i> <h3>Well-Architected</h3> <p>Deep dive into the framework</p> </a>
+            <a href="VPC.html" class="card animate-on-scroll"> <i class="fa-solid fa-network-wired"></i> <h3>VPC</h3> <p>Virtual Private Cloud & Networking</p> </a>
+        </div>
+    </section>
+
+    <section id="dumpbits" class="dump-bits container">
+        <div class="section-header animate-on-scroll">
+            <h2>Dump Bits (400 Practice Questions)</h2>
+            <p style="color: var(--text-muted)">Real exam scenario questions to test your knowledge</p>
+        </div>
+        <div class="progress-ui animate-on-scroll">
+            <i class="fa-solid fa-spinner fa-spin" style="font-size: 3rem; color: var(--accent-purple); margin-bottom: 1rem;"></i>
+            <h3>Database Loading...</h3>
+            <p style="color: var(--text-muted); margin-top: 10px;">Preparing 400 questions for the interactive exam UI.</p>
+            <div class="progress-bar-bg"><div class="progress-fill"></div></div>
+            <p style="margin-bottom: 2rem;"><strong>Status:</strong> 15% - Mapping Questions</p>
+            <a href="dumpbits.html" class="btn-outline">Open Test Environment</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 AWS CLF-C02 Cheatsheet. Not affiliated with Amazon Web Services.</p>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); navLinks.classList.toggle('active'); });
+        document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { hamburger.classList.remove('active'); navLinks.classList.remove('active'); }); });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

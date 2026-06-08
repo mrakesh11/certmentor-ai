@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Migration: The 7Rs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #232f3e;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9900;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #232f3e;
+            color: white;
+            text-align: left;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px 4px;
+            font-weight: bold;
+        }
+        .strategy {
+            color: #d13212;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        .benefit {
+            color: #1e8900;
+            font-weight: bold;
+        }
+        .example {
+            color: #0073bb;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AWS Cloud Migration Strategies: The 7Rs</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Strategy</th>
+                    <th>Description</th>
+                    <th>Key Points & Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="strategy">1. Retire</span></td>
+                    <td>Turn off things you don't need (maybe as a result of Re-architecting)</td>
+                    <td>
+                        • Helps with <span class="highlight">reducing the surface areas for attacks</span> (more security)<br>
+                        • <span class="benefit">Save cost, maybe up to 10% to 20%</span><br>
+                        • Focus your attention on resources that must be maintained
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="strategy">2. Retain</span></td>
+                    <td>Do nothing for now (it's still a decision to make in a Cloud Migration)</td>
+                    <td>
+                        • <span class="highlight">Security, data compliance, performance, unresolved dependencies</span><br>
+                        • No business value to migrate<br>
+                        • <span class="example">Mainframe or mid-range and non-x86 Unix apps</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="strategy">3. Relocate</span></td>
+                    <td>Move apps from on-premises to its Cloud version</td>
+                    <td>
+                        • Move EC2 instances to a different VPC, AWS account or AWS Region<br>
+                        • <span class="example">Example: transfer servers from <span class="highlight">VMware Software-defined Data Center (SSDC) to VMware Cloud on AWS</span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="strategy">4. Rehost</span><br><span class="highlight">"lift and shift"</span></td>
+                    <td>Simple migrations by re-hosting on AWS (applications, databases, data…)</td>
+                    <td>
+                        • Migrate machines (physical, virtual, another Cloud) to AWS Cloud<br>
+                        • <span class="highlight">No cloud optimizations being done, applications is migrated as is</span><br>
+                        • <span class="benefit">Could save as much as 30% on cost</span><br>
+                        • <span class="example">Example: Migrate using AWS Application Migration Service</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="strategy">5. Refactor / Re-architect</span></td>
+                    <td>Reimagining how the application is architected using Cloud Native features</td>
+                    <td>
+                        • Driven by the need of the business to add features and improve <span class="highlight">scalability, performance, security, and agility</span><br>
+                        • <span class="highlight">Move from a monolithic application to micro-services</span><br>
+                        • <span class="example">Example: move an application to Serverless architectures, use AWS S3</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="strategy">6. Replatform</span></td>
+                    <td>Move to the cloud with some optimizations</td>
+                    <td>
+                        • <span class="highlight">Optimize without changing core architecture</span><br>
+                        • Make managed services part of your architecture<br>
+                        • <span class="example">Example: Migrate database to Amazon RDS or application to Elastic Beanstalk</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="strategy">7. Repurchase</span><br><span class="highlight">"drop and shop"</span></td>
+                    <td>Move to a different product</td>
+                    <td>
+                        • <span class="highlight">Abandon existing license and move to SaaS model</span><br>
+                        • End-of-support scenarios for deprecated products<br>
+                        • <span class="example">Example: Move from self-hosted CRM to Salesforce.com, on-premises email to Microsoft 365</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

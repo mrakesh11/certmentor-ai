@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Support Plans Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        
+        h1 {
+            color: #232f3e;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff9900;
+        }
+        
+        h2 {
+            color: #232f3e;
+            margin-top: 30px;
+            border-left: 4px solid #ff9900;
+            padding-left: 10px;
+        }
+        
+        .plan-container {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: #f9f9f9;
+        }
+        
+        .plan-name {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #232f3e;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .key-point {
+            background-color: #ffefd9;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+            color: #d35400;
+        }
+        
+        ul {
+            list-style-type: square;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #232f3e;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .compare-highlight {
+            background-color: #e8f4ff;
+        }
+        
+        .compare-yes {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        
+        .compare-no {
+            color: #c62828;
+        }
+        
+        .compare-limited {
+            color: #f57c00;
+        }
+        
+        .exam-tip {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>AWS Support Plans Cheat Sheet</h1>
+    
+    <div class="exam-tip">
+        <strong>Exam Tip:</strong> Understanding the differences between AWS support plans is crucial for the Cloud Practitioner exam. Pay special attention to response times, included services, and access to AWS support tools.
+    </div>
+
+    <h2>Individual Support Plan Configurations</h2>
+    
+    <div class="plan-container">
+        <div class="plan-name">Basic Support</div>
+        <ul>
+            <li>Included <span class="key-point">free for all AWS customers</span></li>
+            <li>Access to <span class="key-point">documentation, whitepapers, and support forums</span></li>
+            <li>Access to <span class="key-point">AWS Trusted Advisor</span> - Limited to 7 core checks only</li>
+            <li>Access to <span class="key-point">AWS Personal Health Dashboard</span></li>
+            <li>Access to <span class="key-point">Customer Service & Communities</span> (billing and account questions)</li>
+            <li>No technical support for AWS services</li>
+            <li>No support cases</li>
+            <li>No third-party software support</li>
+        </ul>
+    </div>
+    
+    <div class="plan-container">
+        <div class="plan-name">Developer Support</div>
+        <ul>
+            <li>Everything in Basic Support</li>
+            <li><span class="key-point">Business hours</span> email access to Cloud Support Associates</li>
+            <li>Unlimited cases / 1 primary contact</li>
+            <li>General guidance response: <span class="key-point">< 24 hours</span></li>
+            <li>System impaired response: <span class="key-point">< 12 hours</span></li>
+            <li>No access to Infrastructure Event Management</li>
+            <li>No architectural guidance</li>
+            <li>Intended for <span class="key-point">experimentation and development</span> use cases</li>
+            <li>Starts at <span class="key-point">$29/month</span> (minimum)</li>
+        </ul>
+    </div>
+    
+    <div class="plan-container">
+        <div class="plan-name">Business Support</div>
+        <ul>
+            <li>Everything in Developer Support</li>
+            <li><span class="key-point">24/7 phone, email, and chat</span> access to Cloud Support Engineers</li>
+            <li>Unlimited cases / unlimited contacts</li>
+            <li>Access to <span class="key-point">full set of Trusted Advisor checks</span></li>
+            <li>Production system impaired response: <span class="key-point">< 4 hours</span></li>
+            <li>Production system down response: <span class="key-point">< 1 hour</span></li>
+            <li>Context-specific <span class="key-point">architectural guidance</span></li>
+            <li><span class="key-point">Third-party software support</span> for common operating systems</li>
+            <li>Access to <span class="key-point">Infrastructure Event Management</span> for additional fee</li>
+            <li>Intended for <span class="key-point">production workloads</span></li>
+            <li>Starts at <span class="key-point">$100/month</span> (minimum)</li>
+        </ul>
+    </div>
+    
+    <div class="plan-container">
+        <div class="plan-name">Enterprise On-Ramp Support</div>
+        <ul>
+            <li>Everything in Business Support</li>
+            <li>Access to a pool of <span class="key-point">Technical Account Managers (TAMs)</span></li>
+            <li><span class="key-point">Consultative review</span> for your AWS use case</li>
+            <li>Business-critical system down response: <span class="key-point">< 30 minutes</span></li>
+            <li>Access to <span class="key-point">proactive guidance</span> via TAMs</li>
+            <li>Access to <span class="key-point">Concierge Support Team</span></li>
+            <li>Access to <span class="key-point">one Infrastructure Event Management</span> per year</li>
+            <li>Intended for <span class="key-point">production/business critical workloads</span></li>
+            <li>Starts at <span class="key-point">$5,500/month</span> (minimum)</li>
+        </ul>
+    </div>
+    
+    <div class="plan-container">
+        <div class="plan-name">Enterprise Support</div>
+        <ul>
+            <li>Everything in Enterprise On-Ramp Support</li>
+            <li><span class="key-point">Designated</span> Technical Account Manager (TAM)</li>
+            <li>Business-critical system down response: <span class="key-point">< 15 minutes</span></li>
+            <li><span class="key-point">Application architecture guidance</span> - consultative review and guidance</li>
+            <li><span class="key-point">Infrastructure Event Management</span>, Well-Architected reviews, workshops included</li>
+            <li>Access to <span class="key-point">online training with self-paced labs</span></li>
+            <li>Access to <span class="key-point">management business reviews</span></li>
+            <li>Intended for <span class="key-point">mission-critical workloads</span></li>
+            <li>Starts at <span class="key-point">$15,000/month</span> (minimum)</li>
+        </ul>
+    </div>
+
+    <h2>Comparison Table of AWS Support Plans</h2>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Feature</th>
+                <th>Basic</th>
+                <th>Developer</th>
+                <th>Business</th>
+                <th>Enterprise On-Ramp</th>
+                <th>Enterprise</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="compare-highlight">
+                <td>Cost (Monthly Minimum)</td>
+                <td>Free</td>
+                <td>$29</td>
+                <td>$100</td>
+                <td>$5,500</td>
+                <td>$15,000</td>
+            </tr>
+            <tr>
+                <td>AWS Trusted Advisor Checks</td>
+                <td>7 core checks</td>
+                <td>7 core checks</td>
+                <td class="compare-yes">Full set (∼115)</td>
+                <td class="compare-yes">Full set (∼115)</td>
+                <td class="compare-yes">Full set (∼115)</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Technical Support</td>
+                <td class="compare-no">None</td>
+                <td class="compare-limited">Business hours (email)</td>
+                <td class="compare-yes">24/7 (email, chat, phone)</td>
+                <td class="compare-yes">24/7 (email, chat, phone)</td>
+                <td class="compare-yes">24/7 (email, chat, phone)</td>
+            </tr>
+            <tr>
+                <td>Support Cases</td>
+                <td class="compare-no">None</td>
+                <td>Unlimited (1 contact)</td>
+                <td class="compare-yes">Unlimited (unlimited contacts)</td>
+                <td class="compare-yes">Unlimited (unlimited contacts)</td>
+                <td class="compare-yes">Unlimited (unlimited contacts)</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Response Time (General Guidance)</td>
+                <td>N/A</td>
+                <td>< 24 hours</td>
+                <td>< 24 hours</td>
+                <td>< 24 hours</td>
+                <td>< 24 hours</td>
+            </tr>
+            <tr>
+                <td>Response Time (System Impaired)</td>
+                <td>N/A</td>
+                <td>< 12 hours</td>
+                <td>< 4 hours</td>
+                <td>< 4 hours</td>
+                <td>< 4 hours</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Response Time (Production System Down)</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>< 1 hour</td>
+                <td>< 1 hour</td>
+                <td>< 1 hour</td>
+            </tr>
+            <tr>
+                <td>Response Time (Business Critical System Down)</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td>N/A</td>
+                <td class="compare-yes">< 30 minutes</td>
+                <td class="compare-yes">< 15 minutes</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Technical Account Manager (TAM)</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-limited">Pooled</td>
+                <td class="compare-yes">Designated</td>
+            </tr>
+            <tr>
+                <td>Concierge Support Team</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-yes">Yes</td>
+                <td class="compare-yes">Yes</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Third-Party Software Support</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-yes">Yes</td>
+                <td class="compare-yes">Yes</td>
+                <td class="compare-yes">Yes</td>
+            </tr>
+            <tr>
+                <td>Infrastructure Event Management</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-limited">Additional fee</td>
+                <td class="compare-limited">One per year</td>
+                <td class="compare-yes">Included</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Architectural Guidance</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-limited">Context-specific</td>
+                <td class="compare-yes">Consultative review</td>
+                <td class="compare-yes">Consultative review + application architecture</td>
+            </tr>
+            <tr>
+                <td>Management Business Reviews</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-no">No</td>
+                <td class="compare-limited">Limited</td>
+                <td class="compare-yes">Yes</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Training Access</td>
+                <td class="compare-limited">Documentation only</td>
+                <td class="compare-limited">Documentation only</td>
+                <td class="compare-limited">Documentation only</td>
+                <td class="compare-limited">Limited</td>
+                <td class="compare-yes">Self-paced labs included</td>
+            </tr>
+            <tr>
+                <td>AWS Personal Health Dashboard</td>
+                <td class="compare-yes">Yes</td>
+                <td class="compare-yes">Yes</td>
+                <td class="compare-yes">Yes</td>
+                <td class="compare-yes">Yes</td>
+                <td class="compare-yes">Yes</td>
+            </tr>
+            <tr class="compare-highlight">
+                <td>Best For</td>
+                <td>Learning AWS</td>
+                <td>Experimentation</td>
+                <td>Production workloads</td>
+                <td>Business critical workloads</td>
+                <td>Mission critical workloads</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="exam-tip">
+        <strong>Key Exam Focus Areas:</strong>
+        <ul>
+            <li>Response time SLAs across different support tiers</li>
+            <li>The difference in Trusted Advisor access (7 core checks vs full set)</li>
+            <li>TAM availability (none, pooled, or designated)</li>
+            <li>Infrastructure Event Management availability</li>
+            <li>Third-party software support starting at Business tier</li>
+            <li>Which plans offer architectural guidance and to what extent</li>
+        </ul>
+    </div>
+</body>
+</html>

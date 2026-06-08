@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Shared Responsibility Model Cheat Sheet</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f7f8fc, #e1ecf9);
+      color: #333;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #1f4e79;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .column {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .column:hover {
+      transform: translateY(-5px);
+    }
+
+    .column h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #fff;
+      padding: 0.5rem;
+      border-radius: 10px;
+    }
+
+    .aws { background-color: #0073bb; }
+    .customer { background-color: #d9534f; }
+    .shared { background-color: #f0ad4e; }
+
+    ul {
+      list-style-type: none;
+      padding-left: 1rem;
+    }
+
+    ul li::before {
+      content: '\2714';
+      color: green;
+      margin-right: 0.5rem;
+    }
+
+    ul li {
+      margin: 0.6rem 0;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>AWS Shared Responsibility Model - Cheat Sheet</h1>
+  <div class="container">
+    <div class="column aws">
+      <h2>Managed by AWS</h2>
+      <ul>
+        <li>Physical Data Center Security</li>
+        <li>Hardware Maintenance</li>
+        <li>Global Infrastructure</li>
+        <li>Networking Facilities</li>
+        <li>Hypervisor Security</li>
+        <li>Storage Device Disposal</li>
+      </ul>
+    </div>
+
+    <div class="column shared">
+      <h2>Shared Responsibility</h2>
+      <ul>
+        <li>Patch Management (some services)</li>
+        <li>Identity and Access Management</li>
+        <li>Data Encryption (service-side)</li>
+        <li>Network Configuration</li>
+        <li>Logging and Monitoring</li>
+      </ul>
+    </div>
+
+    <div class="column customer">
+      <h2>Managed by Customer</h2>
+      <ul>
+        <li>Customer Data</li>
+        <li>User Access Control</li>
+        <li>Application Security</li>
+        <li>Firewall Configuration</li>
+        <li>Client-side Encryption</li>
+        <li>Operating System Patching</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,245 @@
+.viewer-container {
+    padding: 6rem 5% 4rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.viewer-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 15px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 1000px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.viewer-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.btn-back {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+.btn-back:hover {
+    color: white;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 5rem 0;
+    color: var(--accent-purple);
+    font-size: 1.5rem;
+}
+.loading-state i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* ========================================================
+   GLOBAL CHEATSHEET THEME OVERRIDES
+   Injecting sleek dark mode into the raw HTML content 
+   ======================================================== */
+
+.cheatsheet-content {
+    color: var(--text-main);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.cheatsheet-content h1 {
+    font-size: 2.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(122, 34, 255, 0.3);
+}
+
+.cheatsheet-content h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--card-border);
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cheatsheet-content h3 {
+    color: var(--accent-blue);
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cheatsheet-content p {
+    margin-bottom: 1.5rem;
+    color: var(--text-muted);
+    text-align: justify;
+    letter-spacing: 0.2px;
+}
+
+.cheatsheet-content ul, .cheatsheet-content ol {
+    margin-left: 20px;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+.cheatsheet-content li {
+    margin-bottom: 0.8rem;
+    text-align: justify;
+    letter-spacing: 0.2px;
+    padding-left: 5px;
+}
+
+.cheatsheet-content b, .cheatsheet-content strong {
+    color: white;
+    font-weight: 600;
+}
+
+/* Tables */
+.cheatsheet-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cheatsheet-content th {
+    background: rgba(122, 34, 255, 0.2);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent-purple);
+}
+
+.cheatsheet-content td {
+    padding: 15px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-muted);
+}
+
+.cheatsheet-content tr:last-child td {
+    border-bottom: none;
+}
+.cheatsheet-content tr:hover td {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+/* Special Classes mapped from their original files */
+
+.cheatsheet-content .highlight {
+    background: rgba(0, 210, 255, 0.15);
+    color: var(--accent-blue);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.cheatsheet-content .important {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid var(--wrong-red);
+    padding: 15px 20px;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+}
+.cheatsheet-content .important strong {
+    color: #fca5a5;
+}
+
+.cheatsheet-content .mnemonic {
+    background: rgba(122, 34, 255, 0.1);
+    border: 1px solid rgba(122, 34, 255, 0.3);
+    padding: 20px;
+    margin: 2rem 0;
+    border-radius: 10px;
+    text-align: center;
+}
+.cheatsheet-content .mnemonic h4 {
+    color: var(--accent-purple);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.cheatsheet-content .use-case {
+    background: rgba(16, 185, 129, 0.05);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+.cheatsheet-content .pillar {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 5px solid var(--accent-blue);
+    padding: 25px 30px;
+    margin: 2rem 0;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.cheatsheet-content .pillar:hover {
+    transform: translateX(10px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.cheatsheet-content .exam-tip {
+    background: rgba(255, 165, 0, 0.1);
+    border-left: 4px solid #fb923c;
+    padding: 15px;
+    margin: 2rem 0;
+    border-radius: 0 10px 10px 0;
+}
+.cheatsheet-content .exam-tip h4 {
+    color: #fb923c;
+    margin-bottom: 10px;
+}
+
+.cheatsheet-content .connection {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.cheatsheet-content .connection-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s, border-color 0.3s;
+}
+.cheatsheet-content .connection-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-blue);
+}
+.cheatsheet-content .connection-card h4 {
+    color: var(--accent-blue);
+    margin-top: 0; margin-bottom: 10px;
+}
+
+.error-msg {
+    color: var(--wrong-red);
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 5rem;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Billing & Cost Management Cheat Sheet</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="bg-gray-100 text-gray-800 p-6">
+  <div class="max-w-5xl mx-auto">
+    <h1 class="text-4xl font-bold mb-4 text-center text-blue-700">💰 AWS Billing & Cost Management Cheat Sheet</h1>
+
+    <!-- Estimating Costs -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-green-600 mb-2">📊 Estimating Costs</h2>
+      <div class="bg-white shadow-md rounded-xl p-4">
+        <h3 class="text-xl font-bold text-gray-700">AWS Pricing Calculator</h3>
+        <p class="mt-2 text-gray-600">Estimate your monthly costs before deploying. Add services, configure them, and see real-time pricing. Great for budgeting and comparing costs across regions.</p>
+        <div class="mt-2 text-sm text-blue-500 italic">Tip: Use this before deploying any service to avoid billing surprises!</div>
+      </div>
+    </section>
+
+    <!-- Tracking Costs -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-yellow-600 mb-2">📈 Tracking Costs</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white shadow-md rounded-xl p-4">
+          <h3 class="font-bold text-gray-700">Billing Dashboard</h3>
+          <p class="text-gray-600">Overview of total charges, payment history, and upcoming bills.</p>
+        </div>
+        <div class="bg-white shadow-md rounded-xl p-4">
+          <h3 class="font-bold text-gray-700">Cost Allocation Tags</h3>
+          <p class="text-gray-600">Assign tags to resources to track costs by team, department, or project.</p>
+          <div class="text-sm italic text-blue-500 mt-1">Tip: Activate tags in Billing Console first!</div>
+        </div>
+        <div class="bg-white shadow-md rounded-xl p-4">
+          <h3 class="font-bold text-gray-700">Cost & Usage Reports (CUR)</h3>
+          <p class="text-gray-600">Detailed CSV reports stored in S3. Great for analytics and audits.</p>
+          <div class="text-sm italic text-blue-500 mt-1">Best for integration with tools like QuickSight or Athena.</div>
+        </div>
+        <div class="bg-white shadow-md rounded-xl p-4">
+          <h3 class="font-bold text-gray-700">Cost Explorer</h3>
+          <p class="text-gray-600">Visualize spending patterns with charts and filters.</p>
+          <div class="text-sm italic text-blue-500 mt-1">Use it to detect spikes and forecast future usage.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Monitoring Against Plans -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-red-600 mb-2">⏰ Monitoring Against Cost Plans</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white shadow-md rounded-xl p-4">
+          <h3 class="font-bold text-gray-700">Billing Alarms</h3>
+          <p class="text-gray-600">Set alarms in CloudWatch when estimated charges exceed a threshold.</p>
+          <div class="text-sm italic text-blue-500 mt-1">Good for real-time alerts on overspending.</div>
+        </div>
+        <div class="bg-white shadow-md rounded-xl p-4">
+          <h3 class="font-bold text-gray-700">Budgets</h3>
+          <p class="text-gray-600">Set monthly/quarterly budgets by service, linked to email/SNS alerts.</p>
+          <div class="text-sm italic text-blue-500 mt-1">Visual dashboard + alerts = proactive cost control.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary Tips -->
+    <section class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-xl">
+      <h3 class="font-bold mb-2">Easy Way to Remember</h3>
+      <ul class="list-disc pl-6">
+        <li><strong>Estimate</strong> first with <span class="text-green-700">Pricing Calculator</span></li>
+        <li><strong>Track</strong> via <span class="text-yellow-700">Dashboard, Tags, CUR, Explorer</span></li>
+        <li><strong>Monitor</strong> using <span class="text-red-700">Alarms & Budgets</span></li>
+      </ul>
+      <div class="mt-2 italic">Use E-T-M (Estimate → Track → Monitor) to memorize easily!</div>
+    </section>
+  </div>
+</body>
+
+</html>

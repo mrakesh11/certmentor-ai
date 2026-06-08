@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Cloud Practitioner Exam Cheat Sheet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .header {
+            text-align: center;
+            background-color: #232f3e;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        
+        h2 {
+            border-bottom: 2px solid #ff9900;
+            padding-bottom: 5px;
+            color: #232f3e;
+            margin-top: 30px;
+        }
+        
+        h3 {
+            color: #316dca;
+            margin-top: 20px;
+        }
+        
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            flex: 1 1 45%;
+            min-width: 300px;
+        }
+        
+        .full-width {
+            flex: 1 1 100%;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: #0066c0;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .key-point {
+            background-color: #eef4ff;
+            border-left: 4px solid #316dca;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #fff8e6;
+            border-left: 4px solid #ff9900;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f7ff;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AWS Cloud Practitioner Exam Cheat Sheet</h1>
+        <p>Essential concepts and services for the AWS Certified Cloud Practitioner exam</p>
+    </div>
+    
+    <div class="container">
+        <div class="section">
+            <h2>AWS Right Sizing</h2>
+            <div class="key-point">
+                <p>The process of matching instance types and sizes to workload requirements at the lowest possible cost.</p>
+            </div>
+            <ul>
+                <li><strong>Principle:</strong> EC2 has many instance types, but the most powerful isn't always the best choice due to the elastic nature of the cloud.</li>
+                <li><strong>Best Practice:</strong> Scaling up is easy, so always start small.</li>
+                <li><strong>Definition:</strong> Identifying opportunities to eliminate or downsize resources without compromising capacity requirements.</li>
+                <li><strong>When to Right Size:</strong>
+                    <ul>
+                        <li>Before cloud migration</li>
+                        <li>Continuously after onboarding (requirements change over time)</li>
+                    </ul>
+                </li>
+                <li><strong>Tools that help:</strong> CloudWatch, Cost Explorer, Trusted Advisor, and 3rd party tools</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>AWS Ecosystem - Free Resources</h2>
+            <ul>
+                <li><a href="https://aws.amazon.com/blogs/aws/" target="_blank">AWS Blogs</a></li>
+                <li><a href="https://forums.aws.amazon.com/index.jspa" target="_blank">AWS Forums (community)</a></li>
+                <li><a href="https://aws.amazon.com/whitepapers" target="_blank">AWS Whitepapers & Guides</a></li>
+                <li><a href="https://aws.amazon.com/solutions/" target="_blank">AWS Solutions Library</a> (formerly Quick Starts)
+                    <ul>
+                        <li>Vetted Technology Solutions for AWS Cloud</li>
+                        <li>Example: <a href="https://aws.amazon.com/solutions/implementations/live-streaming-on-aws" target="_blank">Live streaming on AWS</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>AWS Marketplace</h2>
+            <div class="key-point">
+                <p>Digital catalog with thousands of software listings from independent software vendors (3rd party)</p>
+            </div>
+            <h3>Examples:</h3>
+            <ul>
+                <li>Custom AMI (custom OS, firewalls, technical solutions)</li>
+                <li>CloudFormation templates</li>
+                <li>Software as a Service</li>
+                <li>Containers</li>
+            </ul>
+            <div class="note">
+                <p>If you purchase through AWS Marketplace, it goes into your AWS bill</p>
+                <p>You can sell your own solutions on the AWS Marketplace</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>AWS Training</h2>
+            <ul>
+                <li>AWS Digital (online) and Classroom Training (in-person or virtual)</li>
+                <li>AWS Private Training (for your organization)</li>
+                <li>Training and Certification for the U.S Government</li>
+                <li>Training and Certification for the Enterprise</li>
+                <li>AWS Academy: helps universities teach AWS</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>AWS Professional Services & Partner Network</h2>
+            <div class="key-point">
+                <p>The AWS Professional Services organization is a global team of experts that work alongside your team and a chosen member of the APN.</p>
+            </div>
+            <h3>APN (AWS Partner Network)</h3>
+            <ul>
+                <li><strong>APN Technology Partners:</strong> Provide hardware, connectivity, and software</li>
+                <li><strong>APN Consulting Partners:</strong> Professional services firms that help build on AWS</li>
+                <li><strong>APN Training Partners:</strong> Help you learn AWS</li>
+            </ul>
+            <h3>AWS Partner Programs</h3>
+            <ul>
+                <li><strong>AWS Competency Program:</strong> Granted to APN Partners who demonstrate technical proficiency and proven customer success in specialized solution areas</li>
+                <li><strong>AWS Navigate Program:</strong> Helps Partners become better Partners</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>AWS IQ</h2>
+            <ul>
+                <li>Quickly find professional help for AWS projects</li>
+                <li>Engage and pay AWS Certified 3rd party experts for on-demand project work</li>
+                <li>Features: Video-conferencing, contract management, secure collaboration, integrated billing</li>
+                <li>Designed for AWS customers seeking expert assistance</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>AWS re:Post</h2>
+            <div class="key-point">
+                <p>AWS-managed Q&A service offering crowd-sourced, expert-reviewed answers to technical questions about AWS (replaces original AWS Forums)</p>
+            </div>
+            <ul>
+                <li>Part of the AWS Free Tier</li>
+                <li>Community members earn reputation points to build their community expert status</li>
+                <li>Questions from AWS Premium Support customers that don't receive community responses are passed to AWS Support engineers</li>
+                <li>Not intended for time-sensitive questions or proprietary information</li>
+                <li>Contains the most frequent & common questions and requests</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>AWS Managed Services (AMS)</h2>
+            <div class="key-point">
+                <p>Provides infrastructure and application support on AWS</p>
+            </div>
+            <ul>
+                <li>Offers a team of AWS experts who manage and operate your infrastructure for security, reliability, and availability</li>
+                <li>Helps organizations offload routine management tasks to focus on business objectives</li>
+                <li>Fully managed service handling common activities:
+                    <ul>
+                        <li>Change requests</li>
+                        <li>Monitoring</li>
+                        <li>Patch management</li>
+                        <li>Security</li>
+                        <li>Backup services</li>
+                    </ul>
+                </li>
+                <li>Implements best practices and maintains AWS infrastructure to reduce operational overhead and risk</li>
+                <li>AMS business hours: 24/365</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>AWS Cloud Practitioner Exam Cheat Sheet | Created for exam preparation</p>
+    </div>
+</body>
+</html>

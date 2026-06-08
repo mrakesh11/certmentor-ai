@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AWS VPC Cheatsheet for CCP Exam</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    header {
+      background-color: #232f3e;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .aws-logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      height: 30px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #ff9900;
+    }
+    .section {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    h2 {
+      color: #232f3e;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 5px;
+      display: inline-block;
+    }
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      position: relative;
+      border-left: 5px solid transparent;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    }
+    .network {
+      border-left-color: #36c2f6; /* Blue */
+    }
+    .security {
+      border-left-color: #ff5252; /* Red */
+    }
+    .connectivity {
+      border-left-color: #4caf50; /* Green */
+    }
+    .monitoring {
+      border-left-color: #ff9900; /* Orange */
+    }
+    h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+    }
+    .card-content {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .key-point {
+      background-color: #fff8e1;
+      padding: 8px 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      font-size: 13px;
+      border-left: 3px solid #ffc107;
+    }
+    .highlight {
+      padding: 0 3px;
+      border-radius: 3px;
+      font-weight: bold;
+    }
+    .blue {
+      color: #0277bd;
+      background-color: #e1f5fe;
+    }
+    .red {
+      color: #c62828;
+      background-color: #ffebee;
+    }
+    .green {
+      color: #2e7d32;
+      background-color: #e8f5e9;
+    }
+    .purple {
+      color: #6a1b9a;
+      background-color: #f3e5f5;
+    }
+    .orange {
+      color: #e65100;
+      background-color: #fff3e0;
+    }
+    .mnemonic {
+      margin-top: 8px;
+      font-style: italic;
+      color: #673ab7;
+      font-size: 13px;
+    }
+    footer {
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      background-color: #232f3e;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .service-icon-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="/api/placeholder/120/40" alt="AWS Logo" class="aws-logo" />
+      <h1>AWS VPC Services Cheatsheet</h1>
+      <div class="subtitle">For AWS Certified Cloud Practitioner Exam</div>
+    </header>
+    
+    <div class="section">
+      <h2>Core VPC Concepts</h2>
+      <div class="grid-container">
+        <div class="card network">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="VPC Icon" class="service-icon" />
+            <h3>Virtual Private Cloud</h3>
+          </div>
+          <div class="card-content">
+            Your own isolated section of the AWS cloud where you launch AWS resources.
+            <div class="key-point">
+              Think of a VPC as your own <span class="highlight blue">private data center</span> in the AWS cloud.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> VPC = Virtual Private Cloudspace
+            </div>
+          </div>
+        </div>
+        
+        <div class="card network">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Subnet Icon" class="service-icon" />
+            <h3>Subnets</h3>
+          </div>
+          <div class="card-content">
+            Network partitions of the VPC that are <span class="highlight red">tied to an Availability Zone</span>.
+            <div class="key-point">
+              Subnets can be <span class="highlight green">public</span> (with internet access) or <span class="highlight purple">private</span> (internal only).
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> One Subnet = One AZ (never spans multiple AZs)
+            </div>
+          </div>
+        </div>
+        
+        <div class="card network">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Internet Gateway Icon" class="service-icon" />
+            <h3>Internet Gateway</h3>
+          </div>
+          <div class="card-content">
+            Provides <span class="highlight blue">internet access</span> to resources in your VPC.
+            <div class="key-point">
+              Attached at the <span class="highlight orange">VPC level</span>, not to individual subnets.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> The Door to the Internet
+            </div>
+          </div>
+        </div>
+        
+        <div class="card network">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="NAT Gateway Icon" class="service-icon" />
+            <h3>NAT Gateway / Instances</h3>
+          </div>
+          <div class="card-content">
+            Gives <span class="highlight green">private subnets access to the internet</span> without allowing inbound connections.
+            <div class="key-point">
+              <span class="highlight blue">One-way door</span>: Outbound traffic only.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> NAT = "Need Access To" internet for private resources
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Security Components</h2>
+      <div class="grid-container">
+        <div class="card security">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="NACL Icon" class="service-icon" />
+            <h3>Network ACLs</h3>
+          </div>
+          <div class="card-content">
+            <span class="highlight red">Stateless</span> firewall that operates at the <span class="highlight blue">subnet level</span>.
+            <div class="key-point">
+              Must configure separate rules for <span class="highlight orange">inbound AND outbound</span> traffic.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> NACL = No Auto Connection Return Logic (stateless)
+            </div>
+          </div>
+        </div>
+        
+        <div class="card security">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Security Group Icon" class="service-icon" />
+            <h3>Security Groups</h3>
+          </div>
+          <div class="card-content">
+            <span class="highlight green">Stateful</span> firewall that operates at the <span class="highlight purple">instance level</span> or ENI.
+            <div class="key-point">
+              Return traffic is <span class="highlight blue">automatically allowed</span> regardless of outbound rules.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> Security Groups Remember (stateful)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>VPC Connectivity Options</h2>
+      <div class="grid-container">
+        <div class="card connectivity">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="VPC Peering Icon" class="service-icon" />
+            <h3>VPC Peering</h3>
+          </div>
+          <div class="card-content">
+            Connect two VPCs with <span class="highlight red">non-overlapping IP ranges</span>.
+            <div class="key-point">
+              <span class="highlight purple">Non-transitive</span> (A connected to B and B to C doesn't mean A connects to C).
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> Peers Don't Share Friends (non-transitive)
+            </div>
+          </div>
+        </div>
+        
+        <div class="card network">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Elastic IP Icon" class="service-icon" />
+            <h3>Elastic IP</h3>
+          </div>
+          <div class="card-content">
+            Fixed public IPv4 address that can be associated with an instance or ENI.
+            <div class="key-point">
+              <span class="highlight red">Costs money</span> when not in use.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "Elastic = Expensive" when idle
+            </div>
+          </div>
+        </div>
+        
+        <div class="card connectivity">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="VPC Endpoints Icon" class="service-icon" />
+            <h3>VPC Endpoints</h3>
+          </div>
+          <div class="card-content">
+            Provide <span class="highlight green">private access</span> to AWS services within a VPC.
+            <div class="key-point">
+              No need for internet gateway or NAT; <span class="highlight blue">stays within AWS network</span>.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "Private Path to AWS Services"
+            </div>
+          </div>
+        </div>
+        
+        <div class="card connectivity">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="PrivateLink Icon" class="service-icon" />
+            <h3>PrivateLink</h3>
+          </div>
+          <div class="card-content">
+            Privately connect to services in a <span class="highlight purple">3rd party VPC</span>.
+            <div class="key-point">
+              Secure way to consume services across VPC boundaries.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "Secret Tunnel to Partner Services"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Hybrid Connectivity & Monitoring</h2>
+      <div class="grid-container">
+        <div class="card monitoring">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="VPC Flow Logs Icon" class="service-icon" />
+            <h3>VPC Flow Logs</h3>
+          </div>
+          <div class="card-content">
+            Capture <span class="highlight orange">network traffic</span> information for your VPC.
+            <div class="key-point">
+              Helps with <span class="highlight blue">troubleshooting</span> and security monitoring.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "Network Traffic Diary"
+            </div>
+          </div>
+        </div>
+        
+        <div class="card connectivity">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Site-to-Site VPN Icon" class="service-icon" />
+            <h3>Site-to-Site VPN</h3>
+          </div>
+          <div class="card-content">
+            VPN connection over <span class="highlight red">public internet</span> between on-premises DC and AWS.
+            <div class="key-point">
+              <span class="highlight purple">Encrypted tunnel</span> but subject to internet performance.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "Public Internet Tunnel"
+            </div>
+          </div>
+        </div>
+        
+        <div class="card connectivity">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Client VPN Icon" class="service-icon" />
+            <h3>Client VPN</h3>
+          </div>
+          <div class="card-content">
+            <span class="highlight green">OpenVPN</span> connection from your computer into your VPC.
+            <div class="key-point">
+              Secure remote access for employees.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "WFH Access" (Work From Home)
+            </div>
+          </div>
+        </div>
+        
+        <div class="card connectivity">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Direct Connect Icon" class="service-icon" />
+            <h3>Direct Connect</h3>
+          </div>
+          <div class="card-content">
+            <span class="highlight blue">Direct private connection</span> to AWS.
+            <div class="key-point">
+              More <span class="highlight purple">reliable</span>, <span class="highlight green">faster</span>, and <span class="highlight orange">lower latency</span> than internet-based connections.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "Private Highway to AWS" (no internet)
+            </div>
+          </div>
+        </div>
+        
+        <div class="card connectivity">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Transit Gateway Icon" class="service-icon" />
+            <h3>Transit Gateway</h3>
+          </div>
+          <div class="card-content">
+            Connect <span class="highlight orange">thousands of VPCs</span> and on-premises networks together.
+            <div class="key-point">
+              Acts as a <span class="highlight blue">central hub</span> for network traffic.
+            </div>
+            <div class="mnemonic">
+              <b>✓ Remember:</b> "Network Hub for Everything" (star topology)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section">
+      <h2>Exam Tips</h2>
+      <div class="grid-container">
+        <div class="card">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Comparison Icon" class="service-icon" />
+            <h3>Key Comparisons</h3>
+          </div>
+          <div class="card-content">
+            <ul style="padding-left: 20px; margin-top: 5px;">
+              <li><span class="highlight red">Security Groups vs NACLs</span>: Stateful vs Stateless</li>
+              <li><span class="highlight green">Internet Gateway vs NAT Gateway</span>: Public access vs Private outbound</li>
+              <li><span class="highlight blue">VPC Peering vs Transit Gateway</span>: Direct connection vs Hub-and-spoke</li>
+              <li><span class="highlight purple">Direct Connect vs Site-to-Site VPN</span>: Private dedicated vs Public internet</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="service-icon-container">
+            <img src="/api/placeholder/40/40" alt="Exam Focus Icon" class="service-icon" />
+            <h3>Exam Focus Areas</h3>
+          </div>
+          <div class="card-content">
+            <ul style="padding-left: 20px; margin-top: 5px;">
+              <li>Know <span class="highlight blue">when to use each connectivity option</span></li>
+              <li>Understand <span class="highlight green">cost implications</span> (e.g., Elastic IP when not in use)</li>
+              <li>Recognize <span class="highlight purple">security best practices</span> for VPC design</li>
+              <li>Remember <span class="highlight orange">limitations</span> of each service (e.g., VPC Peering being non-transitive)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer>
+      AWS VPC Cheatsheet for Certified Cloud Practitioner (CCP) Exam © 2025
+    </footer>
+  </div>
+</body>
+</html>

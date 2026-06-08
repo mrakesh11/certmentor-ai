@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWS Well-Architected Framework Cheat Sheet</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f9ff;
+      margin: 0;
+      padding: 2rem;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1d4ed8;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .pillar {
+      background: white;
+      border-left: 8px solid #1d4ed8;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      margin: 1rem 0;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+    }
+
+    .pillar h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+      color: #1e40af;
+    }
+
+    .highlight {
+      background-color: #e0f2fe;
+      font-weight: bold;
+      color: #0c4a6e;
+      padding: 0 0.3rem;
+      border-radius: 4px;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin: 0.5rem 0;
+    }
+
+    .emoji {
+      font-size: 1.2rem;
+      margin-right: 0.3rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>💡 AWS Well-Architected Framework – 6 Pillars</h1>
+
+  <div class="pillar">
+    <h2>1️⃣ Operational Excellence</h2>
+    <ul>
+      <li><span class="emoji">⚙️</span>Focus on <span class="highlight">operations, monitoring</span>, and <span class="highlight">continuous improvement</span></li>
+      <li><span class="emoji">🔄</span>Automate manual processes</li>
+      <li><span class="emoji">🧪</span>Use <span class="highlight">runbooks, playbooks, and game days</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h2>2️⃣ Security</h2>
+    <ul>
+      <li><span class="emoji">🔐</span>Protect data with <span class="highlight">confidentiality, integrity, and availability</span></li>
+      <li><span class="emoji">🧑‍💻</span>Use <span class="highlight">least privilege access</span> (IAM best practices)</li>
+      <li><span class="emoji">📋</span>Enable <span class="highlight">auditing, logging (CloudTrail, CloudWatch)</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h2>3️⃣ Reliability</h2>
+    <ul>
+      <li><span class="emoji">🔁</span>Ensure <span class="highlight">workload recovery, fault tolerance, and failover</span></li>
+      <li><span class="emoji">🛠️</span>Test <span class="highlight">recovery procedures regularly</span></li>
+      <li><span class="emoji">📦</span>Use <span class="highlight">multi-AZ, backups, and auto-scaling</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h2>4️⃣ Performance Efficiency</h2>
+    <ul>
+      <li><span class="emoji">🚀</span>Use <span class="highlight">right resources for workload</span></li>
+      <li><span class="emoji">🌎</span>Adopt new tech like <span class="highlight">serverless, containers, and caching</span></li>
+      <li><span class="emoji">📈</span>Monitor performance and <span class="highlight">adjust based on demand</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h2>5️⃣ Cost Optimization</h2>
+    <ul>
+      <li><span class="emoji">💸</span>Avoid unnecessary costs and <span class="highlight">pay only for what you use</span></li>
+      <li><span class="emoji">📉</span>Use <span class="highlight">Savings Plans, RIs, Auto Scaling</span></li>
+      <li><span class="emoji">🔍</span>Monitor with <span class="highlight">AWS Budgets, Cost Explorer</span></li>
+    </ul>
+  </div>
+
+  <div class="pillar">
+    <h2>6️⃣ Sustainability 🌱</h2>
+    <ul>
+      <li><span class="emoji">🌍</span>Minimize <span class="highlight">environmental impact</span> of cloud workloads</li>
+      <li><span class="emoji">💡</span>Use <span class="highlight">efficient infrastructure and shared resources</span></li>
+      <li><span class="emoji">📊</span>Track sustainability improvements over time</li>
+    </ul>
+  </div>
+</body>
+</html>
