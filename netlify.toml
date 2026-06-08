@@ -1,4 +1,7 @@
 [build]
   base = "frontend"
   publish = "dist"
-  command = "npm install --legacy-peer-deps && npm run build"
+  command = "npm run build"
+
+[build.environment]
+  NPM_CONFIG_LEGACY_PEER_DEPS = "true"
