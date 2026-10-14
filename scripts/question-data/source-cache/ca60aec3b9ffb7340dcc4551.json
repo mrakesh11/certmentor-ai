@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/aws-backup/latest/devguide/what-is.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:01.889Z",
+  "sha256": "6cfa00788dc990c80457a0f2d1faff9e1d752976d20fb5eed755cdad460c3d86",
+  "bytes": 32812,
+  "chars": 13727,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html"
+  ]
+}

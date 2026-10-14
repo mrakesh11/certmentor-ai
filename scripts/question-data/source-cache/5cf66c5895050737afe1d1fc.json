@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/welcome.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:47:08.206Z",
+  "sha256": "8681e04681f07baab34a76238481946258a75411112c7b4c098b2458bbffe55e",
+  "bytes": 14791,
+  "chars": 2377,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/sustainability-pillar.html"
+  ]
+}

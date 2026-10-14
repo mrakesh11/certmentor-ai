@@ -1,0 +1,333 @@
+AWS Solutions Library | Amazon Web Services | AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ AWS Solutions Library
+ Industry 
+ Cross-Industry 
+ Technology 
+ Browse By 
+ What are Solutions? 
+ Resources 
+ AWS 
+ AWS Solutions Library 
+ AWS Solutions Library
+ Vetted solutions and guidance for business and technical use cases
+ Solve common challenges faster
+ We develop solutions that address our customers' most common challenges across a range of industry and technical use cases. Each solution is thoroughly vetted by AWS architects for reliability, security, and cost-efficiency. We've packaged everything you need—from detailed guides to deployable code—making it easier than ever to get started and deliver business value faster. 
+ Play 
+ Popular solutions
+ AWS Solution 
+ Innovation Sandbox on AWS
+ Accelerate your cloud innovation with secure, cost effective, and recyclable temporary sandbox environments
+ Learn more 
+ AWS Solution 
+ DeepRacer on AWS
+ With DeepRacer on AWS you'll learn fundamental concepts, skills, and machine learning (ML) training techniques that power foundation models in some of the most advanced generative AI applications today through the fun of racing autonomous cars.
+ Learn more 
+ AWS Solution 
+ Distributed Load Testing on AWS
+ Deploy a solution that provisions the products and services necessary to automate application load testing.
+ Learn more 
+ Guidance 
+ Generative AI Deployments using Amazon SageMaker JumpStart
+ This Guidance demonstrates how to deploy a generative artificial intelligence (AI) model provided by Amazon SageMaker JumpStart to create an asynchronous SageMaker endpoint with the ease of the AWS Cloud Development Kit (AWS CDK).
+ Learn more 
+ Guidance 
+ Accelerated Intelligent Document Processing on AWS
+ This Guidance demonstrates a scalable, serverless approach for automated document processing and information extraction using AWS services, such as Amazon Bedrock Data Automation and Amazon Bedrock foundational models.
+ Learn more 
+ Guidance 
+ Cloud Intelligence Dashboards on AWS
+ This solution demonstrates how to deploy Cloud Intelligence Dashboards in your AWS environment using AWS CloudFormation templates or command line tools.
+ Learn more 
+ Customer success stories
+ Learn how customers accelerated their cloud journeys with solutions from AWS
+ Case study 
+ Testing Big Projects Using Distributed Load Testing on AWS with Sony Music Solutions Inc.
+ Read the case study 
+ Case study 
+ Notorious Studios Builds a Scalable Game Analytics Pipeline for Player Research on AWS
+ Read the case study 
+ Case study 
+ TUI Enhances Security Control Management with Automated Security Response on AWS
+ Read the case study 
+ Find solutions by category
+ Filter 
+ Displaying 1-8 (9) 
+ Displaying 1-8 (9) 
+ Industry 
+ Advertising and Marketing
+ View solutions 
+ Industry 
+ Aerospace and Satellite
+ View solutions 
+ Industry 
+ Agriculture
+ View solutions 
+ Technical 
+ Analytics
+ View solutions 
+ Technical 
+ Application Development and DevOps
+ View solutions 
+ Technical 
+ Artificial Intelligence
+ View solutions 
+ Industry 
+ Automotive
+ View solutions 
+ Technical 
+ Blockchain
+ View solutions 
+ Show 1 more 
+ Technical
+ Cloud Foundations
+ View solutions
+ Browse all solutions
+ Filter 
+ Displaying 1-8 (9) 
+ Displaying 1-8 (9) 
+ Partner Solution 
+ Algosec Cloud Enterprise
+ AlgoSec Cloud Enterprise (ACE) is a comprehensive application-centric security solution built for the modern cloud enterprise. Gain application visibility, enhance network security, and ensure compliance across your multi-cloud environment. 
+ Learn more 
+ Guidance 
+ Deploy a PoC for Amazon S3 Tables
+ This Guidance helps organizations validate a fully managed Apache Iceberg table workflow on Amazon S3 Tables by deploying a proof of concept that covers table creation, multi-engine querying, and streaming ingestion. 
+ Learn more 
+ Partner Solution 
+ PAR Punchh
+ PAR Punchh is a loyalty offers and engagement platform built for modern restaurant brands, helping teams create programs that match their brand—not a template. It unifies guest data, segmentation, and omnichannel rewards so brands can acquire, retain, and grow customer value with flexibility and expert support. 
+ Learn more 
+ Guidance 
+ Retail Demand Forecasting and Planning on AWS
+ This Guidance demonstrates how retail organizations can develop accurate estimates of future customer demand through systematic forecasting processes. 
+ Learn more 
+ Partner Solution 
+ AWS Networking powered by Tech M's netops.ai
+ Tech Mahindra provides customers with well-architected, secure, and scalable AWS Networking solutions for complex network scenarios such as using AWS Direct Connect for dedicated network connections, VPN connections for secure communication between locations and multi-account environments using Control Tower. Offerings include effective network architecture solutions for content-based applications, while proactively identifying and implementing new solutions that drive innovation and business value, while ensuring ease of maintenance and governance. 
+ Learn more 
+ Guidance 
+ Agentic Network Firewall Automation
+ This Guidance demonstrates how to automate the complete Network Firewall change lifecycle using AWS AgentCore as an orchestration layer, integrating ServiceNow, OpenSearch, DynamoDB, and Azure DevOps into a unified CI/CD pipeline. 
+ Learn more 
+ Partner Solution 
+ Network Digital Twin
+ Streamlining Network Impact Assessments to Enhance Customer Experience. Disconnected processes and scattered data often lead to inefficiencies and reliance on manual methods, increasing the risk of delays and errors. CSP’s must thoroughly assess the impact that network changes can have on customers and their services. Current dispersed processes, technology stack, and data pose significant challenges in identifying which components and connections within the network might be impacted by interventions or by network failures. 
+ Learn more 
+ Partner Solution 
+ Mobile Core Network -- Control Plane
+ The WG2 core is a mobile core implemented with a web-scale approach. It has been rebuilt to be secure, scalable, flexible, and programmable. We have made choices that radically simplify development, integration, deployment and operations of the core, and pass these benefits on to our customers. 
+ Learn more 
+ Show 1 more 
+ Partner Solution
+ Custom Predictive Maintenance and Operational Intelligence Services
+ Harness the power of AWS-native Machine Learning and IoT to predict failures before they happen. Valuedate provides the engineering expertise to design, implement, and scale custom Advanced Operations Centers (AOC) tailored to your specific industrial infrastructure.
+ Learn more
+ Did you find what you were looking for today?
+ Let us know so we can improve the quality of the content on our pages
+ Yes 
+ No 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

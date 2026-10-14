@@ -1,0 +1,324 @@
+Smash tech debt and get AI ready – AWS Transform – AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ AWS Transform
+ Overview 
+ Use cases 
+ FAQs 
+ Pricing 
+ Partners 
+ Products 
+ Migration and Modernization 
+ AWS Transform 
+ AWS Transform
+ From migration to continuous modernization, reducing technical debt at scale with agentic AI
+ Get started with AWS Transform 
+ Latest innovations 
+ Accelerate enterprise modernization with agentic AI
+ AWS Transform is a collaborative enterprise IT transformation workbench powered by expert agents that accelerates cloud migration, application modernization, and continuous tech debt reduction. It automates infrastructure migration for workloads across VMware, bare metal, and hybrid environments, modernizes applications including mainframe, Windows, and custom code transformations, and continuously analyzes and remediates tech debt across your entire portfolio, keeping your codebases current as AI accelerates the pace of change. Shared workspaces and natural language chat enable cross-functional teams to collaborate in real time and manage transformations from start to finish.
+ Interactive demo 
+ Play 
+ From migration to continuous modernization
+ AWS Transform supports the full transformation lifecycle, from cloud migration to application modernization, and now continuous modernization. Capabilities include autonomous tech debt remediation, mainframe modernization with connected assessment-to-code-generation and native Kiro power integration, AI workloads migration to Bedrock, and storage migration. See what this means for your migration and modernization journey.
+ Explore continuous modernization 
+ Benefits
+ Accelerate modernization of enterprise workloads 
+ Modernize Windows, mainframe, and VMware applications up to 5x faster with agentic AI–powered automation of analysis, planning, documentation, and transformation tasks. 
+ Deliver complex modernization projects at scale 
+ Scale modernization initiatives, transforming hundreds of applications in parallel. AWS Transform automates high-effort, repeatable tasks, so teams can deliver larger, more complex projects faster and with ease. 
+ Reduce legacy licensing, infrastructure, and modernization costs 
+ Reduce legacy infrastructure, licensing, and modernization costs on your path to the cloud. AWS Transform helps remove costly overhead and streamlines modernization with agentic AI.
+ Modernize with specialized agents built on AWS expertise 
+ Achieve consistent, reliable modernization using AI agents built on 20 years of AWS migration and modernization experience and deep knowledge across Windows, mainframe, VMware workloads, as well as custom transformations for code, APIs, frameworks, etc. 
+ Continuously reduce tech debt across your organization 
+ Go beyond one-time projects with always-on tech debt analysis and autonomous remediation across your entire portfolio. AWS Transform identifies and resolves issues like end-of-life dependencies, outdated frameworks, and security vulnerabilities, so your stack stays modern and AI-ready. 
+ Impact by the numbers
+ hours of manual effort - equivalent of 1,305 developer years of work saved. 
+ lines of code analyzed by customers. 
+ Up to 5x faster full-stack Windows modernization including .NET and SQL Server. 
+ What's new
+ What's New 
+ AWS recognized as a Leader in the 2026 Gartner Magic Quadrant for AI Augmented Code Modernization Tools
+ Learn more 
+ blog 
+ Reduce Tech Debt Autonomously with Continuous Modernization
+ Read more 
+ Report 
+ Gartner: 13 Strategies to Overcome Cloud Migration Barriers
+ Learn more 
+ Latest innovations
+ Continuous modernization 
+ Mainframe 
+ AI workloads migration 
+ Storage migration 
+ Agentic IDEs 
+ Continuous tech debt analysis and remediation at scale
+ Turn reactive, manual software maintenance into proactive, continuous modernization. AWS Transform continuous modernization shifts code transformation from periodic projects into an always-on, autonomous practice, evolving your pipeline toward CI/CD/CM (continuous modernization). Get full visibility into tech debt across thousands of repositories and autonomously detect, prioritize, remediate, and document common findings like end-of-life dependencies, outdated frameworks, and security vulnerabilities. Replace recurring fire drills with steady, measurable progress at scale.
+ Read the blog 
+ Mainframe assessments, traceable code generation, and native Kiro integration
+ AWS Transform for mainframe now delivers a connected experience from assessment through code generation, compressing months of discovery into hours of evidence-based decision making. Assessment analyzes your entire mainframe portfolio, deterministically maps business functions, and recommends a prioritized modernization plan with a clear starting point. The reimagine workflow extracts every business rule with full traceability, then flows requirements directly into Kiro and other IDEs through MCP integration, with every requirement traceable back to the source code and no manual handoffs between phases. 
+ Learn more 
+ Migrate AI workloads from OpenAI, Gemini, and Anthropic to Amazon Bedrock
+ AWS Transform now includes a model-to-model migration assessment that scans your codebases, identifies AI provider dependencies, and produces a comprehensive migration plan to Amazon Bedrock. The agent maps your models to Bedrock equivalents, estimates cost savings, and generates an SDK migration guide tailored to your integration pattern, whether you're using direct API calls, LangChain, CrewAI, or custom agent loops. Get a detailed runbook with model mappings, cost analysis, and code samples in minutes, not weeks. 
+ Read the blog 
+ Migrate block storage to Amazon FSx for NetApp ONTAP
+ AWS Transform now supports block storage migration to Amazon FSx for NetApp ONTAP alongside Amazon EBS, giving teams flexibility to choose the destination that fits each workload. A simple agentic workflow handles migration from any source, whether VMware environments on NetApp, enterprise databases, Dell or Pure Storage arrays, or business-critical applications. Once workloads land on FSx for ONTAP, inline deduplication, compression, capacity pool tiering, and Autonomous Ransomware Protection are available as native capabilities. 
+ Learn more 
+ Use AWS Transform from Kiro, Claude, Cursor, and Codex
+ AWS Transform agents are now accessible directly from your preferred development environment through a Kiro power, agent plugins, and the AWS Transform MCP (Model Context Protocol) server. You can start a transformation in your agentic IDE, monitor progress in the web console, and see results back in your IDE, all against the same underlying job with consistent state. Choose the surface that fits your workflow while gaining the full depth of AWS Transform's modernization expertise. 
+ Learn more 
+ Transformation in Motion
+ Wherever you are on your AI journey, AWS meets you there — with proven foundation, enterprise security, and flexibility to move from first pilot to full-scale transformation. 
+ Choose your starting point
+ Migration & Modernization
+ Leverage an unmatched breadth of services, scale, and expertise to migrate, modernize, and build applications that power the future of your business. 
+ Learn more 
+ Data & Analytics
+ A comprehensive set of capabilities for every analytics workload, optimized for price performance and scale. 
+ Learn more 
+ Artificial Intelligence
+ Build agentic AI your way with comprehensive tools and enterprise-grade security—scalable, versatile, and secure from day one. 
+ Learn more 
+ Use cases
+ Infrastructure migration & modernization 
+ AWS Transform for migrations accelerates enterprise cloud migrations with purpose-built AI agents that automate the entire lifecycle—from discovery and wave planning through network conversion and cutover. By unifying teams, tools, and workflows in a single collaborative workbench, migrations that once took years now complete in months.
+ Learn more 
+ Full-stack Windows modernization 
+ AWS Transform accelerates full-stack Windows modernization by up to 5x across application, UI framework, database, and deployment layers. Using the specialized Windows modernization agent, teams can accelerate modernization of .NET applications, SQL Server databases, and deployment processes, reducing operating costs by up to 70% by moving away from costly licenses. 
+ Learn more 
+ Mainframe modernization 
+ AWS Transform accelerates mainframe application modernization from years to months. The specialized mainframe agent streamlines the entire mainframe workload transformation process—from initial analysis and planning to code refactoring and application reimagining—accelerating modernization timelines and reducing risk and costs. 
+ Learn more 
+ Custom code transformations 
+ AWS Transform accelerates organization-wide modernization through agentic AI that automates custom code transformations. It provides out-of-the-box transformations for common scenarios like Java, Node.js and Python upgrades. The agent also performs custom, organization-specific transformations like version upgrades, runtime migrations, or complex language translations and architectural changes. Through continual learning from code samples, documentation, and developer feedback, the agent delivers high-quality, repeatable transformations without requiring specialized automation expertise, enabling organizations to scale their modernization initiatives effectively. 
+ Learn more 
+ Continuous modernization for tech debt remediation 
+ AWS Transform keeps your codebases modern with the continuous modernization capability (Preview) that evolves your pipeline toward CI/CD/CM (continuous modernization). Get full visibility into tech debt across thousands of repositories and autonomously remediate common findings like end-of-life dependencies, outdated frameworks, and security vulnerabilities. Replace periodic maintenance sprints with steady, measurable progress at scale. 
+ Learn more 
+ Customer success
+ Case study 
+ Thomson Reuters modernizes Windows applications 4x faster with AWS Transform
+ Read the case study 
+ Case study 
+ Bridgestone modernizes its mainframe in seven months with AWS Transform
+ Read the case study 
+ Case study 
+ CSL accelerates VMware migration wave planning by 10x with AWS Transform
+ Read the case study 
+ ADP reimagines compliance infrastructure with AWS Transform
+ Read the case study 
+ IDEMIA modernizes .NET 4x faster with AWS Transform
+ Read the case study 
+ Get started
+ Workshop 
+ Hands-on technical workshops
+ Join a workshop 
+ Guide 
+ Explore the user guide
+ Learn more 
+ Getting started 
+ Get started in the AWS Transform web experience
+ Access the web experience 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

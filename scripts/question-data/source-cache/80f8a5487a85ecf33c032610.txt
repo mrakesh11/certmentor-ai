@@ -1,0 +1,158 @@
+AWS Multi-factor authentication in IAM - AWS Identity and Access Management 
+ View a markdown version of this page 
+ AWS Multi-factor authentication in IAM - AWS Identity and Access Management 
+ Documentation AWS Identity and Access Management User Guide 
+ MFA types MFA recommendations Additional resources 
+ AWS Multi-factor authentication in IAM
+ For increased security, we recommend that you configure multi-factor authentication (MFA) to
+ help protect your AWS resources. You can enable MFA for the AWS account root user of all AWS accounts,
+ including standalone accounts, management accounts, and member accounts, as well as for your
+ IAM users. We recommend that you use phishing-resistant MFA such as passkeys and security keys
+ whenever possible. These FIDO-based authenticators use public key cryptography and are resistant
+ to phishing, man-in-the-middle, and replay attacks, providing a stronger level of security than
+ TOTP-based options.
+ MFA is enforced for all account types for their root user. For more information, see Secure your AWS Organizations account root user credentials . 
+ When you enable MFA for the root user, it affects only the root user credentials. IAM users in
+ the account are distinct identities with their own credentials, and each identity has its own
+ MFA configuration. For more information about using MFA to protect the root user, see Multi-factor authentication for AWS account root user .
+ Your AWS account root user and IAM users can register up to eight MFA devices of any type.
+ Registering multiple MFA devices can provide flexibility and help you reduce the risk of access
+ interruption if a device is lost or broken. You only need one MFA device to sign in to the
+ AWS Management Console or create a session through the AWS CLI.
+ Note
+ We recommend that you require your human users to use temporary credentials when accessing AWS. Have you considered using AWS IAM Identity Center? You can use IAM Identity Center to centrally manage access to multiple AWS accounts and provide users with MFA-protected, single sign-on access to all their assigned accounts from one place. With IAM Identity Center, you can create and manage user identities in IAM Identity Center or easily connect to your existing SAML 2.0 compatible identity provider. For more information, see What is IAM Identity Center? in the AWS IAM Identity Center User Guide .
+ MFA adds extra security that requires users to provide unique authentication from an AWS
+ supported MFA mechanism in addition to their sign-in credentials when they access AWS websites
+ or services.
+ MFA types
+ AWS supports the following MFA types:
+ Contents
+ Passkeys and security keys 
+ Virtual authenticator applications 
+ Hardware TOTP tokens 
+ Passkeys and security keys
+ AWS Identity and Access Management supports passkeys and security keys for MFA. Based on FIDO standards, passkeys
+ use public key cryptography to provide strong, phishing-resistant authentication that is
+ more secure than passwords. AWS supports two types of passkeys: device-bound passkeys
+ (security keys) and synced passkeys.
+ Security keys : These are physical devices, like a
+ YubiKey, used as a second factor for authentication. A single security key can support
+ multiple root user accounts and IAM users.
+ Synced passkeys : These use credential managers from
+ providers such as Google, Apple, Microsoft accounts, and third-party services like
+ 1Password, Dashlane, and Bitwarden as a second factor.
+ You can use built-in biometric authenticators, like Touch ID on Apple MacBooks, to
+ unlock your credential manager and sign in to AWS. Passkeys are created with your chosen
+ provider using your fingerprint, face, or device PIN. You can also use a cross-device
+ authentication (CDA) passkey from one device, like a mobile device or hardware security key,
+ to sign in on another device like a laptop. For more information, see cross-device authentication (CDA).
+ You can sync passkeys across your devices to facilitate sign-ins with AWS, enhancing
+ usability and recoverability. For more information about enabling passkeys and security
+ keys, see Enable a passkey or security key for the root user (console) .
+ The FIDO Alliance maintains a list of all FIDO Certified
+ products that are compatible with FIDO specifications.
+ Virtual authenticator applications
+ A virtual authenticator application runs on a phone or other device and emulates a
+ physical device. Virtual authenticator apps implement the time-based one-time password (TOTP)
+ algorithm and support multiple tokens on a single device. The user must type a
+ valid code from the device when prompted during sign-in. Each token assigned to a user must
+ be unique. A user can't type a code from another user's token to authenticate.
+ We recommend that you use phishing-resistant MFA such as passkeys or security keys for the
+ strongest protection. If you are not yet able to use passkeys or security keys, we recommend
+ that you use a virtual MFA device as an interim measure while waiting for hardware purchase
+ approval or while you wait for your hardware to arrive. For a list of a few supported apps
+ that you can use as virtual MFA devices, see Multi-Factor Authentication
+ (MFA) .
+ For instructions on setting up a virtual MFA device for an IAM user, see Assign a virtual MFA device in the AWS Management Console .
+ Note
+ Unassigned virtual MFA devices in your AWS account are deleted when you’re adding
+ new virtual MFA devices either via the AWS Management Console or during the sign-in process. Unassigned
+ virtual MFA devices are devices in your account but not used by account root user or
+ IAM users for the sign-in process. They’re deleted so new virtual MFA devices can be
+ added to your account. It also allows you to reuse device names.
+ To view unassigned virtual MFA devices in your account, you can use either the
+ list-virtual-mfa-devices AWS CLI command or API 
+ call.
+ To deactivate a virtual MFA device, you can use either the deactivate-mfa-device AWS CLI command or API call. The
+ device will become unassigned.
+ To attach an unassigned virtual MFA device to your AWS account root user or
+ IAM users, you'll need the authentication code generated by the device along with
+ either the enable-mfa-device AWS CLI command or API call.
+ Hardware TOTP tokens
+ A hardware device generates a six-digit numeric code based on the time-based one-time password (TOTP)
+ algorithm . The user must type a valid code from the device on a second webpage
+ during sign-in.
+ These tokens are used exclusively with AWS accounts. You can only use tokens that have
+ their unique token seeds shared securely with AWS. Token seeds are secret keys generated
+ at the time of token production. Tokens purchased from other sources will not function with
+ IAM. To ensure compatibility, you must purchase your hardware MFA device from one of the
+ following links: OTP
+ token or OTP
+ display card .
+ Each MFA device assigned to a user must be unique. A user cannot type a code from
+ another user's device to be authenticated. For information on supported hardware MFA
+ devices, see Multi-Factor Authentication (MFA) .
+ If you want to use a physical MFA device, we recommend that you use security keys as
+ an alternative to hardware TOTP devices. Security keys have no battery requirements, are
+ phishing resistant, and support multiple users on a single device.
+ You can enable a passkey or security key from the AWS Management Console only, not from the AWS CLI or
+ AWS API. Before you can enable a security key, you must have physical access to the
+ device.
+ For instructions on setting up a hardware TOTP token for an IAM user, see Assign a hardware TOTP token in the AWS Management Console .
+ Note
+ SMS text message-based MFA – AWS ended support for
+ enabling SMS multi-factor authentication (MFA). We recommend that customers who have
+ IAM users that use SMS text message-based MFA switch to one of the following alternative
+ methods: Passkey or security key ,
+ virtual (software-based) MFA
+ device , or hardware MFA
+ device . You can identify the users in your account with an assigned SMS MFA device.
+ In the IAM console, choose Users from the navigation pane, and look
+ for users with SMS in the MFA column of the
+ table.
+ MFA recommendations
+ To help secure your AWS identities, follow these recommendations for MFA authentication. 
+ We recommend that you use phishing-resistant MFA, such as passkeys and security keys , as
+ your MFA device. These FIDO-based authenticators provide the strongest protection
+ against attacks such as phishing.
+ We recommend that you enable multiple MFA devices to the AWS account root user and IAM users in
+ your AWS accounts. This allows you to raise the security bar in your AWS accounts and
+ simplify managing access to highly privileged users, such as the AWS account root user.
+ You can register up to eight MFA devices of any
+ combination of the currently
+ supported MFA types with your AWS account root user and IAM users. With multiple MFA
+ devices, you only need one MFA device to sign in to the AWS Management Console or create a session
+ through the AWS CLI as that user. An IAM user must authenticate with an existing MFA
+ device to enable or disable an additional MFA device.
+ In the event of a lost, stolen, or inaccessible MFA device you can use one of the
+ remaining MFA devices to access the AWS account without performing the AWS account
+ recovery procedure. If an MFA device is lost or stolen, it should be disassociated from
+ the IAM principal with which it is associated.
+ The use of multiple MFAs allows your employees in geographically dispersed locations
+ or working remotely to use hardware-based MFA to access AWS without having to coordinate
+ the physical exchange of a single hardware device between employees.
+ The use of additional MFA devices for IAM principals allows you to use one or more
+ MFAs for everyday usage, while also maintaining physical MFA devices in a secure physical
+ location such as a vault or safe for backup and redundancy.
+ Notes
+ You cannot pass the MFA information for a security key or passkey to AWS STS API operations
+ to request temporary credentials. You can obtain credentials for use with the AWS CLI and AWS SDKs when using a security key or passkey by running the aws login command.
+ You cannot use AWS CLI commands or AWS API operations to enable FIDO security keys .
+ You cannot use the same name for more than one root user or IAM MFA device.
+ Additional resources
+ The following resources can help you learn more about MFA.
+ For more information about using MFA to access AWS, see MFA enabled sign-in .
+ You can use IAM Identity Center to enable secure MFA access to your AWS access portal, IAM Identity Center
+ integrated apps, and the AWS CLI. For more information, see Enable MFA in
+ IAM Identity Center .
+ To verify whether MFA is already enabled for your users, see Check MFA status .
+ Document Conventions 
+ Secure access keys
+ Assign a passkey or security
+ key
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

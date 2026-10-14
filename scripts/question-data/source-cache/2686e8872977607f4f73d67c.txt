@@ -1,0 +1,51 @@
+What is Amazon ElastiCache? - Amazon ElastiCache 
+ View a markdown version of this page 
+ What is Amazon ElastiCache? - Amazon ElastiCache 
+ Documentation Amazon ElastiCache User Guide 
+ Serverless caching Node-based clusters 
+ What is Amazon ElastiCache?
+ Welcome to the Amazon ElastiCache User Guide . Amazon ElastiCache is a web service that makes
+ it easy to set up, manage, and scale a distributed in-memory data store or cache environment
+ in the cloud. It provides a high-performance, scalable, and cost-effective caching solution.
+ At the same time, it helps remove the complexity associated with deploying and managing a
+ distributed cache environment.
+ You can operate Amazon ElastiCache in two formats. You can get started with a serverless cache or 
+ create a node-based cluster. 
+ Note
+ Amazon ElastiCache works with the Valkey, Memcached, and Redis OSS engines. If you're unsure which engine you want to use, see Comparing node-based Valkey, Memcached, and Redis OSS clusters in this guide.
+ To get started with ElastiCache using AI agents, visit the Agent tools for ElastiCache page to install the ElastiCache Skill and Valkey MCP server, which give AI agents the specialized knowledge and tools needed to work with ElastiCache accurately.
+ Serverless caching
+ ElastiCache offers serverless caching, which simplifies adding and operating a cache 
+ for your application. ElastiCache Serverless enables you to create a highly available cache in under a 
+ minute, and eliminates the need to provision instances or configure nodes or clusters. Developers 
+ can create a Serverless cache by specifying the cache name using the ElastiCache console, SDK or CLI. 
+ ElastiCache Serverless also removes the need to plan and manage caching capacity. ElastiCache constantly monitors 
+ the cache’s memory, compute, and network bandwidth used by your application, and scales to meet the 
+ needs of your application. ElastiCache offers a simple endpoint experience for developers, by abstracting the 
+ underlying cache infrastructure and cluster design. ElastiCache manages hardware provisioning, monitoring, 
+ node replacements, and software patching automatically and transparently, so that you can focus on 
+ application development, rather than operating the cache. 
+ ElastiCache Serverless supports two connection types. You can create a cache with the VPC or Public connection type. With a public endpoint, you can connect to your cache over the internet without a VPC. Public endpoints require IAM authentication and TLS 1.3 for every connection. You choose the connection type when you create the cache. For more information, see Create a Valkey serverless cache with a public endpoint .
+ ElastiCache Serverless is compatible with Valkey 7.2 and later, Memcached 1.6.22 and later, and Redis OSS 7.1. Public endpoints are available on ElastiCache Serverless caches that use Valkey 9.0 or later.
+ Creating a node-based cluster
+ If you need fine-grained control over your ElastiCache cluster, you can choose to create a node-based 
+ Valkey, Memcached, or Redis OSS cluster. ElastiCache enables you to create a node-based cluster by choosing 
+ the node-type, number of nodes, and node placement across AWS Availability Zones for your cluster. 
+ Since ElastiCache is a fully-managed service, it automatically manages hardware provisioning, monitoring, 
+ node replacements, and software patching for your cluster. 
+ Creating a node-based cluster offers greater flexibility and control over your clusters. 
+ For example, you can choose to operate a cluster with single-AZ availability or multi-AZ availability 
+ depending on your needs. You can also choose to run Valkey, Memcached, or Redis OSS in cluster mode enabling horizontal scaling, 
+ or without cluster mode for just scaling vertically. When creating a node-based cluster, you are responsible 
+ for choosing the type and number of nodes correctly to ensure that your cache has enough capacity 
+ as required by your application. You can also choose when to apply new software patches to your Valkey or Redis OSS cluster. 
+ When creating a node-based cluster you can choose from multiple supported versions of Valkey, Memcached and Redis OSS. For more information about supported engine versions see Engine versions and upgrading in ElastiCache .
+ For node-based Valkey clusters, you can enable durability to persist your data in a distributed Multi-AZ transactional log. With durability enabled, your data is protected even if all cache nodes fail, and replicas recover independently without impacting primary node performance. For more information, see Durability in ElastiCache .
+ Document Conventions 
+ Related services
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/snowball/latest/developer-guide/what-is.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:01.872Z",
+  "sha256": "ba6cf274c76947db115ba735cac1b8203906b2681de29cc9fe401e690f6e47e8",
+  "bytes": 24775,
+  "chars": 8255,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/snowball/latest/developer-guide/whatisedge.html"
+  ]
+}

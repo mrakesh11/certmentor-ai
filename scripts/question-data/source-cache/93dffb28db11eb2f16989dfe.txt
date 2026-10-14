@@ -1,0 +1,332 @@
+Amazon Connect Customer - AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ Amazon Connect Customer
+ Overview 
+ Use cases 
+ Features 
+ Solutions 
+ Pricing 
+ Resources 
+ Customers 
+ Partners 
+ Products 
+ Connect 
+ Customer 
+ Amazon Connect Customer
+ Obsess over your customers the way you always wished you could
+ Get started with Connect Customer 
+ Speak with an expert 
+ Built for every customer moment. Not just the ones that end up in a support queue
+ Customer experience is more than a support ticket. It is every moment your business touches a customer - a purchase, a question, a campaign, a conversation. Chances are you are only managing a fraction of those moments. 
+ Amazon Connect Customer changes that. It reasons, acts, and drives every interaction to resolution - with human agents ready to step in when needed. One intelligent system that learns from every conversation, making the next one better. 
+ Play 
+ Real impact at scale
+ interactions handled daily 
+ customers globally 
+ minutes of AI-powered conversations in 2025 
+ Every interaction. Reimagined.
+ Every customer feels known before they ask. Every interaction handled with intelligence you can trust. With the confidence and control your business demands.
+ Know 
+ Design 
+ Evolve 
+ Every customer is unique. Every interaction should reflect that
+ Stop reacting. Start knowing your customer and understanding what they need. Know who's at risk and who's ready to buy before they ask. The right channel, the right message, the right moment. Every time. 
+ Because the window between knowing and acting is where loyalty is won or lost. 
+ Design the experience. Go live in weeks
+ Great experiences start with your customer and their business goals. Work backwards from what they want and design the experience they deserve.
+ Build customer-facing conversational AI experiences on a no-code visual canvas with agentic CX designer - live in weeks, not months. Set up AI agents that support your team with the right answers, recommend next steps, and handle the after-call work. Working independently or with human expertise, in whatever combination the moment demands. No separate systems. No fixed costs. No compromises. 
+ Every conversation makes the next one better
+ Most of what your customers are telling you goes unheard. The patterns, the friction, the recurring opportunities - invisible at scale. Until now. 
+ Every interaction feeds a shared intelligence that gets smarter over time. Your team gets better, your AI gets sharper. Your customers feel the difference. 
+ Every interaction. Powered by AI agents
+ For your end-customers 
+ Personalized resolution in one conversation 
+ AI agents resolve issues autonomously - processing returns, updating accounts, rebooking flights. Start on chat, switch to voice, or let customers follow along visually with patented Live Sync as the AI guides them through forms, options, and confirmations in real time. Context carries across every channel. Every resolution feels personal because the AI adapts to the individual, not the segment.
+ For your workforce 
+ Elevate your team with AI teammates that work alongside them 
+ When AI agents work alongside your people, they become teammates. They surface the right answers, recommend what to do next, and handle the repetitive work - freeing everyone to focus on the moments that need a human touch. When a customer escalates, full context follows. No restart. No repeat.
+ Play 
+ Agentic Conversational AI
+ What if your CX team could anticipate a customer's needs and resolve them before they even pick up the phone? Agentic AI makes it possible - and with agentic CX designer, business users can build those experiences themselves, visually, in a single afternoon. Read our blog post 
+ See how companies are innovating their CX
+ Learn how businesses are delivering smarter, more personal customer experiences at scale.
+ Read all customer testimonials 
+ TUI Cuts Customer Experience Fragmentation with Amazon Connect
+ Learn more 
+ Toyota Streamlines the Customer Experience using Amazon Connect Customer AI
+ Learn more 
+ American Airline's CX Transformation with Amazon Connect
+ Learn more 
+ Cochlear Scales Quality Evaluations by 22x with Amazon Connect
+ Learn more 
+ Awards and analyst recognition
+ IDC MarketScape: Worldwide Agentic Contact Center–as-a-Service Platforms 2026 Vendor Assessment
+ 2026
+ Read the IDC report 
+ APAC Buyer’s Guide: Contact Centre CX Platforms with AI in Asia Pacific
+ 2025
+ Read the CrayonIQ report 
+ Go deep on all things Amazon Connect Customer
+ Resources 
+ Dive into resources
+ View demos, blogs, articles, webinars, and more to build a better understanding of Amazon Connect.
+ Explore resources 
+ Pricing 
+ See pricing options
+ Learn more about our pay-as-you-go pricing options.
+ View pricing 
+ Documentation 
+ View documentation
+ Check out Amazon Connect SDKs, discussion forums, administrative guides, and API reference guides.
+ See documentation 
+ Partners 
+ Explore partners
+ Innovate your contact center experience with Amazon Connect partner, service, and software offerings.
+ See partners 
+ All features 
+ Browse features
+ Get a picture of what’s possible with Amazon Connect by diving into the full set of features.
+ See features 
+ Solutions 
+ Explore financial services use cases
+ Overcome financial services CX challenges with Amazon Connect Customer.
+ Learn more 
+ Solutions 
+ Explore heatlhcare and life sciences use cases
+ Modernize healthcare and life sciences CX solutions with Amazon Connect Customer.
+ Learn more 
+ Solutions 
+ Explore retail use cases
+ Optimize your retail CX solutions with Amazon Connect Customer.
+ Learn more 
+ Show all 
+ FAQs
+ What is Amazon Connect Customer?
+ Amazon Connect Customer is a purpose-built agentic AI solution for customer experience. It powers the full lifecycle of customer interactions, from proactive outreach to self-service resolution to agent assistance, on any channel and at enterprise scale. Most businesses know their customer experience should be better but are held back by systems that route and deflect instead of resolve. Connect Customer changes that: its AI acts on the customer's behalf and resolves what they came for, running on the same AWS infrastructure that handles millions of daily interactions.
+ What is agentic AI for customer service?
+ An approach to AI that reasons, decides, and acts autonomously rather than following a script or waiting for triggers at every step. In Amazon Connect Customer, business users design these agentic experiences on a no-code visual canvas, blending agentic reasoning with deterministic precision in one governed flow. Conversations stay natural, while steps that must go exactly right, like identity verification and compliance disclosures, run as structured, rule-based steps.
+ What is an AI agent for customer service, and what can it do?
+ An AI agent autonomously handles customer interactions from start to finish. It understands intent, maintains context across channels, retrieves knowledge, and takes action such as processing a return, updating an account, or rebooking a flight. AI agents can also work across voice and screen at the same time, so a customer talks through a request while seeing and confirming the details in front of them. With Amazon Connect Customer, AI agents resolve customer requests and work alongside human agents in real time, providing step-by-step guidance and suggested responses so customers get what they need faster and at lower cost.
+ What channels does AI-powered customer service support?
+ Amazon Connect Customer delivers the same AI, routing, and customer context across every channel - voice, chat, email, SMS, web, WhatsApp, Apple Messages, and more. Customers move between channels without repeating themselves. Live Sync goes further: the only native technology that synchronizes a voice conversation with an on-screen interface, so customers see options, fill forms, and complete transactions while they speak. Adding a new channel takes configuration, not a new project.
+ How does Amazon Connect Customer’s pricing work?
+ Connect Customer uses pay-as-you-go pricing with no minimums, no long-term contracts, no seat-based licensing, and no token-based charges. You pay per interaction by channel: voice is $0.038 per minute, chat is $0.010 per message, SMS is $0.014 per message, and email is $0.080 per email. All AI capabilities are included in the channel price, so there are no separate AI license fees. Costs scale with actual usage, so businesses innovate with AI without new business cases or financial approvals for each capability.
+ Is AI-powered customer service secure and compliant?
+ Yes. Amazon Connect Customer keeps data, models, and conversation logic within one AWS trust boundary. HIPAA eligible, with support for PCI DSS, FedRAMP, SOC, ISO 27001, and GDPR. All data encrypted at rest and in transit, stays in your chosen AWS Region. Every AI reasoning step is governed per turn, every answer auditable, and controlled by role-based permissions - defining who builds, which models are approved, and what the AI is allowed to say.
+ How long does it take to launch AI-powered customer experience?
+ Connect Customer turns what used to take months into weeks. Business and CX teams design conversational experiences directly on a visual no-code canvas, with no engineering handoff required for the conversation design itself. Pre-built templates get your first use case live in weeks, not months. Start with a single workflow, prove value, and expand at your own pace. For teams that want full architectural control, a developer-first path gives you the same speed without constraints.
+ Get started with Amazon Connect Customer
+ Ready to try Amazon Connect Customer yourself?
+ Login or create an AWS account 
+ Prefer to speak with an AWS expert?
+ Request a consultation 
+ Explore Connect Customer partners
+ Learn more 
+ Did you find what you were looking for today?
+ Let us know so we can improve the quality of the content on our pages
+ Yes 
+ No 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

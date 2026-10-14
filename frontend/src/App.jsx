@@ -1,11 +1,17 @@
-import { useState, useRef, useEffect } from 'react';
-import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import PracticeQuestions from './pages/PracticeQuestions';
 import CheatsheetViewer from './pages/CheatsheetViewer';
 import Flashcards from './pages/Flashcards';
+import Learn from './pages/Learn';
+import TopicLesson from './pages/TopicLesson';
+import ErrorBoundary from './components/ErrorBoundary';
+import ThemeToggle from './components/ThemeToggle';
+import { ThemeProvider } from './components/ThemeProvider';
 import { examQuestions } from './questionsData.js';
+import { getDomains } from './lib/curriculum';
+import CloudMentor from './components/CloudMentor';
 import './App.css';
 
 const cheatsheets = [
@@ -27,135 +33,228 @@ const cheatsheets = [
     { id: 'VPC.html', title: 'VPC', desc: 'Virtual Private Cloud & Networking' },
 ];
 
+const NAV_ITEMS = [
+    { to: '/', label: 'Dashboard', end: true },
+    { to: '/learn', label: 'Curriculum' },
+    { to: '/flashcards', label: 'Flashcards' },
+    { to: '/practice-questions', label: 'Exam Simulator' },
+    // In-page anchor on the dashboard rather than a route, so it renders as a
+    // plain link and never carries a route's active state.
+    { to: '/#cheatsheets', label: 'Cheat sheets', anchor: true },
+];
+
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-    const [isFocused, setIsFocused] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
     const location = useLocation();
-    
-    const results = { cheats: [], questions: [] };
+    const searchRef = useRef(null);
 
-    if (searchQuery.length >= 2) {
-        const q = searchQuery.toLowerCase();
-        results.cheats = cheatsheets.filter(c => c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q)).slice(0, 3);
-        results.questions = examQuestions.filter(ex => ex.text.toLowerCase().includes(q)).slice(0, 4);
+    // Close menus on navigation so a tap on a link never leaves the panel
+    // open. Done by adjusting state during render (React's recommended
+    // pattern for syncing to a changed prop) rather than in an effect, which
+    // would schedule a second render.
+    const [lastPath, setLastPath] = useState(location.pathname);
+    if (lastPath !== location.pathname) {
+        setLastPath(location.pathname);
+        if (menuOpen) setMenuOpen(false);
+        if (searchOpen) setSearchOpen(false);
+        if (searchQuery) setSearchQuery('');
     }
-    
-    const toggleMenu = () => setMenuOpen(!menuOpen);
-    const closeMenu = () => { setMenuOpen(false); setSearchQuery(''); setIsFocused(false); };
 
-    const themes = {
-        deepSpace: { name: 'Deep Space', '--bg-deep': '#0f172a', '--card-bg': 'rgba(30, 41, 59, 0.7)', '--bg-nav': 'rgba(15, 23, 42, 0.85)', '--accent-purple': '#7a22ff', '--accent-blue': '#00d2ff', '--gradient-primary': 'linear-gradient(135deg, #00d2ff 0%, #7a22ff 100%)' },
-        cyberpunk: { name: 'Cyberpunk', '--bg-deep': '#090a0f', '--card-bg': 'rgba(20, 22, 33, 0.7)', '--bg-nav': 'rgba(9, 10, 15, 0.85)', '--accent-purple': '#ff003c', '--accent-blue': '#fce205', '--gradient-primary': 'linear-gradient(135deg, #fce205 0%, #ff003c 100%)' },
-        dracula: { name: 'Dracula', '--bg-deep': '#282a36', '--card-bg': 'rgba(68, 71, 90, 0.7)', '--bg-nav': 'rgba(40, 42, 54, 0.85)', '--accent-purple': '#ff79c6', '--accent-blue': '#8be9fd', '--gradient-primary': 'linear-gradient(135deg, #8be9fd 0%, #ff79c6 100%)' }
-    };
-    
-    // Load theme on mount
+    // Close the search dropdown on outside click / Escape.
     useEffect(() => {
-        const savedThemeKey = localStorage.getItem('aws_theme') || 'deepSpace';
-        applyTheme(savedThemeKey);
-    }, []);
-
-    const applyTheme = (key) => {
-        const t = themes[key];
-        Object.keys(t).forEach(prop => {
-            if (prop.startsWith('--')) {
-                document.documentElement.style.setProperty(prop, t[prop]);
+        if (!searchOpen) return undefined;
+        const onPointer = (event) => {
+            if (searchRef.current && !searchRef.current.contains(event.target)) {
+                setSearchOpen(false);
             }
-        });
-        localStorage.setItem('aws_theme', key);
-        setMenuOpen(false);
+        };
+        const onKey = (event) => {
+            if (event.key === 'Escape') setSearchOpen(false);
+        };
+        document.addEventListener('mousedown', onPointer);
+        document.addEventListener('keydown', onKey);
+        return () => {
+            document.removeEventListener('mousedown', onPointer);
+            document.removeEventListener('keydown', onKey);
+        };
+    }, [searchOpen]);
+
+    const query = searchQuery.trim().toLowerCase();
+    const hasQuery = query.length >= 2;
+    const results = { topics: [], cheats: [], questions: [] };
+
+    if (hasQuery) {
+        // Verified curriculum topics first — that is the supported study path.
+        for (const domain of getDomains()) {
+            for (const topic of domain.topics) {
+                if (topic.name.toLowerCase().includes(query) && topic.verifiedCount > 0) {
+                    results.topics.push({ domain, topic });
+                }
+            }
+        }
+        results.topics = results.topics.slice(0, 4);
+        results.cheats = cheatsheets
+            .filter((c) => c.title.toLowerCase().includes(query) || c.desc.toLowerCase().includes(query))
+            .slice(0, 3);
+        results.questions = examQuestions
+            .filter((ex) => ex.text.toLowerCase().includes(query))
+            .slice(0, 4);
+    }
+
+    const closeSearch = () => {
+        setSearchOpen(false);
+        setSearchQuery('');
     };
+
+    const nothingFound = hasQuery
+        && results.topics.length === 0
+        && results.cheats.length === 0
+        && results.questions.length === 0;
 
     return (
-        <nav>
-            <div style={{display: 'flex', alignItems: 'center', gap: '30px'}}>
-                <Link to="/" className="nav-logo" onClick={closeMenu}>
-                    <i className="fa-brands fa-aws"></i>
-                    AWS CLF-C02
+        <nav className="nav" aria-label="Primary">
+            <div className="nav__inner">
+                <Link to="/" className="nav__brand">
+                    <i className="fa-brands fa-aws" aria-hidden="true"></i>
+                    <span className="nav__brand-name">CLF-C02</span>
+                    <span className="sub">Study Workspace</span>
                 </Link>
-                
-                {location.pathname !== '/practice-questions' && location.pathname !== '/flashcards' && (
-                    <div className="search-container">
-                        <i className="fa-solid fa-search search-icon"></i>
-                        <input 
-                            type="text" 
-                            placeholder="Global Search (e.g. S3)..." 
+
+                <button
+                    type="button"
+                    className="nav__toggle"
+                    aria-expanded={menuOpen}
+                    aria-controls="nav-menu"
+                    aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                    onClick={() => setMenuOpen((open) => !open)}
+                >
+                    <span></span><span></span><span></span>
+                </button>
+
+                <div className={`nav__content ${menuOpen ? 'is-open' : ''}`} id="nav-menu">
+                    <div className="nav__search" ref={searchRef}>
+                        <i className="fa-solid fa-search" aria-hidden="true"></i>
+                        <input
+                            type="search"
+                            role="combobox"
+                            aria-expanded={searchOpen && hasQuery}
+                            aria-controls="nav-search-results"
+                            aria-label="Search topics, cheatsheets and questions"
+                            placeholder="Search topics, sheets, questions…"
                             value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            onFocus={() => setIsFocused(true)}
-                            onBlur={() => setTimeout(() => setIsFocused(false), 200)}
-                            className="search-input"
+                            onChange={(event) => {
+                                setSearchQuery(event.target.value);
+                                setSearchOpen(true);
+                            }}
+                            onFocus={() => setSearchOpen(true)}
                         />
-                        <AnimatePresence>
-                            {isFocused && searchQuery.length >= 2 && (
-                                <motion.div 
-                                    className="search-dropdown"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: 10 }}
-                                >
-                                    {results.cheats.length > 0 && <div className="search-section-title">Cheat Sheets</div>}
-                                    {results.cheats.map(c => (
-                                        <Link to={`/cheatsheets/${c.id}`} key={c.id} className="search-item" onClick={closeMenu}>
-                                            <i className="fa-solid fa-file-invoice"></i> {c.title}
-                                        </Link>
-                                    ))}
-                                    
-                                    {results.questions.length > 0 && <div className="search-section-title">Practice Questions</div>}
-                                    {results.questions.map(q => (
-                                        <Link to={`/practice-questions?mode=standard`} key={q.id} className="search-item q-item" onClick={closeMenu}>
-                                            <span><strong style={{color: 'var(--accent-blue)'}}>{q.id}:</strong> {q.text.length > 60 ? q.text.substring(0, 60) + '...' : q.text}</span>
-                                        </Link>
-                                    ))}
-                                    
-                                    {results.cheats.length === 0 && results.questions.length === 0 && (
-                                        <div className="search-item" style={{color: 'var(--text-muted)'}}>No results found.</div>
+                        {searchOpen && hasQuery && (
+                            <div
+                                id="nav-search-results"
+                                className="search-dropdown"
+                                role="listbox"
+                            >
+                                    {results.topics.length > 0 && (
+                                        <div className="search-section-title">Curriculum topics</div>
                                     )}
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+                                    {results.topics.map(({ domain, topic }) => (
+                                        <Link
+                                            key={`${domain.number}:${topic.slug}`}
+                                            to={`/learn/${domain.number}/${topic.slug}`}
+                                            className="search-item"
+                                            onClick={closeSearch}
+                                        >
+                                            <i className="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                                            <span>
+                                                {topic.name}
+                                                <span style={{ color: 'var(--text-tertiary)' }}>
+                                                    {' '}· Domain {domain.number}
+                                                </span>
+                                            </span>
+                                        </Link>
+                                    ))}
+
+                                    {results.cheats.length > 0 && (
+                                        <div className="search-section-title">Cheat sheets</div>
+                                    )}
+                                    {results.cheats.map((c) => (
+                                        <Link
+                                            key={c.id}
+                                            to={`/cheatsheets/${c.id}`}
+                                            className="search-item"
+                                            onClick={closeSearch}
+                                        >
+                                            <i className="fa-solid fa-file-lines" aria-hidden="true"></i>
+                                            <span>{c.title}</span>
+                                        </Link>
+                                    ))}
+
+                                    {results.questions.length > 0 && (
+                                        <div className="search-section-title">Practice questions</div>
+                                    )}
+                                    {results.questions.map((q) => (
+                                        <Link
+                                            key={q.id}
+                                            to="/practice-questions?mode=standard"
+                                            className="search-item"
+                                            onClick={closeSearch}
+                                        >
+                                            <i className="fa-solid fa-list-check" aria-hidden="true"></i>
+                                            <span>
+                                                <span className="q-id">{q.id}</span>{' '}
+                                                {q.text.length > 60 ? `${q.text.slice(0, 60)}…` : q.text}
+                                            </span>
+                                        </Link>
+                                    ))}
+
+                                    {nothingFound && (
+                                        <div className="search-item search-item--empty">No results found.</div>
+                                    )}
+                            </div>
+                        )}
                     </div>
-                )}
+
+                    <div className="nav__links">
+                        {NAV_ITEMS.map((item) => (item.anchor ? (
+                            <Link
+                                key={item.label}
+                                to={item.to}
+                                className="nav__link"
+                            >
+                                {item.label}
+                            </Link>
+                        ) : (
+                            <NavLink
+                                key={item.to}
+                                to={item.to}
+                                end={item.end}
+                                className={({ isActive }) => `nav__link ${isActive ? 'is-active' : ''}`}
+                            >
+                                {item.label}
+                            </NavLink>
+                        )))}
+                    </div>
+
+                    <div className="nav__tools">
+                        <ThemeToggle />
+                    </div>
+                </div>
             </div>
-            
-            {location.pathname !== '/practice-questions' && (
-                <>
-                    <div className={`hamburger ${menuOpen ? 'active' : ''}`} onClick={toggleMenu}>
-                        <span></span><span></span><span></span>
-                    </div>
-                    <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
-                        <a href="/#home" onClick={closeMenu}>Home</a>
-                        <a href="/#cheatsheets" onClick={closeMenu}>Cheatsheets</a>
-                        <Link to="/flashcards" onClick={closeMenu}>Flashcards</Link>
-                        <a href="/#practice-questions" onClick={closeMenu}>Simulator</a>
-                        
-                        <div className="theme-selector" style={{display: 'flex', gap: '5px', alignItems: 'center', background: 'rgba(0,0,0,0.2)', padding: '5px 10px', borderRadius: '15px'}}>
-                            <i className="fa-solid fa-palette" style={{color: 'var(--text-muted)', fontSize: '0.9rem', marginRight: '5px'}}></i>
-                            <div onClick={() => applyTheme('deepSpace')} title="Deep Space" style={{width:'15px', height:'15px', borderRadius:'50%', cursor:'pointer', background: 'linear-gradient(135deg, #00d2ff 0%, #7a22ff 100%)'}}></div>
-                            <div onClick={() => applyTheme('cyberpunk')} title="Cyberpunk" style={{width:'15px', height:'15px', borderRadius:'50%', cursor:'pointer', background: 'linear-gradient(135deg, #fce205 0%, #ff003c 100%)'}}></div>
-                            <div onClick={() => applyTheme('dracula')} title="Dracula" style={{width:'15px', height:'15px', borderRadius:'50%', cursor:'pointer', background: 'linear-gradient(135deg, #8be9fd 0%, #ff79c6 100%)'}}></div>
-                        </div>
-                    </div>
-                </>
-            )}
-            
-            {(location.pathname === '/practice-questions' || location.pathname === '/flashcards') && (
-                <Link to="/" className="back-link">
-                    <i className="fa-solid fa-arrow-left"></i> Back to Dashboard
-                </Link>
-            )}
         </nav>
     );
 }
 
 function Footer() {
     return (
-        <footer>
-            <p>&copy; 2026 AWS CLF-C02 Cheatsheet. Not affiliated with Amazon Web Services.</p>
-            <div className="socials">
-                <a href="#"><i className="fa-brands fa-github"></i></a>
-                <a href="#"><i className="fa-brands fa-linkedin"></i></a>
+        <footer className="footer">
+            <div className="footer__inner">
+                <p>&copy; 2026 AWS CLF-C02 Study Workspace. Not affiliated with Amazon Web Services.</p>
+                <div className="footer__links">
+                    <Link to="/learn">Curriculum</Link>
+                    <Link to="/flashcards">Flashcards</Link>
+                </div>
             </div>
         </footer>
     );
@@ -163,18 +262,24 @@ function Footer() {
 
 function App() {
     return (
-        <>
-            <Navbar />
-            <main style={{flex: 1}}>
-                <Routes>
-                    <Route path="/" element={<Dashboard />} />
-                    <Route path="/practice-questions" element={<PracticeQuestions />} />
-                    <Route path="/flashcards" element={<Flashcards />} />
-                    <Route path="/cheatsheets/:id" element={<CheatsheetViewer />} />
-                </Routes>
-            </main>
-            <Footer />
-        </>
+        <ThemeProvider>
+            <ErrorBoundary>
+                <a href="#main-content" className="skip-link">Skip to content</a>
+                <Navbar />
+                <main id="main-content" style={{ flex: 1 }}>
+                    <Routes>
+                        <Route path="/" element={<Dashboard />} />
+                        <Route path="/learn" element={<Learn />} />
+                        <Route path="/learn/:domain/:topic" element={<TopicLesson />} />
+                        <Route path="/practice-questions" element={<PracticeQuestions />} />
+                        <Route path="/flashcards" element={<Flashcards />} />
+                        <Route path="/cheatsheets/:id" element={<CheatsheetViewer />} />
+                    </Routes>
+                </main>
+                <Footer />
+                <CloudMentor />
+            </ErrorBoundary>
+        </ThemeProvider>
     );
 }
 

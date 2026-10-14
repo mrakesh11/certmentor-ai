@@ -1,0 +1,245 @@
+/* ==========================================================================
+   Design tokens — the single source of truth for colour, type, spacing,
+   radius, shadow and motion.
+
+   Two complete themes share one set of semantic names:
+     :root              → light  (the default before JS resolves a preference)
+     [data-theme=dark]  → near-black charcoal
+
+   Components never reference a raw colour; they reference a semantic token,
+   so both themes are inherited automatically and new components cannot drift
+   off-system. Colour roles are stable across themes — only the values change.
+
+   Accent policy (deliberately restrained):
+     --accent  blue   interactive primary: links, primary buttons, active nav,
+                      focus rings, selection
+     --success green  confirmed / correct / verified
+     --danger  red    incorrect, destructive, errors
+     --warning gold   caution, exam tips, unverified-content warnings
+     --info    blue   neutral informational callouts
+   The surface stays charcoal and white; accents are intentional, not fill.
+   ========================================================================== */
+
+:root {
+    color-scheme: light;
+
+    /* ---- Surfaces (elevation by lightness, not shadow) ---- */
+    --bg-canvas: #f7f7f5;
+    --surface-1: #ffffff;
+    --surface-2: #efefed;
+    --surface-3: #e6e6e2;
+    --surface-inset: #f2f2f0;
+
+    /* ---- Borders & dividers ---- */
+    --border-subtle: #d6d6d2;
+    --border-default: #c8c8c3;
+    --border-strong: #8f8f8a;
+
+    /* ---- Text ---- */
+    --text-primary: #202020;
+    --text-secondary: #525252;
+    --text-tertiary: #6c6c6c;
+    --text-on-accent: #ffffff;
+
+    /* ---- Accent: interactive primary (electric blue) ---- */
+    --accent: #2562e9;
+    --accent-hover: #1d4ed8;
+    --accent-active: #1e40af;
+    --accent-soft: rgba(37, 98, 233, 0.1);
+    --accent-soft-strong: rgba(37, 98, 233, 0.18);
+    /* Readable gold for text/borders in light mode. Bright yellow is never
+       used for small text on a light background. Darkened from #a86c00 to
+       clear WCAG AA (4.5:1) against white, canvas and sunken surfaces. */
+    --accent-gold-text: #976100;
+
+    /* ---- Semantic states ---- */
+    --success: #20863e;
+    --success-hover: #1a6f33;
+    --success-soft: rgba(32, 134, 62, 0.1);
+    --success-on-fill: #ffffff;
+
+    --danger: #d02b24;
+    --danger-hover: #b91f19;
+    --danger-soft: rgba(208, 43, 36, 0.09);
+    --danger-on-fill: #ffffff;
+
+    --warning: #976100;
+    --warning-soft: rgba(151, 97, 0, 0.1);
+    --warning-on-fill: #ffffff;
+
+    --info: #2562e9;
+    --info-soft: rgba(37, 98, 233, 0.09);
+
+    /* ---- Distinct identity per official CLF-C02 domain ---- */
+    --domain-1: #b05109;
+    --domain-2: #2562e9;
+    --domain-3: #1a7f4b;
+    --domain-4: #9333ea;
+
+    /* ---- Diagram accents (architecture illustrations only) ----
+       Four hues that stay legible on any surface and read as diagram
+       landmarks rather than UI state. Never reused for status. */
+    --diagram-1: #b05109; /* gateways, routers */
+    --diagram-2: #2562e9; /* public / exposed */
+    --diagram-3: #1a7f4b; /* secure, private */
+    --diagram-4: #9333ea; /* data, storage */
+
+    /* ---- Type ---- */
+    --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+
+    --fs-xs: 0.75rem;     /* 12 — labels, eyebrows */
+    --fs-sm: 0.8125rem;   /* 13 — meta, captions */
+    --fs-base: 0.9375rem; /* 15 — body UI */
+    --fs-md: 1.0625rem;   /* 17 — emphasized body */
+    --fs-lg: 1.25rem;     /* 20 — h3 */
+    --fs-xl: 1.5rem;      /* 24 — h2 */
+    --fs-2xl: 1.875rem;   /* 30 — h1 */
+    --fs-3xl: 2.375rem;   /* 38 — display */
+
+    --lh-tight: 1.15;
+    --lh-snug: 1.35;
+    --lh-normal: 1.5;
+    --lh-relaxed: 1.65;
+
+    --tracking-tight: -0.022em;
+    --tracking-label: 0.06em;
+
+    --measure: 68ch;
+
+    /* ---- Spacing (4px base) ---- */
+    --sp-1: 0.25rem;
+    --sp-2: 0.5rem;
+    --sp-3: 0.75rem;
+    --sp-4: 1rem;
+    --sp-5: 1.5rem;
+    --sp-6: 2rem;
+    --sp-7: 3rem;
+    --sp-8: 4rem;
+    --sp-9: 6rem;
+    --sp-10: 8rem;
+
+    /* ---- Radius (restrained scale) ---- */
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-pill: 999px;
+
+    /* ---- Elevation (borders do most of the work) ---- */
+    --shadow-sm: 0 1px 2px rgba(16, 16, 16, 0.06);
+    --shadow-md: 0 6px 20px rgba(16, 16, 16, 0.08);
+    --shadow-lg: 0 16px 44px rgba(16, 16, 16, 0.12);
+
+    /* ---- Layout ---- */
+    --content-max: 1160px;
+    --content-narrow: 760px;
+    --nav-height: 60px;
+
+    /* ---- Motion (functional only) ---- */
+    --dur-fast: 120ms;
+    --dur-base: 180ms;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   Dark theme — near-black charcoal, strong white type, vivid accents.
+   Never a navy, purple-tinted or gradient surface.
+   ========================================================================== */
+
+[data-theme='dark'] {
+    color-scheme: dark;
+
+    /* ---- Surfaces ---- */
+    --bg-canvas: #1f1f1f;
+    --surface-1: #262626;
+    --surface-2: #303030;
+    --surface-3: #3a3a3a;
+    --surface-inset: #232323;
+
+    /* ---- Borders ---- */
+    --border-subtle: #3d3d3d;
+    --border-default: #454545;
+    --border-strong: #6f6f6f;
+
+    /* ---- Text ---- */
+    --text-primary: #f5f5f5;
+    --text-secondary: #c4c4c4;
+    --text-tertiary: #a3a3a3;
+
+    /* ---- Accent ----
+       Lightened so it reads as link/focus text on every charcoal surface
+       (>=4.5:1). Because a bright fill can no longer carry white text,
+       --text-on-accent flips to near-black — the same dark-on-fill pattern
+       the success/danger/warning badges already use in this theme. */
+    --accent: #5c9bff;
+    --accent-hover: #7db1ff;
+    --accent-active: #3f86ee;
+    --accent-soft: rgba(92, 155, 255, 0.16);
+    --accent-soft-strong: rgba(92, 155, 255, 0.28);
+    --accent-gold-text: #ffb800;
+    --text-on-accent: #101010;
+
+    /* ---- Semantic states: saturated, high-contrast ---- */
+    --success: #2fb354;
+    --success-hover: #45c96a;
+    --success-soft: rgba(47, 179, 84, 0.16);
+    --success-on-fill: #06210f;
+
+    --danger: #ff635a;
+    --danger-hover: #ff8078;
+    --danger-soft: rgba(255, 99, 90, 0.16);
+    --danger-on-fill: #260605;
+
+    --warning: #ffb800;
+    --warning-soft: rgba(255, 184, 0, 0.15);
+    --warning-on-fill: #241a00;
+
+    --info: #5c9bff;
+    --info-soft: rgba(92, 155, 255, 0.15);
+
+    /* ---- Domain identity: readable on charcoal ---- */
+    --domain-1: #ffb454;
+    --domain-2: #5c9bff;
+    --domain-3: #4ad07d;
+    --domain-4: #c98bff;
+
+    /* ---- Diagram accents: lifted for charcoal ---- */
+    --diagram-1: #ffb454;
+    --diagram-2: #5c9bff;
+    --diagram-3: #4ad07d;
+    --diagram-4: #c98bff;
+
+    /* ---- Elevation ---- */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* ==========================================================================
+   Public alias contract.
+
+   The names below are the documented entry points for the design system.
+   They deliberately resolve to the canonical tokens above so a single edit
+   retunes both themes at once. Any component may use either naming scheme.
+   ========================================================================== */
+
+:root,
+[data-theme='dark'] {
+    --color-background: var(--bg-canvas);
+    --color-surface: var(--surface-1);
+    --color-surface-secondary: var(--surface-2);
+    --color-surface-elevated: var(--surface-3);
+    --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-text-muted: var(--text-tertiary);
+    --color-border: var(--border-default);
+    --color-border-subtle: var(--border-subtle);
+    --color-border-strong: var(--border-strong);
+    --color-accent: var(--accent);
+    --color-accent-blue: var(--accent);
+    --color-accent-green: var(--success);
+    --color-accent-red: var(--danger);
+    --color-accent-yellow: var(--warning);
+    --color-focus-ring: var(--accent);
+}

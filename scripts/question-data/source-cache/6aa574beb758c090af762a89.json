@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-it-works.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:03.393Z",
+  "sha256": "f54ccfe342cdc5df08cd5d4024c2c57f3092909ee631d127ef99c313f2c0cd1a",
+  "bytes": 22123,
+  "chars": 6428,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html"
+  ]
+}

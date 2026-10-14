@@ -1,0 +1,107 @@
+{
+  "totalQuestions": 495,
+  "cleanQuestions": 480,
+  "needsReview": 15,
+  "questionsWithRecoveredOptions": 6,
+  "questionsWithNormalizedAnswers": 491,
+  "invalidAnswers": 4,
+  "emptyOptions": 0,
+  "duplicateIds": 0,
+  "duplicateTexts": 10,
+  "reviewItems": [
+    {
+      "id": "q30",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q132",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q137",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q198",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q200",
+      "reasons": [
+        "invalid_answer_format",
+        "answer_not_recovered"
+      ]
+    },
+    {
+      "id": "q250",
+      "reasons": [
+        "invalid_answer_format",
+        "answer_not_recovered"
+      ]
+    },
+    {
+      "id": "q267",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q269",
+      "reasons": [
+        "invalid_answer_format",
+        "answer_not_recovered"
+      ]
+    },
+    {
+      "id": "q293",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q339",
+      "reasons": [
+        "answer_references_missing_option"
+      ]
+    },
+    {
+      "id": "q352",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q374",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q436",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q467",
+      "reasons": [
+        "duplicate_question_text"
+      ]
+    },
+    {
+      "id": "q626",
+      "reasons": [
+        "invalid_answer_format",
+        "answer_not_recovered"
+      ]
+    }
+  ]
+}

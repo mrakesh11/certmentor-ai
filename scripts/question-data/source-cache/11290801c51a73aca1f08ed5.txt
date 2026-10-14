@@ -1,0 +1,324 @@
+AWS IoT – Industrial, Consumer, Commercial, Automotive – AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ AWS IoT
+ Overview 
+ IoT Services 
+ IoT Solutions 
+ IoT Partners 
+ Customers 
+ Resources 
+ Products 
+ AWS IoT 
+ AWS Internet of Things
+ Unlock your IoT data and accelerate business growth
+ Why AWS IoT?
+ AWS offers Internet of Things (IoT) services and solutions to connect and manage billions of devices. Collect, store, and analyze IoT data for industrial, consumer, commercial, and automotive workloads.
+ Play 
+ Benefits of AWS IoT
+ Accelerate innovation with the most complete set of IoT services 
+ Scale, move quickly, and save money, with AWS IoT. From secure device connectivity to management, storage, and analytics, AWS IoT has the broad and deep services you need to build complete solutions.
+ Secure your IoT applications from the cloud to the edge 
+ AWS IoT services address every layer of your application and device.
+ Build intelligent IoT solutions with superior AI and ML integration 
+ Create models in the cloud and deploy them to devices with up to 25x better performance and less than one tenth the runtime footprint. AWS brings AI, machine learning (ML), and IoT together to make devices more intelligent.
+ More easily and reliably scale 
+ Build innovative, differentiated solutions on secure, proven, and elastic cloud infrastructure that scales to billions of devices and trillions of messages. AWS IoT seamlessly integrates with other AWS services.
+ AWS IoT Services
+ Edge services 
+ 3 
+ Connectivity and control services 
+ 4 
+ Industry-specific services 
+ 3 
+ Edge services
+ Open all 
+ FreeRTOS 
+ An open source, cloud-neutral, real-time operating system for resource-constrained devlices like microcontrollers and micorprocessors that offers a fast, dependable, and responsive kernel. 
+ Learn more >> 
+ AWS IoT Greengrass 
+ AWS IoT Greengrass is an IoT open source edge runtime and cloud service that helps you build, deploy, and manage device software. It enables local processing, messaging, data management, ML inference, and offers prebuilt components to accelerate application development. It also provides a secure way to seamlessly connect your edge devices to any AWS service as well as to third-party services.
+ Learn more >> 
+ AWS IoT ExpressLink 
+ AWS IoT ExpressLink powers a range of hardware modules developed and offered by AWS Partners. The connectivity modules include software implementing AWS-mandated security requirements, making it faster and easier for you to securely connect devices to the cloud and seamlessly integrate with a range of AWS services. Using these modules, you can quickly transform any embedded device into an IoT–connected device with minimal design effort.
+ Learn more >> 
+ Connectivity and control services
+ Open all 
+ AWS IoT Core 
+ AWS IoT Core supports connectivity for billions of devices and trillions of messages, and can process and route those messages to AWS endpoints and to other devices reliably and securely. With AWS IoT Core, you can connect IoT devices to AWS without the need to provision or manage servers. AWS IoT Core message broker supports devices and clients that use MQTT and MQTT over WSS protocols to publish and subscribe to messages. It also supports devices and clients that use the HTTPS protocol to publish messages.
+ AWS IoT Device Management 
+ AWS IoT Device Management is a service that makes it easy to securely register, organize, monitor, and remotely manage IoT devices at scale throughout their lifecycle. You can use IoT Device Management to upload and view device information and configuration, organize your device inventory, monitor your fleet of devices, troubleshoot individual devices, and remotely manage devices deployed across many locations including updating device software over-the-air (OTA). With IoT Device Management, you can scale your device fleets and reduce the cost and effort of managing large IoT device deployments.
+ Learn more >> 
+ AWS IoT Device Defender 
+ With AWS IoT Device Defender, you get tools to identify and respond to security issues at scale. AWS IoT Device Defender audits your fleet to ensure it adheres to security best practices, continuously monitors your device fleets to detect any abnormal device behavior, alerts you about security issues as they arise, and provides built-in mitigation actions for these security issues.
+ Learn more >> 
+ Amazon Kinesis Video Streams 
+ Securely ingest, stream, process, and store video and time-encoded data from connected devices at any scale. Amazon Kinesis Video Streams supports media ingestion over a WebRTC connection for secure storage, playback and analytical processing.
+ Learn more >> 
+ Industry-specific services
+ Open all 
+ AWS IoT SiteWise 
+ AWS IoT SiteWise makes it easy to collect, store, organize and monitor data from industrial equipment at scale. You can use AWS IoT SiteWise to monitor operations across facilities, quickly compute common industrial performance metrics, and create applications that analyze industrial equipment data to prevent costly equipment issues and reduce gaps in production.
+ Learn more >> 
+ AWS IoT TwinMaker 
+ Optimize operations by easily creating digital twins of real-world systems. AWS IoT TwinMaker creates digital visualizations using measurements and analysis from a variety of real-world sensors, cameras, and enterprise applications to help you keep track of your physical factory, building, or industrial plant. You can use this real-world data to monitor operations, diagnose and correct errors, and optimize operations.
+ Learn more >> 
+ AWS IoT FleetWise 
+ Easily collect, transform, and transfer vehicle data to the cloud at scale. Analyze vehicle fleet health to quickly identify potential maintenance issues, make in-vehicle infotainment systems smarter, or use analytics and machine learning (ML) to improve models for autonomous driving and advanced driver assistance systems (ADAS).
+ Learn more >> 
+ Possibilities with AWS IoT
+ Optimize industrial operations 
+ Build differentiated consumer products 
+ Reinvent smart buildings and cities 
+ Transform mobility 
+ Optimize industrial operations
+ Create rich and scalable industrial IoT applications to remotely monitor operations, improve quality, and reduce unplanned downtime. 
+ Learn more about industrial IoT » 
+ Build differentiated consumer products
+ Develop connected consumer applications for home automation, home security and monitoring, and home networking. 
+ Learn more about consumer IoT » 
+ Reinvent smart buildings and cities
+ Build commercial IoT applications that solve challenges in infrastructure, health, and the environment. 
+ Learn more about commercial IoT » 
+ Transform mobility
+ Deliver IoT applications that gather, process, analyze, and act on connected vehicle data, without having to manage any infrastructure. 
+ Learn more about connected mobility » 
+ Featured solutions on AWS
+ Distributed Load Testing on AWS
+ Automate software application testing at scale and at load to identify potential performance issues.
+ Get started 
+ Guidance for Tracking Assets & Locating Devices Using AWS IoT
+ Record and monitor the movement of your assets through a centralized management system.
+ Get started 
+ Designing Next Generation Vehicle Communication with AWS IoT Core and MQTT
+ Best practices for implementing an extensible, scalable and resilient communication architecture for the next generation of vehicles on AWS.
+ Get started 
+ Guidance for Building an Agricultural Sensor Network using IoT and Amazon DocumentDB
+ Build an application that helps farmers improve productivity by capturing data from their agricultural operations.
+ Get started 
+ Customers
+ Volkswagen Group 
+ iRobot 
+ Carrier 
+ Volkswagen Group
+ We will continue to strengthen production as a key competitive factor for the Volkswagen Group. Our strategic collaboration with AWS will lay the foundation.
+ Oliver Blume, Chairman of the Executive Board of Porsche AG and Member of the Board of Management, Volkswagen
+ iRobot
+ Traffic spiked by at least 20 times, but because of the simple scalability of a serverless AWS architecture, it was a nonevent. With a traditional architecture, it would have been all hands on deck.
+ Ben Kehoe, Cloud Robotics Research Scientist, iRobot
+ Carrier
+ Through this collaboration with AWS, we are developing a uniquely powerful ecosystem to give our customers greater flexibility, visibility, and intelligence across the cold chain.
+ David Appel, President, Carrier Refrigeration
+ Learn more about AWS IoT's customers
+ From emerging startups to large enterprises, learn why our customers choose AWS IoT.
+ Learn more 
+ Next steps
+ Documentation 
+ Learn how to build simple IoT applications
+ Get hands-on with AWS IoT EduKit 
+ Contact us 
+ Have more questions?
+ Contact us 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

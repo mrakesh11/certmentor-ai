@@ -1,0 +1,295 @@
+Fast NoSQL Key-Value Database – Amazon DynamoDB – AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ Amazon DynamoDB
+ Overview 
+ Features 
+ Pricing 
+ Resources 
+ FAQs 
+ Customers 
+ DAX 
+ Products 
+ Databases 
+ Amazon DynamoDB 
+ Amazon DynamoDB
+ Serverless, fully managed, distributed NoSQL database with single-digit millisecond performance at any scale
+ Get started with DynamoDB 
+ Try DynamoDB with AWS Free Tier 
+ What is DynamoDB
+ DynamoDB offers zero infrastructure management, instant scaling, pay-per-request billing, and no cold starts, upgrades, or maintenance windows. These capabilities, along with native vector search, make DynamoDB ideal for agentic applications that need semantic retrieval. For globally distributed applications, DynamoDB global tables is a multi-Region, multi-active database with up to 99.999% availability. It supports multi-Region strong consistency enabling your applications to always stay available and read the same data from any Region, so you can build zero recovery point objective applications. A broad set of DynamoDB security controls and compliance standards satisfy the requirements for governments, global banks, and other high-sensitivity organizations.
+ Play 
+ Benefits of DynamoDB
+ Serverless
+ Optimize costs with a serverless, fully managed database that instantly scales to fit your applications' needs with zero infrastructure management, zero downtime maintenance, and zero maintenance windows.
+ Learn more 
+ Performance at scale
+ Deliver applications with the same single-digit millisecond performance for your end users, whether it's across tens of thousands or hundreds of millions of simultaneous users.
+ Learn more 
+ Highest application resilience
+ Enable apps to achieve zero RPO with global tables - multi-Region, active-active database - designed for 99.999% availability and ability to always read the latest data from any Region.
+ Learn more 
+ Optimize costs
+ Pay only for what you use even for workloads with variable demands - and warm throughput prevents cold starts as all resources are instantaneously available.
+ Learn more 
+ Interoperability across AWS
+ Do more with your data using built-in tools to perform analytics and AI/ML, and native integrations to manage granular permissions, perform monitoring and observability, and more.
+ Learn more 
+ Scale and value of DynamoDB
+ customers
+ 1 million+
+ requests per second delivered for 100s of customers
+ ½ million+
+ table size used by 100s of customers
+ 200TB+
+ of equivalent database environments
+ 25% lower cost
+ Learn more » 
+ Use cases
+ Mission-critical applications 
+ Run mission-critical workloads on a database built for up to 99.999% availability and zero RPO, with multi-Region, multi-active global tables, multi-Region strong consistency, ACID transactions, and built-in durability, security, and compliance for applications that cannot afford downtime or data loss.
+ Internet-scale applications 
+ Build internet-scale applications that serve tens of millions of concurrent users and hundreds of millions of requests per second with single-digit millisecond performance. whether its across tens of thousands or hundreds of millions of simultaneous users and AI agents. DynamoDB scales instantly to absorb traffic spikes and you only pay for what you use (zero when idle), so you can power user profiles, content metadata, shopping carts, and session stores without provisioning or managing infrastructure.
+ Agentic applications 
+ Build applications that require vector search for agent memory, recommendation engines, personalized experiences, retrieval augmented generation (RAG), and more. Store embeddings alongside your operational data and run real-time similarity search at any scale, so agents can act on the latest context without standing up or synchronizing a separate vector database.
+ Application modernization 
+ Modernize workloads that have outgrown their relational databases, moving high-scale, low-latency applications to a fully managed, serverless model with consistent performance, virtually unlimited scale, and no operational overhead. Eliminate the cost and complexity of scaling relational systems, and use bulk import to migrate and keep data in sync as you transition.
+ Internet of Things 
+ Ingest and store high-velocity sensor and device data at scale, using Time to Live (TTL) to automatically expire aged records and DynamoDB Streams to trigger near real-time processing of incoming events. DynamoDB absorbs unpredictable, bursty device traffic from millions of endpoints with consistent write performance, so you can capture telemetry, track device state, and feed downstream analytics without managing capacity. Use ExtendDB to deploy your DynamoDB application to edge IoT devices.
+ Industries
+ Financial services 
+ Software & internet 
+ Gaming 
+ Retail & e-commerce 
+ AdTech & MarTech 
+ Financial services
+ DynamoDB gives financial services teams the multi-Region resilience, up to 99.999% availability, strong consistency, and ACID transactions that payments and core banking workloads depend on, backed by compliance certifications such as SOC 1/2/3, PCI, FINMA, and ISO. Common use cases include core banking ledger, fraud detection, messaging workflows, digital user onboarding, and more.
+ Read our blog about use cases in financial services 
+ Software & internet
+ SaaS and consumer applications need to scale elastically with unpredictable growth while isolating tenant data and holding latency low at high request volumes. The serverless scaling, fine-grained access control, and consistent single-digit millisecond performance of DynamoDB meets these needs. Typical workloads include user profiles, fine-grained authorization and entitlements, session management, and metadata stores serving hundreds of millions of requests per second.
+ Gaming
+ Games face sudden, unpredictable traffic spikes at launch and during live events, and DynamoDB scales instantly to absorb them with no operational overhead while keeping play responsive for millions of concurrent users. DynamoDB can store player data and profiles, game state, leaderboards, matchmaking, and in-game transactions.
+ Retail & e-commerce
+ Retail and e-commerce must stay fast and available through extreme peak events like Black Friday and flash sales, and DynamoDB scales automatically to deliver consistent performance while keeping shopping carts and checkout responsive. Shopping carts, inventory tracking, product catalogs, order management and order history, customer profiles, session management, pricing and promotions, personalized recommendations, loyalty and rewards programs, and real-time order tracking are typical use cases.
+ AdTech & MarTech
+ Advertising and marketing technology applications run on ultra-low-latency, write-heavy workloads like real-time bidding, where responses are measured in milliseconds, and DynamoDB sustains predictable single-digit millisecond performance at any scale. Common scenarios include evaluating social media posts, monetizing publishing assets more effectively, real-time bidding, ad-targeting, and attribution.
+ Next steps
+ Free tier 
+ Sign up for a free account
+ Try for free 
+ Resources 
+ Learn with hands-on training
+ Get started with DynamoDB 
+ Documentation 
+ Dive deep on DynamoDB
+ Read the documentation 
+ Console 
+ Start building in the console
+ Sign in 
+ Did you find what you were looking for today?
+ Let us know so we can improve the quality of the content on our pages
+ Yes 
+ No 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

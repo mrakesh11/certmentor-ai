@@ -1,0 +1,56 @@
+AWS General Reference - AWS General Reference 
+ View a markdown version of this page 
+ AWS General Reference - AWS General Reference 
+ Documentation Reference guide 
+ AWS security credentials AWS IP address ranges AWS APIs AWS services endpoints and quotas AWS Glossary 
+ AWS General Reference
+ The AWS General Reference provides AWS service endpoint and quota information for Amazon Web Services. Additionally, you can find links to other common topics.
+ Contents
+ AWS security credentials 
+ AWS IP address ranges 
+ AWS APIs 
+ AWS services endpoints and quotas 
+ AWS Glossary 
+ AWS security credentials
+ When you interact with AWS, you specify your AWS security
+ credentials to verify who you are and whether you have permission to access the
+ resources that you are requesting. AWS uses the security credentials to authenticate and
+ authorize your requests.
+ For more information, see the following resources:
+ AWS security credentials in the
+ IAM User Guide 
+ AWS
+ security audit guidelines in the
+ IAM User Guide 
+ AWS IP address ranges
+ AWS publishes its current IP address ranges in JSON format. You can download
+ a .json file to view current ranges. 
+ The IP address ranges that you bring to AWS through bring your own IP addresses (BYOIP)
+ are not included in the .json file.
+ For more information, see the following resources:
+ AWS IP address ranges in the
+ Amazon VPC User Guide 
+ AWS services that support IPv6 in the
+ Amazon VPC User Guide 
+ AWS APIs
+ The following pages provide information that is useful when using an AWS API:
+ Retry behavior in the
+ AWS SDKs and Tools Reference Guide 
+ Signing AWS API requests in the
+ IAM User Guide 
+ AWS services endpoints and quotas
+ You can learn about the endpoints and service quotas in the following pages:
+ AWS service endpoints 
+ AWS service quotas 
+ Service endpoints and quotas 
+ Enable or disable AWS Regions in your account in the AWS Account Management Guide 
+ AWS Glossary
+ For the latest AWS terminology, see the AWS Glossary .
+ Document Conventions 
+ AWS service endpoints
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

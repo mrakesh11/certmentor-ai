@@ -1,0 +1,223 @@
+{
+  "totalReviewItems": 15,
+  "summary": {
+    "SAFE_AUTO_REPAIR": 1,
+    "DUPLICATE_CONFIRMED": 4,
+    "DUPLICATE_TEXT_BUT_VALID": 6,
+    "ANSWER_CORRUPTED_NEEDS_REVIEW": 4,
+    "STRUCTURAL_ISSUE_NEEDS_REVIEW": 0,
+    "FALSE_POSITIVE": 0
+  },
+  "items": [
+    {
+      "id": "q30",
+      "category": "DUPLICATE_TEXT_BUT_VALID",
+      "confidence": "high",
+      "reason": "The wording matches q267 and q374, but all three records have different option sets. q30 has answer BE while q267 has B and q374 has BE.",
+      "evidence": {
+        "originalAnswer": "BE",
+        "normalizedAnswer": ["B", "E"],
+        "options": [{"id":"A","text":"Availability"},{"id":"B","text":"Reliability"},{"id":"C","text":"Scalability"},{"id":"D","text":"Responsive design"},{"id":"E","text":"Operational excellence"}],
+        "matchingQuestionIds": ["q267", "q374"]
+      },
+      "recommendedAction": "Keep q30. Do not remove it as a duplicate-text record.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q132",
+      "category": "DUPLICATE_TEXT_BUT_VALID",
+      "confidence": "high",
+      "reason": "The wording matches q198 and q352, but each record has a different option set. q132 answers D, q198 answers D, and q352 answers C against different options.",
+      "evidence": {
+        "originalAnswer": "D",
+        "normalizedAnswer": ["D"],
+        "options": [{"id":"A","text":"Enable client-side encryption for objects that are stored in Amazon S3."},{"id":"B","text":"Configure IAM security policies to comply with the principle of least privilege."},{"id":"C","text":"Patch the guest operating system on an Amazon EC2 instance."},{"id":"D","text":"Apply updates to the Nitro Hypervisor."}],
+        "matchingQuestionIds": ["q198", "q352"]
+      },
+      "recommendedAction": "Keep q132. Do not remove it as a duplicate-text record.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q137",
+      "category": "DUPLICATE_CONFIRMED",
+      "confidence": "high",
+      "reason": "q137 and q293 have identical normalized text, identical options, identical answer CD, identical original answer, and identical explanation.",
+      "evidence": {
+        "originalAnswer": "CD",
+        "normalizedAnswer": ["C", "D"],
+        "options": [{"id":"A","text":"Observability"},{"id":"B","text":"Incident and problem management"},{"id":"C","text":"Incident response"},{"id":"D","text":"Infrastructure protection"},{"id":"E","text":"Availability and continuity"}],
+        "matchingQuestionIds": ["q293"]
+      },
+      "recommendedAction": "Treat q137 and q293 as one duplicate group in the next cleanup decision; do not delete either record in this analysis step.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q198",
+      "category": "DUPLICATE_TEXT_BUT_VALID",
+      "confidence": "high",
+      "reason": "The wording matches q132 and q352, but the option set differs from both. Its answer D refers to maintaining physical hardware in this record.",
+      "evidence": {
+        "originalAnswer": "D",
+        "normalizedAnswer": ["D"],
+        "options": [{"id":"A","text":"Configure identity and access management for applications."},{"id":"B","text":"Manage encryption options for data that is stored on AWS."},{"id":"C","text":"Configure security groups for Amazon EC2 instances."},{"id":"D","text":"Maintain the physical hardware of the infrastructure"}],
+        "matchingQuestionIds": ["q132", "q352"]
+      },
+      "recommendedAction": "Keep q198. Do not remove it as a duplicate-text record.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q200",
+      "category": "ANSWER_CORRUPTED_NEEDS_REVIEW",
+      "confidence": "high",
+      "reason": "The original answer is not a complete sequence of option letters; it contains an apparent answer prefix followed by unrelated question text. No safe answer can be recovered from the source alone.",
+      "evidence": {
+        "originalAnswer": "ADACOMPANYISSTORINGDATATHATWILLNOTBEFREQUENTLYACCESSEDINTHEAWSCLOUD",
+        "normalizedAnswer": [],
+        "options": [{"id":"A","text":"Securing the virtualization layer"},{"id":"B","text":"Patching the operating system on Amazon EC2 instances"},{"id":"C","text":"Enforcing a strict password policy for IAM users"},{"id":"D","text":"Patching the operating system on Amazon RDS instances"},{"id":"E","text":"Configuring security groups and network ACLs"}],
+        "matchingQuestionIds": []
+      },
+      "recommendedAction": "Have a human verify the intended answer against the original source or trusted question record before assigning an answer.",
+      "requiresHumanReview": true
+    },
+    {
+      "id": "q250",
+      "category": "ANSWER_CORRUPTED_NEEDS_REVIEW",
+      "confidence": "high",
+      "reason": "The original answer is not a complete sequence of option letters; it contains an apparent answer prefix followed by unrelated question text. The source does not identify whether the intended answer was A or another value.",
+      "evidence": {
+        "originalAnswer": "AACOMPANYWANTSTOSTOREDATAINAMAZONS",
+        "normalizedAnswer": [],
+        "options": [{"id":"A","text":"Spot Instances"},{"id":"B","text":"Dedicated Instances"},{"id":"C","text":"Reserved Instances"},{"id":"D","text":"On-Demand Instances"}],
+        "matchingQuestionIds": []
+      },
+      "recommendedAction": "Have a human verify the intended answer against the original source or trusted question record before assigning an answer.",
+      "requiresHumanReview": true
+    },
+    {
+      "id": "q267",
+      "category": "DUPLICATE_TEXT_BUT_VALID",
+      "confidence": "high",
+      "reason": "The wording matches q30 and q374, but q267 has a different option set and its normalized answer contains only B. It is not a complete-record duplicate.",
+      "evidence": {
+        "originalAnswer": "B",
+        "normalizedAnswer": ["B"],
+        "options": [{"id":"A","text":"High availability"},{"id":"B","text":"Performance efficiency"},{"id":"C","text":"Cost optimization"},{"id":"D","text":"Going global in minutes"},{"id":"E","text":"Continuous development"}],
+        "matchingQuestionIds": ["q30", "q374"]
+      },
+      "recommendedAction": "Keep q267. Do not remove it as a duplicate-text record.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q269",
+      "category": "ANSWER_CORRUPTED_NEEDS_REVIEW",
+      "confidence": "high",
+      "reason": "The original answer is not a complete sequence of option letters; it contains an apparent answer prefix followed by unrelated question text. Although the value begins with C, the answer cannot be safely recovered under the audit rules.",
+      "evidence": {
+        "originalAnswer": "CWHICHOFTHEFOLLOWINGAREBENEFITSTHATACOMPANYRECEIVESWHENITMOVESANON",
+        "normalizedAnswer": [],
+        "options": [{"id":"A","text":"AWS Outposts"},{"id":"B","text":"AWS Transfer Family"},{"id":"C","text":"AWS Snow Family"},{"id":"D","text":"AWS Migration Hub"}],
+        "matchingQuestionIds": []
+      },
+      "recommendedAction": "Have a human verify the intended answer against the original source or trusted question record before assigning an answer.",
+      "requiresHumanReview": true
+    },
+    {
+      "id": "q293",
+      "category": "DUPLICATE_CONFIRMED",
+      "confidence": "high",
+      "reason": "q293 is an exact complete-record duplicate of q137: text, options, normalized answer CD, original answer, and explanation all match.",
+      "evidence": {
+        "originalAnswer": "CD",
+        "normalizedAnswer": ["C", "D"],
+        "options": [{"id":"A","text":"Observability"},{"id":"B","text":"Incident and problem management"},{"id":"C","text":"Incident response"},{"id":"D","text":"Infrastructure protection"},{"id":"E","text":"Availability and continuity"}],
+        "matchingQuestionIds": ["q137"]
+      },
+      "recommendedAction": "Treat q137 and q293 as one duplicate group in the next cleanup decision; do not delete either record in this analysis step.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q339",
+      "category": "SAFE_AUTO_REPAIR",
+      "confidence": "high",
+      "reason": "The option B text contains an embedded 'C.' delimiter followed by a distinct option phrase, while the existing answer is BC. The source unambiguously supports splitting the current B text into B and C.",
+      "evidence": {
+        "originalAnswer": "BC",
+        "normalizedAnswer": ["B", "C"],
+        "options": [{"id":"A","text":"AWS Fargate"},{"id":"B","text":"Amazon CloudFront C. AWS Global Accelerator"},{"id":"D","text":"AWS Wavelength"},{"id":"E","text":"Amazon VPC"}],
+        "matchingQuestionIds": []
+      },
+      "recommendedAction": "In the next pipeline step, split option B at the embedded C. marker and create option C with text AWS Global Accelerator. Keep the existing answer BC.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q352",
+      "category": "DUPLICATE_TEXT_BUT_VALID",
+      "confidence": "high",
+      "reason": "The wording matches q132 and q198, but q352 has a distinct option set and answer C. It is not a complete-record duplicate.",
+      "evidence": {
+        "originalAnswer": "C",
+        "normalizedAnswer": ["C"],
+        "options": [{"id":"A","text":"Encryption of application data"},{"id":"B","text":"Authentication of application users"},{"id":"C","text":"Protection of physical network infrastructure"},{"id":"D","text":"Configuration of firewalls"}],
+        "matchingQuestionIds": ["q132", "q198"]
+      },
+      "recommendedAction": "Keep q352. Do not remove it as a duplicate-text record.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q374",
+      "category": "DUPLICATE_TEXT_BUT_VALID",
+      "confidence": "high",
+      "reason": "The wording matches q30 and q267, but q374 has a different option set. Its answer BE is valid against its own options and does not make it a complete-record duplicate.",
+      "evidence": {
+        "originalAnswer": "BE",
+        "normalizedAnswer": ["B", "E"],
+        "options": [{"id":"A","text":"Resource scalability"},{"id":"B","text":"Performance efficiency"},{"id":"C","text":"System elasticity"},{"id":"D","text":"Agile development"},{"id":"E","text":"Operational excellence"}],
+        "matchingQuestionIds": ["q30", "q267"]
+      },
+      "recommendedAction": "Keep q374. Do not remove it as a duplicate-text record.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q436",
+      "category": "DUPLICATE_CONFIRMED",
+      "confidence": "high",
+      "reason": "q436 and q467 have identical normalized text, identical options, answer C, original answer C, and identical explanation.",
+      "evidence": {
+        "originalAnswer": "C",
+        "normalizedAnswer": ["C"],
+        "options": [{"id":"A","text":"AWS License Manager"},{"id":"B","text":"AWS Certificate Manager (ACM)"},{"id":"C","text":"AWS CloudHSM"},{"id":"D","text":"AWS Directory Service"}],
+        "matchingQuestionIds": ["q467"]
+      },
+      "recommendedAction": "Treat q436 and q467 as one duplicate group in the next cleanup decision; do not delete either record in this analysis step.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q467",
+      "category": "DUPLICATE_CONFIRMED",
+      "confidence": "high",
+      "reason": "q467 is an exact complete-record duplicate of q436: text, options, normalized answer C, original answer, and explanation all match.",
+      "evidence": {
+        "originalAnswer": "C",
+        "normalizedAnswer": ["C"],
+        "options": [{"id":"A","text":"AWS License Manager"},{"id":"B","text":"AWS Certificate Manager (ACM)"},{"id":"C","text":"AWS CloudHSM"},{"id":"D","text":"AWS Directory Service"}],
+        "matchingQuestionIds": ["q436"]
+      },
+      "recommendedAction": "Treat q436 and q467 as one duplicate group in the next cleanup decision; do not delete either record in this analysis step.",
+      "requiresHumanReview": false
+    },
+    {
+      "id": "q626",
+      "category": "ANSWER_CORRUPTED_NEEDS_REVIEW",
+      "confidence": "high",
+      "reason": "The original answer is not a complete sequence of option letters; it contains an apparent answer prefix followed by unrelated text. The source alone does not safely establish the intended answer.",
+      "evidence": {
+        "originalAnswer": "CCOMMUNITYVOTEDISTRIBUTIONC",
+        "normalizedAnswer": [],
+        "options": [{"id":"A","text":"AWS Direct Connect"},{"id":"B","text":"Amazon VPC"},{"id":"C","text":"AWS Site-to-Site VPN"},{"id":"D","text":"Edge location"}],
+        "matchingQuestionIds": []
+      },
+      "recommendedAction": "Have a human verify the intended answer against the original source or trusted question record before assigning an answer.",
+      "requiresHumanReview": true
+    }
+  ]
+}

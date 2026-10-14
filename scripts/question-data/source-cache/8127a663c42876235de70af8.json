@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-instances.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:02.338Z",
+  "sha256": "55e44e6092826f51f92c091afa5dc87bd9f32477217b6f8eaebe1f36e1de1e6d",
+  "bytes": 28963,
+  "chars": 10056,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html"
+  ]
+}

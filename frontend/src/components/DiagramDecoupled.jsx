@@ -1,15 +1,22 @@
 import { useState } from 'react';
+// ESLint no-unused-vars does not count JSX member expressions such as
+// <motion.div> as a usage of the motion import, so it reads as unused.
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function DiagramDecoupled() {
     const [active, setActive] = useState(null);
 
+    // Diagram accents are tokens, not literals, so the illustration follows the
+    // active theme. Roles match the rest of the gallery:
+    //   1 = ingress/edges  2 = workers/compute
+    //   3 = stored data    4 = messaging
     const info = {
-        api: { title: "API Gateway", type: "Endpoint", desc: "Receives order requests from the wild web acting as our unbreakable front door.", icon: "fa-door-open", color: "#ffb86c" },
-        sns: { title: "Amazon SNS", type: "Pub/Sub", desc: "Immediately broadcasts the incoming order to multiple downstream services simultaneously via Push notifications.", icon: "fa-satellite-dish", color: "#ff79c6" },
-        sqs: { title: "Amazon SQS", type: "Queue", desc: "Buffers the incoming messages. Even if your backend crashes, messages queue safely up to 14 days avoiding dropped orders.", icon: "fa-layer-group", color: "#ff79c6" },
-        worker: { title: "EC2 Worker Nodes", type: "Compute", desc: "Pulls messages from the queue at its own safe pace. If it dies, the message goes back onto the queue for another node.", icon: "fa-server", color: "#8be9fd" },
-        s3: { title: "Amazon S3", type: "Storage", desc: "The final processed order gets saved here securely and redundantly.", icon: "fa-box-archive", color: "#50fa7b" }
+        api: { title: "API Gateway", type: "Endpoint", desc: "Receives order requests from the wild web acting as our unbreakable front door.", icon: "fa-door-open", color: "var(--diagram-1)" },
+        sns: { title: "Amazon SNS", type: "Pub/Sub", desc: "Immediately broadcasts the incoming order to multiple downstream services simultaneously via Push notifications.", icon: "fa-satellite-dish", color: "var(--diagram-4)" },
+        sqs: { title: "Amazon SQS", type: "Queue", desc: "Buffers the incoming messages. Even if your backend crashes, messages queue safely up to 14 days avoiding dropped orders.", icon: "fa-layer-group", color: "var(--diagram-4)" },
+        worker: { title: "EC2 Worker Nodes", type: "Compute", desc: "Pulls messages from the queue at its own safe pace. If it dies, the message goes back onto the queue for another node.", icon: "fa-server", color: "var(--diagram-2)" },
+        s3: { title: "Amazon S3", type: "Storage", desc: "The final processed order gets saved here securely and redundantly.", icon: "fa-box-archive", color: "var(--diagram-3)" }
     };
 
     return (
@@ -33,12 +40,12 @@ export default function DiagramDecoupled() {
                 <div className="arrow-connector" style={{transform: 'rotate(90deg)'}}><i className="fa-solid fa-arrow-right"></i></div>
 
                 {/* SQS Buffer Box */}
-                <div className="vpc-boundary" style={{borderColor: info.sqs.color, borderStyle: 'dotted', display: 'flex', gap: '20px', background: 'rgba(255, 121, 198, 0.05)'}} onMouseEnter={(e) => { e.stopPropagation(); setActive('sqs'); }} onMouseLeave={() => setActive(null)}>
+                <div className="vpc-boundary" style={{borderColor: info.sqs.color, borderStyle: 'dotted', display: 'flex', gap: '20px', background: 'color-mix(in srgb, var(--diagram-4) 6%, transparent)'}} onMouseEnter={(e) => { e.stopPropagation(); setActive('sqs'); }} onMouseLeave={() => setActive(null)}>
                     <div className="boundary-label" style={{color: info.sqs.color}}><i className="fa-solid fa-layer-group"></i> SQS Message Buffer queue</div>
-                    <div style={{display: 'flex', gap: '10px', padding: '20px', background: 'rgba(0,0,0,0.5)', borderRadius: '10px', flex: 1, justifyContent: 'center'}}>
-                        <i className="fa-solid fa-envelope" style={{color: '#fff', fontSize: '1.5rem'}}></i>
-                        <i className="fa-solid fa-envelope" style={{color: '#fff', fontSize: '1.5rem'}}></i>
-                        <i className="fa-solid fa-envelope" style={{color: '#fff', fontSize: '1.5rem'}}></i>
+                    <div style={{display: 'flex', gap: '10px', padding: '20px', background: 'var(--surface-inset)', borderRadius: '10px', flex: 1, justifyContent: 'center'}}>
+                        <i className="fa-solid fa-envelope" style={{color: 'var(--text-primary)', fontSize: '1.5rem'}}></i>
+                        <i className="fa-solid fa-envelope" style={{color: 'var(--text-primary)', fontSize: '1.5rem'}}></i>
+                        <i className="fa-solid fa-envelope" style={{color: 'var(--text-primary)', fontSize: '1.5rem'}}></i>
                     </div>
                 </div>
 
@@ -62,7 +69,7 @@ export default function DiagramDecoupled() {
                 {active && (
                     <motion.div className="glass-tooltip" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} style={{ borderLeft: `5px solid ${info[active].color}`, top: '20%', zIndex: 100 }}>
                         <h4 style={{ color: info[active].color }}><i className={`fa-solid ${info[active].icon}`}></i> {info[active].title}</h4>
-                        <span className="mode-badge" style={{background: 'rgba(255,255,255,0.1)'}}>{info[active].type}</span>
+                        <span className="mode-badge" style={{background: 'var(--surface-2)'}}>{info[active].type}</span>
                         <p>{info[active].desc}</p>
                     </motion.div>
                 )}

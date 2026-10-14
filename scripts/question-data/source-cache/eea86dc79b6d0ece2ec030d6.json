@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/efs/latest/ug/what-is.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:00.705Z",
+  "sha256": "5af30941ebf771ea17e668065f33c18b16c3de4dfd7926ea0e9dd27b98f7c045",
+  "bytes": 16666,
+  "chars": 5226,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html"
+  ]
+}

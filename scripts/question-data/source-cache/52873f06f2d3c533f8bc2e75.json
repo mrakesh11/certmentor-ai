@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups-rules.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:05.174Z",
+  "sha256": "229e4d45835eab1cd2f035ee6c549dd2dec86e7f6b9aa0123e02bd8aa20bd320",
+  "bytes": 23275,
+  "chars": 7591,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html"
+  ]
+}

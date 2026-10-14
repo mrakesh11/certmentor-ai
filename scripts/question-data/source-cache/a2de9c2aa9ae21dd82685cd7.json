@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/autoscaling/latest/userguide/what-is-amazon-autoscaling.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/autoscaling/latest/userguide/what-is-amazon-ec2-auto-scaling.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:04.512Z",
+  "sha256": "549ff284b90df7c49b72a6b671936994d228bca1a23e5e84df4eab654a8d9e26",
+  "bytes": 22274,
+  "chars": 8179,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/autoscaling/latest/userguide/what-is-amazon-ec2-auto-scaling.html"
+  ]
+}

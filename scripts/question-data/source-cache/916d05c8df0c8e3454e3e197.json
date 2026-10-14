@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/general/latest/gr/aws-service-terms.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/general/latest/gr/Welcome.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:11.072Z",
+  "sha256": "ab49781e61bd8c4c906fe436775560b0958b682dd88c31c58b23d3d80ff4f1fa",
+  "bytes": 14339,
+  "chars": 2397,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/general/latest/gr/Welcome.html"
+  ]
+}

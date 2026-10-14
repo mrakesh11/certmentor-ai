@@ -1,0 +1,28 @@
+Managing accounts in an organization with AWS Organizations - AWS Organizations 
+ View a markdown version of this page 
+ Managing accounts in an organization with AWS Organizations - AWS Organizations 
+ Documentation AWS Organizations User Guide 
+ Managing accounts in an organization with AWS Organizations
+ An AWS account is a container for your AWS resources.
+ You create and manage your AWS resources in an AWS account.
+ This topic describes how to manage accounts for AWS Organizations.
+ Topics
+ Management account 
+ Member accounts 
+ Account invitations 
+ Migrate an account 
+ View details of an account 
+ Export account details 
+ Monitor account states 
+ Update alternate contacts for an account 
+ Update primary contact for an account 
+ Update AWS Regions for an account 
+ Document Conventions 
+ Deleting an organization
+ Management account
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

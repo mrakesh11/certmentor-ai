@@ -1,0 +1,60 @@
+AWS WAF - AWS WAF, AWS Firewall Manager, AWS Shield Advanced, and AWS Shield network security director 
+ View a markdown version of this page 
+ AWS WAF - AWS WAF, AWS Firewall Manager, AWS Shield Advanced, and AWS Shield network security director 
+ Documentation AWS WAF Developer Guide 
+ Introducing a new console experience for AWS WAF 
+ You can now use the updated experience to access AWS WAF functionality anywhere in the console.
+ For more details, see Working with the console .
+ AWS WAF
+ AWS WAF is a web application firewall that lets you monitor the HTTP(S) requests that
+ are forwarded to your protected web application resources. You can protect the following
+ resource types: 
+ Amazon CloudFront distribution
+ Amazon API Gateway REST API
+ Application Load Balancer
+ AWS AppSync GraphQL API
+ Amazon Cognito user pool
+ AWS App Runner service
+ Amazon Bedrock AgentCore Gateway
+ AWS Verified Access instance
+ AWS Amplify
+ AWS WAF lets you control access to your content. Based on criteria that you specify,
+ such as the IP addresses that requests originate from or the values of query strings, the
+ service associated with your protected resource responds to requests either with the
+ requested content, with an HTTP 403 status code (Forbidden), or with a custom response. 
+ Note
+ You can also use AWS WAF to protect your applications that are hosted in Amazon Elastic Container Service (Amazon ECS)
+ containers. Amazon ECS is a highly scalable, fast container management service that makes it
+ easy to run, stop, and manage Docker containers on a cluster. To use this option, you
+ configure Amazon ECS to use an Application Load Balancer that is enabled for AWS WAF to route and protect HTTP(S)
+ layer 7 traffic across the tasks in your service. For more information, see Service Load Balancing in the
+ Amazon Elastic Container Service Developer Guide .
+ Topics
+ Get started with AWS WAF 
+ How AWS WAF works 
+ Configuring protection in AWS WAF 
+ AWS WAF rules 
+ AWS WAF rule groups 
+ Web ACL capacity units (WCUs) in AWS WAF 
+ Oversize web request components in AWS WAF 
+ Supported regular expression syntax in AWS WAF 
+ IP sets and regex pattern sets in AWS WAF 
+ Customized web requests and responses in AWS WAF 
+ Web request labeling in AWS WAF 
+ Intelligent threat mitigation in AWS WAF 
+ AI traffic monetization 
+ Data protection and logging for AWS WAF protection pack (web ACL) traffic 
+ Testing and tuning your AWS WAF protections 
+ Using AWS WAF with Amazon CloudFront 
+ Security in your use of the AWS WAF service 
+ AWS WAF quotas 
+ Migrating your AWS WAF Classic resources to AWS WAF 
+ Document Conventions 
+ Setting up your account
+ Getting started with AWS WAF
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

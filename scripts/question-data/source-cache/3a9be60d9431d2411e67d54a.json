@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/operational-excellence-pillar.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:13.719Z",
+  "sha256": "00307549a1ed178139a39148be987336b304cce5866159938af78b5780ed507a",
+  "bytes": 15551,
+  "chars": 3824,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+  ]
+}

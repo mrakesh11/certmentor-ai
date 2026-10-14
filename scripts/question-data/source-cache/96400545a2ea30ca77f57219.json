@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/welcome.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:02.847Z",
+  "sha256": "4804254e74cb22518973a37c7eedc006f04a5d689180463de9b3b8f11aceb493",
+  "bytes": 21730,
+  "chars": 5445,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html"
+  ]
+}

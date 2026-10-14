@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/datasync/latest/userguide/what-is.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:01.844Z",
+  "sha256": "4024f308bd50d7098f0770e3c14c1788313fc5b931e7287627dc781fcfaf6721",
+  "bytes": 20163,
+  "chars": 4216,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html"
+  ]
+}

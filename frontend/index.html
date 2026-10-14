@@ -3,11 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AWS CLF-C02 Cheatsheet React App</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>AWS CLF-C02 Certification Learning Workspace</title>
+    <meta name="description" content="Study the AWS Cloud Practitioner (CLF-C02) curriculum and practice fact-checked questions." />
+    <meta name="theme-color" content="#f7f7f5" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Resolve the theme before first paint so there is no flash of the
+         wrong scheme. Mirrors src/lib/theme.js: an explicit stored choice
+         wins, otherwise "system" follows prefers-color-scheme. -->
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('aws_clf_theme_v1');
+          var pref = (stored === 'light' || stored === 'dark') ? stored : 'system';
+          var dark = pref === 'dark' ||
+            (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          document.querySelector('meta[name="theme-color"]')
+            .setAttribute('content', dark ? '#1f1f1f' : '#f7f7f5');
+        } catch (e) {
+          document.documentElement.dataset.theme = 'light';
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

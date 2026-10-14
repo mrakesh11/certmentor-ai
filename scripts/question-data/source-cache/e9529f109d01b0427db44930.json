@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/accounts/latest/reference/welcome.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:11.082Z",
+  "sha256": "8b578a119aabf077ec3003a1c0c10fe98f2bf33989cabccccea99193cab6c883",
+  "bytes": 18682,
+  "chars": 6034,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/accounts/latest/reference/accounts-welcome.html"
+  ]
+}

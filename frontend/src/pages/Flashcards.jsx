@@ -1,17 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+// framer-motion powers the drag-to-swipe gesture, which is the core
+// interaction here. `no-unused-vars` does not count JSX member expressions
+// such as <motion.div>, so the import looks unused to the linter.
+// eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { examQuestions } from '../questionsData.js';
 import confetti from 'canvas-confetti';
+import './Flashcards.css';
 
 // A single swipeable card
 const Card = ({ data, onSwipe, active, index }) => {
     const x = useMotionValue(0);
     const rotate = useTransform(x, [-200, 200], [-15, 15]);
     const opacity = useTransform(x, [-200, -100, 0, 100, 200], [0, 1, 1, 1, 0]);
-    const backgroundColor = useTransform(x, 
-        [-200, 0, 200], 
-        ['rgba(239, 68, 68, 0.4)', 'var(--card-bg)', 'rgba(16, 185, 129, 0.4)']
+    // Directional tint: red when drifting towards "forgot", green towards
+    // "memorized". Tokens keep this legible in both themes.
+    const backgroundColor = useTransform(x,
+        [-200, 0, 200],
+        ['var(--danger-soft)', 'var(--surface-1)', 'var(--success-soft)']
     );
     
     const [flipped, setFlipped] = useState(false);
@@ -51,11 +58,10 @@ const Card = ({ data, onSwipe, active, index }) => {
                     backgroundColor,
                     width: '100%',
                     height: '100%',
-                    borderRadius: '20px',
+                    borderRadius: 'var(--radius-xl)',
                     padding: '2rem',
-                    border: '1px solid var(--card-border)',
-                    boxShadow: '0 15px 35px rgba(0,0,0,0.4)',
-                    backdropFilter: 'blur(10px)',
+                    border: '1px solid var(--border-default)',
+                    boxShadow: 'var(--shadow-lg)',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'center',
@@ -65,20 +71,20 @@ const Card = ({ data, onSwipe, active, index }) => {
                 }}
                 whileTap={{ cursor: 'grabbing' }}
             >
-                <div style={{ position: 'absolute', top: '15px', right: '15px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                <div style={{ position: 'absolute', top: '15px', right: '15px', fontSize: '0.8rem', color: 'var(--text-tertiary)' }}>
                     TAP TO FLIP
                 </div>
 
                 {!flipped ? (
                     <>
-                        <h2 style={{color: 'var(--accent-blue)', marginBottom: '1rem', fontSize: '1.4rem'}}>{data.id}</h2>
-                        <p style={{fontSize: '1.3rem', color: 'white', lineHeight: '1.6'}}>{data.text}</p>
+                        <h2 style={{color: 'var(--accent)', marginBottom: '1rem', fontSize: '1.4rem'}}>{data.id}</h2>
+                        <p style={{fontSize: '1.3rem', color: 'var(--text-primary)', lineHeight: '1.6'}}>{data.text}</p>
                     </>
                 ) : (
                     <>
-                        <h3 style={{color: 'var(--correct-green)', marginBottom: '1rem'}}>Explanation:</h3>
-                        <p style={{fontSize: '1rem', color: 'var(--text-main)', lineHeight: '1.6'}} dangerouslySetInnerHTML={{__html: data.explanation}}></p>
-                        <strong style={{marginTop: '2rem', display: 'block', color: 'var(--accent-purple)'}}>Answer: {data.answer}</strong>
+                        <h3 style={{color: 'var(--success)', marginBottom: '1rem'}}>Explanation:</h3>
+                        <p style={{fontSize: '1rem', color: 'var(--text-secondary)', lineHeight: '1.6'}} dangerouslySetInnerHTML={{__html: data.explanation}}></p>
+                        <strong style={{marginTop: '2rem', display: 'block', color: 'var(--accent)'}}>Answer: {data.answer}</strong>
                     </>
                 )}
             </motion.div>
@@ -86,12 +92,15 @@ const Card = ({ data, onSwipe, active, index }) => {
     );
 };
 
+// Deck size for a single flashcard session, kept deliberately short.
+const DECK_SIZE = 50;
+
 export default function Flashcards() {
     // Only use 50 randomly pulled questions to keep session short
-    const [deck, setDeck] = useState(() => [...examQuestions].sort(() => 0.5 - Math.random()).slice(0, 50));
+    const [deck, setDeck] = useState(() => [...examQuestions].sort(() => 0.5 - Math.random()).slice(0, DECK_SIZE));
     const [score, setScore] = useState(0);
 
-    const handleSwipe = (direction, id) => {
+    const handleSwipe = (direction) => {
         if (direction === 'right') {
             setScore(s => s + 1);
         }
@@ -102,42 +111,88 @@ export default function Flashcards() {
     };
 
     if (deck.length === 0) {
+        const total = score;
         return (
-            <div className="app-container" style={{display: 'flex', flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-                <motion.div className="quiz-card" style={{textAlign: 'center'}} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }}>
-                    <i className="fa-solid fa-fire" style={{fontSize: '4rem', color: '#ffb86c', marginBottom: '1rem'}}></i>
-                    <h2>Flashcard Session Complete!</h2>
-                    <p style={{color: 'var(--text-muted)'}}>You rapidly memorized {score} concepts.</p>
-                    <Link to="/" className="cta-btn" style={{marginTop: '2rem'}}>
-                        Return to Dashboard
-                    </Link>
-                </motion.div>
+            <div className="page page--narrow">
+                <div className="session-summary session-summary--clean">
+                    <div className="session-summary__icon">
+                        <i className="fa-solid fa-fire" aria-hidden="true"></i>
+                    </div>
+                    <h2>Flashcard session complete</h2>
+                    <p>
+                        You swiped through this deck and marked {total} concept
+                        {total === 1 ? '' : 's'} as memorized.
+                    </p>
+
+                    <div className="session-summary__stats">
+                        <div className="stat stat--success">
+                            <span className="stat__value">{total}</span>
+                            <span className="stat__label">Marked memorized</span>
+                        </div>
+                        <div className="stat">
+                            <span className="stat__value">{DECK_SIZE}</span>
+                            <span className="stat__label">Cards in this deck</span>
+                        </div>
+                    </div>
+
+                    <div className="practice-actions">
+                        <Link to="/" className="btn btn--primary">Return to dashboard</Link>
+                        <Link to="/learn" className="btn btn--secondary">Browse curriculum</Link>
+                    </div>
+                </div>
             </div>
         );
     }
 
+    const remaining = deck.length;
+
     return (
-        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '2rem 5%', overflow: 'hidden' }}>
-            
-            <div style={{textAlign: 'center', marginBottom: '2rem'}}>
-                <h1 style={{color: 'white', display: 'flex', alignItems: 'center', gap: '10px'}}><i className="fa-solid fa-layer-group" style={{color: 'var(--accent-purple)'}}></i> Flashcards</h1>
-                <p style={{color: 'var(--text-muted)'}}>Swipe Left (Reset) • Swipe Right (Memorized)</p>
-            </div>
+        <div className="page">
+            <div className="flashcards">
+                <div className="flashcards__head">
+                    <h1>
+                        <i className="fa-solid fa-layer-group" aria-hidden="true"></i>
+                        Flashcards
+                    </h1>
+                    <p className="flashcards__hint">
+                        <kbd>Drag</kbd> left to reset · <kbd>Drag</kbd> right to mark memorized ·
+                        tap the card to flip
+                    </p>
+                </div>
 
-            <div style={{ position: 'relative', width: '100%', maxWidth: '400px', height: '500px' }}>
-                <AnimatePresence>
-                    {deck.map((card, idx) => (
-                        <Card 
-                            key={card.id} 
-                            data={card} 
-                            index={idx}
-                            active={idx === 0} 
-                            onSwipe={handleSwipe} 
-                        />
-                    ))}
-                </AnimatePresence>
-            </div>
+                <div
+                    className="progress"
+                    role="progressbar"
+                    aria-valuemin={0}
+                    aria-valuemax={DECK_SIZE}
+                    aria-valuenow={DECK_SIZE - remaining}
+                    aria-label="Cards reviewed this session"
+                >
+                    <span
+                        className="progress__fill"
+                        style={{ width: `${((DECK_SIZE - remaining) / DECK_SIZE) * 100}%` }}
+                    ></span>
+                </div>
 
+                <p className="flashcards__count" aria-live="polite">
+                    {remaining} card{remaining === 1 ? '' : 's'} remaining
+                    {score > 0 && ` · ${score} memorized`}
+                </p>
+
+                <div className="flashcards__stage">
+                    <AnimatePresence>
+                        {deck.map((card, idx) => (
+                            <Card
+                                key={card.id}
+                                data={card}
+                                index={idx}
+                                active={idx === 0}
+                                onSwipe={handleSwipe}
+                            />
+                        ))}
+                    </AnimatePresence>
+                </div>
+            </div>
         </div>
     );
 }

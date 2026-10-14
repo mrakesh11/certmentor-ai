@@ -1,0 +1,46 @@
+Introduction to Amazon Redshift - Amazon Redshift 
+ View a markdown version of this page 
+ Introduction to Amazon Redshift - Amazon Redshift 
+ Documentation Amazon Redshift Database Developer Guide 
+ Prerequisites for using Amazon Redshift 
+ Amazon Redshift will no longer support the use of Python UDFs after June 30, 2026.
+ We will start enforcing it in phases. For more information on the details of Python end of life
+ and migration options, see the
+ blog post
+ that was published on June 30, 2025.
+ Introduction to Amazon Redshift
+ Welcome to the Amazon Redshift Database Developer Guide . This guide focuses on helping
+ you understand how to use Amazon Redshift 
+ to create and manage a data warehouse. If you work
+ with databases as a designer, software developer, or administrator, this guide gives you the
+ information you need to design, build, query, and maintain your data warehouse.
+ Amazon Redshift is a fully managed,
+ petabyte-scale data warehouse service in the cloud. With Amazon Redshift Serverless, you can access and
+ analyze data without the usual configurations of a provisioned data warehouse. Resources are
+ automatically provisioned and data warehouse capacity is intelligently scaled to deliver
+ fast performance for even the most demanding and unpredictable workloads. You don't incur
+ charges when the data warehouse is idle, so you only pay for what you use. Regardless of the size
+ of the dataset, you can load data and start querying right away in the Amazon Redshift query editor v2 or in your favorite business
+ intelligence (BI) tool. Enjoy the best price performance and familiar SQL features in an
+ easy-to-use, zero administration environment.
+ Topics
+ Prerequisites for using Amazon Redshift 
+ Amazon Redshift architecture 
+ Sample database 
+ Prerequisites for using Amazon Redshift
+ This topic describes prerequisites you need to use Amazon Redshift.
+ Before you use this guide, you should read Get started with Redshift Serverless data warehouses , which
+ goes over how to complete the following tasks.
+ Create a data warehouse with Amazon Redshift Serverless.
+ Loading in sample data with Amazon Redshift query editor v2
+ Loading in data from Amazon S3.
+ You should also know how to use your SQL client and should have a fundamental
+ understanding of the SQL language.
+ Document Conventions 
+ Amazon Redshift architecture
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

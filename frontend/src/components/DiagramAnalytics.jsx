@@ -1,15 +1,22 @@
 import { useState } from 'react';
+// ESLint no-unused-vars does not count JSX member expressions such as
+// <motion.div> as a usage of the motion import, so it reads as unused.
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function DiagramAnalytics() {
     const [active, setActive] = useState(null);
 
+    // Diagram accents are tokens, not literals, so the illustration follows the
+    // active theme. Roles match the rest of the gallery:
+    //   1 = ingestion/edges  2 = analytics/query
+    //   3 = stored data      4 = transformation
     const info = {
-        kinesis: { title: "Kinesis Data Firehose", type: "Ingestion", desc: "Captures and loads massive streams of realtime data (like IoT sensors or clickstreams) instantly into S3.", icon: "fa-fire-flame-curved", color: "#ffb86c" },
-        s3: { title: "Amazon S3", type: "Data Lake", desc: "The foundational raw Data Lake storing infinite amounts of unstructured data cost-effectively.", icon: "fa-water", color: "#50fa7b" },
-        glue: { title: "AWS Glue", type: "ETL / Catalog", desc: "A crawler that discovers the raw S3 data, extracts it, transforms it into an organized schema, and catalogs it.", icon: "fa-spider", color: "#ff79c6" },
-        athena: { title: "Amazon Athena", type: "Analytics", desc: "Serverless query engine. Run standard SQL queries directly against raw S3 bucket files without loading data into a database!", icon: "fa-magnifying-glass-chart", color: "#8be9fd" },
-        quicksight: { title: "Amazon QuickSight", type: "BI Dashboard", desc: "Serverless Business Intelligence. Connects to Athena and visually graphs the data for business executives.", icon: "fa-chart-pie", color: "#f1f1f1" }
+        kinesis: { title: "Kinesis Data Firehose", type: "Ingestion", desc: "Captures and loads massive streams of realtime data (like IoT sensors or clickstreams) instantly into S3.", icon: "fa-fire-flame-curved", color: "var(--diagram-1)" },
+        s3: { title: "Amazon S3", type: "Data Lake", desc: "The foundational raw Data Lake storing infinite amounts of unstructured data cost-effectively.", icon: "fa-water", color: "var(--diagram-3)" },
+        glue: { title: "AWS Glue", type: "ETL / Catalog", desc: "A crawler that discovers the raw S3 data, extracts it, transforms it into an organized schema, and catalogs it.", icon: "fa-spider", color: "var(--diagram-4)" },
+        athena: { title: "Amazon Athena", type: "Analytics", desc: "Serverless query engine. Run standard SQL queries directly against raw S3 bucket files without loading data into a database!", icon: "fa-magnifying-glass-chart", color: "var(--diagram-2)" },
+        quicksight: { title: "Amazon QuickSight", type: "BI Dashboard", desc: "Serverless Business Intelligence. Connects to Athena and visually graphs the data for business executives.", icon: "fa-chart-pie", color: "var(--text-primary)" }
     };
 
     return (
@@ -57,7 +64,7 @@ export default function DiagramAnalytics() {
                 {active && (
                     <motion.div className="glass-tooltip" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} style={{ borderLeft: `5px solid ${info[active].color}`, zIndex: 100 }}>
                         <h4 style={{ color: info[active].color }}><i className={`fa-solid ${info[active].icon}`}></i> {info[active].title}</h4>
-                        <span className="mode-badge" style={{background: 'rgba(255,255,255,0.1)'}}>{info[active].type}</span>
+                        <span className="mode-badge" style={{background: 'var(--surface-2)'}}>{info[active].type}</span>
                         <p>{info[active].desc}</p>
                     </motion.div>
                 )}

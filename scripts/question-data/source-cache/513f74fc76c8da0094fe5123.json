@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/welcome.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:04.122Z",
+  "sha256": "5412f5b3af3db135609a0df86e9e4ca0bd4bce214e5a892dc11d7ab30c9e1299",
+  "bytes": 18812,
+  "chars": 5435,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/compute-optimizer/latest/ug/what-is-compute-optimizer.html"
+  ]
+}

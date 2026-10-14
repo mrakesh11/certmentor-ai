@@ -1,0 +1,58 @@
+Manage access keys for IAM users - AWS Identity and Access Management 
+ View a markdown version of this page 
+ Manage access keys for IAM users - AWS Identity and Access Management 
+ Documentation AWS Identity and Access Management User Guide 
+ Monitoring recommendations 
+ Manage access keys for IAM users
+ Important
+ As a best practice , use temporary security credentials (such as IAM roles) instead of creating long-term credentials like access keys. 
+ Before creating access keys, review the alternatives to long-term access keys .
+ Access keys are long-term credentials for an IAM user or the AWS account root user. You can use
+ access keys to sign programmatic requests to the AWS CLI or AWS API (directly or using the
+ AWS SDK). For more information, see Programmatic access with AWS security credentials .
+ Access keys consist of two parts: an access key ID (for example,
+ AKIAIOSFODNN7EXAMPLE ) and a secret access key (for example,
+ wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY ). You must use both the access key ID and secret access
+ key together to authenticate your requests.
+ When you create an access key pair, save the access key ID and secret access key in a
+ secure location. The secret access key can be retrieved only at the time you create it. If you
+ lose your secret access key, you must delete the access key and create a new one. For more
+ instructions, see Update access keys .
+ You can have a maximum of two access keys per user.
+ Important
+ IAM users with access keys are an account security risk. Manage your access keys
+ securely. Do not provide your access keys to unauthorized parties, even to help find your account identifiers . By doing
+ this, you might give someone permanent access to your account.
+ When working with access keys, be aware of the following:
+ Do NOT use your account's root credentials to
+ create access keys.
+ Do NOT put access keys or credential information
+ in your application files. 
+ Do NOT include files that contain access keys or
+ credential information in your project area.
+ Access keys or credential information stored in the shared AWS credentials file
+ are stored in plaintext.
+ Monitoring recommendations
+ After creating access keys:
+ Use AWS CloudTrail to monitor access key usage and detect any unauthorized access
+ attempts. For more information, see Logging IAM and AWS STS API calls with AWS CloudTrail .
+ Set up CloudWatch alarms to notify administrators for denied access attempts to help
+ detect malicious activities. For more information, see the Amazon CloudWatch User Guide .
+ Regularly review, update, and delete access keys as needed.
+ The following topics detail management tasks associated with access keys.
+ Topics
+ Control the use of access keys by attaching an inline policy to an IAM user 
+ Permissions required to manage access keys 
+ How IAM users can manage their own access keys 
+ How an IAM administrator can manage IAM user access keys 
+ Update access keys 
+ Secure access keys 
+ Document Conventions 
+ How an IAM user changes their own password
+ Control the use of access keys
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

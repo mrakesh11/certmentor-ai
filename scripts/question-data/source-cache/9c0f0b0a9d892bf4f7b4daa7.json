@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_welcome.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:06.511Z",
+  "sha256": "3bcba17746c191ecb951145efd3c36a56cdc8ee3c4e9833bc24efe30c7629691",
+  "bytes": 36858,
+  "chars": 12597,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html"
+  ]
+}

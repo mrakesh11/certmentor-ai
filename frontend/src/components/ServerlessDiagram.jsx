@@ -1,24 +1,31 @@
 import { useState } from 'react';
+// ESLint no-unused-vars does not count JSX member expressions such as
+// <motion.div> as a usage of the motion import, so it reads as unused.
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import './VPCDiagram.css'; 
 
 export default function ServerlessDiagram() {
     const [activeComponent, setActiveComponent] = useState(null);
 
+    // Diagram accents are tokens, not literals, so the illustration follows the
+    // active theme. Roles match the rest of the gallery:
+    //   1 = ingress/edges  2 = database
+    //   3 = stored data    4 = compute
     const descriptions = {
-        s3: { title: "Amazon S3", type: "Storage", desc: "Hosts your static frontend (HTML/CSS/React). Scales infinitely and requires zero servers to manage.", icon: "fa-box-archive", color: "#50fa7b" },
-        apiGateway: { title: "Amazon API Gateway", type: "Routing", desc: "Acts as the 'Front Door'. It receives HTTP requests from the React app and securely routes them to your code.", icon: "fa-door-open", color: "#ffb86c" },
-        lambda: { title: "AWS Lambda", type: "Compute", desc: "Executes backend code only when triggered. It scales automatically from 1 to 10,000 requests per second. You pay by the millisecond.", icon: "fa-bolt", color: "#ff79c6" },
-        dynamodb: { title: "Amazon DynamoDB", type: "Database", desc: "A Serverless NoSQL Database. Provides single-digit millisecond response times and handles millions of requests without complex clustering.", icon: "fa-database", color: "#8be9fd" }
+        s3: { title: "Amazon S3", type: "Storage", desc: "Hosts your static frontend (HTML/CSS/React). Scales infinitely and requires zero servers to manage.", icon: "fa-box-archive", color: "var(--diagram-3)" },
+        apiGateway: { title: "Amazon API Gateway", type: "Routing", desc: "Acts as the 'Front Door'. It receives HTTP requests from the React app and securely routes them to your code.", icon: "fa-door-open", color: "var(--diagram-1)" },
+        lambda: { title: "AWS Lambda", type: "Compute", desc: "Executes backend code only when triggered. It scales automatically from 1 to 10,000 requests per second. You pay by the millisecond.", icon: "fa-bolt", color: "var(--diagram-4)" },
+        dynamodb: { title: "Amazon DynamoDB", type: "Database", desc: "A Serverless NoSQL Database. Provides single-digit millisecond response times and handles millions of requests without complex clustering.", icon: "fa-database", color: "var(--diagram-2)" }
     };
 
     return (
         <div className="vpc-diagram-container" style={{marginTop: '3rem', position: 'relative'}}>
             <motion.div 
                 className="vpc-boundary"
-                style={{borderColor: '#ff79c6', borderStyle: 'dashed'}}
+                style={{borderColor: 'var(--diagram-4)', borderStyle: 'dashed'}}
             >
-                <div className="boundary-label" style={{color: '#ff79c6'}}>
+                <div className="boundary-label" style={{color: 'var(--diagram-4)'}}>
                     <i className="fa-solid fa-cloud"></i> Serverless Architecture Pattern
                 </div>
 
@@ -48,8 +55,8 @@ export default function ServerlessDiagram() {
                     <div className="arrow-connector" style={{transform: 'rotate(90deg)', margin: '10px 0'}}><i className="fa-solid fa-arrow-right"></i></div>
 
                     {/* Backend Row */}
-                    <div className="components-row" style={{background: 'rgba(0,0,0,0.2)', padding: '20px', borderRadius: '15px', border: '1px solid rgba(255,255,255,0.05)', position: 'relative'}}>
-                        <div style={{position: 'absolute', top: -10, left: 15, background: 'var(--card-bg)', padding: '0 10px', fontSize: '0.8rem', color: '#ffb86c', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)'}}>
+                    <div className="components-row" style={{background: 'var(--surface-inset)', padding: '20px', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border-subtle)', position: 'relative'}}>
+                        <div style={{position: 'absolute', top: -10, left: 15, background: 'var(--surface-1)', padding: '0 10px', fontSize: '0.8rem', color: 'var(--diagram-1)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-default)'}}>
                             Dynamic Backend
                         </div>
                         
@@ -103,7 +110,7 @@ export default function ServerlessDiagram() {
                                 <i className={`fa-solid ${descriptions[activeComponent].icon}`} style={{marginRight: '8px'}}></i>
                                 {descriptions[activeComponent].title}
                             </h4>
-                            <span className="mode-badge" style={{background: 'rgba(255,255,255,0.1)', color: 'white'}}>{descriptions[activeComponent].type}</span>
+                            <span className="mode-badge" style={{background: 'var(--surface-2)', color: 'var(--text-primary)'}}>{descriptions[activeComponent].type}</span>
                             <p>{descriptions[activeComponent].desc}</p>
                         </motion.div>
                     )}

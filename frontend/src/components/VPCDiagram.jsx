@@ -1,4 +1,7 @@
 import { useState } from 'react';
+// ESLint no-unused-vars does not count JSX member expressions such as
+// <motion.div> as a usage of the motion import, so it reads as unused.
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import './VPCDiagram.css';
 
@@ -29,7 +32,7 @@ export default function VPCDiagram() {
                     className="aws-resource vpc-boundary"
                     onMouseEnter={() => handleHover('vpc')}
                     onMouseLeave={handleLeave}
-                    whileHover={{ borderColor: '#50fa7b' }}
+                    whileHover={{ borderColor: 'var(--diagram-3)' }}
                 >
                     <span className="label">VPC Boundary</span>
 
@@ -38,7 +41,7 @@ export default function VPCDiagram() {
                         className="aws-resource component igw"
                         onMouseEnter={(e) => { e.stopPropagation(); handleHover('igw'); }}
                         onMouseLeave={handleLeave}
-                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 121, 198, 0.2)' }}
+                        whileHover={{ scale: 1.05, backgroundColor: 'color-mix(in srgb, var(--diagram-4) 18%, transparent)' }}
                     >
                         <i className="fa-solid fa-cloud"></i> IGW
                     </motion.div>
@@ -49,7 +52,7 @@ export default function VPCDiagram() {
                             className="aws-resource component router"
                             onMouseEnter={(e) => { e.stopPropagation(); handleHover('router'); }}
                             onMouseLeave={handleLeave}
-                            whileHover={{ scale: 1.05, backgroundColor: 'rgba(139, 233, 253, 0.2)' }}
+                            whileHover={{ scale: 1.05, backgroundColor: 'color-mix(in srgb, var(--diagram-2) 18%, transparent)' }}
                         >
                             <i className="fa-solid fa-route"></i> Route Table
                         </motion.div>
@@ -61,7 +64,7 @@ export default function VPCDiagram() {
                             className="aws-resource subnet public"
                             onMouseEnter={(e) => { e.stopPropagation(); handleHover('publicSubnet'); }}
                             onMouseLeave={handleLeave}
-                            whileHover={{ borderColor: '#8be9fd' }}
+                            whileHover={{ borderColor: 'var(--diagram-2)' }}
                         >
                             <span className="label">Public Subnet</span>
                             
@@ -70,7 +73,7 @@ export default function VPCDiagram() {
                                     className="aws-resource component ec2"
                                     onMouseEnter={(e) => { e.stopPropagation(); handleHover('ec2Public'); }}
                                     onMouseLeave={handleLeave}
-                                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 184, 108, 0.2)' }}
+                                    whileHover={{ scale: 1.1, backgroundColor: 'color-mix(in srgb, var(--diagram-1) 18%, transparent)' }}
                                 >
                                     <i className="fa-solid fa-server"></i> Web EC2
                                 </motion.div>
@@ -78,7 +81,7 @@ export default function VPCDiagram() {
                                     className="aws-resource component nat"
                                     onMouseEnter={(e) => { e.stopPropagation(); handleHover('nat'); }}
                                     onMouseLeave={handleLeave}
-                                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(255, 85, 85, 0.2)' }}
+                                    whileHover={{ scale: 1.1, backgroundColor: 'color-mix(in srgb, var(--danger) 18%, transparent)' }}
                                 >
                                     <i className="fa-solid fa-ethernet"></i> NAT GW
                                 </motion.div>
@@ -90,7 +93,7 @@ export default function VPCDiagram() {
                             className="aws-resource subnet private"
                             onMouseEnter={(e) => { e.stopPropagation(); handleHover('privateSubnet'); }}
                             onMouseLeave={handleLeave}
-                            whileHover={{ borderColor: '#ff79c6' }}
+                            whileHover={{ borderColor: 'var(--diagram-4)' }}
                         >
                             <span className="label">Private Subnet</span>
                             
@@ -99,7 +102,7 @@ export default function VPCDiagram() {
                                     className="aws-resource component ec2 secure"
                                     onMouseEnter={(e) => { e.stopPropagation(); handleHover('ec2Private'); }}
                                     onMouseLeave={handleLeave}
-                                    whileHover={{ scale: 1.1, backgroundColor: 'rgba(80, 250, 123, 0.2)' }}
+                                    whileHover={{ scale: 1.1, backgroundColor: 'color-mix(in srgb, var(--diagram-3) 18%, transparent)' }}
                                 >
                                     <i className="fa-solid fa-database"></i> DB EC2
                                 </motion.div>

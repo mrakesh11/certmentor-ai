@@ -1,0 +1,53 @@
+Reliability Pillar - AWS Well-Architected Framework - Reliability Pillar 
+ View a markdown version of this page 
+ Reliability Pillar - AWS Well-Architected Framework - Reliability Pillar 
+ Documentation AWS Well-Architected AWS Well-Architected Framework 
+ Introduction 
+ Reliability Pillar - AWS Well-Architected Framework
+ Publication date: November 6, 2024 ( Document revisions )
+ The focus of this paper is the reliability pillar of the
+ AWS
+ Well-Architected Framework . It provides guidance to help
+ customers apply best practices in the design, delivery, and
+ maintenance of Amazon Web Services (AWS) environments.
+ Introduction
+ The
+ AWS
+ Well-Architected Framework helps you understand the pros and
+ cons of decisions you make while building workloads on AWS. By using
+ the Framework you will learn architectural best practices for
+ designing and operating reliable, secure, efficient, 
+ cost-effective, and sustainable workloads in the cloud. It provides a way to
+ consistently measure your architectures against best practices and
+ identify areas for improvement. We believe that having
+ well-architected workload greatly increases the likelihood of
+ business success.
+ The AWS Well-Architected Framework is based on six pillars:
+ Operational Excellence
+ Security
+ Reliability
+ Performance Efficiency
+ Cost Optimization
+ Sustainability
+ This paper focuses on the reliability pillar and how to apply it to
+ your solutions. Achieving reliability can be challenging in
+ traditional on-premises environments due to single points of
+ failure, lack of automation, and lack of elasticity. By adopting the
+ practices in this paper you will build architectures that have
+ strong foundations, resilient architecture, consistent change
+ management, and proven failure recovery processes.
+ This paper is intended for those in technology roles, such as chief
+ technology officers (CTOs), architects, developers, and operations
+ team members. After reading this paper, you will understand AWS best
+ practices and strategies to use when designing cloud architectures
+ for reliability. This paper includes high-level implementation
+ details and architectural patterns, as well as references to
+ additional resources.
+ Document Conventions 
+ Reliability
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

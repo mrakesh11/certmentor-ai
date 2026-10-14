@@ -1,0 +1,2099 @@
+{
+  "registryVersion": "1.0.0",
+  "generatedBy": "sources were probed for HTTP 200 before being added; the tool re-checks every URL at run time and reports failures instead of citing them",
+  "examGuide": {
+    "id": "clf-c02-exam-guide",
+    "title": "AWS Certified Cloud Practitioner (CLF-C02) Exam Guide",
+    "url": "https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf"
+  },
+  "documentation": [
+    {
+      "id": "docs-aws-amazon-com-amazons3-latest-userguide-welcome-html",
+      "title": "Amazon S3 User Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
+      "services": [
+        "S3"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazons3-latest-userguide-storage-class-intro-html",
+      "title": "Amazon S3 storage classes",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html",
+      "services": [
+        "S3"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazons3-latest-userguide-usingbucket-html",
+      "title": "Amazon S3 buckets",
+      "url": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingBucket.html",
+      "services": [
+        "S3"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awsec2-latest-userguide-ebssnapshots-html",
+      "title": "Amazon EBS snapshots",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSSnapshots.html",
+      "services": [
+        "EBS",
+        "EC2"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-efs-latest-ug-what-is-html",
+      "title": "Amazon EFS - What is Amazon EFS",
+      "url": "https://docs.aws.amazon.com/efs/latest/ug/what-is.html",
+      "services": [
+        "EFS"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-iam-latest-userguide-id-credentials-getting-report-html",
+      "title": "IAM credential report",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_getting-report.html",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-quicksight",
+      "title": "Amazon QuickSight",
+      "url": "https://aws.amazon.com/quicksight/",
+      "services": [
+        "QuickSight"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-batch",
+      "title": "AWS Batch",
+      "url": "https://aws.amazon.com/batch/",
+      "services": [
+        "Batch"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-efs-latest-ug-efs-mounting-html",
+      "title": "Amazon EFS mount workflows",
+      "url": "https://docs.aws.amazon.com/efs/latest/ug/efs-mounting.html",
+      "services": [
+        "EFS"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazonelasticache-latest-dg-whatis-html",
+      "title": "Amazon ElastiCache - What is Amazon ElastiCache",
+      "url": "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html",
+      "services": [
+        "ElastiCache"
+      ],
+      "topics": [
+        "AWS Database Services",
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-storagegateway-latest-userguide-whatisgateway-html",
+      "title": "AWS Storage Gateway - What is AWS Storage Gateway",
+      "url": "https://docs.aws.amazon.com/storagegateway/latest/userguide/WhatIsGateway.html",
+      "services": [
+        "Storage Gateway"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-storagegateway-latest-userguide-getting-started-html",
+      "title": "AWS Storage Gateway getting started",
+      "url": "https://docs.aws.amazon.com/storagegateway/latest/userguide/getting-started.html",
+      "services": [
+        "Storage Gateway"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-datasync-latest-userguide-what-is-html",
+      "title": "AWS DataSync - What is AWS DataSync",
+      "url": "https://docs.aws.amazon.com/datasync/latest/userguide/what-is.html",
+      "services": [
+        "DataSync"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-snowball-latest-developer-guide-what-is-html",
+      "title": "AWS Snow Family - What is the AWS Snow Family",
+      "url": "https://docs.aws.amazon.com/snowball/latest/developer-guide/what-is.html",
+      "services": [
+        "Snowball"
+      ],
+      "topics": [
+        "AWS Storage Services",
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-aws-backup-latest-devguide-what-is-html",
+      "title": "AWS Backup - What is AWS Backup",
+      "url": "https://docs.aws.amazon.com/aws-backup/latest/devguide/what-is.html",
+      "services": [
+        "Backup"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-glacier",
+      "title": "Amazon S3 Glacier",
+      "url": "https://aws.amazon.com/glacier/",
+      "services": [
+        "Glacier"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-fsx",
+      "title": "Amazon FSx",
+      "url": "https://aws.amazon.com/fsx/",
+      "services": [
+        "FSx"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awsec2-latest-userguide-concepts-html",
+      "title": "Amazon EC2 concepts",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html",
+      "services": [
+        "EC2"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awsec2-latest-userguide-instance-types-html",
+      "title": "Amazon EC2 instance types",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html",
+      "services": [
+        "EC2"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awsec2-latest-userguide-ec2-instance-lifecycle-html",
+      "title": "Amazon EC2 instance lifecycle",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html",
+      "services": [
+        "EC2"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awsec2-latest-userguide-spot-instances-html",
+      "title": "Amazon EC2 Spot Instances",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-instances.html",
+      "services": [
+        "EC2"
+      ],
+      "topics": [
+        "AWS Compute Services",
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awsec2-latest-userguide-reserved-instances-html",
+      "title": "Amazon EC2 Reserved Instances",
+      "url": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/reserved-instances.html",
+      "services": [
+        "EC2"
+      ],
+      "topics": [
+        "AWS Compute Services",
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-lambda-latest-dg-welcome-html",
+      "title": "AWS Lambda Developer Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html",
+      "services": [
+        "Lambda"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-lambda-latest-dg-lambda-functions-html",
+      "title": "AWS Lambda functions",
+      "url": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-functions.html",
+      "services": [
+        "Lambda"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazonecs-latest-developerguide-welcome-html",
+      "title": "Amazon ECS Developer Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/welcome.html",
+      "services": [
+        "ECS"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazonecs-latest-developerguide-ecs-launch-types-html",
+      "title": "Amazon ECS launch types",
+      "url": "https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-launch-types.html",
+      "services": [
+        "ECS",
+        "Fargate"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-eks-latest-userguide-what-is-eks-html",
+      "title": "Amazon EKS - What is Amazon EKS",
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html",
+      "services": [
+        "EKS"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-eks-latest-userguide-eks-managed-node-groups-html",
+      "title": "Amazon EKS managed node groups",
+      "url": "https://docs.aws.amazon.com/eks/latest/userguide/eks-managed-node-groups.html",
+      "services": [
+        "EKS"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-elasticbeanstalk-latest-dg-concepts-html",
+      "title": "AWS Elastic Beanstalk concepts",
+      "url": "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.html",
+      "services": [
+        "Elastic Beanstalk"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-elasticloadbalancing-latest-application-introduction-html",
+      "title": "Elastic Load Balancing for Application Load Balancers",
+      "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html",
+      "services": [
+        "Elastic Load Balancing"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-elasticloadbalancing-latest-userguide-how-it-works-html",
+      "title": "Elastic Load Balancing - How Elastic Load Balancing works",
+      "url": "https://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/how-it-works.html",
+      "services": [
+        "Elastic Load Balancing"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-autoscaling-latest-userguide-what-is-amazon-autoscaling-html",
+      "title": "Amazon EC2 Auto Scaling - What is Auto Scaling",
+      "url": "https://docs.aws.amazon.com/autoscaling/latest/userguide/what-is-amazon-autoscaling.html",
+      "services": [
+        "Auto Scaling"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-autoscaling-latest-userguide-auto-scaling-benefits-html",
+      "title": "Benefits of Amazon EC2 Auto Scaling",
+      "url": "https://docs.aws.amazon.com/autoscaling/latest/userguide/auto-scaling-benefits.html",
+      "services": [
+        "Auto Scaling"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-compute-optimizer-latest-ug-welcome-html",
+      "title": "AWS Compute Optimizer - Welcome",
+      "url": "https://docs.aws.amazon.com/compute-optimizer/latest/ug/welcome.html",
+      "services": [
+        "Compute Optimizer"
+      ],
+      "topics": [
+        "AWS Compute Services",
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-fargate",
+      "title": "AWS Fargate",
+      "url": "https://aws.amazon.com/fargate/",
+      "services": [
+        "Fargate"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cloudshell",
+      "title": "AWS CloudShell",
+      "url": "https://aws.amazon.com/cloudshell/",
+      "services": [
+        "CloudShell"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazonrds-latest-userguide-welcome-html",
+      "title": "Amazon RDS User Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html",
+      "services": [
+        "RDS",
+        "Aurora"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazondynamodb-latest-developerguide-introduction-html",
+      "title": "Amazon DynamoDB Developer Guide - Introduction",
+      "url": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html",
+      "services": [
+        "DynamoDB"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-redshift-latest-dg-welcome-html",
+      "title": "Amazon Redshift Documentation - Welcome",
+      "url": "https://docs.aws.amazon.com/redshift/latest/dg/welcome.html",
+      "services": [
+        "Redshift"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-neptune-latest-userguide-intro-html",
+      "title": "Amazon Neptune Developer Guide - Introduction",
+      "url": "https://docs.aws.amazon.com/neptune/latest/userguide/intro.html",
+      "services": [
+        "Neptune"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-documentdb-latest-developerguide-what-is-html",
+      "title": "Amazon DocumentDB - What is Amazon DocumentDB",
+      "url": "https://docs.aws.amazon.com/documentdb/latest/developerguide/what-is.html",
+      "services": [
+        "DocumentDB"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-timestream-latest-developerguide-what-is-timestream-html",
+      "title": "Amazon Timestream - What is Amazon Timestream",
+      "url": "https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html",
+      "services": [
+        "Timestream"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-dms-latest-userguide-welcome-html",
+      "title": "AWS Database Migration Service User Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html",
+      "services": [
+        "DMS"
+      ],
+      "topics": [
+        "AWS Database Services",
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-dms-latest-userguide-chap-introduction-html",
+      "title": "AWS DMS introduction",
+      "url": "https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Introduction.html",
+      "services": [
+        "DMS"
+      ],
+      "topics": [
+        "AWS Database Services",
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-aurora",
+      "title": "Amazon Aurora",
+      "url": "https://aws.amazon.com/aurora/",
+      "services": [
+        "Aurora"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-vpc-latest-userguide-what-is-amazon-vpc-html",
+      "title": "Amazon VPC User Guide - What is Amazon VPC",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html",
+      "services": [
+        "VPC"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-vpc-latest-userguide-vpc-security-groups-rules-html",
+      "title": "Amazon VPC security group rules",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups-rules.html",
+      "services": [
+        "VPC",
+        "EC2"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-vpc-latest-userguide-vpn-connections-html",
+      "title": "AWS Site-to-Site VPN connections",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/vpn-connections.html",
+      "services": [
+        "VPN",
+        "VPC"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-vpc-latest-userguide-transit-gateway-introduction-html",
+      "title": "AWS Transit Gateway - What is a transit gateway",
+      "url": "https://docs.aws.amazon.com/vpc/latest/userguide/transit-gateway-introduction.html",
+      "services": [
+        "Transit Gateway",
+        "VPC"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-route53-latest-developerguide-welcome-html",
+      "title": "Amazon Route 53 Developer Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html",
+      "services": [
+        "Route 53"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-route53-latest-developerguide-resolver-getting-started-html",
+      "title": "Amazon Route 53 Resolver getting started",
+      "url": "https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-getting-started.html",
+      "services": [
+        "Route 53"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazoncloudfront-latest-developerguide-introduction-html",
+      "title": "Amazon CloudFront Developer Guide - Introduction",
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
+      "services": [
+        "CloudFront"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazoncloudfront-latest-developerguide-howcloudfrontworks-html",
+      "title": "How Amazon CloudFront works",
+      "url": "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.html",
+      "services": [
+        "CloudFront"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-directconnect-latest-userguide-welcome-html",
+      "title": "AWS Direct Connect User Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/directconnect/latest/UserGuide/Welcome.html",
+      "services": [
+        "Direct Connect"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-about-aws-global-infrastructure",
+      "title": "AWS Global Infrastructure",
+      "url": "https://aws.amazon.com/about-aws/global-infrastructure/",
+      "services": [
+        "Global Accelerator"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-iam-latest-userguide-introduction-html",
+      "title": "AWS Identity and Access Management User Guide - Introduction",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-iam-latest-userguide-best-practices-html",
+      "title": "IAM security best practices",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-iam-latest-userguide-id-credentials-access-keys-html",
+      "title": "IAM access keys",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-iam-latest-userguide-id-credentials-mfa-html",
+      "title": "IAM multi-factor authentication",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-iam-latest-userguide-access-policies-least-privilege-html",
+      "title": "IAM least privilege",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_least-privilege.html",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-iam-latest-userguide-id-users-manage-root-user-html",
+      "title": "Protecting the AWS root user",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_manage_root-user.html",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-waf-latest-developerguide-waf-chapter-html",
+      "title": "AWS WAF Developer Guide",
+      "url": "https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html",
+      "services": [
+        "WAF"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-waf-latest-developerguide-shield-chapter-html",
+      "title": "AWS Shield Developer Guide",
+      "url": "https://docs.aws.amazon.com/waf/latest/developerguide/shield-chapter.html",
+      "services": [
+        "Shield"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-kms-latest-developerguide-overview-html",
+      "title": "AWS KMS Developer Guide - Overview",
+      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/overview.html",
+      "services": [
+        "KMS"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-kms-latest-developerguide-concepts-html",
+      "title": "AWS KMS concepts",
+      "url": "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html",
+      "services": [
+        "KMS"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-guardduty-latest-ug-guardduty-welcome-html",
+      "title": "Amazon GuardDuty User Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_welcome.html",
+      "services": [
+        "GuardDuty"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-inspector-latest-user-what-is-inspector-html",
+      "title": "Amazon Inspector - What is Amazon Inspector",
+      "url": "https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html",
+      "services": [
+        "Inspector"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-macie-latest-user-what-is-macie-html",
+      "title": "Amazon Macie - What is Amazon Macie",
+      "url": "https://docs.aws.amazon.com/macie/latest/user/what-is-macie.html",
+      "services": [
+        "Macie"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-secretsmanager-latest-userguide-intro-html",
+      "title": "AWS Secrets Manager User Guide - Introduction",
+      "url": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html",
+      "services": [
+        "Secrets Manager"
+      ],
+      "topics": [
+        "Security Services",
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazoncloudwatch-latest-monitoring-whatiscloudwatch-html",
+      "title": "Amazon CloudWatch - What is Amazon CloudWatch",
+      "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
+      "services": [
+        "CloudWatch"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-amazoncloudwatch-latest-monitoring-cloudwatch-concepts-html",
+      "title": "Amazon CloudWatch concepts",
+      "url": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-concepts.html",
+      "services": [
+        "CloudWatch"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awscloudtrail-latest-userguide-cloudtrail-user-guide-html",
+      "title": "AWS CloudTrail User Guide",
+      "url": "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html",
+      "services": [
+        "CloudTrail"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-compliance-shared-responsibility-model",
+      "title": "AWS Shared Responsibility Model",
+      "url": "https://aws.amazon.com/compliance/shared-responsibility-model/",
+      "services": [],
+      "topics": [
+        "Shared Responsibility Model"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-security",
+      "title": "AWS Security",
+      "url": "https://aws.amazon.com/security/",
+      "services": [],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-compliance",
+      "title": "AWS Compliance",
+      "url": "https://aws.amazon.com/compliance/",
+      "services": [],
+      "topics": [
+        "Security Services",
+        "Shared Responsibility Model"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-artifact",
+      "title": "AWS Artifact",
+      "url": "https://aws.amazon.com/artifact/",
+      "services": [
+        "Artifact"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-config",
+      "title": "AWS Config",
+      "url": "https://aws.amazon.com/config/",
+      "services": [
+        "Config"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cloudtrail",
+      "title": "AWS CloudTrail",
+      "url": "https://aws.amazon.com/cloudtrail/",
+      "services": [
+        "CloudTrail"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-audit-manager",
+      "title": "AWS Audit Manager",
+      "url": "https://aws.amazon.com/audit-manager/",
+      "services": [],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-blogs-security",
+      "title": "AWS Security Blog",
+      "url": "https://aws.amazon.com/blogs/security/",
+      "services": [],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cognito",
+      "title": "Amazon Cognito",
+      "url": "https://aws.amazon.com/cognito/",
+      "services": [
+        "Cognito"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-cognito-latest-developerguide-cognito-user-identity-pools-html",
+      "title": "Amazon Cognito user pools and identity pools",
+      "url": "https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html",
+      "services": [
+        "Cognito"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-awscloudformation-latest-userguide-welcome-html",
+      "title": "AWS CloudFormation User Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html",
+      "services": [
+        "CloudFormation"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-systems-manager-latest-userguide-what-is-systems-manager-html",
+      "title": "AWS Systems Manager - What is Systems Manager",
+      "url": "https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html",
+      "services": [
+        "Systems Manager"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-apigateway-latest-developerguide-welcome-html",
+      "title": "Amazon API Gateway Developer Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html",
+      "services": [
+        "API Gateway"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cloudformation",
+      "title": "AWS CloudFormation",
+      "url": "https://aws.amazon.com/cloudformation/",
+      "services": [
+        "CloudFormation"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-quickstart",
+      "title": "AWS Quick Starts",
+      "url": "https://aws.amazon.com/quickstart/",
+      "services": [],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-codebuild",
+      "title": "AWS CodeBuild",
+      "url": "https://aws.amazon.com/codebuild/",
+      "services": [
+        "CodeBuild"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-codepipeline",
+      "title": "AWS CodePipeline",
+      "url": "https://aws.amazon.com/codepipeline/",
+      "services": [
+        "CodePipeline"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-codedeploy",
+      "title": "AWS CodeDeploy",
+      "url": "https://aws.amazon.com/codedeploy/",
+      "services": [
+        "CodeDeploy"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-systems-manager",
+      "title": "AWS Systems Manager",
+      "url": "https://aws.amazon.com/systems-manager/",
+      "services": [
+        "Systems Manager"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-eventbridge",
+      "title": "Amazon EventBridge",
+      "url": "https://aws.amazon.com/eventbridge/",
+      "services": [
+        "EventBridge"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-xray",
+      "title": "AWS X-Ray",
+      "url": "https://aws.amazon.com/xray/",
+      "services": [
+        "X-Ray"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cloud9",
+      "title": "AWS Cloud9",
+      "url": "https://aws.amazon.com/cloud9/",
+      "services": [
+        "Cloud9"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-amplify",
+      "title": "AWS Amplify",
+      "url": "https://aws.amazon.com/amplify/",
+      "services": [
+        "Amplify"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-appsync",
+      "title": "AWS AppSync",
+      "url": "https://aws.amazon.com/appsync/",
+      "services": [
+        "AppSync"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-apigateway",
+      "title": "Amazon API Gateway",
+      "url": "https://aws.amazon.com/apigateway/",
+      "services": [
+        "API Gateway"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-athena-latest-ug-what-is-html",
+      "title": "Amazon Athena - What is Amazon Athena",
+      "url": "https://docs.aws.amazon.com/athena/latest/ug/what-is.html",
+      "services": [
+        "Athena"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-athena-latest-ug-how-queries-work-html",
+      "title": "How Amazon Athena queries work",
+      "url": "https://docs.aws.amazon.com/athena/latest/ug/how-queries-work.html",
+      "services": [
+        "Athena"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-glue-latest-dg-what-is-glue-html",
+      "title": "AWS Glue - What is AWS Glue",
+      "url": "https://docs.aws.amazon.com/glue/latest/dg/what-is-glue.html",
+      "services": [
+        "Glue"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-kinesis-latest-dev-what-is-this-service-html",
+      "title": "Amazon Kinesis Data Streams - What is Kinesis Data Streams",
+      "url": "https://docs.aws.amazon.com/kinesis/latest/dev/what-is-this-service.html",
+      "services": [
+        "Kinesis"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-kinesis-latest-dev-services-list-html",
+      "title": "Amazon Kinesis family of services",
+      "url": "https://docs.aws.amazon.com/kinesis/latest/dev/services-list.html",
+      "services": [
+        "Kinesis"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-sagemaker-latest-dg-whatis-html",
+      "title": "Amazon SageMaker - What is Amazon SageMaker",
+      "url": "https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html",
+      "services": [
+        "SageMaker"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-rekognition",
+      "title": "Amazon Rekognition",
+      "url": "https://aws.amazon.com/rekognition/",
+      "services": [
+        "Rekognition"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-polly",
+      "title": "Amazon Polly",
+      "url": "https://aws.amazon.com/polly/",
+      "services": [
+        "Polly"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-comprehend",
+      "title": "Amazon Comprehend",
+      "url": "https://aws.amazon.com/comprehend/",
+      "services": [
+        "Comprehend"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-translate",
+      "title": "Amazon Translate",
+      "url": "https://aws.amazon.com/translate/",
+      "services": [
+        "Translate"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-connect",
+      "title": "Amazon Connect",
+      "url": "https://aws.amazon.com/connect/",
+      "services": [
+        "Connect"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-cost-management-latest-userguide-ce-what-is-html",
+      "title": "AWS Cost Explorer - What is AWS Cost Explorer",
+      "url": "https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html",
+      "services": [
+        "Cost Explorer"
+      ],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-organizations-latest-userguide-welcome-html",
+      "title": "AWS Organizations User Guide - Welcome",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/welcome.html",
+      "services": [
+        "Organizations"
+      ],
+      "topics": [
+        "AWS Account Governance",
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-organizations-latest-userguide-orgs-manage-accounts-html",
+      "title": "AWS Organizations - adding and removing accounts",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts.html",
+      "services": [
+        "Organizations"
+      ],
+      "topics": [
+        "AWS Account Governance"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-accounts-latest-reference-welcome-html",
+      "title": "AWS account management reference",
+      "url": "https://docs.aws.amazon.com/accounts/latest/reference/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Account Governance"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-general-latest-gr-aws-service-terms-html",
+      "title": "AWS Service Terms",
+      "url": "https://docs.aws.amazon.com/general/latest/gr/aws-service-terms.html",
+      "services": [],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-pricing",
+      "title": "AWS Pricing",
+      "url": "https://aws.amazon.com/pricing/",
+      "services": [],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-aws-cost-management",
+      "title": "AWS Cost Management",
+      "url": "https://aws.amazon.com/aws-cost-management/",
+      "services": [],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-aws-cost-management-aws-budgets",
+      "title": "AWS Budgets",
+      "url": "https://aws.amazon.com/aws-cost-management/aws-budgets/",
+      "services": [
+        "Budgets"
+      ],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-aws-cost-management-aws-cost-explorer",
+      "title": "AWS Cost Explorer",
+      "url": "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/",
+      "services": [
+        "Cost Explorer"
+      ],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-ec2-reserved-instances",
+      "title": "Amazon EC2 Reserved Instances",
+      "url": "https://aws.amazon.com/ec2/reserved-instances/",
+      "services": [
+        "EC2",
+        "Reserved Instances"
+      ],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-ec2-spot",
+      "title": "Amazon EC2 Spot Instances",
+      "url": "https://aws.amazon.com/ec2/spot/",
+      "services": [
+        "EC2",
+        "Spot Instances"
+      ],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-free",
+      "title": "AWS Free Tier",
+      "url": "https://aws.amazon.com/free/",
+      "services": [
+        "Free Tier"
+      ],
+      "topics": [
+        "AWS Pricing and Cost Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-support",
+      "title": "AWS Support",
+      "url": "https://aws.amazon.com/support/",
+      "services": [
+        "AWS Support"
+      ],
+      "topics": [
+        "AWS Support"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-premiumsupport-plans",
+      "title": "AWS Support plans",
+      "url": "https://aws.amazon.com/premiumsupport/plans/",
+      "services": [
+        "AWS Support"
+      ],
+      "topics": [
+        "AWS Support"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-partners",
+      "title": "AWS Partner Network",
+      "url": "https://aws.amazon.com/partners/",
+      "services": [],
+      "topics": [
+        "AWS Support"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-training",
+      "title": "AWS Training and Certification",
+      "url": "https://aws.amazon.com/training/",
+      "services": [],
+      "topics": [
+        "AWS Support"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-documentation",
+      "title": "AWS Documentation",
+      "url": "https://aws.amazon.com/documentation/",
+      "services": [],
+      "topics": [
+        "AWS Support"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-faqs",
+      "title": "AWS FAQs",
+      "url": "https://aws.amazon.com/faqs/",
+      "services": [],
+      "topics": [
+        "AWS Support"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-servicecatalog",
+      "title": "AWS Service Catalog",
+      "url": "https://aws.amazon.com/servicecatalog",
+      "services": [
+        "Service Catalog"
+      ],
+      "topics": [
+        "AWS Account Governance",
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-controltower",
+      "title": "AWS Control Tower",
+      "url": "https://aws.amazon.com/controltower",
+      "services": [
+        "Control Tower"
+      ],
+      "topics": [
+        "AWS Account Governance"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-health",
+      "title": "AWS Health",
+      "url": "https://aws.amazon.com/health/",
+      "services": [
+        "AWS Health Dashboard"
+      ],
+      "topics": [
+        "AWS Account Governance",
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-appstream",
+      "title": "Amazon AppStream 2.0",
+      "url": "https://aws.amazon.com/appstream/",
+      "services": [
+        "AppStream"
+      ],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-codeartifact",
+      "title": "AWS CodeArtifact",
+      "url": "https://aws.amazon.com/codeartifact/",
+      "services": [
+        "CodeArtifact"
+      ],
+      "topics": [
+        "Deployment and Infrastructure as Code"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-iot",
+      "title": "AWS IoT Core",
+      "url": "https://aws.amazon.com/iot/",
+      "services": [
+        "IoT"
+      ],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-workspaces",
+      "title": "Amazon WorkSpaces",
+      "url": "https://aws.amazon.com/workspaces/",
+      "services": [
+        "WorkSpaces"
+      ],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-managed-services",
+      "title": "AWS Managed Services",
+      "url": "https://aws.amazon.com/managed-services/",
+      "services": [
+        "Managed Services"
+      ],
+      "topics": [
+        "AWS Account Governance"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-organizations",
+      "title": "AWS Organizations",
+      "url": "https://aws.amazon.com/organizations/",
+      "services": [
+        "Organizations"
+      ],
+      "topics": [
+        "AWS Account Governance"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-marketplace",
+      "title": "AWS Marketplace",
+      "url": "https://aws.amazon.com/marketplace/",
+      "services": [
+        "AWS Marketplace"
+      ],
+      "topics": [
+        "AWS Account Governance"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-framework-welcome-html",
+      "title": "AWS Well-Architected Framework - Welcome",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-framework-operational-excellence-pillar-html",
+      "title": "Well-Architected operational excellence pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/operational-excellence-pillar.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-operational-excellence-pillar-welcome-html",
+      "title": "Well-Architected operational excellence pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/operational-excellence-pillar/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-security-pillar-welcome-html",
+      "title": "Well-Architected security pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-reliability-pillar-welcome-html",
+      "title": "Well-Architected reliability pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-performance-efficiency-pillar-welcome-html",
+      "title": "Well-Architected performance efficiency pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/performance-efficiency-pillar/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-cost-optimization-pillar-welcome-html",
+      "title": "Well-Architected cost optimization pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "docs-aws-amazon-com-wellarchitected-latest-sustainability-pillar-welcome-html",
+      "title": "Well-Architected sustainability pillar",
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/sustainability-pillar/welcome.html",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-trustedadvisor",
+      "title": "AWS Trusted Advisor",
+      "url": "https://aws.amazon.com/trustedadvisor/",
+      "services": [
+        "Trusted Advisor"
+      ],
+      "topics": [
+        "Security Services",
+        "AWS Support"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-well-architected",
+      "title": "AWS Well-Architected",
+      "url": "https://aws.amazon.com/well-architected/",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-architecture-well-architected",
+      "title": "AWS Well-Architected Center",
+      "url": "https://aws.amazon.com/architecture/well-architected/",
+      "services": [],
+      "topics": [
+        "AWS Well-Architected Framework"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cloud-adoption-framework",
+      "title": "AWS Cloud Adoption Framework (AWS CAF)",
+      "url": "https://aws.amazon.com/cloud-adoption-framework/",
+      "services": [],
+      "topics": [
+        "AWS CAF"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-what-is-cloud-computing",
+      "title": "What is cloud computing?",
+      "url": "https://aws.amazon.com/what-is-cloud-computing/",
+      "services": [],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-about-aws-sustainability",
+      "title": "AWS Sustainability",
+      "url": "https://aws.amazon.com/about-aws/sustainability/",
+      "services": [],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-prescriptive-guidance",
+      "title": "AWS Prescriptive Guidance",
+      "url": "https://aws.amazon.com/prescriptive-guidance/",
+      "services": [],
+      "topics": [
+        "AWS Cloud Concepts",
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-migration-hub",
+      "title": "AWS Migration Hub",
+      "url": "https://aws.amazon.com/migration-hub/",
+      "services": [
+        "Migration Hub"
+      ],
+      "topics": [
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-application-discovery",
+      "title": "AWS Application Discovery Service",
+      "url": "https://aws.amazon.com/application-discovery/",
+      "services": [],
+      "topics": [
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-snowball",
+      "title": "AWS Snow Family",
+      "url": "https://aws.amazon.com/snowball/",
+      "services": [
+        "Snowball"
+      ],
+      "topics": [
+        "AWS Storage Services",
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-directconnect",
+      "title": "AWS Direct Connect",
+      "url": "https://aws.amazon.com/directconnect/",
+      "services": [
+        "Direct Connect"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-route53",
+      "title": "Amazon Route 53",
+      "url": "https://aws.amazon.com/route53/",
+      "services": [
+        "Route 53"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cloudfront",
+      "title": "Amazon CloudFront",
+      "url": "https://aws.amazon.com/cloudfront/",
+      "services": [
+        "CloudFront"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-vpc",
+      "title": "Amazon VPC",
+      "url": "https://aws.amazon.com/vpc/",
+      "services": [
+        "VPC"
+      ],
+      "topics": [
+        "AWS Networking and Global Infrastructure"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-sqs",
+      "title": "Amazon SQS",
+      "url": "https://aws.amazon.com/sqs/",
+      "services": [
+        "SQS"
+      ],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-sns",
+      "title": "Amazon SNS",
+      "url": "https://aws.amazon.com/sns/",
+      "services": [
+        "SNS"
+      ],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-ses",
+      "title": "Amazon SES",
+      "url": "https://aws.amazon.com/ses/",
+      "services": [
+        "SES"
+      ],
+      "topics": [
+        "AWS Cloud Concepts"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-dynamodb",
+      "title": "Amazon DynamoDB",
+      "url": "https://aws.amazon.com/dynamodb/",
+      "services": [
+        "DynamoDB"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-redshift",
+      "title": "Amazon Redshift",
+      "url": "https://aws.amazon.com/redshift/",
+      "services": [
+        "Redshift"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-neptune",
+      "title": "Amazon Neptune",
+      "url": "https://aws.amazon.com/neptune/",
+      "services": [
+        "Neptune"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-timestream",
+      "title": "Amazon Timestream",
+      "url": "https://aws.amazon.com/timestream/",
+      "services": [
+        "Timestream"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-documentdb",
+      "title": "Amazon DocumentDB",
+      "url": "https://aws.amazon.com/documentdb/",
+      "services": [
+        "DocumentDB"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-dms",
+      "title": "AWS Database Migration Service",
+      "url": "https://aws.amazon.com/dms/",
+      "services": [
+        "DMS"
+      ],
+      "topics": [
+        "AWS Migration Services and Strategies"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-s3",
+      "title": "Amazon S3",
+      "url": "https://aws.amazon.com/s3/",
+      "services": [
+        "S3"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-efs",
+      "title": "Amazon EFS",
+      "url": "https://aws.amazon.com/efs/",
+      "services": [
+        "EFS"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-storage-gateway",
+      "title": "AWS Storage Gateway",
+      "url": "https://aws.amazon.com/storage-gateway/",
+      "services": [
+        "Storage Gateway"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-datasync",
+      "title": "AWS DataSync",
+      "url": "https://aws.amazon.com/datasync/",
+      "services": [
+        "DataSync"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-backup",
+      "title": "AWS Backup",
+      "url": "https://aws.amazon.com/backup/",
+      "services": [
+        "Backup"
+      ],
+      "topics": [
+        "AWS Storage Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-ec2",
+      "title": "Amazon EC2",
+      "url": "https://aws.amazon.com/ec2/",
+      "services": [
+        "EC2"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-lambda",
+      "title": "AWS Lambda",
+      "url": "https://aws.amazon.com/lambda/",
+      "services": [
+        "Lambda"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-ecs",
+      "title": "Amazon ECS",
+      "url": "https://aws.amazon.com/ecs/",
+      "services": [
+        "ECS"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-eks",
+      "title": "Amazon EKS",
+      "url": "https://aws.amazon.com/eks/",
+      "services": [
+        "EKS"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-elasticbeanstalk",
+      "title": "AWS Elastic Beanstalk",
+      "url": "https://aws.amazon.com/elasticbeanstalk/",
+      "services": [
+        "Elastic Beanstalk"
+      ],
+      "topics": [
+        "AWS Compute Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-iam",
+      "title": "AWS Identity and Access Management",
+      "url": "https://aws.amazon.com/iam/",
+      "services": [
+        "IAM"
+      ],
+      "topics": [
+        "Identity and Access Management"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-kms",
+      "title": "AWS Key Management Service",
+      "url": "https://aws.amazon.com/kms/",
+      "services": [
+        "KMS"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-waf",
+      "title": "AWS WAF",
+      "url": "https://aws.amazon.com/waf/",
+      "services": [
+        "WAF"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-shield",
+      "title": "AWS Shield",
+      "url": "https://aws.amazon.com/shield/",
+      "services": [
+        "Shield"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-guardduty",
+      "title": "Amazon GuardDuty",
+      "url": "https://aws.amazon.com/guardduty/",
+      "services": [
+        "GuardDuty"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-inspector",
+      "title": "Amazon Inspector",
+      "url": "https://aws.amazon.com/inspector/",
+      "services": [
+        "Inspector"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-macie",
+      "title": "Amazon Macie",
+      "url": "https://aws.amazon.com/macie/",
+      "services": [
+        "Macie"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-secrets-manager",
+      "title": "AWS Secrets Manager",
+      "url": "https://aws.amazon.com/secrets-manager/",
+      "services": [
+        "Secrets Manager"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-cloudwatch",
+      "title": "Amazon CloudWatch",
+      "url": "https://aws.amazon.com/cloudwatch/",
+      "services": [
+        "CloudWatch"
+      ],
+      "topics": [
+        "Security Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-rds",
+      "title": "Amazon Relational Database Service",
+      "url": "https://aws.amazon.com/rds/",
+      "services": [
+        "RDS"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-elasticache",
+      "title": "Amazon ElastiCache",
+      "url": "https://aws.amazon.com/elasticache/",
+      "services": [
+        "ElastiCache"
+      ],
+      "topics": [
+        "AWS Database Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-sagemaker",
+      "title": "Amazon SageMaker",
+      "url": "https://aws.amazon.com/sagemaker/",
+      "services": [
+        "SageMaker"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-athena",
+      "title": "Amazon Athena",
+      "url": "https://aws.amazon.com/athena/",
+      "services": [
+        "Athena"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-glue",
+      "title": "AWS Glue",
+      "url": "https://aws.amazon.com/glue/",
+      "services": [
+        "Glue"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-kinesis",
+      "title": "Amazon Kinesis",
+      "url": "https://aws.amazon.com/kinesis/",
+      "services": [
+        "Kinesis"
+      ],
+      "topics": [
+        "Data, Analytics, and AI Services"
+      ]
+    },
+    {
+      "id": "aws-amazon-com-support-programs",
+      "title": "AWS Support programs",
+      "url": "https://aws.amazon.com/support/programs/",
+      "services": [
+        "AWS Support"
+      ],
+      "topics": [
+        "AWS Support"
+      ]
+    }
+  ]
+}

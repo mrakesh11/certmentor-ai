@@ -1,111 +1,197 @@
-.app-container {
-    flex: 1; display: flex; justify-content: center; align-items: center; padding: 2rem 5%;
+/* ==========================================================================
+   Exam simulator — a focused exam-taking surface built on the shared
+   primitives (.option, .explanation, .progress-steps, .badge, .btn).
+   Only the simulator's own chrome is defined here.
+   ========================================================================== */
+
+.sim {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
 }
 
-.quiz-card {
-    background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 15px;
-    padding: 3rem; width: 100%; max-width: 800px; backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: fadeIn 0.8s ease-out;
+/* ---- Top bar: mode, position, tools ---- */
+
+.sim__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    flex-wrap: wrap;
 }
 
-.quiz-header {
-    display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--card-border);
+.sim__meta,
+.sim__tools {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
 }
 
-.question-number { font-size: 1.2rem; font-weight: 600; color: var(--accent-blue); }
-.badge-placeholder {
-    background: rgba(122, 34, 255, 0.2); color: var(--accent-purple);
-    padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;
+.sim__timer {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: 0.35rem 0.7rem;
+    font-family: var(--font-mono);
+    font-size: var(--fs-base);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
 }
 
-.question-text { font-size: 1.3rem; line-height: 1.6; margin-bottom: 2rem; font-weight: 500; }
-
-.options { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem; }
-.option {
-    background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border);
-    padding: 1rem 1.5rem; border-radius: 10px; cursor: pointer; transition: 0.3s;
-    display: flex; align-items: center; gap: 15px; font-size: 1.1rem;
+/* Low time is signalled by colour AND a filled background, never colour alone. */
+.sim__timer.is-low {
+    color: var(--warning);
+    background: var(--warning-soft);
+    border-color: var(--warning);
 }
 
-.option:hover:not(.dimmed):not(.correct):not(.wrong) {
-    background: rgba(255, 255, 255, 0.08); border-color: var(--accent-blue);
+/* ---- Question card ---- */
+
+.sim__card {
+    padding: var(--sp-5);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
 }
 
-.option.selected { border-color: var(--accent-blue); background: rgba(0, 210, 255, 0.1); }
-.option.correct { border-color: var(--correct-green); background: rgba(16, 185, 129, 0.1); color: var(--correct-green); }
-.option.wrong { border-color: var(--wrong-red); background: rgba(239, 68, 68, 0.1); color: var(--wrong-red); opacity: 0.7; }
-.option.dimmed { opacity: 0.5; }
-
-.option-letter {
-    background: rgba(255, 255, 255, 0.1); width: 30px; height: 30px; display: flex;
-    justify-content: center; align-items: center; border-radius: 5px; font-weight: 600; font-size: 0.9rem;
+.sim__instructions {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    margin-bottom: var(--sp-4);
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
 }
 
-.quiz-footer { display: flex; justify-content: flex-end; align-items: center; margin-top: 2rem; }
-
-.btn {
-    padding: 12px 25px; border: none; border-radius: 30px; font-weight: 600;
-    font-size: 1rem; cursor: pointer; transition: 0.3s;
+.sim__instructions i {
+    color: var(--accent);
 }
 
-.btn-reveal {
-    background: transparent; border: 2px solid var(--accent-purple); color: var(--accent-purple);
-}
-.btn-reveal:hover { background: var(--accent-purple); color: white; }
-
-.btn-next {
-    background: var(--gradient-primary); color: white; opacity: 0.5; cursor: not-allowed;
-    display: flex; align-items: center; gap: 8px;
-}
-.btn-next.ready { opacity: 1; cursor: pointer; }
-.btn-next.ready:hover { transform: translateX(5px); box-shadow: 0 5px 15px rgba(0, 210, 255, 0.4); }
-
-.explanation-box {
-    margin-top: 2rem; padding: 1.5rem; border-radius: 0 10px 10px 0; animation: fadeIn 0.5s ease-out;
-}
-.explanation-box.is-correct {
-    background: rgba(16, 185, 129, 0.1); border-left: 4px solid var(--correct-green);
-}
-.explanation-box.is-wrong {
-    background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--wrong-red);
-}
-.explanation-box.is-correct h4 { color: var(--correct-green); margin-bottom: 0.5rem; }
-.explanation-box.is-wrong h4 { color: var(--wrong-red); margin-bottom: 0.5rem; }
-
-.exam-timer {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid var(--accent-blue);
-    padding: 10px 20px;
-    border-radius: 8px;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    z-index: 1000;
-    box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+/* Inline validation message — replaces the old blocking alert(). */
+.sim__notice {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    margin-bottom: var(--sp-4);
+    background: var(--warning-soft);
+    border: 1px solid var(--warning);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    color: var(--text-primary);
 }
 
-.mode-badge {
-    background: var(--wrong-red);
-    color: white;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    margin-right: 10px;
-    vertical-align: middle;
+.sim__notice i {
+    margin-top: 0.15rem;
+    flex: none;
+    color: var(--warning);
 }
 
-@media (max-width: 768px) {
-    .app-container { padding: 1rem 5%; }
-    .quiz-card { padding: 1.5rem; }
-    .quiz-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-    .question-number { font-size: 1rem; }
-    .question-text { font-size: 1.15rem; }
-    .option { padding: 1rem; font-size: 1rem; }
-    .quiz-footer { justify-content: stretch; flex-direction: column; gap: 1rem; }
-    .quiz-footer .btn { width: 100%; text-align: center; }
-    .exam-timer { top: auto; bottom: 20px; right: 50%; transform: translateX(50%); font-size: 1rem; padding: 8px 15px; }
+/* Explanation body arrives as sanitised HTML from the question bank. */
+.explanation__html p {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    color: var(--text-secondary);
+    max-width: var(--measure);
+    margin-bottom: var(--sp-3);
+}
+
+.explanation__html p:last-child {
+    margin-bottom: 0;
+}
+
+.explanation__html strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.explanation__html ul,
+.explanation__html ol {
+    margin: 0 0 var(--sp-3) var(--sp-5);
+    color: var(--text-secondary);
+}
+
+.explanation__html li {
+    margin-bottom: var(--sp-1);
+}
+
+/* ---- Actions ---- */
+
+.sim__actions {
+    margin-top: var(--sp-5);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.sim__spacer {
+    flex: 1;
+}
+
+/* ---- Persistent honesty warning about the question pool ---- */
+
+.sim__warning {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--warning-soft);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--warning);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-normal);
+    color: var(--text-secondary);
+}
+
+.sim__warning i {
+    margin-top: 0.15rem;
+    flex: none;
+    color: var(--warning);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 640px) {
+    .sim__card {
+        padding: var(--sp-4);
+    }
+
+    .sim__bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--sp-3);
+    }
+
+    .sim__meta,
+    .sim__tools {
+        justify-content: flex-start;
+    }
+
+    /* Keep the timer and actions on one row when space is tight. */
+    .sim__actions {
+        gap: var(--sp-2);
+    }
+
+    .sim__actions .btn {
+        flex: 1;
+    }
+
+    .sim__spacer {
+        display: none;
+    }
 }

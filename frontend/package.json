@@ -7,28 +7,33 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest run",
+    "questions:audit": "node ../scripts/question-data/auditQuestions.mjs",
+    "questions:enrich": "node ../scripts/question-data/enrichQuestions.mjs",
+    "questions:verify": "node ../scripts/question-data/verifyQuestions.mjs",
+    "questions:manifest": "node ../scripts/question-data/build-learning-manifest.mjs",
+    "questions:domains": "node ../scripts/question-data/build-question-domains.mjs"
   },
   "dependencies": {
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^12.38.0",
-    "pdfkit": "^0.18.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-is": "^19.2.5",
-    "react-router-dom": "^7.14.0",
-    "recharts": "^3.8.1"
+    "react-router-dom": "^7.14.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^6.0.1",
+    "@vitejs/plugin-react": "^5.0.4",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.4.0",
-    "vite": "^8.0.4",
-    "vite-plugin-pwa": "^1.2.0"
+    "vite": "^7.3.6",
+    "vite-plugin-pwa": "^1.2.0",
+    "vitest": "^5.0.4"
   }
 }

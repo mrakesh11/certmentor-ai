@@ -1,0 +1,11 @@
+{
+  "url": "https://aws.amazon.com/health/",
+  "resolvedUrl": "https://aws.amazon.com/health/",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:13.482Z",
+  "sha256": "1b7a2a9fe15b2eb11b99e907febf3b42c769ccd4919322836de72f797f17095f",
+  "bytes": 433367,
+  "chars": 10270,
+  "error": "extracted-content-unusable"
+}

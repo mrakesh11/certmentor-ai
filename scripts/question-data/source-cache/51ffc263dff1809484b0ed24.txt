@@ -1,0 +1,298 @@
+AWS KMS keys - AWS Key Management Service 
+ View a markdown version of this page 
+ AWS KMS keys - AWS Key Management Service 
+ Documentation AWS KMS Developer Guide 
+ Customer managed keys AWS managed keys AWS owned keys AWS KMS key hierarchy Key identifiers (KeyId) 
+ AWS KMS keys
+ The KMS keys that you create and manage for use in your own cryptographic applications
+ are of a type known as customer managed keys . Customer managed keys can also be used in
+ conjunction with AWS services that use KMS keys to encrypt the data the service stores on
+ your behalf. Customer managed keys are recommended for customers who want full control over the
+ lifecycle and usage of their keys. There is a monthly cost to have a customer managed key in your
+ account. In addition, requests use and/or manage the key incur a usage cost. See AWS Key Management Service Pricing for more details.
+ There are cases where a customer might want an AWS service to encrypt their data, but
+ they don’t want the overhead of managing keys and don’t want to pay for a key. An
+ AWS managed key is a KMS key that exists in your account, but can
+ only be used under certain circumstances. Specifically, it can only be used in the context of
+ the AWS service you’re operating in and it can only be used by principals within the account
+ that the key exists. You cannot manage anything about the lifecycle or permissions of these
+ keys. As you use encryption features in AWS services, you may see AWS managed keys; they
+ use an alias of the form “aws<service code>”. For example, an aws/ebs key
+ can only be used to encrypt EBS volumes and only for volumes used by IAM principals in the
+ same account as the key. Think of an AWS managed key that is scoped down for use only by
+ users in your account for resources in your account. You cannot share resources encrypted
+ under an AWS managed key with other accounts. While an AWS managed key is free to exist in
+ your account, you are charged for any use of this key type by the AWS service that is
+ assigned to the key.
+ AWS managed keys are a legacy key type that is no longer being created for new AWS
+ services as of 2021. Instead, new (and legacy) AWS services are using what’s known as an
+ AWS owned key to encrypt customer data by default. An AWS owned key
+ is a KMS key that is in an account managed by the AWS service, so the service operators
+ have the ability to manage its lifecycle and usage permissions. By using AWS owned keys,
+ AWS services can transparently encrypt your data and allow for easy cross-account or
+ cross-region sharing of data without you needing to worry about key permissions. Use
+ AWS owned keys for encryption-by-default workloads that provide easier, more automated data
+ protection. Because these keys are owned and managed by AWS, you are not charged for their
+ existence or their usage, you cannot change their policies, you cannot audit activities on
+ these keys, and you cannot delete them. Use customer managed keys when control is important, but use
+ AWS owned keys when convenience is most important.
+ Customer managed keys 
+ AWS managed keys 
+ AWS owned keys 
+ Key policy 
+ Exclusively controlled by the customer 
+ Controlled by service; viewable by customer 
+ Exclusively controlled and only viewable by the AWS service that encrypts your
+ data 
+ Logging 
+ CloudTrail customer trail or event data store 
+ CloudTrail customer trail or event data store 
+ Not viewable by the customer 
+ Lifecycle management 
+ Customer manages rotation, deletion and Regional location 
+ AWS KMS manages rotation (annual), deletion, and Regional location 
+ AWS service manages rotation, deletion, and Regional location 
+ Pricing 
+ Monthly fee for existence of keys (pro-rated hourly). Also charged for key
+ usage
+ No monthly fee; but the caller is charged for API usage on these keys 
+ No charges to customer 
+ The KMS keys that you create are customer managed keys .
+ AWS services that use KMS keys to encrypt your service resources often create keys for
+ you. KMS keys that AWS services create in your AWS account are AWS managed keys . KMS keys that AWS services create
+ in a service account are AWS owned keys .
+ Type of KMS key 
+ Can view KMS key metadata 
+ Can manage KMS key 
+ Created in my AWS account 
+ Automatic rotation 
+ Pricing 
+ Customer managed key 
+ Yes 
+ Yes 
+ Yes 
+ Optional. 
+ Monthly fee (pro-rated hourly)
+ Per-use fee
+ AWS managed key 
+ Yes 
+ No 
+ Yes 
+ Required. Every year (approximately 365 days). 
+ No monthly fee
+ Per-use fee (some AWS services pay this fee
+ for you)
+ AWS owned key 
+ No 
+ No 
+ No 
+ The AWS service manages the rotation strategy 
+ No fees 
+ AWS services that integrate with AWS KMS differ
+ in their support for KMS keys. Some AWS services encrypt your data by default with an
+ AWS owned key or an AWS managed key. Some AWS services support customer managed keys. Other AWS
+ services support all types of KMS keys to allow you the ease of an AWS owned key, the
+ visibility of an AWS managed key, or the control of a customer managed key. For detailed information
+ about the encryption options that an AWS service offers, see the Encryption at Rest topic in the user guide or the developer guide for the
+ service.
+ Customer managed keys
+ The KMS keys that you create are customer managed
+ keys . Customer managed keys are KMS keys in your AWS account that you create,
+ own, and manage. You have full control over these KMS keys, including establishing and
+ maintaining their key policies, IAM policies, and
+ grants , enabling and disabling them, rotating their cryptographic material , adding tags , creating
+ aliases that refer to the KMS keys, and scheduling
+ the KMS keys for deletion . 
+ Customer managed keys appear on the Customer managed keys page of the AWS Management Console
+ for AWS KMS. To definitively identify a customer managed key, use the DescribeKey operation. For customer managed keys,
+ the value of the KeyManager field of the DescribeKey response is
+ CUSTOMER .
+ You can use your customer managed key in cryptographic operations and audit usage in AWS CloudTrail
+ logs. In addition, many AWS services that integrate
+ with AWS KMS let you specify a customer managed key to protect the data stored and managed for
+ you. 
+ Customer managed keys incur a monthly fee and a fee for use in excess of the free tier. They
+ are counted against the AWS KMS quotas for your account. For
+ details, see AWS Key Management Service Pricing and Quotas .
+ AWS managed keys
+ AWS managed keys are KMS keys in your account
+ that are created, managed, and used on your behalf by an AWS service integrated with AWS KMS .
+ Some AWS services let you choose an AWS managed key or a customer managed key to protect your
+ resources in that service. In general, unless you are required to control the encryption key
+ that protects your resources, an AWS managed key is a good choice. You don't have to
+ create or maintain the key or its key policy, and there's never a monthly fee for an
+ AWS managed key.
+ You have permission to view the AWS managed keys 
+ in your account, view their key policies , and
+ audit their use in AWS CloudTrail logs. However,
+ you cannot change any properties of AWS managed keys, rotate them, change their key
+ policies, or schedule them for deletion. And, you cannot use AWS managed keys in
+ cryptographic operations directly; the service that creates them uses them on your behalf. 
+ Resource control policies in your
+ organization do not apply to AWS managed keys.
+ AWS managed keys appear on the AWS managed keys page of the
+ AWS Management Console for AWS KMS. You can also identify AWS managed keys by their aliases, which have
+ the format aws/ service-name , such as
+ aws/redshift . To definitively identify an AWS managed keys, use the DescribeKey operation. For
+ AWS managed keys, the value of the KeyManager field of the
+ DescribeKey response is AWS .
+ All AWS managed keys are automatically rotated every year. You cannot change this
+ rotation schedule.
+ Note
+ In May 2022, AWS KMS changed the rotation schedule for
+ AWS managed keys from every three years (approximately 1,095 days) to
+ every year (approximately 365 days).
+ There is no monthly fee for AWS managed keys. They can be subject to fees for use in
+ excess of the free tier, but some AWS services cover these costs for you. For details, see
+ the Encryption at Rest topic in the user guide or
+ developer guide for the service. For details, see AWS Key Management Service
+ Pricing .
+ AWS managed keys do not count against resource quotas on the number of KMS keys in
+ each Region of your account. But when used on behalf of a principal in your account, the
+ KMS keys count against request quotas. For details, see Quotas .
+ AWS owned keys
+ AWS owned keys are a collection of KMS keys that
+ an AWS service owns and manages for use in multiple AWS accounts. Although
+ AWS owned keys are not in your AWS account, an AWS service can use an AWS owned key
+ to protect the resources in your account.
+ Some AWS services let you choose an AWS owned key or a customer managed key. In general,
+ unless you are required to audit or control the encryption key that protects your resources,
+ an AWS owned key is a good choice. AWS owned keys are completely free of charge (no
+ monthly fees or usage fees), they do not count against the AWS KMS
+ quotas for your account, and they're easy to use. You don't need to create or
+ maintain the key or its key policy.
+ The rotation of AWS owned keys varies across services. For information about the
+ rotation of a particular AWS owned key, see the Encryption at
+ Rest topic in the user guide or developer guide for the service.
+ AWS KMS key hierarchy
+ Your key hierarchy starts with a top-level logical key, an AWS KMS key. A KMS key
+ represents a container for top-level key material and is uniquely defined within the AWS
+ service namespace with an Amazon Resource Name (ARN). The ARN includes a uniquely generated
+ key identifier, a key ID. A KMS key is created based on
+ a user-initiated request through AWS KMS. Upon reception, AWS KMS requests the creation of an
+ initial HSM backing key (HBK) to be placed into the KMS key container. The HBK is
+ generated on an HSM in the domain and is designed never to be exported from the HSM in
+ plaintext. Instead, the HBK is exported encrypted under HSM-managed domain keys. These
+ exported HBKs are referred to as exported key tokens (EKTs).
+ The EKT is exported to a highly durable, low-latency storage. For example, suppose you
+ receive an ARN to the logical KMS key. This represents the top of a key hierarchy, or
+ cryptographic context, for you. You can create multiple KMS keys within your account and
+ set policies on your KMS keys like any other AWS named resource.
+ Within the hierarchy of a specific KMS key, the HBK can be thought of as a version of
+ the KMS key. When you want to rotate the KMS key through AWS KMS, a new HBK is created and
+ associated with the KMS key as the active HBK for the KMS key. The older HBKs are
+ preserved and can be used to decrypt and verify previously protected data. But only the
+ active cryptographic key can be used to protect new information. 
+ You can make requests through AWS KMS to use your KMS keys to directly protect
+ information or request additional HSM-generated keys that are protected under your
+ KMS key. These keys are called customer data keys, or CDKs. CDKs can be returned encrypted
+ as ciphertext (CT), in plaintext, or both. All objects encrypted under a KMS key (either
+ customer-supplied data or HSM-generated keys) can be decrypted only on an HSM via a call
+ through AWS KMS.
+ The returned ciphertext, or the decrypted payload, is never stored within AWS KMS. The
+ information is returned to you over your TLS connection to AWS KMS. This also applies to calls
+ made by AWS services on your behalf. 
+ The key hierarchy and the specific key properties appear in the following table.
+ Key 
+ Description 
+ Lifecycle 
+ Domain key 
+ A 256-bit AES-GCM key only in memory of an HSM used to wrap versions of the
+ KMS keys, the HSM backing keys.
+ Rotated daily 1 
+ HSM backing key 
+ A 256-bit symmetric key or RSA or elliptic curve private key, used to protect
+ customer data and keys and stored encrypted under domain keys. One or more HSM
+ backing keys comprise the KMS key, represented by the keyId.
+ Rotated yearly 2 (optional config.)
+ Derived encryption key 
+ A 256-bit AES-GCM key only in memory of an HSM used to encrypt customer data
+ and keys. Derived from an HBK for each encryption.
+ Used once per encrypt and regenerated on decrypt 
+ Customer data key 
+ User-deﬁned symmetric or asymmetric key exported from HSM in plaintext and
+ ciphertext.
+ Encrypted under an HSM backing key and returned to authorized users over TLS
+ channel.
+ Rotation and use controlled by application
+ 1 AWS KMS might from time to time relax domain key rotation to
+ at most weekly to account for domain administration and configuration tasks.
+ 2 Default AWS managed keys created and managed by AWS KMS on
+ your behalf are automatically rotated annually.
+ Key identifiers (KeyId)
+ Key identifiers act like names for your KMS keys. They help you to recognize your
+ KMS keys in the console. You use them to indicate which KMS keys you want to use in
+ AWS KMS API operations, key policies, IAM policies, and grants. The key identifier values
+ are completely unrelated to the key material associated with the KMS key.
+ AWS KMS defines several key identifiers. When you create a KMS key, AWS KMS generates a
+ key ARN and key ID, which are properties of the KMS key. When you create an alias , AWS KMS generates an alias ARN based on the alias name
+ that you define. You can view the key and alias identifiers in the AWS Management Console and in the
+ AWS KMS API. 
+ In the AWS KMS console, you can view and filter KMS keys by their key ARN, key ID, or
+ alias name, and sort by key ID and alias name. For help finding the key identifiers in the
+ console, see Find the key ID and key ARN .
+ In the AWS KMS API, the parameters you use to identify a KMS key are named
+ KeyId or a variation, such as TargetKeyId or
+ DestinationKeyId . However, the values of those parameters are not limited to
+ key IDs. Some can take any valid key identifier. For information about the values for each
+ parameter, see the parameter description in the AWS Key Management Service API Reference.
+ Note
+ When using the AWS KMS API, be careful about the key identifier that you use. Different
+ APIs require different key identifiers. In general, use the most complete and practical
+ key identifier for your task.
+ AWS KMS supports the following key identifiers.
+ Key ARN 
+ The key ARN is the Amazon Resource Name (ARN) of a KMS key. It is a unique,
+ fully qualified identifier for the KMS key. A key ARN includes the AWS account,
+ Region, and the key ID. For help finding the key ARN of a KMS key, see Find the key ID and key ARN .
+ The format of a key ARN is as follows:
+ arn: <partition> :kms: <region> : <account-id> :key/ <key-id> 
+ The following is an example key ARN for a single-Region KMS key.
+ arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab 
+ The key-id element of the key ARNs of multi-Region keys begin with the
+ mrk- prefix. The following is an example key ARN for a multi-Region
+ key.
+ arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab 
+ Key ID 
+ The key ID uniquely identifies a KMS key within an account and Region. For help
+ finding the key ID of a KMS key, see Find the key ID and key ARN .
+ The following is an example key ID for a single-Region KMS key.
+ 1234abcd-12ab-34cd-56ef-1234567890ab 
+ The key IDs of multi-Region keys 
+ begin with the mrk- prefix. The following is an example key ID for a
+ multi-Region key.
+ mrk-1234abcd12ab34cd56ef1234567890ab 
+ Alias ARN 
+ The alias ARN is the Amazon Resource Name (ARN) of an AWS KMS alias. It is a unique,
+ fully qualified identifier for the alias, and for the KMS key it represents. An
+ alias ARN includes the AWS account, Region, and the alias name.
+ At any given time, an alias ARN identifies one particular KMS key. However,
+ because you can change the KMS key associated with the alias, the alias ARN can
+ identify different KMS keys at different times. For help finding the alias ARN of a
+ KMS key, see Find the alias name and alias ARN for a KMS key .
+ The format of an alias ARN is as follows:
+ arn: <partition> :kms: <region> : <account-id> :alias/ <alias-name> 
+ The following is the alias ARN for a fictitious ExampleAlias .
+ arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias 
+ Alias name 
+ The alias name is a string of up to 256 characters. It uniquely identifies an
+ associated KMS key within an account and Region. In the AWS KMS API, alias names
+ always begin with alias/ . For help finding the alias name of a KMS key,
+ see Find the alias name and alias ARN for a KMS key .
+ The format of an alias name is as follows:
+ alias/ <alias-name> 
+ For example:
+ alias/ExampleAlias 
+ The aws/ prefix for an alias name is reserved for AWS managed keys . You cannot create an alias with
+ this prefix. For example, the alias name of the AWS managed key for Amazon Simple Storage Service (Amazon S3)
+ is the following.
+ alias/aws/s3 
+ Document Conventions 
+ Concepts
+ Asymmetric keys
+ Did this page help you? - Yes
+ Thanks for letting us know we're doing a good job!
+ If you've got a moment, please tell us what we did right so we can do more of it.
+ Did this page help you? - No
+ Thanks for letting us know this page needs work. We're sorry we let you down.
+ If you've got a moment, please tell us how we can make the documentation better.

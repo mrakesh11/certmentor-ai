@@ -1,4 +1,7 @@
 import { useState } from 'react';
+// ESLint no-unused-vars does not count JSX member expressions such as
+// <motion.div> as a usage of the motion import, so it reads as unused.
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import VPCDiagram from './VPCDiagram';
 import ServerlessDiagram from './ServerlessDiagram';
@@ -35,24 +38,13 @@ export default function ArchitectureGallery() {
         <div style={{marginTop: '2rem'}}>
             <div style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '2.5rem', maxWidth: '1000px', margin: '0 auto 2.5rem' }}>
                 {tabs.map(t => (
-                    <button 
+                    <button
                         key={t.id}
                         onClick={() => setActiveTab(t.id)}
-                        className={`btn ${activeTab === t.id ? 'active-tab' : ''}`}
-                        style={{
-                            background: activeTab === t.id ? 'var(--gradient-primary)' : 'rgba(255,255,255,0.05)',
-                            color: activeTab === t.id ? 'white' : 'var(--text-muted)',
-                            border: `1px solid ${activeTab === t.id ? 'var(--accent-blue)' : 'rgba(255,255,255,0.1)'}`,
-                            padding: '12px 25px',
-                            cursor: 'pointer',
-                            borderRadius: '30px',
-                            transition: 'all 0.3s',
-                            fontSize: '0.95rem',
-                            fontWeight: activeTab === t.id ? 'bold' : 'normal',
-                            boxShadow: activeTab === t.id ? '0 5px 15px rgba(0, 210, 255, 0.3)' : 'none'
-                        }}
+                        className={`btn ${activeTab === t.id ? 'btn--primary' : 'btn--secondary'}`}
+                        aria-pressed={activeTab === t.id}
                     >
-                        <i className={`fa-solid ${t.icon}`} style={{marginRight: '8px'}}></i>
+                        <i className={`fa-solid ${t.icon}`} aria-hidden="true"></i>
                         {t.label}
                     </button>
                 ))}

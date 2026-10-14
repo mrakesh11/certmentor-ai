@@ -1,0 +1,284 @@
+Cloud Data Warehouse – Amazon Redshift – AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ Amazon Redshift
+ Overview 
+ Features 
+ Pricing 
+ Solutions 
+ Resources 
+ Products 
+ Analytics 
+ Amazon Redshift 
+ Amazon Redshift
+ The cloud data warehouse that delivers unmatched price-performance for analytics and agentic AI
+ Get started with Redshift 
+ Connect with a Redshift specialist 
+ Why Amazon Redshift?
+ Amazon Redshift is built on cloud economics that scale with your usage - powering modern analytics and autonomous agentic AI workloads on your data warehouse. Ask any question of your data, across your warehouses and data lakes. Query open table formats like Apache Iceberg. Get up to 8.3x better price-performance for new queries in dashboards and 7x better throughput than other cloud data warehouses. New Graviton-powered RG instances run workloads 2.4x faster at 30% lower price per vCPU than previous generation RA3, purpose-built for the query volumes and latency demands of analytics and AI agents. Go from data to insights in seconds without managing infrastructure with Redshift Serverless. Power SQL analytics across your lakehouse in Amazon SageMaker, giving you one environment to query, analyze, and build across your warehouse and data lake.
+ Play 
+ Powering the next generation of Amazon SageMaker
+ Unified, open, and secure data lakehouse
+ Unify access across Amazon Redshift data warehouses, Amazon S3 data lakes, and third-party and federated data sources with the lakehouse in Amazon SageMaker
+ Learn more 
+ SQL analytics in Amazon SageMaker
+ Gain insights on unified data using Amazon Redshift, the most price-performant SQL engine
+ Learn more 
+ Benefits
+ Achieve exceptional price-performance, scalability, and security 
+ Gain up to 8.3x better price-performance for new queries in dashboards and 7x better throughput than other cloud data warehouses as you scale your data analytic workloads in Redshift. Reduce costs and meet business critical SLAs by isolating workloads with scalable multi-data warehouse architectures across your organization. With comprehensive security features like network isolation, fine grained access controls such as row level and column level permissions you can protect your data at no additional cost.
+ Unlock insights with SQL across unified data in the lakehouse 
+ Leverage Redshift's powerful SQL analytic capabilities across all of your unified data through its seamless integration in Amazon SageMaker. Query your data in open formats stored on Amazon S3 with high performance, eliminating the need to move or duplicate data between your data lakes and data warehouse. Effortlessly include your Redshift data as part of the lakehouse in SageMaker, opening it up for access by a broad range of AWS and Apache Iceberg-compatible analytics engines and machine learning tools.
+ Accelerate decision making with near real time analytics 
+ Innovate faster by making petabytes of data available for analytics without having to build and manage complex pipelines, enabling near real-time access for analytics use cases. Leverage zero-ETL integrations to seamlessly move transactional data from databases like Amazon Aurora, RDS, and DynamoDB into Redshift without performance impact. Ingest high volume real-time data from Amazon Kinesis and Amazon MSK with native streaming services integrations. With all your data in one place, enable near real-time analytics, and build predictive machine learning models directly in Redshift for powerful business insights. 
+ Get easy SQL analytics without managing infrastructure 
+ Start analyzing your data in a few seconds with Amazon Redshift Serverless. Redshift Serverless learns from your workloads and automatically scales compute to handle your evolving analytic needs, so you can focus on uncovering insights without managing infrastructure. Simply connect to your data sources and start analyzing your data, with no infrastructure set up or maintenance required. 
+ Contextualize applications and boost user productivity with generative AI 
+ Build personalized applications with petabytes of your organizational data through Redshift’s seamless integration with Amazon Bedrock. Boost productivity by enabling data users to more quickly and easily write SQL queries using natural language with Amazon Q generative SQL in Redshift Query Editor. Invoke large language models from Amazon Bedrock and SageMaker for advanced natural language processing tasks like text summarization, entity extraction, and sentiment analysis, to gain deeper insights with your data using SQL. 
+ Feature spotlight
+ Redshift RG instances 
+ Apache Iceberg v3 support 
+ Increased performance of new queries 
+ Long-term system table retention 
+ Powered by AWS Graviton, up to 2.4x as fast as RA3 and 30% lower price
+ Amazon Redshift RG instances, powered by AWS Graviton processors, deliver better performance - running data warehouse and data lake workloads up to 2.4x as fast as previous generation RA3 - at 30% lower per-vCPU cost. With a built-in data lake query engine, Redshift RG instances natively process open formats — including Apache Iceberg and Apache Parquet. The combination of speed, cost efficiency, and an integrated data lake query engine makes Redshift RG suited for the query volumes and latency demands of modern analytics and agentic AI workloads.
+ Learn more 
+ Read and write access for Apache Iceberg v3 tables
+ Amazon Redshift now provides read and write access for Apache Iceberg v3 tables in your data lake, with support for default column values, row lineage, and deletion vectors. Default values simplify schema evolution, row lineage powers incremental and CDC pipelines that process only modified rows, and deletion vectors speed up reads and writes for high-frequency update workloads. You can create Iceberg v3 tables directly or upgrade existing Iceberg v2 tables in place.
+ Learn more 
+ Increased performance of new queries by up to 7x
+ Amazon Redshift accelerates query response times of low-latency SQL queries from the very first run, such as those used in near real-time analytics applications, BI dashboards, ETL pipelines, and autonomous, goal-seeking AI agents. Enhanced code generation produces highly optimized, query-specific compiled code that ensures queries start fast and stay fast.
+ Try it now 
+ Extend system table retention with Amazon S3 Tables integration
+ You can now configure your Redshift system table data retention beyond the current 7-day limit to meet your compliance, auditing, and observability requirements. Once enabled, AWS automatically writes system table data to Amazon S3 Tables in Apache Iceberg format and manages partitioning, compaction, and retention.
+ Learn more 
+ Use cases
+ Improve financial and demand forecasts 
+ Ingests hundreds of megabytes of data per second so you can query data in near real time and build low latency analytics applications for fraud detection, live leaderboards, and IoT.
+ Optimize your business intelligence 
+ Build insight-driven reports and dashboards using Amazon Redshift and BI tools such as Amazon QuickSight, Tableau, Microsoft PowerBI, or others.
+ Accelerate ML in SQL 
+ Use SQL to build, train, and deploy ML models for many use cases including predictive analytics, classification, regression and more to support advanced analytics on large amount of data.
+ Monetize your data 
+ Build applications on top of all your data across databases, data warehouses, and data lakes. Seamlessly and securely share and collaborate on data to create more value for your customers, monetize your data as a service, and unlock new revenue streams.
+ Easily combine your data with third-party data sets 
+ Whether it's market data, social media analytics, weather data or more, subscribe to and combine third-party data in AWS Data Exchange with your data in Amazon Redshift, without hassling over licensing and onboarding processes and moving the data to the warehouse.
+ Amazon Redshift Serverless
+ Easily run and scale analytics in seconds without provisioning and managing a data warehouse
+ Try Amazon Redshift Serverless 
+ Get started with Amazon Redshift
+ Try a free sandbox environment and hands-on workshop
+ Try it now 
+ Find out how Amazon Redshift works
+ Learn more about Amazon Redshift features 
+ Explore Amazon Redshift pricing
+ Learn more about pricing 
+ Connect with an expert
+ Explore support options 
+ Did you find what you were looking for today?
+ Let us know so we can improve the quality of the content on our pages
+ Yes 
+ No 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

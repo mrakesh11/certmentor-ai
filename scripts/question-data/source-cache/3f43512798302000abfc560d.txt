@@ -1,0 +1,407 @@
+AWS Marketplace: Homepage 
+ Agent Mode 
+ English 
+ Sign in 
+ or Create a new account 
+ About 
+ Categories 
+ Delivery Methods 
+ Solutions 
+ Resources 
+ Become a Channel Partner 
+ Sell in AWS Marketplace 
+ Amazon Web Services Home 
+ Help 
+ The most subscribed products last month
+ SaaS 
+ AMI 
+ AI Agents & Tools 
+ Container 
+ Machine Learning 
+ Professional Services 
+ Data 
+ Free 
+ SaaS 
+ Top 1 
+ Sold by: Trend Micro 
+ TrendAI™ Cloud One 
+ 4.5
+ ( 227 )   
+ Deployed on AWS 
+ AWS Specializations
+ Trend Cloud One™ has reached End of Life and is now fully transitioned to TrendAI Vision One™ - delivering the latest, most advanced AI cybersecurity tools and capabilities for comprehensive protectio...
+ Get Started 
+ Top 2 
+ Sold by: Databricks, Inc. 
+ Databricks Data Intelligence Platform 
+ 4.6
+ ( 1398 )   
+ Deployed on AWS Free Trial 
+ AWS Specializations
+ The Databricks Data Intelligence Platform unlocks the power of data and AI for your entire organization. Enjoy up to $400 in usage credits during your 14-day free trial. Cancel anytime. After your tri...
+ Get Started 
+ Top 3 
+ Sold by: CrowdStrike 
+ CrowdStrike Falcon Platform 
+ 4.7
+ ( 661 )   
+ Deployed on AWS 
+ AWS Specializations
+ The AI-native CrowdStrike Falcon Platform provides comprehensive protection across all areas of enterprise risk - devices, identities, data, endpoints and cloud. Powered by a single agent, crowdsource...
+ Get Started 
+ Top 4 
+ Sold by: MongoDB, Inc 
+ MongoDB Atlas (pay-as-you-go) 
+ 4.2
+ ( 56 )   
+ Deployed on AWS Free Trial 
+ AWS Specializations
+ MongoDB Atlas on AWS enables organizations to build intelligent, AI-powered applications that scale effortlessly. As a fully managed NoSQL database and vector search platform, Atlas unifies operationa...
+ Get Started 
+ Custom pricing in minutes, right in your AWS Marketplace console 
+ Most express private offers generated
+ Top 1 
+ Sold by: Tailscale 
+ Tailscale - Programmable networking software for secure remote access 
+ 4.5
+ ( 59 )   
+ Deployed on AWS AWS Free Tier Free Trial 
+ AWS Specializations
+ Tailscale is a secure connectivity platform that replaces your legacy VPN, SASE, and PAM and connects remote teams, multi-cloud environments, CI/CD pipelines, Edge & IoT devices, and AI workloads. Tai...
+ Get express private offer 
+ Top 2 
+ Sold by: 1Password 
+ 1Password Enterprise Password Manager - Business 
+ 4.6
+ ( 1793 )   
+ Deployed on AWS 
+ AWS Specializations
+ 1Password Business is an enterprise password manager that extends identity security beyond SSO, secures logins, reduces shadow IT, and protects infrastructure secrets to keep your team safe and produc...
+ Get express private offer 
+ Top 3 
+ Sold by: Trend Micro 
+ TrendAI Vision One™ 
+ 4.6
+ ( 356 )   
+ Deployed on AWS AWS Free Tier Free Trial 
+ AWS Specializations
+ Stop threats before they strike with TrendAI Vision One™ - the AI-powered enterprise cybersecurity platform built to predict, prevent, and respond to threats across AWS, hybrid, and multi-cloud enviro...
+ Get express private offer 
+ Top 4 
+ Sold by: Orca Security CNAPP 
+ Orca Security CNAPP Cloud Security Platform 
+ 4.7
+ ( 343 )   
+ Deployed on AWS AWS Free Tier Free Trial Quick Launch 
+ AWS Specializations
+ Agentless Cloud Security in a Single, Complete Platform with 100% Coverage
+ Get express private offer 
+ Top 5 
+ Sold by: Okta, Inc 
+ Okta Workforce - Starter 
+ (0)
+ Deployed on AWS 
+ AWS Specializations
+ Secure your employees, contractors, and partners - wherever they are. Covers every part of the Identity lifecycle, from governance, to access, to privileged controls.
+ Get express private offer 
+ Top 6 
+ Sold by: Fours 
+ Fours Cloud Marketplace Platform 
+ 4.9
+ ( 73 )   
+ Deployed on AWS AWS Free Tier Free Trial 
+ Fours platform is a marketplace platform to help you reduce your effort to onboard product to multiple points to access your user. With minimum engineer requirement, you are able to reach you clients...
+ Get express private offer 
+ Top 7 
+ Sold by: Arctic Wolf 
+ Aurora Endpoint Defense 
+ (0)
+ Deployed on AWS AWS Free Tier Free Trial 
+ AWS Specializations
+ Aurora Endpoint Defense delivers AI-driven prevention, detection, and response capabilities to stop endpoint threats before they disrupt your business. Leverage the Aurora Endpoint Defense EDR console...
+ Get express private offer 
+ Top 8 
+ Sold by: Arctic Wolf 
+ Aurora Protect 
+ 4.7
+ ( 279 )   
+ Deployed on AWS 
+ AWS Specializations
+ Aurora Protect delivers AI-driven prevention capabilities to stop endpoint threats before they disrupt your business. With Alpha AI for Endpoint and the longest running predictive AI model on the mark...
+ Get express private offer 
+ Top 9 
+ Sold by: Cast AI 
+ Cast AI - EKS fully automated cost optimization and monitoring 
+ 4.5
+ ( 274 )   
+ Deployed on AWS AWS Free Tier Free Trial 
+ Get EKS monitoring and automated cost optimization in one easy-to-use platform. We show you how much you spend on EKS, and then we reduce your cost by 50 to 75% automatically. With active smart and au...
+ Get express private offer 
+ Top 10 
+ Sold by: LucidLink 
+ LucidLink - Enterprise 
+ 4.5
+ ( 775 )   
+ Deployed on AWS 
+ Collaborate everywhere, instantly with LucidLink. Empower your team to access, edit and share files of any size in real time, without syncing or downloading. With seamless setup, familiar workflows an...
+ Get express private offer 
+ Top 11 
+ Sold by: Vanta 
+ Vanta 
+ 4.6
+ ( 2741 )   
+ Deployed on AWS 
+ AWS Specializations
+ Vanta helps thousands of fast-growing companies simplify and centralize compliance and security workflows so they can build trust.
+ Get express private offer 
+ View all products 
+ Popular Categories
+ Operating Systems 
+ Security 
+ Networking 
+ Storage 
+ Data & Analytics 
+ DevOps 
+ Machine Learning 
+ Data Products 
+ View All Categories 
+ Explore solutions by topic area and use case
+ Business Applications
+ Find, buy, and deploy SaaS solutions to drive your business forward.
+ Learn more 
+ Data & Analytics
+ Gain the decision-making power and insights to act in real time.
+ Learn more 
+ DevOps
+ Design and deploy reliable, secure modern applications and infrastructure.
+ Learn more 
+ Infrastructure Software
+ Move, modernize, and manage your IT Infrastructure.
+ Learn more 
+ Internet of Things (IoT)
+ Quickly connect, collect, and act on data from your connected devices.
+ Learn more 
+ Machine Learning
+ Predict outcomes and optimize solutions to meet real-world challenges.
+ Learn more 
+ Migration
+ Move workloads and infrastructure to the cloud with confidence.
+ Learn more 
+ Security
+ Strengthen application and infrastructure security.
+ Learn more 
+ Explore solutions by industry and use case
+ Financial Services
+ Deliver enriched customer services, lead your industry, and manage oversight and risk.
+ Learn more 
+ Healthcare
+ Enable new methods of care delivery and operational efficiency.
+ Learn more 
+ Media & Entertainment
+ Create and deliver personalized consumer experiences anywhere, anytime, on any device.
+ Learn more 
+ Public Sector
+ Innovate citizen services, deliver efficiencies and optimize operations.
+ Learn more 
+ Telecommunications
+ Modernize infrastructure and processes, and optimize security operations.
+ Learn more 
+ View all solutions 
+ Customer Success Stories 
+ Vonage
+ Tomer Zilberstein, Senior Technical Manager
+ Teams at Vonage needed observability into all service data to easily detect problems and resolve them quickly. The company procured Epsagon from AWS Marketplace to gain insight into all its microservice workloads, go to market faster, and reduce troubleshooting time.
+ Learn more 
+ More Stories
+ Find Out More 
+ Ellie Mae
+ Find Out More 
+ Siemens Energy
+ Find Out More 
+ University of Notre Dame
+ Find Out More 
+ Ibotta
+ To see more examples of how we have helped businesses with their software needs, please visit the customer success stories page   .
+ Sell in AWS Marketplace
+ AWS Marketplace provides a new sales channel for ISVs and Consulting Partners to sell their solutions to AWS customers. We make it easy for customers to find, buy, deploy and manage software solutions, including SaaS, in a matter of minutes.
+ Come find out how to list your product and leverage this channel today.
+ Register Now 
+AWS Marketplace Blog 
+AWS Partners LinkedIn 
+AWS on X 
+ Solutions 
+ AI Agents & Tools 
+ AWS Well-Architected 
+ Business Applications 
+ CloudOps 
+ Data & Analytics 
+ Data Products 
+ DevOps 
+ Digital Sovereignty 
+ Generative AI 
+ Infrastructure Software 
+ Internet of Things 
+ Machine Learning 
+ Managed Services Providers 
+ Migration 
+ Security 
+ Advertising & Marketing 
+ Energy 
+ Engineering, Construction & Real Estate 
+ Financial Services 
+ Healthcare 
+ Industrial 
+ Life Sciences 
+ Media & Entertainment 
+ Nonprofit 
+ Public Health 
+ Public Sector 
+ Retail 
+ Sustainability 
+ Telecommunications 
+ AWS Control Tower 
+ AWS PrivateLink 
+ Pre-trained Amazon SageMaker Models 
+ AI Agents & Tools 
+ AI Security 
+ Content Creation 
+ Customer Experience Personalization 
+ Customer Support 
+ Data Analysis 
+ Finance & Accounting 
+ IT Support 
+ Legal & Compliance 
+ Observability 
+ Procurement & Supply Chain 
+ Quality Assurance 
+ Research 
+ Sales & Marketing 
+ Scheduling & Coordination 
+ Software Development 
+ Business Applications 
+ Blockchain 
+ Collaboration & Productivity 
+ Contact Center 
+ Content Management 
+ CRM 
+ eCommerce 
+ eLearning 
+ Human Resources 
+ IT Business Management 
+ Project Management 
+ Cloud Operations 
+ Cloud Financial Management 
+ Cloud Governance 
+ Data Products 
+ Automotive Data 
+ Environmental Data 
+ Financial Services Data 
+ Gaming Data 
+ Healthcare & Life Sciences Data 
+ Manufacturing Data 
+ Media & Entertainment Data 
+ Public Sector Data 
+ Resources Data 
+ Retail, Location & Marketing Data 
+ Telecommunications Data 
+ DevOps 
+ Agile Lifecycle Management 
+ Application Development 
+ Application Servers 
+ Application Stacks 
+ Continuous Integration and Continuous Delivery 
+ Infrastructure as Code 
+ Issue & Bug Tracking 
+ Log Analysis 
+ Monitoring 
+ Source Control 
+ Testing 
+ Industries 
+ Automotive 
+ Education & Research 
+ Energy 
+ Financial Services 
+ Healthcare & Life Sciences 
+ Industrial 
+ Media & Entertainment 
+ Infrastructure Software 
+ Backup & Recovery 
+ Data Analytics 
+ High Performance Computing 
+ Migration 
+ Network Infrastructure 
+ Operating Systems 
+ Security 
+ Storage 
+ IoT 
+ Analytics 
+ Applications 
+ Device Connectivity 
+ Device Management 
+ Device Security 
+ Industrial IoT 
+ Smart Home & City 
+ Machine Learning 
+ Audio 
+ Computer Vision 
+ Data Labeling Services 
+ Generative AI 
+ Human Review Services 
+ Image 
+ Intelligent Automation 
+ ML Solutions 
+ Natural Language Processing 
+ Speech Recognition 
+ Structured 
+ Text 
+ Video 
+ Professional Services 
+ Assessments 
+ Implementation 
+ Managed Services 
+ Premium Support 
+ Training 
+ Resources 
+ All resources 
+ Developer tools & tutorials 
+ Blog 
+ Events & webinars 
+ Analyst reports 
+ Customer success stories 
+ Buyer guide 
+ Frequently asked questions 
+ Sell in AWS Marketplace 
+ Management Portal 
+ Sign up as a Seller 
+ Seller Guide 
+ Partner Application 
+ Partner Success Stories 
+ About 
+ What is AWS Marketplace? 
+ Why AWS Marketplace? 
+ Get started in AWS Marketplace 
+ Procurement options 
+ Cost management tools 
+ Governance & control features 
+ Free trials 
+ Sell in AWS Marketplace 
+ Featured Categories 
+ SaaS Subscriptions 
+ Windows Server 
+ Manage Your Account 
+ Management Console 
+ Billing & Cost Management 
+ Subscribe to Updates 
+ Personal Information 
+ Payment Method 
+ AWS Identity & Access Management 
+ Security Credentials 
+ Request Service Limit Increases 
+ Contact Us 
+ AWS Marketplace is hiring!
+ Amazon Web Services (AWS) is a dynamic, growing business unit within Amazon.com. We are currently hiring Software Development Engineers, Product Managers, Account Managers, Solutions Architects, Support Engineers, System Engineers, Designers and more. Visit our Careers page to learn more.
+ Amazon Web Services is an Equal Opportunity Employer.
+ AWS Terms 
+ Privacy Policy 
+ Cookie Consent 
+ ©2012-2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

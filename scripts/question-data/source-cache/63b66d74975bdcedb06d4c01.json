@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/kinesis/latest/dev/what-is-this-service.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/kinesis/latest/dev/introduction.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:10.083Z",
+  "sha256": "fc409fa73adbd1550a3613b79ee2f6ee5019d225ee3760160eaea118d4e69f44",
+  "bytes": 18142,
+  "chars": 5540,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/kinesis/latest/dev/introduction.html"
+  ]
+}

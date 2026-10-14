@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_least-privilege.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:05.554Z",
+  "sha256": "0b05ce16085793e6747bd721df75ec0dd278b22df6ff7450dc92fb22e9edf605",
+  "bytes": 16273,
+  "chars": 4915,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html"
+  ]
+}

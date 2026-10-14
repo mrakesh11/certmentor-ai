@@ -1,0 +1,11 @@
+{
+  "url": "https://aws.amazon.com/xray/",
+  "resolvedUrl": "https://aws.amazon.com/xray/",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:09.417Z",
+  "sha256": "a4078e72a2e96fa9e74fb8306502c67b9576a3523018f645344af42a58749d00",
+  "bytes": 393341,
+  "chars": 12679,
+  "error": "extracted-content-unusable"
+}

@@ -1,245 +1,364 @@
-.viewer-container {
-    padding: 6rem 5% 4rem;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-}
+/* ==========================================================================
+   Cheat-sheet reader.
+   Documentation-style typography over injected HTML. Every colour comes
+   from a token, so sheets follow the active theme. The class hooks below
+   (.highlight, .important, .mnemonic, .pillar, …) are mapped from the
+   original source files and must be kept.
+   ========================================================================== */
 
-.viewer-card {
-    background: var(--card-bg);
-    border: 1px solid var(--card-border);
-    border-radius: 15px;
-    padding: 3rem;
+.viewer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-5);
     width: 100%;
     max-width: 1000px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin: 0 auto;
 }
 
-.viewer-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid var(--card-border);
-}
-
-.btn-back {
-    color: var(--accent-blue);
-    text-decoration: none;
-    font-weight: 600;
+.viewer__bar {
     display: flex;
     align-items: center;
-    gap: 10px;
-    transition: color 0.3s;
-}
-.btn-back:hover {
-    color: white;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
 }
 
-.loading-state {
+.viewer__label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    font-weight: 500;
+    color: var(--text-tertiary);
+}
+
+/* ---- Loading / error panels ---- */
+
+.viewer__panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-2);
+    padding: var(--sp-6);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+}
+
+.viewer__panel--loading {
+    align-items: center;
     text-align: center;
-    padding: 5rem 0;
-    color: var(--accent-purple);
-    font-size: 1.5rem;
-}
-.loading-state i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    color: var(--text-secondary);
 }
 
-/* ========================================================
-   GLOBAL CHEATSHEET THEME OVERRIDES
-   Injecting sleek dark mode into the raw HTML content 
-   ======================================================== */
+.viewer__panel--loading i {
+    font-size: var(--fs-2xl);
+    color: var(--accent);
+}
+
+.viewer__panel--error {
+    border-left: 3px solid var(--danger);
+}
+
+.viewer__panel--error .empty-state__icon {
+    color: var(--danger);
+}
+
+.viewer__panel--error h3 {
+    font-size: var(--fs-lg);
+}
+
+.viewer__panel--error p {
+    color: var(--text-secondary);
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    max-width: var(--measure);
+    margin-bottom: var(--sp-3);
+}
+
+.viewer__panel--error code {
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+    padding: 0.1em 0.35em;
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    word-break: break-all;
+}
+
+/* ==========================================================================
+   Injected content
+   ========================================================================== */
 
 .cheatsheet-content {
-    color: var(--text-main);
-    line-height: 1.8;
-    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: var(--lh-relaxed);
+    font-size: var(--fs-md);
     text-align: left;
 }
 
+/* ---- Headings ---- */
+
 .cheatsheet-content h1 {
-    font-size: 2.5rem;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: var(--fs-3xl);
+    color: var(--text-primary);
     text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid rgba(122, 34, 255, 0.3);
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-4);
+    border-bottom: 2px solid var(--border-default);
 }
 
 .cheatsheet-content h2 {
-    color: white;
-    font-size: 1.8rem;
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid var(--card-border);
-    padding-bottom: 10px;
+    color: var(--text-primary);
+    font-size: var(--fs-xl);
+    margin-top: var(--sp-7);
+    margin-bottom: var(--sp-4);
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: var(--sp-3);
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--sp-2);
 }
 
 .cheatsheet-content h3 {
-    color: var(--accent-blue);
-    font-size: 1.4rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    color: var(--accent);
+    font-size: var(--fs-lg);
+    margin-top: var(--sp-5);
+    margin-bottom: var(--sp-3);
 }
+
+.cheatsheet-content h4 {
+    font-size: var(--fs-md);
+    color: var(--text-primary);
+}
+
+/* ---- Prose ---- */
 
 .cheatsheet-content p {
-    margin-bottom: 1.5rem;
-    color: var(--text-muted);
-    text-align: justify;
-    letter-spacing: 0.2px;
+    margin-bottom: var(--sp-4);
+    color: var(--text-secondary);
+    max-width: var(--measure);
 }
 
-.cheatsheet-content ul, .cheatsheet-content ol {
-    margin-left: 20px;
-    margin-bottom: 1.5rem;
-    color: var(--text-main);
+.cheatsheet-content ul,
+.cheatsheet-content ol {
+    margin-left: var(--sp-5);
+    margin-bottom: var(--sp-4);
+    color: var(--text-secondary);
 }
+
 .cheatsheet-content li {
-    margin-bottom: 0.8rem;
-    text-align: justify;
-    letter-spacing: 0.2px;
-    padding-left: 5px;
+    margin-bottom: var(--sp-2);
+    padding-left: var(--sp-1);
 }
 
-.cheatsheet-content b, .cheatsheet-content strong {
-    color: white;
+.cheatsheet-content b,
+.cheatsheet-content strong {
+    color: var(--text-primary);
     font-weight: 600;
 }
 
-/* Tables */
+.cheatsheet-content a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.cheatsheet-content a:hover {
+    color: var(--accent-hover);
+}
+
+/* Inline code and pre blocks read as technical content, not decoration. */
+.cheatsheet-content code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    padding: 0.1em 0.35em;
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content pre {
+    padding: var(--sp-4);
+    margin-bottom: var(--sp-4);
+    background: var(--surface-inset);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+}
+
+.cheatsheet-content pre code {
+    padding: 0;
+    background: none;
+    border: none;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-normal);
+}
+
+/* ---- Tables ---- */
+
 .cheatsheet-content table {
     width: 100%;
     border-collapse: collapse;
-    margin: 2rem 0;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 10px;
+    margin: var(--sp-5) 0;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 .cheatsheet-content th {
-    background: rgba(122, 34, 255, 0.2);
-    color: white;
-    padding: 15px;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    padding: var(--sp-3) var(--sp-4);
     text-align: left;
     font-weight: 600;
-    border-bottom: 2px solid var(--accent-purple);
+    font-size: var(--fs-sm);
+    border-bottom: 2px solid var(--border-default);
 }
 
 .cheatsheet-content td {
-    padding: 15px;
-    border-bottom: 1px solid var(--card-border);
-    color: var(--text-muted);
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    vertical-align: top;
 }
 
 .cheatsheet-content tr:last-child td {
     border-bottom: none;
 }
+
 .cheatsheet-content tr:hover td {
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
+    background: var(--surface-2);
+    color: var(--text-primary);
 }
 
-/* Special Classes mapped from their original files */
+/* ==========================================================================
+   Classes mapped from the source cheat sheets — keep the hooks.
+   Colour is always paired with a border or label, never colour alone.
+   ========================================================================== */
 
 .cheatsheet-content .highlight {
-    background: rgba(0, 210, 255, 0.15);
-    color: var(--accent-blue);
-    padding: 2px 8px;
-    border-radius: 4px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 2px var(--sp-2);
+    border-radius: var(--radius-sm);
     font-weight: 600;
 }
 
 .cheatsheet-content .important {
-    background: rgba(239, 68, 68, 0.1);
-    border-left: 4px solid var(--wrong-red);
-    padding: 15px 20px;
-    margin: 2rem 0;
-    border-radius: 0 10px 10px 0;
+    background: var(--danger-soft);
+    border-left: 4px solid var(--danger);
+    padding: var(--sp-4) var(--sp-5);
+    margin: var(--sp-5) 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
+
 .cheatsheet-content .important strong {
-    color: #fca5a5;
+    color: var(--danger);
 }
 
 .cheatsheet-content .mnemonic {
-    background: rgba(122, 34, 255, 0.1);
-    border: 1px solid rgba(122, 34, 255, 0.3);
-    padding: 20px;
-    margin: 2rem 0;
-    border-radius: 10px;
+    background: var(--accent-soft);
+    border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    padding: var(--sp-5);
+    margin: var(--sp-5) 0;
+    border-radius: var(--radius-md);
     text-align: center;
 }
+
 .cheatsheet-content .mnemonic h4 {
-    color: var(--accent-purple);
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    color: var(--accent);
+    font-size: var(--fs-md);
+    margin-bottom: var(--sp-2);
 }
 
 .cheatsheet-content .use-case {
-    background: rgba(16, 185, 129, 0.05);
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 0.95rem;
+    background: var(--success-soft);
+    border-left: 3px solid var(--success);
+    padding: var(--sp-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-base);
 }
 
 .cheatsheet-content .pillar {
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 5px solid var(--accent-blue);
-    padding: 25px 30px;
-    margin: 2rem 0;
-    border-radius: 10px;
-    transition: transform 0.3s;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--accent);
+    padding: var(--sp-5) var(--sp-6);
+    margin: var(--sp-5) 0;
+    border-radius: var(--radius-md);
+    transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
+
 .cheatsheet-content .pillar:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--surface-2);
+    border-color: var(--border-strong);
+    border-left-color: var(--accent);
 }
 
 .cheatsheet-content .exam-tip {
-    background: rgba(255, 165, 0, 0.1);
-    border-left: 4px solid #fb923c;
-    padding: 15px;
-    margin: 2rem 0;
-    border-radius: 0 10px 10px 0;
+    background: var(--warning-soft);
+    border-left: 4px solid var(--warning);
+    padding: var(--sp-4);
+    margin: var(--sp-5) 0;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
+
 .cheatsheet-content .exam-tip h4 {
-    color: #fb923c;
-    margin-bottom: 10px;
+    color: var(--warning);
+    margin-bottom: var(--sp-2);
 }
 
 .cheatsheet-content .connection {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
+    gap: var(--sp-4);
+    margin: var(--sp-5) 0;
 }
 
 .cheatsheet-content .connection-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--card-border);
-    border-radius: 10px;
-    padding: 20px;
-    transition: transform 0.3s, border-color 0.3s;
-}
-.cheatsheet-content .connection-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-blue);
-}
-.cheatsheet-content .connection-card h4 {
-    color: var(--accent-blue);
-    margin-top: 0; margin-bottom: 10px;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--sp-5);
+    transition: border-color var(--dur-fast) var(--ease);
 }
 
-.error-msg {
-    color: var(--wrong-red);
-    text-align: center;
-    font-size: 1.5rem;
-    margin-top: 5rem;
+.cheatsheet-content .connection-card:hover {
+    border-color: var(--accent);
+}
+
+.cheatsheet-content .connection-card h4 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: var(--sp-2);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .cheatsheet-content {
+        font-size: var(--fs-base);
+    }
+
+    .cheatsheet-content h1 {
+        font-size: var(--fs-2xl);
+    }
+
+    .cheatsheet-content h2 {
+        font-size: var(--fs-lg);
+    }
+
+    /* Tables scroll horizontally rather than overflowing the page. */
+    .cheatsheet-content table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .cheatsheet-content .pillar {
+        padding: var(--sp-4);
+    }
 }

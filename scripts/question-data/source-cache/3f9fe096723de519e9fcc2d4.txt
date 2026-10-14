@@ -1,0 +1,268 @@
+AWS Managed Services 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ AWS Managed Services
+ Overview 
+ Features 
+ Resources 
+ FAQs 
+ Customers 
+ Partners 
+ Organization Access 
+ Products 
+ AWS Support 
+ AWS Managed Services 
+ AWS Managed Services
+ Operational excellence in the cloud
+ Contact us for more information 
+ Overview
+ AWS Managed Services (AMS) helps you adopt AWS at scale and operate more efficiently and securely. We leverage standard AWS services and offer guidance and execution of operational best practices with specialized automations, skills, and experience that are contextual to your environment and applications. AMS provides proactive, preventative, and detective capabilities that raise the operational bar and help reduce risk without constraining agility, allowing you to focus on innovation. AMS extends your team with operational capabilities including monitoring, incident management, , security, patch, backup, and cost optimization. AWS Incident Detection and Response is available in English for workloads hosted in eligible AWS regions .
+ AWS Incident Detection and Response 
+ Play 
+ Why AWS Managed Services?
+ Security
+ 150+ managed guardrails and security checks
+ Incident management
+ 80% of incidents proactively detected and notified
+ Automation
+ 1.35M SSM docs executed per month, up to 97% automated
+ Cost savings
+ 10-15% annual operational and AWS cost savings, on average
+ AWS expertise
+ 24x7 global coverage with tier 1 response and remediation
+ Benefits
+ Security 
+ AMS elevates operational excellence with security monitoring and remediation. AMS continuously mitigates risk for customers by leveraging AWS best practices and a wide suite of AWS native tooling. Our safety mechanisms provide preventative and detective controls.
+ Availability 
+ AMS provides well-architected reviews, configuration rule checks, risk prevention, management, and more. AMS monitors services 24x7x365 with proactive alarms and a complete incident management lifecycle—from detection and response to resolution.
+ Efficiency 
+ AMS takes an automation first approach to operations to reduce human error and provide consistency, speed, accuracy, and cost-savings. Our customers receive an average annual operational and AWS cost-saving of 10-15%. Through automation, our teams can focus on complex customer problems and continuous improvement mechanisms to achieve customer outcomes.
+ Resiliency 
+ AMS scales our customers’ operational capabilities and evolves to meet their needs and the constantly changing security landscape. The AMS operating model is based on a continuous learning mechanism that evaluates workloads and pipelines against changing security policies.
+ Compliance 
+ AMS offers customers an accelerated path towards meeting their compliance needs. AMS has achieved compliance certifications and attestations against frameworks such as PCI DSS, ISO, CSA STAR CCM, HITRUST CSF, and SOC 1 and 2. AMS has pre-authorization to operate workloads requiring FedRAMP Moderate in Commercial regions, and workloads requiring FedRAMP High in AWS GovCloud (US).
+ Use cases
+ Monitoring & Observability
+ To establish a strong foundation for securely operating your workloads in the cloud, it is critical to consider how you plan to monitor the health of your workloads. An observable environment reduces risk, increases agility, and improves customer experience. AMS elevates operational excellence with 24x7x365 proactive monitoring of activity and incidents to ensure availability and resiliency. Through automation, AMS detects and proactively notifies customers of 80% of incidents, increasing as we continue to learn from experience.
+ Configuration, Compliance & Auditing
+ Organizations operate in a compliance landscape that is complex, dynamic, and evolving rapidly, facing internal requirements as well as external industry, national, and international regulations. AMS offers customers an accelerated path towards meeting compliance certifications and attestations against PCI-DSS, HIPAA, HiTrust, GDPR, ISO, SOC 1, 2 and 3, FedRAMP Moderate and High. AMS helps customers configure their environment to be secure by providing time-tested safety mechanisms aligned with NIST, 150+ managed guardrails and security checks, and the most up-to-date best practices.
+ Centralized Operations Management
+ The cloud landscape is constantly evolving, and keeping up with new security threats can be time consuming, costly, and require ample cloud talent. AMS scales our customers’ operational capabilities and constantly evolves to meet their changing needs. The AMS operating model is based on a continuous learning mechanism that evaluates workloads and pipelines against changing security policies. With every interaction, we iterate and improve customers’ operating models, through tuning alarms, creating automations, and adding new monitors and service level indicators.
+ Enterprise Governance & Controls
+ In order to provide transparency in governance, we offer reporting from various native AWS services to summarize key performance metrics of AMS, including an executive summary and cost-saving insights, as well as granular details of incidents and performance. AMS allows enforcing of AMS and non-AMS tags to ensure they comply with enterprise governance and auditing control. AMS can take over administration and maintenance of Control Tower environments and offer monitoring and remediation.
+ Blog posts
+ Enhance your AWS Cloud Infrastructure Security with AWS Managed Services 
+ by Nitin Verma and Amit Gupta
+ Integrate AWS Support with Amazon Connect to receive critical outbound voice notifications 
+ by Chandra Allaka and Rajni Bisht
+ Build a Cloud Automation Practice for Operational Excellence: Best Practices from AWS Managed Services 
+ by Stephen Salim, Deepa Banerjee, and Nitin Verma
+ Strategy for using AWS Managed Services to achieve target business outcomes 
+ by Natarajan Elayappan and Nitin Verma
+ How CDW manages AWS support cases for multiple AWS managed services (AMS) Accelerate accounts 
+ by Anish Sheth, Joe Thomas, and Shashi Pemmasani
+ AWS Managed Services Accelerate Operations Launch 
+ by Paul Frederiksen and Anish Sheth
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

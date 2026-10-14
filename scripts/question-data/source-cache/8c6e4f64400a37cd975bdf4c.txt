@@ -1,0 +1,279 @@
+Virtual Desktop Infrastructure (VDI) - Amazon WorkSpaces - AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ WorkSpaces
+ Overview 
+ Features 
+ Pricing 
+ Customers 
+ Getting Started 
+ Products 
+ WorkSpaces 
+ Amazon WorkSpaces
+ Deliver secure, high-performance cloud desktops and applications to anyone, anywhere with the global scale of AWS
+ Get started 
+ Why WorkSpaces?
+ WorkSpaces gives you the flexibility to choose the optimal cloud based Virtual Desktop Infrastructure (VDI) solution for your specific use case. From task workers, contact center agents, and back-office staff, to developers, engineers, and data scientists, this highly secure, fully managed service adapts to your organization's needs across remote and hybrid teams. Deploy in minutes, scale instantly, and only pay for what you use—all while managing everything centrally through the AWS Console. 
+ Benefits
+ Cost efficiency 
+ Modernize your infrastructure with flexible cloud desktops and apps that simplify IT management. Eliminate infrastructure refreshes and skip capacity planning—simply pay for what you use, with no contracts required. 
+ Performance optimization 
+ Maximize user productivity and uptime while delivering low-latency performance and the scalability to support rapidly changing business requirements, backed by our financially guaranteed SLA. 
+ Enhance security 
+ Maintain a strong security posture by leveraging services built on AWS, which is architected to be the most secure cloud infrastructure available today. 
+ Scalable & adaptable 
+ Architect and deploy the ideal solution for your unique use case. Choose your preferred instance size and configuration, security and authentication solution, API integrations, and scaling policies. No vendor lock-in, no forced migrations, just complete control over your cloud desktop and app streaming solution. 
+ Built for reliability and scale
+ Financially-backed service level agreement on monthly uptime percentage
+ 99.9%
+ Global regions for WorkSpaces DaaS services
+ 19
+ Awards and analyst recognition
+ Third year running. Leader in the Gartner Magic Quadrant for Desktop as a Service
+ 2026
+ Read the full Gartner report 
+ Leader for IDC MarketScapes for DaaS and VCC
+ 2026
+ Read the full IDC MarketScape report 
+ Virtual desktops and application streaming
+ Applications
+ Applications streaming to any device
+ Learn more 
+ Desktop as a Service (DaaS)
+ Fully managed virtual desktop solutions
+ Learn more 
+ Secure browser
+ Cloud-native, remote enterprise browser
+ Learn more 
+ VDI partners
+ Virtual desktop infrastructure and APIs for third-party VDI software
+ Learn more 
+ Tools for builders and ISVs
+ AI agents
+ Connect your agents to desktop applications through a managed MCP server
+ Learn more 
+ Streaming protocols
+ High-performance display compression for remote visualization
+ Learn more 
+ Convert desktop apps to SaaS
+ Convert desktop apps to SaaS or web-based delivery
+ Learn more 
+ Use Cases
+ Remote and hybrid workforce 
+ In order to maximize productivity, employees must be able to securely access their virtual desktops and applications from anywhere, at any time. WorkSpaces enables workforce continuity with capabilities built on AWS that quickly, securely, and cost-effectively facilitate remote work. 
+ Knowledge workers 
+ Knowledge workers often require a powerful, flexible virtual desktop environment with a variety of specialized applications and productivity tools, like Microsoft 365 Apps for enterprise. WorkSpaces is designed to cover a wide range of knowledge-worker use cases.
+ Administration and back-office 
+ Employees who handle back-office tasks need cost-effective cloud desktop and app streaming solutions that protect sensitive corporate, employee, and customer data. WorkSpaces gives these workers secure access to the tools they need to do their jobs. 
+ Contract and contingent workers 
+ Many organizations leverage temporary staff to increase agility. WorkSpaces' services enable organizations to scale up or down with the needs of the business, quickly onboarding workers and enabling them to use personal devices for work. Because data is never stored on the end-user’s device, sensitive information is protected. 
+ Contact centers 
+ WorkSpaces provides hybrid and remote contact center agents with cost-effective, secure access to web-based applications, internal portals, virtual desktops, and communications tools for seamless agent-to-agent communications.
+ Amazon WorkSpaces customers
+ Did you find what you were looking for today?
+ Let us know so we can improve the quality of the content on our pages
+ Yes 
+ No 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

@@ -1,0 +1,273 @@
+Cloud Cost Report - AWS Cost Explorer - AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ AWS Cost Explorer
+ Overview 
+ Features 
+ Pricing 
+ FAQs 
+ Getting started 
+ Start now 
+ Products 
+ Cloud Financial Management 
+ AWS Cost Explorer 
+ AWS Cost Explorer
+ An easy way to visualize, understand, and manage your AWS costs and usage over time
+ Get started with AWS Cost Explorer 
+ Product description
+ AWS Cost Explorer has an easy-to-use interface that lets you visualize, understand, and manage your AWS cost and usage over time. Get started quickly by creating custom reports that analyze cost and usage data. You can also ask questions in your own words and receive detailed insights from Amazon Q Developer while Cost Explorer automatically updates its charts, tables, and report parameters to reflect the analysis. Analyze your data at a high level (for example, total costs and usage across all accounts), or dive deeper into your cost and usage data to identify trends, pinpoint cost drivers, and detect anomalies.
+ Benefits
+ Preconfigured views
+ Get costs and usage information, and business insights with preconfigured views. 
+ Filtering and grouping
+ Deep dive into your costs and usage data with filtering and grouping. 
+ Cost and usage forecast
+ Create a cost and usage forecast for a future time range for your report. 
+ Create custom reports
+ Create, save, and share custom reports to explore different sets of data. 
+ Natural language cost analysis
+ Ask questions about your costs using the suggested prompts or in your own words, by clicking the Ask question button. Get detailed insights in Amazon Q Developer alongside automatically updated Cost Explorer visualizations, filters, and groupings. 
+ Intelligent cost explanations 
+ Click 'Analyze with Amazon Q' on any cost report to instantly receive comprehensive explanations covering your cost trends, top drivers, anomalies, and guidance to optimization opportunities through follow-up questions. Works across historical, forecast, and compare views.
+ How it works
+ You can enable Cost Explorer for your account using this procedure on the Billing and Cost Management console. You can't enable Cost Explorer using the API. After you enable Cost Explorer, AWS prepares the data about your costs for the current month and the last 12 months, and then calculates the forecast for the next 12 months. The current month's data is available for viewing in about 24 hours. The rest of your data takes a few days longer. Cost Explorer updates your cost data at least once every 24 hours.
+ Use cases
+ Build custom applications
+ Take advantage of direct access to the interactive, ad-hoc analytics engine that powers AWS Cost Explorer. The Cost Explorer API allows you to programmatically query your cost and usage data. 
+ Use granular filtering
+ Visualize, understand, and manage your AWS costs and usage with daily or monthly granularity. You can also access your data with further granularity by enabling hourly and resource level granularity. 
+ Understand your costs with intelligent explanations 
+ Configure any cost report with your preferred filters and time period, then click 'Analyze with Amazon Q' to receive explanations for your costs. Amazon Q identifies what drove your spending changes, surfaces anomalies that need attention, and guides you to optimization opportunities through follow-up conversation. Whether you're reviewing historical costs, understanding your forecast, or comparing months, the analysis adapts to your view. 
+ Forecast your costs
+ Create a forecast by selecting a future time range for your report. You can use a forecast to estimate your AWS bill and set alarms and budgets based on projections. Click 'Analyze with Amazon Q' button to receive detailed forecast explanations covering projected spending trajectories, the services expected to drive future costs, and the factors influencing your projections. 
+ Understand cost and usage pattern
+ Identify patterns via day-over-day, month-over-month, or year-over-year cost and usage analysis. Leverage graphs and tables to view AWS cost and usage against a timeline to identify variance. 
+ Analyze your cost and usage data using natural language
+ Ask questions about your AWS cost and usage in Cost Explorer using suggested prompts or your own words. Click a suggested prompt like "Show me my top spending services this month" for instant cost insights and visualizations, or use the Ask Question button to type questions like "What were my highest-cost services last quarter?" Powered by Amazon Q Developer, both experiences deliver easy-to- understand insights and conversational responses in Amazon Q and updated visualizations in Cost Explorer or Amazon Q artifact panel.
+ Accelerate your CFM journey
+ Blog 
+ Create a metrics strategy to quantify your benefits from the cloud
+ Learn more 
+ Video 
+ Creating an effective metrics strategy for your business
+ Watch and learn 
+ Guide 
+ Exploring your data using Cost Explorer
+ Read the guide 
+ Get started
+ Getting started 
+ Log in to the AWS Cost Management Console to get started with AWS Cost Explorer.
+ Check it out 
+ Guide 
+ Discover how the tool can help you on your cloud financial journey
+ Explore the user guide 
+ Getting started 
+ See how to get started with AWS Cost Explorer with our how-to guides
+ Get Started 
+ Did you find what you were looking for today?
+ Let us know so we can improve the quality of the content on our pages
+ Yes 
+ No 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.

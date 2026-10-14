@@ -1,0 +1,53 @@
+{
+  "totalQuestions": 495,
+  "enriched": 491,
+  "blocked": 4,
+  "errors": [
+    "q339:answer_references_missing_option"
+  ],
+  "domains": {
+    "Cloud Economics": 97,
+    "Security": 157,
+    "Storage": 44,
+    "Cloud Adoption": 28,
+    "Compute": 51,
+    "Cloud Foundations": 19,
+    "Application Development": 10,
+    "Migration": 6,
+    "Networking": 27,
+    "Architecture": 20,
+    "Databases": 15,
+    "Cloud Operations": 7,
+    "Data and Analytics": 4,
+    "Cloud Governance": 6
+  },
+  "topics": {
+    "AWS Pricing and Cost Management": 97,
+    "Security Services": 66,
+    "AWS Storage Services": 44,
+    "Identity and Access Management": 65,
+    "Shared Responsibility Model": 26,
+    "AWS CAF": 28,
+    "AWS Compute Services": 51,
+    "AWS Cloud Concepts": 19,
+    "Deployment and Infrastructure as Code": 10,
+    "AWS Migration Services and Strategies": 6,
+    "AWS Networking and Global Infrastructure": 27,
+    "AWS Well-Architected Framework": 20,
+    "AWS Database Services": 15,
+    "AWS Support": 7,
+    "Data, Analytics, and AI Services": 4,
+    "AWS Account Governance": 6
+  },
+  "difficulty": {
+    "medium": 277,
+    "easy": 155,
+    "hard": 59
+  },
+  "blockedQuestionIds": [
+    "q200",
+    "q250",
+    "q269",
+    "q626"
+  ]
+}

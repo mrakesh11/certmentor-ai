@@ -1,0 +1,13 @@
+{
+  "url": "https://docs.aws.amazon.com/organizations/latest/userguide/welcome.html",
+  "resolvedUrl": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html",
+  "httpStatus": 200,
+  "contentType": "text/html",
+  "retrievedAt": "2026-10-11T08:36:10.772Z",
+  "sha256": "a3812985b5d2687565ee8e83c26a28ee72d62fef5865fb5959fff4313ee9a9ed",
+  "bytes": 25144,
+  "chars": 7226,
+  "metaRefreshFollowed": [
+    "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html"
+  ]
+}

@@ -1,0 +1,282 @@
+Application Observability (APM) - Amazon CloudWatch Application Signals - AWS 
+ Skip to main content 
+ Filter: All 
+ English 
+ Contact us 
+ AWS Marketplace 
+ Support 
+ My account 
+ re:Invent 
+ Discover AWS 
+ Products 
+ Solutions 
+ Pricing 
+ Resources 
+ Search
+ Filter: All 
+ Sign in to console
+ Create account 
+ Explore topics 
+ re:Invent 2026 
+ The session catalog is live. Explore what's waiting for you 
+ Build & Deploy AI Agents 
+ 88% of agent pilots stall. Learn what the rest do differently 
+ Get started 
+ Sign up free, connect your coding agent, and start building 
+ Data for agentic AI 
+ The 7 essential data capabilities to scale agentic AI 
+ Analyst Report 
+ AWS named a Leader in the 2026 Gartner Magic Quadrant for SCPS 
+ AI for Small Businesses 
+ Solutions designed for your business. Delivered by AWS Partners 
+ News & announcements 
+ AWS blog 
+ About AWS 
+ AWS is the world's most comprehensive cloud, enabling organizations to accelerate innovation, reduce costs, and scale more efficiently
+ Why AWS 
+ Getting Started 
+ Security 
+ Compliance 
+ Trust Center 
+ Sustainability 
+ Global Infrastructure 
+ Careers 
+ Featured Products 
+ Analytics 
+ Application Integration 
+ Artificial Intelligence 
+ Business Applications 
+ Compute 
+ Customer Experience 
+ Databases 
+ Developer Tools 
+ End User Computing 
+ Game Tech 
+ Management Tools 
+ Media Services 
+ Migration & Modernization 
+ Multicloud & Hybrid 
+ Networking & Content Delivery 
+ Operations 
+ Security & Identity 
+ Storage 
+ Supply Chain 
+ Browse all products 
+ Transformation Hubs 
+ Migrate to modernize → Modernize to unlock data → unlock data to run AI
+ Migrate & Modernize 
+ Clear technical debt, modernize infrastructure, and move to the cloud 
+ Data & Analytics 
+ Future proof your data foundation for agentic AI 
+ Artificial Intelligence 
+ Get production-ready AI that automates, builds, creates, decides, and engages at scale 
+ Featured Products 
+ Get started with one of these featured services or browse all
+ Browse all products 
+ Amazon Quick 
+ AI-powered assistant for work with research, business insights, automation, and no-code app building 
+ Transform 
+ Eliminate tech debt with agentic AI to modernize legacy systems and code 
+ Aurora 
+ Serverless relational database service for PostgreSQL, MySQL, and DSQL 
+ Amazon Bedrock 
+ The end-to-end platform for building generative AI applications and agents 
+ Amazon Connect Customer 
+ AI-native solution for delivering exceptional experiences across customer interactions 
+ EC2 
+ Secure and resizable compute capacity for virtually any workload 
+ What’s new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Featured 
+ By industry 
+ By organization type 
+ Solutions Library 
+ Solutions for any organization 
+ From startups to enterprises, find AWS solutions scaled to your needs. Access tailored resources, pricing models, and support levels.
+ Analytics Solutions 
+ Discover curated Solutions that address varied analytics use cases 
+ AI Solutions 
+ Discover curated Solutions that address varied artificial intelligence use cases 
+ Migration & Modernization Solutions 
+ Discover curated Solutions that address varied migration and modernization use cases 
+ What's new 
+ Explore new capabilities and the latest technologies 
+ Customer success stories 
+ Learn how customers around the world accelerate their cloud 
+ Pricing overview & tools 
+ AWS Pricing 
+ Learn about pricing and plans in one place 
+ AWS Pricing Calculator 
+ Estimate the cost for your architecture solution 
+ AWS Free Tier 
+ Get free, hands-on experience with AWS products and services 
+ AWS Offers 
+ Explore different offer programs to gain hands-on experience 
+ AWS Savings Plans 
+ Flexible pricing model offering lower prices 
+ Single-product pricing 
+ Amazon S3 
+ Amazon Bedrock 
+ Amazon RDS 
+ Amazon EC2 
+ Amazon SageMaker 
+ Browse all product pricing 
+ Learn 
+ Documentation 
+ Get detailed technical guides and references for all AWS services and tools 
+ Training & Certification 
+ Build and validate your AWS cloud skills and technical expertise 
+ Cloud term glossary 
+ Learn more about key cloud computing concepts 
+ Whitepapers 
+ Expand your knowledge of the cloud with expert guides and diagrams 
+ Cloud fundamentals 
+ Step-by-step instructions for common AWS tasks 
+ Tutorials 
+ Get started with step-by-step instructions 
+ Connect & Support 
+ Builder Center 
+ Learn, build, and connect with builders in the AWS community 
+ Events and webinars 
+ Connect, collaborate, and learn from AWS experts in the cloud computing community 
+ Partner Network 
+ Collaborate with AWS partners to grow your business 
+ Marketplace 
+ Find, test, buy, and deploy third-party software 
+ Support 
+ Access proactive guidance, issue resolution, and helpful tools 
+ Professional services 
+ Accelerate business transformation with expert guidance and packaged solutions 
+ Amazon CloudWatch
+ Overview 
+ Features 
+ Pricing 
+ Getting Started 
+ FAQs 
+ Customers 
+ Amazon CloudWatch 
+ Features 
+ Application Observability (APM) 
+ Application Observability (APM)
+ Spot and fix application issues before they impact your customers
+ Get started 
+ Watch the demo 
+ Overview
+ Prevent, optimize, and resolve application issues faster with Amazon CloudWatch Application Signals. Get one-click setup with automatic instrumentation across Amazon ECS, EKS, Lambda, EC2, and more—plus instant, automated insights from prebuilt dashboards that highlight your most critical telemetry. 
+ Play 
+ From chaos to clarity
+ Visualize and troubleshoot your entire system architecture with zero configuration. Understand dependencies and resolve issues faster with automatic discovery of instrumented and uninstrumented services, automatic mapping of distributed applications across AWS accounts and regions, cross-account visibility, automatic operational audits for common issues, and recent changes to your application. 
+ Start the Application Signals (APM) interactive demo 
+ Business insights from every trace
+ Simplify transaction analysis using an intuitive visual query builder. Surface business insights connect transaction tracing to business objectives. Instantly gain an end-to-end view of business-critical transactions with minimal setup and no setup and one-click analytics. 
+ Start the Transaction Search interactive demo 
+ Play 
+ Production telemetry with your source code
+ Investigate production issues using natural language directly in your IDE such as Kiro or GitHub without switching tools or learning query languages. Ask plain English questions like "Why is my billing service failing to process payments successfully?" and get AI-powered analysis that examines firing alarms, investigates log anomalies, correlates metrics with deployments, and points to the exact code causing issues in seconds. By using @awsapm in GitHub issues, you can trigger automatic analysis of live telemetry alongside source code, receive detailed fixes, and let AI submit pull requests with precise solutions—bringing production telemetry directly where you write code.
+ Learn more about CloudWatch MCP servers 
+ Learn more about Application Observability for AWS GitHub Action integration 
+ Keep your customers happy and your service up
+ Keep your customers happy by tracking service reliability using SLOs and SLIs. Deliver consistent service quality using CloudWatch's unified console to track real-time SLO status and compliance. Prevent customer frustration by setting business-focused SLO alerts in CloudWatch before reliability issues occur.
+ Read more about SLOs in documentation 
+ Know your user behavior
+ Understand exactly how customers experience your site by tracking real user monitoring (RUM) for your web and mobile applications. Catch site problems before customers do by running synthetic monitoring (canaries) that simulate critical customer journeys in CloudWatch. Make faster decisions to improve your customer experience using CloudWatch's built-in dashboards that highlight performance issues and trends instantly. 
+ Read more about RUM and canaries in our documentation
+ Featured Services and Solutions
+ Documentation and downloads 
+ Service overview
+ Optimize applications performance and reliability with comprehensive, integrated service health insights.
+ Learn more 
+ Documentation and downloads 
+ Application topology
+ Visualize service connections and dependencies to quickly identify and troubleshoot application performance issues
+ Learn More 
+ Documentation and downloads 
+ Service level objectives (SLOs)
+ View the operational health of critical services against business goals so that you can triage and troubleshoot quickly
+ Learn more 
+ Documentation and downloads 
+ Transaction search
+ Investigate transaction issues with complete visibility and free form analytics
+ Learn more 
+ Documentation and downloads 
+ Web real user monitoring (RUM)
+ Collect and view client-side data about your web application performance from actual user sessions in near real time
+ Learn more 
+ Documentation and downloads 
+ Synthetic monitoring (canaries)
+ Create canaries, configurable scripts that run on a schedule, to monitor your endpoints and APIs
+ Learn more 
+ Documentation and downloads 
+ Mobile real user monitoring (RUM)
+ Collect and view user experience data about iOS and Android application performances from actual user sessions in near real time
+ Learn more 
+ Documentation and downloads 
+ Application Observability for AWS GitHub Action
+ Bridge production telemetry to source code in GitHub
+ Learn more about Applicat 
+ Customers
+ PBS 
+ CCC 
+ PBS Improves Cost and Utility After Migration to Amazon CloudWatch
+ "The Amazon CloudWatch team has been indispensable in our migration away from our previous observability solution, motivated by cost and usability concerns. Our transition includes using CloudWatch Synthetics for TLS certificate monitoring and API endpoint surveillance, alongside application instrumentation via OpenTelemetry (OTEL) and the PHP SDK for tracing. Crucial performance metrics like Response Time; Error Rate which is derived from Error Count and Request Count; and Transaction Count are meticulously monitored. Anomaly detection systems are in place to spot irregularities in response time and error rates. We've also integrated PagerDuty and an SNS topic for issue alerts. Our partnership with CloudWatch transcends typical customer relationships, emphasizing collaboration and their remarkable responsiveness, exemplified when they rapidly implemented tailored solutions. This underscores the extraordinary value of our partnership with AWS and the CloudWatch team." 
+ Brian Link, Director of Technical Operations
+ CCC Intelligent Solutions Streamlines and Accelerates Team Collaboration Using Amazon CloudWatch Application Signals
+ "The CloudWatch observability platform has improved our team's visibility into application performance, streamlining and speeding collaboration for our team. It delivers real-time insights into application performance and offers thorough end-to-end analytics, empowering teams to make more informed, data-driven decisions. As a result, we can more efficiently and proactively maintain and manage performance, allowing our teams to focus on innovation and excellence and helping shape a world where life just works better for our teams and customers." 
+ Subrat Mishra, VP of Technology & Database Operations, Site Reliability Engineering, CCC 
+ Create an AWS account 
+ Learn
+ What Is AWS? 
+ What Is Cloud Computing? 
+ What Is Agentic AI? 
+ Cloud Computing Concepts Hub 
+ AWS Cloud Security 
+ What's New 
+ Blogs 
+ Press Releases 
+ Careers 
+ Resources
+ Getting Started 
+ Training 
+ AWS Trust Center 
+ AWS Solutions Library 
+ Architecture Center 
+ Product and Technical FAQs 
+ Analyst Reports 
+ AWS Partners 
+ Developers
+ Builder Center 
+ SDKs & Tools 
+ .NET on AWS 
+ Python on AWS 
+ Java on AWS 
+ PHP on AWS 
+ JavaScript on AWS 
+ Help
+ Contact Us 
+ File a Support Ticket 
+ AWS re:Post 
+ Knowledge Center 
+ AWS Support Overview 
+ AWS Accessibility 
+ Legal 
+ Event Code of Conduct 
+ Event Terms & Conditions 
+ English 
+ Back to top 
+ Amazon is an equal opportunity employer and does not discriminate on the basis of protected veteran status, disability or other legally protected status. Veterans, military spouses, and people with disabilities are encouraged to apply. 
+ x
+ facebook
+ linkedin
+ instagram
+ twitch
+ youtube
+ podcasts
+ email
+ Privacy 
+ Site terms 
+ Your Privacy Choices 
+ California Consumer Privacy Act (CCPA) Opt-Out Icon
+ Cookie Preferences 
+ © 2026, Amazon Web Services, Inc. or its affiliates. All rights reserved.
