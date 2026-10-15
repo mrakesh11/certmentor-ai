@@ -40,7 +40,7 @@
 
 .nav__brand i {
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--brand-aws);
 }
 
 .nav__brand-name {

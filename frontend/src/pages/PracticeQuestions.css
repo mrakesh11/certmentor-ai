@@ -131,6 +131,10 @@
 /* ---- Actions ---- */
 
 .sim__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    width: 100%;
     margin-top: var(--sp-5);
     padding-top: var(--sp-4);
     border-top: 1px solid var(--border-subtle);
@@ -138,6 +142,20 @@
 
 .sim__spacer {
     flex: 1;
+}
+
+.sim__actions .kbd-help {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+@media (max-width: 40rem) {
+    .sim__actions .kbd-help {
+        display: none;
+    }
 }
 
 /* ---- Persistent honesty warning about the question pool ---- */

@@ -236,6 +236,9 @@
 .option__body {
     flex: 1;
     min-width: 0;
+    line-height: 1.55;
+    letter-spacing: 0.01em;
+    word-spacing: 0.04em;
 }
 
 .option.is-selected {
@@ -286,6 +289,91 @@
 /* Unanswered options shown after grading, de-emphasised. */
 .option.is-dimmed {
     opacity: 0.55;
+}
+
+/* --------------------------------------------------------- Question text */
+
+.question-text {
+    font-size: var(--fs-md);
+    line-height: 1.65;
+    color: var(--text-primary);
+    margin-bottom: var(--sp-4);
+    white-space: pre-line;
+    max-width: var(--measure);
+    letter-spacing: 0.01em;
+    word-spacing: 0.04em;
+}
+
+/* --------------------------------------------------------- Option list */
+
+.option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: var(--sp-5);
+}
+
+/* --------------------------------------------------------- Feedback / Explanation */
+
+.explanation {
+    padding: var(--sp-4) var(--sp-5);
+    margin-bottom: var(--sp-5);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--border-strong);
+    border-radius: var(--radius-md);
+}
+
+.explanation.is-correct {
+    border-left-color: var(--success);
+    background: linear-gradient(to right, var(--success-soft), transparent 45%), var(--surface-1);
+}
+
+.explanation.is-wrong {
+    border-left-color: var(--danger);
+    background: linear-gradient(to right, var(--danger-soft), transparent 45%), var(--surface-1);
+}
+
+.explanation > h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fs-md);
+    margin-bottom: var(--sp-3);
+    letter-spacing: normal;
+}
+
+.explanation > h3 i {
+    flex: none;
+    font-size: 1.15em;
+    margin-right: 0.4rem;
+}
+
+.explanation.is-correct > h3 { color: var(--success); }
+.explanation.is-wrong > h3 { color: var(--danger); }
+
+.explanation p {
+    font-size: var(--fs-base);
+    line-height: var(--lh-relaxed);
+    color: var(--text-secondary);
+    margin-bottom: var(--sp-3);
+    letter-spacing: 0.01em;
+    word-spacing: 0.03em;
+}
+
+.explanation .answer-reveal {
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: var(--sp-2);
+}
+
+/* --------------------------------------------------------- Practice Actions */
+
+.practice-actions {
+    display: flex;
+    gap: var(--sp-3);
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 /* ------------------------------------------------------------- Progress */

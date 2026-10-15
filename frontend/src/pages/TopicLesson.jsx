@@ -488,7 +488,7 @@ export default function TopicLesson() {
                                                 className={`fa-solid ${graded.isCorrect ? 'fa-circle-check' : 'fa-circle-xmark'}`}
                                                 aria-hidden="true"
                                             ></i>
-                                            {graded.isCorrect ? 'Correct' : 'Not quite'}
+                                            <span>{graded.isCorrect ? 'Correct' : 'Not quite'}</span>
                                         </h3>
 
                                         <p className="answer-reveal">
@@ -531,14 +531,6 @@ export default function TopicLesson() {
                                     </div>
                                 ) : (
                                     <div className="practice-actions">
-                                        <button
-                                            type="button"
-                                            className="btn btn--primary"
-                                            onClick={checkAnswer}
-                                            disabled={selected.length === 0}
-                                        >
-                                            Check answer
-                                        </button>
                                         {index > 0 && (
                                             <button type="button" className="btn btn--ghost" onClick={goNext}>
                                                 Skip
@@ -556,13 +548,22 @@ export default function TopicLesson() {
                                         <span className="kbd-help">
                                             <kbd>A</kbd>–<kbd>E</kbd> to select · <kbd>Enter</kbd> to check
                                         </span>
+                                        <span style={{ marginLeft: 'auto' }}></span>
+                                        <button
+                                            type="button"
+                                            className="btn btn--primary"
+                                            onClick={checkAnswer}
+                                            disabled={selected.length === 0}
+                                        >
+                                            Check answer
+                                        </button>
                                     </div>
                                 )}
 
                                 {graded && (
                                     <div className="practice-actions">
                                         {!graded.isCorrect && (
-                                            <button type="button" className="btn btn--primary" onClick={retryCurrent}>
+                                            <button type="button" className="btn btn--secondary" onClick={retryCurrent}>
                                                 <i className="fa-solid fa-rotate-right" aria-hidden="true"></i>
                                                 Try again
                                             </button>
@@ -576,17 +577,18 @@ export default function TopicLesson() {
                                             <i className="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
                                             Explain with AI
                                         </button>
+                                        <span className="kbd-help">
+                                            <kbd>Enter</kbd> to continue
+                                        </span>
+                                        <span style={{ marginLeft: 'auto' }}></span>
                                         <button
                                             type="button"
-                                            className={graded.isCorrect ? 'btn btn--primary' : 'btn btn--secondary'}
+                                            className="btn btn--primary"
                                             onClick={goNext}
                                         >
                                             {index + 1 < queue.length ? 'Next question' : 'Finish'}
                                             <i className="fa-solid fa-arrow-right" aria-hidden="true"></i>
                                         </button>
-                                        <span className="kbd-help">
-                                            <kbd>Enter</kbd> to continue
-                                        </span>
                                     </div>
                                 )}
                             </>

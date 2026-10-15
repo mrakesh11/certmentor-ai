@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { getSimulatorQuestions } from '../lib/questionEligibility.js';
@@ -205,7 +205,7 @@ function PracticeSession({ mode, targetQuestionId }) {
         });
     }, [examResult, activeSet, examAnswers]);
 
-    const handleSelect = (id) => {
+    const handleSelect = useCallback((id) => {
         if (answered && mode !== 'exam') return;
         setNotice(null);
         playSound('pop');
@@ -214,9 +214,9 @@ function PracticeSession({ mode, targetQuestionId }) {
         } else {
             setSelectedIds([id]);
         }
-    };
+    }, [answered, mode, isMulti]);
 
-    const handleReveal = () => {
+    const handleReveal = useCallback(() => {
         if (answered || mode === 'exam') return;
         if (selectedIds.length === 0) {
             setNotice('Select an option before checking your answer.');
@@ -243,7 +243,7 @@ function PracticeSession({ mode, targetQuestionId }) {
         localStorage.setItem('aws_exam_stats', JSON.stringify(next));
         window.dispatchEvent(new Event('storage'));
         setAnswered(true);
-    };
+    }, [answered, mode, selectedIds, isMulti, answerArr.length, stats, isCorrect, curQ]);
 
     const handleResetStats = () => {
         if (!window.confirm('Reset all simulator progress and statistics? This cannot be undone.')) return;
@@ -260,7 +260,7 @@ function PracticeSession({ mode, targetQuestionId }) {
         persistedRef.current = false;
     };
 
-    const handleNext = () => {
+    const handleNext = useCallback(() => {
         if (mode === 'exam') {
             setExamAnswers((prev) => ({ ...prev, [currentIndex]: selectedIds }));
             if (currentIndex < activeSet.length - 1) {
@@ -281,15 +281,61 @@ function PracticeSession({ mode, targetQuestionId }) {
             confetti({ particleCount: mode === 'standard' ? 200 : 100, spread: mode === 'standard' ? 90 : 70, zIndex: 9999 });
             setIsFinished(true);
         }
-    };
+    }, [mode, currentIndex, selectedIds, activeSet.length, examAnswers, answered]);
 
-    const handlePrevious = () => {
+    const handlePrevious = useCallback(() => {
         if (mode === 'exam' && currentIndex > 0) {
             setExamAnswers((prev) => ({ ...prev, [currentIndex]: selectedIds }));
             setCurrentIndex((i) => i - 1);
             setSelectedIds(examAnswers[currentIndex - 1] || []);
         }
-    };
+    }, [mode, currentIndex, selectedIds, examAnswers]);
+
+    // Keyboard loop: A–E picks an option, Enter checks or advances, Arrow keys navigate exam
+    useEffect(() => {
+        if (!curQ || isFinished) return undefined;
+
+        const onKeyDown = (event) => {
+            if (event.metaKey || event.ctrlKey || event.altKey) return;
+            const tag = event.target?.tagName;
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return;
+
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                if (mode === 'exam' || answered) {
+                    handleNext();
+                } else {
+                    handleReveal();
+                }
+                return;
+            }
+
+            if (mode === 'exam') {
+                if (event.key === 'ArrowLeft') {
+                    event.preventDefault();
+                    handlePrevious();
+                    return;
+                }
+                if (event.key === 'ArrowRight') {
+                    event.preventDefault();
+                    handleNext();
+                    return;
+                }
+            }
+
+            if (answered && mode !== 'exam') return;
+
+            const letter = event.key.toUpperCase();
+            const option = curQ.options?.find((o) => o.id === letter);
+            if (option) {
+                event.preventDefault();
+                handleSelect(option.id);
+            }
+        };
+
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, [curQ, isFinished, mode, answered, handleNext, handlePrevious, handleReveal, handleSelect]);
 
     const formatTime = (seconds) => {
         const m = Math.floor(seconds / 60);
@@ -533,7 +579,7 @@ function PracticeSession({ mode, targetQuestionId }) {
                                     className={`fa-solid ${isCorrect ? 'fa-circle-check' : 'fa-circle-xmark'}`}
                                     aria-hidden="true"
                                 ></i>
-                                {isCorrect ? 'Correct' : 'Not quite'}
+                                <span>{isCorrect ? 'Correct' : 'Not quite'}</span>
                             </h3>
                             <p className="answer-reveal">
                                 The correct answer is {answerArr.join(', ')}.
@@ -565,6 +611,10 @@ function PracticeSession({ mode, targetQuestionId }) {
                                 Previous
                             </button>
                         )}
+
+                        <span className="kbd-help">
+                            <kbd>A</kbd>–<kbd>E</kbd> to select · <kbd>Enter</kbd> to {mode === 'exam' || answered ? 'advance' : 'check'}
+                        </span>
 
                         <span className="sim__spacer"></span>
 

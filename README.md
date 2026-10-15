@@ -91,6 +91,30 @@ npm run dev        # http://localhost:5173
 
 ## Change Log
 
+### 2026-10-15 — Performance optimization, UX overhaul, keyboard navigation & workspace cleanup
+
+**Author:** Pabolu Vineeth
+
+**Performance & Code Splitting**
+- Implemented route-level code splitting using `React.lazy()` and `<Suspense>` in `src/App.jsx` across all screens (Dashboard, Learn, TopicLesson, PracticeQuestions, Flashcards, CheatsheetViewer).
+- Configured Rollup `manualChunks` in `vite.config.js` to isolate third-party vendor dependencies (`vendor-react`, `vendor-framer`, `vendor-confetti`) and static datasets (`data-manifest`, `data-questions`).
+- Reduced initial JavaScript entry bundle from **1,685 kB to 15 kB** (a 99.1% reduction in initial payload).
+- Eliminated 400 KB redundant data import from `src/components/MissedByDomain.jsx` and corrected PWA asset reference to `Practice_Questions.pdf`.
+
+**UX & Answer-Reveal Fixes**
+- **Flashcards redesign (`src/pages/Flashcards.jsx`)**: Added interactive selectable options (A–D, supporting single and multi-answer questions) to the front of flashcards. Locked flipping until an option is selected (`disabled={!hasSelection}`), preventing answers from being exposed before testing. On flip, compares the learner's selection against the correct answer with check/cross markers, answer keys, and explanations.
+- **Premature reveal prevention**: Enforced option selection before checking answers in `PracticeQuestions.jsx` and `TopicLesson.jsx`.
+- Added unit tests in `src/lib/__tests__/answer-leak.test.jsx` verifying neither initial renders nor pre-grade states leak answers across any practice route.
+
+**Practice Simulator & Topic Lesson Improvements**
+- **Interactive keyboard shortcuts (`src/pages/PracticeQuestions.jsx`)**: Implemented full keyboard navigation matching the UI hint: keys <kbd>A</kbd>–<kbd>E</kbd> toggle options, <kbd>Enter</kbd> checks answer or advances to the next question, and <kbd>←</kbd>/<kbd>→</kbd> navigate between questions in timed exam mode.
+- **Primary action alignment**: Moved **Check answer** and **Next question** buttons to the right side across `PracticeQuestions.jsx` and `TopicLesson.jsx`, keeping secondary tools (Previous, Skip, Ask AI, keyboard hints) anchored on the left.
+- **Options & typography spacing**: Migrated shared question primitives (`.question-text`, `.option-list`, `.explanation`, `.practice-actions`) to global `src/styles/components.css`. Increased option button gap to `0.75rem` (12px), fixed checkmark/text collision in explanation headers (`✓ Correct`), and improved line-height (`1.55`–`1.65`) and word spacing (`0.04em`).
+
+**Workspace Cleanup**
+- Relocated 22 legacy root `.html` cheatsheet files into `legacy-static-site/` to declutter the root workspace.
+- Deleted obsolete legacy files `frontend/src/questionsData.js` (401 KB) and `frontend/src/questions.txt` (240 KB), saving ~640 KB of duplicate dead weight.
+
 ### 2026-10-15 — UI scaling, theme toggle & bug fixes
 
 **Author:** Pabolu Vineeth
@@ -98,6 +122,7 @@ npm run dev        # http://localhost:5173
 **Theme & navigation**
 - Rebuilt the theme control as a compact icon button: an inline SVG sun in dark mode and moon in light mode, with a cross-fade + rotate transition and an accessible `aria-label` / `title`. Replaced the previous three-option light/dark/system selector.
 - Toggle uses the applied theme plus `setPreference`, committing an explicit light or dark choice on click.
+- Recolored the AWS brand mark in the navigation heading with a dedicated `--brand-aws` token (official `#ff9900`) in both themes, replacing the blue accent.
 
 **Responsive scaling**
 - Added a fluid root `font-size` in `src/styles/base.css` so the whole interface (type, spacing, navigation, layout) scales with the viewport like a proportional zoom. Bounds are expressed in `rem` so the browser's base font-size preference is still honoured.
