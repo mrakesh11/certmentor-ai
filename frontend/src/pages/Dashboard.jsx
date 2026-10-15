@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import ArchitectureGallery from '../components/ArchitectureGallery';
 import MissedByDomain from '../components/MissedByDomain';
+
+const ArchitectureGallery = lazy(() => import('../components/ArchitectureGallery'));
 import { domainSummaries, TOTALS, EXAM_GUIDE_URL } from '../lib/curriculum';
-import { overallSummary, clearAllRetries } from '../lib/progress';
+import { overallSummary, clearAllRetries, loadProgress } from '../lib/progress';
 import { getSimulatorQuestions } from '../lib/questionEligibility';
 import { suggestNextStep, domainProgress } from '../lib/nextStep';
 import './Dashboard.css';
@@ -97,7 +98,7 @@ export default function Dashboard() {
 
     const learning = overallSummary();
     const nextStep = suggestNextStep();
-    const domainRows = domainProgress();
+    const domainRows = domainProgress(loadProgress());
     const domains = domainSummaries();
     const simQuestions = getSimulatorQuestions();
 
@@ -456,7 +457,9 @@ export default function Dashboard() {
 
                 {isArchitectureOpen && (
                     <div className="diagram-panel">
-                        <ArchitectureGallery />
+                        <Suspense fallback={<div className="panel" style={{ textAlign: 'center', padding: '2rem' }}><i className="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> Loading diagrams...</div>}>
+                            <ArchitectureGallery />
+                        </Suspense>
                     </div>
                 )}
             </section>

@@ -140,4 +140,13 @@ describe('progress persistence', () => {
         expect(() => recordAnswer(LOCATION, true, null)).not.toThrow();
         expect(topicStats(2, 'identity-and-access-management', null).attempts).toBe(0);
     });
+
+    it('does not throw when setItem fails (quota exceeded / private mode)', () => {
+        const failing = {
+            ...fakeStorage(),
+            setItem: () => { throw new Error('QuotaExceededError'); },
+        };
+        expect(saveProgress({ version: PROGRESS_VERSION, topics: {} }, failing)).toBe(false);
+        expect(() => recordAnswer(LOCATION, true, failing)).not.toThrow();
+    });
 });

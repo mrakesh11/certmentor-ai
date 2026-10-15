@@ -1,16 +1,46 @@
-# React + Vite
+# CertMentor AI — Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 19 + Vite 7 single-page app for the CertMentor AI learning workspace (currently the AWS Cloud Practitioner CLF-C02 track).
 
-Currently, two official plugins are available:
+See the [project README](../README.md) for the full overview, features, and the latest change log.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Quick start
 
-## React Compiler
+```bash
+npm install
+npm run dev        # http://localhost:5173
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+CloudMentor AI talks to a locally running [Ollama](https://ollama.com) instance on `http://localhost:11434`. Pull a model first, e.g. `ollama pull llama3.2`, or the assistant will report that it is offline.
 
-## Expanding the ESLint configuration
+## Scripts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Vite dev server with HMR |
+| `npm run build` | Production build to `dist/` |
+| `npm run preview` | Preview the production build |
+| `npm run lint` | ESLint |
+| `npm run test` | Vitest suite |
+| `npm run questions:*` | Question-bank content pipeline (see `../scripts/question-data`) |
+
+## Layout
+
+```
+src/
+├── components/   Shared UI (Navbar, CloudMentor, ThemeToggle, architecture diagrams)
+├── pages/        Route screens (Dashboard, Learn, TopicLesson, PracticeQuestions, Flashcards, CheatsheetViewer)
+├── lib/          Pure logic (progress, nextStep, curriculum, answers, ollama, theme)
+├── styles/       Design system — tokens.css → base.css → components.css
+└── data/         Generated question + manifest data
+```
+
+## Theming and scaling
+
+- Theme preference (`light` / `dark` / `system`) is stored under `aws_clf_theme_v1` and applied by `ThemeProvider` / `useTheme`.
+- A fluid root `font-size` in `src/styles/base.css` scales the entire UI with the viewport. Prefer `rem` for new sizes so they scale too; keep `px` only for borders, shadows, blur, and media-query breakpoints.
+
+## Conventions
+
+- Keep components and pages consistent with the existing structure, naming, and CSS patterns.
+- Run `npm run lint`, `npm run test`, and `npm run build` before considering a change complete.

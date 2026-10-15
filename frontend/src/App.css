@@ -40,7 +40,7 @@
 
 .nav__brand i {
     font-size: 1.4rem;
-    color: var(--accent);
+    color: var(--brand-aws);
 }
 
 .nav__brand-name {
@@ -139,7 +139,7 @@
 }
 
 .nav__search input {
-    width: 240px;
+    width: 15rem;
     padding: 0.45rem 0.75rem 0.45rem 2rem;
     background: var(--surface-2);
     border: 1px solid var(--border-default);
@@ -163,7 +163,7 @@
     position: absolute;
     top: calc(100% + 0.5rem);
     right: 0;
-    width: 340px;
+    width: 21.25rem;
     background: var(--surface-1);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-lg);
@@ -239,8 +239,8 @@
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     margin-left: auto;
     padding: 0;
     background: transparent;
@@ -252,7 +252,7 @@
 
 .nav__toggle span {
     display: block;
-    width: 18px;
+    width: 1.125rem;
     height: 2px;
     background: var(--text-secondary);
     border-radius: var(--radius-pill);
@@ -271,7 +271,7 @@
 
 @media (max-width: 900px) {
     .nav__search input {
-        width: 200px;
+        width: 12.5rem;
     }
 }
 
@@ -339,72 +339,81 @@
     }
 }
 
-/* ---- Theme selector ---- */
+/* ---- Theme toggle button ---- */
 
 .theme-toggle {
     display: inline-flex;
     align-items: center;
-    gap: 2px;
-    padding: 3px;
+    justify-content: center;
+    /* Sized in rem: scales with the page's fluid root font-size along with
+       every other control, no separate viewport maths needed. */
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0;
     background: var(--surface-2);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-pill);
-}
-
-.theme-toggle__option {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--sp-2);
-    padding: 0.3rem 0.6rem;
-    border-radius: var(--radius-pill);
-    color: var(--text-tertiary);
-    font-size: var(--fs-sm);
-    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 1.15rem;
     cursor: pointer;
     transition:
         background var(--dur-fast) var(--ease),
+        border-color var(--dur-fast) var(--ease),
         color var(--dur-fast) var(--ease);
 }
 
-.theme-toggle__option:hover {
-    color: var(--text-primary);
-}
-
-/* The real radio is present for semantics and keyboard use, but visually
-   replaced by the icon + label. */
-.theme-toggle__option input {
-    position: absolute;
-    inset: 0;
-    margin: 0;
-    opacity: 0;
-    cursor: pointer;
-}
-
-.theme-toggle__option input:focus-visible + i {
-    outline: 2px solid var(--accent);
-    outline-offset: 3px;
-    border-radius: var(--radius-sm);
-}
-
-.theme-toggle__option.is-selected {
+.theme-toggle:hover {
     background: var(--surface-1);
-    color: var(--text-primary);
-    box-shadow: inset 0 0 0 1px var(--border-strong);
-}
-
-/* Active state carries weight as well as colour, never colour alone. */
-.theme-toggle__option.is-selected i {
+    border-color: var(--border-strong);
     color: var(--accent);
 }
 
-@media (max-width: 420px) {
-    .theme-toggle__text {
-        display: none;
-    }
-    .theme-toggle__option {
-        padding: 0.35rem 0.5rem;
-    }
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* The two glyphs cross-fade and rotate; only the correct one is visible.
+   Sized in `em` so the icon scales together with the button's fluid font-size
+   and the whole control stays proportional at every screen width. */
+.theme-toggle__icons {
+    position: relative;
+    display: block;
+    width: 1em;
+    height: 1em;
+}
+
+.theme-toggle__icon {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transition:
+        opacity var(--dur-base) var(--ease),
+        transform var(--dur-base) var(--ease);
+}
+
+/* Light mode → show the moon (tap switches to dark). */
+.theme-toggle__icon--moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle__icon--sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+}
+
+/* Dark mode → show the sun (tap switches to light). */
+.theme-toggle.is-dark .theme-toggle__icon--sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle.is-dark .theme-toggle__icon--moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
 }
 
 /* ---- Footer ---- */

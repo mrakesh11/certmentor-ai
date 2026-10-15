@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['aws-logo.svg', 'dumpbits.pdf'],
+      includeAssets: ['aws-logo.svg', 'Practice_Questions.pdf'],
       manifest: {
         name: 'AWS CLF-C02 Platinum Simulator',
         short_name: 'AWS Simulator',
@@ -25,6 +25,32 @@ export default defineConfig({
       }
     })
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('framer-motion')) {
+              return 'vendor-framer';
+            }
+            if (id.includes('canvas-confetti')) {
+              return 'vendor-confetti';
+            }
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+              return 'vendor-react';
+            }
+            return 'vendor';
+          }
+          if (id.includes('learning-manifest.json')) {
+            return 'data-manifest';
+          }
+          if (id.includes('questions.normalized.json') || id.includes('questionsData.js') || id.includes('questions.enriched.json')) {
+            return 'data-questions';
+          }
+        }
+      }
+    }
+  },
   server: {
     host: true, // Listens on all local IPs, necessary for port forwarding
     port: 5173,

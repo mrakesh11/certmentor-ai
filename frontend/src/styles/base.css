@@ -14,6 +14,15 @@
 html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
+    /* Fluid root scale. Every size in the system is expressed in `rem`, so
+       scaling the root font-size scales the whole page — type, spacing,
+       navigation and layout — with the viewport, like a proportional zoom.
+       The bounds are in `rem` (not px) so a reader's browser font-size
+       preference is still honoured; the middle term uses a gentle `vw`
+       coefficient so large displays scale modestly. The lower bound is `1rem`
+       so body copy never drops below the pre-scaling 15px baseline (the
+       `--fs-base` token is itself a fraction of the root). */
+    font-size: clamp(1rem, 0.9375rem + 0.15vw, 1.0625rem);
 }
 
 body {

@@ -125,26 +125,43 @@ export async function streamChat(messages, model, onToken, signal) {
     const reader = res.body.getReader();
     const decoder = new TextDecoder();
     let full = '';
+    // NDJSON frames can be split across network chunks, so keep the trailing
+    // partial line and prepend it to the next chunk before parsing.
+    let buffer = '';
+
+    const handleLine = (line) => {
+        if (!line.trim()) return;
+        let parsed;
+        try {
+            parsed = JSON.parse(line);
+        } catch {
+            // A malformed complete line — skip it rather than dropping the stream.
+            return;
+        }
+        if (parsed?.error) {
+            throw new Error(`Ollama error: ${parsed.error}`);
+        }
+        const token = parsed?.message?.content ?? '';
+        if (token) {
+            full += token;
+            onToken(cleanMarkdown(full));
+        }
+    };
 
     while (true) {
         const { done, value } = await reader.read();
         if (done) break;
 
-        const chunk = decoder.decode(value, { stream: true });
-        for (const line of chunk.split('\n')) {
-            if (!line.trim()) continue;
-            try {
-                const parsed = JSON.parse(line);
-                const token = parsed?.message?.content ?? '';
-                if (token) {
-                    full += token;
-                    onToken(cleanMarkdown(full));
-                }
-            } catch {
-                // Partial JSON — skip
-            }
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() ?? '';
+        for (const line of lines) {
+            handleLine(line);
         }
     }
+
+    // Flush any final partial line (a stream that ends without a trailing \n).
+    handleLine(buffer);
 
     return cleanMarkdown(full);
 }

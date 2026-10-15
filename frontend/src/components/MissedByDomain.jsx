@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import { examQuestions } from '../questionsData.js';
 import domainById from '../data/question-domains.json';
 import { getDomains } from '../lib/curriculum';
 
@@ -78,7 +77,7 @@ export default function MissedByDomain({ incorrectIds = [] }) {
             </ul>
 
             <p className="missed-by-domain__footnote">
-                These are misses from the full {examQuestions.length}-question simulator pool, which
+                These are misses from the full {Object.keys(domainById).length}-question simulator pool, which
                 includes questions not yet fact-checked. Curriculum practice counts are shown on the
                 curriculum page and are tracked separately.
                 {unmapped > 0 && ` ${unmapped} missed question${unmapped === 1 ? '' : 's'} could not be assigned a domain.`}
