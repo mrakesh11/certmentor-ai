@@ -68,6 +68,21 @@ export default function TopicLesson() {
     const [sessionCorrect, setSessionCorrect] = useState([]);
     const [diagramOpen, setDiagramOpen] = useState(false);
 
+    // React Router reuses this component instance when only the route params
+    // change, so reset the session state when navigating between topics
+    // (React's adjust-state-during-render pattern, as in CheatsheetViewer).
+    const routeKey = `${domainNumber}:${topicSlug}`;
+    const [activeRoute, setActiveRoute] = useState(routeKey);
+    if (activeRoute !== routeKey) {
+        setActiveRoute(routeKey);
+        setIndex(0);
+        setSelected([]);
+        setGraded(null);
+        setSessionSeen([]);
+        setSessionCorrect([]);
+        setDiagramOpen(false);
+    }
+
     const current = queue[index] ?? null;
     const finished = queue.length > 0 && index >= queue.length;
     const multiple = Boolean(current) && isMultiAnswer(current);

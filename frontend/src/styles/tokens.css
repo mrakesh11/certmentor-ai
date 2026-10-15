@@ -120,10 +120,10 @@
     --sp-10: 8rem;
 
     /* ---- Radius (restrained scale) ---- */
-    --radius-sm: 5px;
-    --radius-md: 8px;
-    --radius-lg: 12px;
-    --radius-xl: 16px;
+    --radius-sm: 0.3125rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
     --radius-pill: 999px;
 
     /* ---- Elevation (borders do most of the work) ---- */
@@ -131,10 +131,10 @@
     --shadow-md: 0 6px 20px rgba(16, 16, 16, 0.08);
     --shadow-lg: 0 16px 44px rgba(16, 16, 16, 0.12);
 
-    /* ---- Layout ---- */
-    --content-max: 1160px;
-    --content-narrow: 760px;
-    --nav-height: 60px;
+    /* ---- Layout (rem so they scale with the fluid root font-size) ---- */
+    --content-max: 72.5rem;
+    --content-narrow: 47.5rem;
+    --nav-height: 3.75rem;
 
     /* ---- Motion (functional only) ---- */
     --dur-fast: 120ms;

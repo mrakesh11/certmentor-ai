@@ -93,17 +93,23 @@ describe('answer is never revealed before grading', () => {
 });
 
 describe('remaining routes render', () => {
-    it('exam simulator renders with no saved session', () => {
+    it('exam simulator renders with no saved session and does not leak answer', () => {
         const html = renderAt('/practice-questions?mode=standard');
         expect(html).toBeTruthy();
         expect(html).not.toContain('undefined');
         expect(html).not.toContain('[object Object]');
+        expect(html).not.toContain('answer-reveal');
+        expect(html).not.toContain('is-correct');
+        expect(html).not.toContain('is-wrong');
     });
 
-    it('flashcards renders a deck without a saved session', () => {
+    it('flashcards renders front of card without leaking answer or grading', () => {
         const html = renderAt('/flashcards');
         expect(html).toBeTruthy();
         expect(html).not.toContain('undefined');
         expect(html).not.toContain('[object Object]');
+        expect(html).not.toContain('Correct Answer:');
+        expect(html).not.toContain('Flip back to question');
+        expect(html).toContain('Select an option to check answer');
     });
 });

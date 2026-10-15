@@ -79,4 +79,8 @@ export const EXAM_GUIDE_URL = CURRICULUM.examGuideUrl
     ?? manifest.taxonomy.examGuideUrl
     ?? 'https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf';
 
+export function getPracticeQuestions() {
+    return manifest.practiceQuestions;
+}
+
 export { manifest };

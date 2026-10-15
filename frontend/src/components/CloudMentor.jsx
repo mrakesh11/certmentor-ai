@@ -69,9 +69,9 @@ export default function CloudMentor() {
 
     // Focus input when opened
     useEffect(() => {
-        if (isOpen && activeTab === 'chat') {
-            setTimeout(() => inputRef.current?.focus(), 150);
-        }
+        if (!isOpen || activeTab !== 'chat') return undefined;
+        const timer = setTimeout(() => inputRef.current?.focus(), 150);
+        return () => clearTimeout(timer);
     }, [isOpen, activeTab]);
 
     const handleSend = useCallback(async (textToSend) => {
@@ -119,6 +119,9 @@ export default function CloudMentor() {
             );
         } catch (err) {
             if (err.name !== 'AbortError') {
+                // Drop the empty assistant placeholder so the transcript ends on
+                // the user's message and "Retry" re-sends that exact prompt.
+                setMessages(newMessages);
                 setError(err.message || 'Error communicating with Ollama.');
             }
         } finally {
@@ -376,7 +379,12 @@ Explain:
                                     <button
                                         type="button"
                                         className="cm-error__retry"
-                                        onClick={() => handleSend(messages[messages.length - 1]?.content)}
+                                        onClick={() => {
+                                            const lastUser = [...messages]
+                                                .reverse()
+                                                .find((m) => m.role === 'user');
+                                            if (lastUser) handleSend(lastUser.content);
+                                        }}
                                     >
                                         Retry
                                     </button>

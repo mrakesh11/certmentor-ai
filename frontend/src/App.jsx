@@ -1,18 +1,18 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import PracticeQuestions from './pages/PracticeQuestions';
-import CheatsheetViewer from './pages/CheatsheetViewer';
-import Flashcards from './pages/Flashcards';
-import Learn from './pages/Learn';
-import TopicLesson from './pages/TopicLesson';
 import ErrorBoundary from './components/ErrorBoundary';
 import ThemeToggle from './components/ThemeToggle';
 import { ThemeProvider } from './components/ThemeProvider';
-import { examQuestions } from './questionsData.js';
-import { getDomains } from './lib/curriculum';
-import CloudMentor from './components/CloudMentor';
+import { getDomains, getPracticeQuestions } from './lib/curriculum';
 import './App.css';
+
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const PracticeQuestions = lazy(() => import('./pages/PracticeQuestions'));
+const CheatsheetViewer = lazy(() => import('./pages/CheatsheetViewer'));
+const Flashcards = lazy(() => import('./pages/Flashcards'));
+const Learn = lazy(() => import('./pages/Learn'));
+const TopicLesson = lazy(() => import('./pages/TopicLesson'));
+const CloudMentor = lazy(() => import('./components/CloudMentor'));
 
 const cheatsheets = [
     { id: '6_pillars.html', title: '6 Pillars', desc: 'Well-Architected Framework specifics' },
@@ -98,7 +98,7 @@ function Navbar() {
         results.cheats = cheatsheets
             .filter((c) => c.title.toLowerCase().includes(query) || c.desc.toLowerCase().includes(query))
             .slice(0, 3);
-        results.questions = examQuestions
+        results.questions = getPracticeQuestions()
             .filter((ex) => ex.text.toLowerCase().includes(query))
             .slice(0, 4);
     }
@@ -197,7 +197,7 @@ function Navbar() {
                                     {results.questions.map((q) => (
                                         <Link
                                             key={q.id}
-                                            to="/practice-questions?mode=standard"
+                                            to={`/practice-questions?mode=standard&q=${q.id}`}
                                             className="search-item"
                                             onClick={closeSearch}
                                         >
@@ -260,6 +260,17 @@ function Footer() {
     );
 }
 
+function PageFallback() {
+    return (
+        <div className="page" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '60vh' }}>
+            <div style={{ textAlign: 'center', color: 'var(--text-tertiary)' }}>
+                <i className="fa-solid fa-spinner fa-spin" style={{ fontSize: '2rem', marginBottom: '1rem' }} aria-hidden="true"></i>
+                <p>Loading...</p>
+            </div>
+        </div>
+    );
+}
+
 function App() {
     return (
         <ThemeProvider>
@@ -267,17 +278,21 @@ function App() {
                 <a href="#main-content" className="skip-link">Skip to content</a>
                 <Navbar />
                 <main id="main-content" style={{ flex: 1 }}>
-                    <Routes>
-                        <Route path="/" element={<Dashboard />} />
-                        <Route path="/learn" element={<Learn />} />
-                        <Route path="/learn/:domain/:topic" element={<TopicLesson />} />
-                        <Route path="/practice-questions" element={<PracticeQuestions />} />
-                        <Route path="/flashcards" element={<Flashcards />} />
-                        <Route path="/cheatsheets/:id" element={<CheatsheetViewer />} />
-                    </Routes>
+                    <Suspense fallback={<PageFallback />}>
+                        <Routes>
+                            <Route path="/" element={<Dashboard />} />
+                            <Route path="/learn" element={<Learn />} />
+                            <Route path="/learn/:domain/:topic" element={<TopicLesson />} />
+                            <Route path="/practice-questions" element={<PracticeQuestions />} />
+                            <Route path="/flashcards" element={<Flashcards />} />
+                            <Route path="/cheatsheets/:id" element={<CheatsheetViewer />} />
+                        </Routes>
+                    </Suspense>
                 </main>
                 <Footer />
-                <CloudMentor />
+                <Suspense fallback={null}>
+                    <CloudMentor />
+                </Suspense>
             </ErrorBoundary>
         </ThemeProvider>
     );

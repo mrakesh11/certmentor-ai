@@ -59,7 +59,14 @@ export function loadProgress(storage = defaultStorage()) {
 
 export function saveProgress(progress, storage = defaultStorage()) {
     if (!storage) return false;
-    storage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    try {
+        storage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    } catch {
+        // A failed write (quota exceeded, Safari private mode, disabled
+        // storage) must never break grading. Callers keep the in-memory
+        // result; persistence is best-effort.
+        return false;
+    }
     return true;
 }
 

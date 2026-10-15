@@ -85,16 +85,23 @@ function isSetCorrect(answerData, selectedIds) {
 export default function PracticeQuestions() {
     const [searchParams] = useSearchParams();
     const mode = searchParams.get('mode') || 'standard'; // 'standard' | 'weakness' | 'exam'
+    const targetQ = searchParams.get('q');
 
-    // Keyed by mode so switching modes remounts with a fresh working set and
-    // fresh session state, instead of silently reusing the previous run.
-    return <PracticeSession key={mode} mode={mode} />;
+    // Keyed by mode & targetQ so switching modes or selecting a question remounts with a fresh working set
+    return <PracticeSession key={`${mode}:${targetQ || ''}`} mode={mode} targetQuestionId={targetQ} />;
 }
 
-function PracticeSession({ mode }) {
+function PracticeSession({ mode, targetQuestionId }) {
+    const [activeSet] = useState(() => buildActiveSet(mode));
     const [answered, setAnswered] = useState(false);
     const [selectedIds, setSelectedIds] = useState([]);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(() => {
+        if (targetQuestionId) {
+            const idx = activeSet.findIndex((q) => q.id === targetQuestionId);
+            return idx >= 0 ? idx : 0;
+        }
+        return 0;
+    });
     const [stats, setStats] = useState(loadExamStats);
     const [isFinished, setIsFinished] = useState(false);
     const [notice, setNotice] = useState(null); // inline validation message
@@ -103,11 +110,17 @@ function PracticeSession({ mode }) {
     const [examAnswers, setExamAnswers] = useState({}); // { index: ['A','B'] }
     const [timeLeft, setTimeLeft] = useState(EXAM_SECONDS);
 
-    const [activeSet] = useState(() => buildActiveSet(mode));
-
     // Guard so exam results are written exactly once, no matter how many
     // times the finished screen re-renders.
     const persistedRef = useRef(false);
+
+    // Live copies of the exam position/selection, so the countdown's callback
+    // can commit the in-progress answer when time expires without a stale
+    // closure over `currentIndex`/`selectedIds`.
+    const currentIndexRef = useRef(currentIndex);
+    const selectedIdsRef = useRef(selectedIds);
+    useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
+    useEffect(() => { selectedIdsRef.current = selectedIds; }, [selectedIds]);
 
     // Persist the simulator's own history. Kept deliberately separate from
     // curriculum practice progress (`aws_learning_v1`).
@@ -120,17 +133,19 @@ function PracticeSession({ mode }) {
     useEffect(() => {
         if (mode !== 'exam' || isFinished || activeSet.length === 0) return undefined;
         const timer = setInterval(() => {
-            setTimeLeft((prev) => {
-                if (prev <= 1) {
-                    clearInterval(timer);
-                    setIsFinished(true); // time expired: auto-submit
-                    return 0;
-                }
-                return prev - 1;
-            });
+            setTimeLeft((prev) => (prev <= 1 ? 0 : prev - 1));
         }, 1000);
         return () => clearInterval(timer);
     }, [mode, isFinished, activeSet.length]);
+
+    // Auto-submit exactly when the clock reaches zero. Commit the answer for
+    // the question currently on screen first, otherwise a selection made on the
+    // last question would be graded as unanswered.
+    useEffect(() => {
+        if (mode !== 'exam' || isFinished || timeLeft > 0) return;
+        setExamAnswers((prev) => ({ ...prev, [currentIndexRef.current]: selectedIdsRef.current }));
+        setIsFinished(true);
+    }, [mode, isFinished, timeLeft]);
 
     const curQ = activeSet[currentIndex];
     const answerArr = Array.isArray(curQ?.answer)
@@ -208,7 +223,7 @@ function PracticeSession({ mode }) {
             return;
         }
         if (isMulti && selectedIds.length !== answerArr.length) {
-            setNotice(`This question has ${answerArr.length} correct answers — you have selected ${selectedIds.length}.`);
+            setNotice('Multiple answers are required for this question. Select all that apply, then check again.');
             return;
         }
 
