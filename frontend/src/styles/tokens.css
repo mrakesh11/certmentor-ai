@@ -23,52 +23,59 @@
 :root {
     color-scheme: light;
 
-    /* ---- Surfaces (elevation by lightness, not shadow) ---- */
-    --bg-canvas: #f7f7f5;
+    /* ---- Surfaces (elevation by lightness, not shadow) — warm paper ---- */
+    --bg-canvas: #fcfcfd;
     --surface-1: #ffffff;
-    --surface-2: #efefed;
-    --surface-3: #e6e6e2;
-    --surface-inset: #f2f2f0;
+    --surface-2: #f8fafc;
+    --surface-3: #f1f5f9;
+    --surface-inset: #f8fafc;
 
-    /* ---- Borders & dividers ---- */
-    --border-subtle: #d6d6d2;
-    --border-default: #c8c8c3;
-    --border-strong: #8f8f8a;
+    /* ---- Borders & dividers (slate hairlines) ---- */
+    --border-subtle: #e2e8f0;
+    --border-default: #cbd5e1;
+    --border-strong: #64748b;
 
     /* ---- Text ---- */
-    --text-primary: #202020;
-    --text-secondary: #525252;
-    --text-tertiary: #6c6c6c;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-tertiary: #5b6472;
     --text-on-accent: #ffffff;
 
-    /* ---- Accent: interactive primary (electric blue) ---- */
-    --accent: #2562e9;
-    --accent-hover: #1d4ed8;
-    --accent-active: #1e40af;
-    --accent-soft: rgba(37, 98, 233, 0.1);
-    --accent-soft-strong: rgba(37, 98, 233, 0.18);
+    /* ---- Accent: interactive primary (cobalt sky) ---- */
+    --accent: #0369a1;
+    --accent-hover: #075985;
+    --accent-active: #0c4a6e;
+    --accent-soft: rgba(3, 105, 161, 0.1);
+    --accent-soft-strong: rgba(3, 105, 161, 0.18);
     /* Readable gold for text/borders in light mode. Bright yellow is never
-       used for small text on a light background. Darkened from #a86c00 to
-       clear WCAG AA (4.5:1) against white, canvas and sunken surfaces. */
-    --accent-gold-text: #976100;
+       used for small text on a light background. Amber-700 clears WCAG AA
+       (4.5:1) against white, canvas and sunken surfaces. */
+    --accent-gold-text: #b45309;
+    /* Deep amber: gold that still clears AA when it sits on a tinted
+       surface (the plain gold is for text on paper). */
+    --accent-gold-strong: #854d0e;
 
     /* ---- Semantic states ---- */
-    --success: #20863e;
-    --success-hover: #1a6f33;
-    --success-soft: rgba(32, 134, 62, 0.1);
+    --success: #1a7a37;
+    --success-hover: #14632c;
+    --success-soft: rgba(26, 122, 55, 0.1);
     --success-on-fill: #ffffff;
 
-    --danger: #d02b24;
-    --danger-hover: #b91f19;
-    --danger-soft: rgba(208, 43, 36, 0.09);
+    --danger: #b91f19;
+    --danger-hover: #991b16;
+    --danger-soft: rgba(185, 31, 25, 0.09);
     --danger-on-fill: #ffffff;
 
     --warning: #976100;
     --warning-soft: rgba(151, 97, 0, 0.1);
     --warning-on-fill: #ffffff;
 
-    --info: #2562e9;
-    --info-soft: rgba(37, 98, 233, 0.09);
+    --info: #0369a1;
+    --info-soft: rgba(3, 105, 161, 0.09);
+
+    /* ---- Purple: the fifth hue, used for classification (not status) ---- */
+    --purple: #7c3aed;
+    --purple-soft: rgba(124, 58, 237, 0.1);
 
     /* ---- Distinct identity per official CLF-C02 domain ---- */
     --domain-1: #b05109;
@@ -89,9 +96,9 @@
        is allowed; never reused for UI state. */
     --brand-aws: #ff9900;
 
-    /* ---- Type ---- */
-    --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+    /* ---- Type (Geist for UI, JetBrains Mono for telemetry/code) ---- */
+    --font-sans: 'Geist', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
 
     --fs-xs: 0.75rem;     /* 12 — labels, eyebrows */
     --fs-sm: 0.8125rem;   /* 13 — meta, captions */
@@ -139,7 +146,12 @@
     /* ---- Layout (rem so they scale with the fluid root font-size) ---- */
     --content-max: 72.5rem;
     --content-narrow: 47.5rem;
-    --nav-height: 3.75rem;
+    --nav-height: 3.5rem;
+    /* Page gutter. A percentage alone grows with the viewport while the
+       content column stays capped, which quietly squeezes the content on
+       large displays; capping it keeps the measure stable and keeps the
+       navigation bar and the page content on the same vertical line. */
+    --gutter: min(5%, 3.6rem);
 
     /* ---- Motion (functional only) ---- */
     --dur-fast: 120ms;
@@ -177,31 +189,35 @@
        (>=4.5:1). Because a bright fill can no longer carry white text,
        --text-on-accent flips to near-black — the same dark-on-fill pattern
        the success/danger/warning badges already use in this theme. */
-    --accent: #5c9bff;
-    --accent-hover: #7db1ff;
-    --accent-active: #3f86ee;
-    --accent-soft: rgba(92, 155, 255, 0.16);
-    --accent-soft-strong: rgba(92, 155, 255, 0.28);
+    --accent: #7db1ff;
+    --accent-hover: #9cc3ff;
+    --accent-active: #5c9bff;
+    --accent-soft: rgba(125, 177, 255, 0.16);
+    --accent-soft-strong: rgba(125, 177, 255, 0.18);
     --accent-gold-text: #ffb800;
+    --accent-gold-strong: #ffd166;
     --text-on-accent: #101010;
 
     /* ---- Semantic states: saturated, high-contrast ---- */
-    --success: #2fb354;
-    --success-hover: #45c96a;
-    --success-soft: rgba(47, 179, 84, 0.16);
+    --success: #45c96a;
+    --success-hover: #5fd97f;
+    --success-soft: rgba(69, 201, 106, 0.16);
     --success-on-fill: #06210f;
 
-    --danger: #ff635a;
-    --danger-hover: #ff8078;
-    --danger-soft: rgba(255, 99, 90, 0.16);
+    --danger: #ff9d97;
+    --danger-hover: #ffb3ae;
+    --danger-soft: rgba(255, 157, 151, 0.16);
     --danger-on-fill: #260605;
 
     --warning: #ffb800;
     --warning-soft: rgba(255, 184, 0, 0.15);
     --warning-on-fill: #241a00;
 
-    --info: #5c9bff;
-    --info-soft: rgba(92, 155, 255, 0.15);
+    --info: #7db1ff;
+    --info-soft: rgba(125, 177, 255, 0.15);
+
+    --purple: #c98bff;
+    --purple-soft: rgba(201, 139, 255, 0.16);
 
     /* ---- Domain identity: readable on charcoal ---- */
     --domain-1: #ffb454;

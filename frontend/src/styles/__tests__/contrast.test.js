@@ -53,6 +53,22 @@ function contrast(fg, bg) {
     return (hi + 0.05) / (lo + 0.05);
 }
 
+/**
+ * Composite a translucent tint over an opaque surface, the way the browser
+ * paints it, and return the resulting colour as a hex string.
+ */
+function composite(tint, surface) {
+    const m = tint.match(/rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)\s*(?:,\s*([\d.]+)\s*)?\)/);
+    expect(m, `"${tint}" must be an rgb()/rgba() colour`).toBeTruthy();
+    const alpha = m[4] === undefined ? 1 : parseFloat(m[4]);
+    const bg = hexToRgb(surface);
+    const channels = [1, 2, 3].map((i) => {
+        const c = parseFloat(m[i]);
+        return Math.round(c * alpha + bg[i - 1] * (1 - alpha));
+    });
+    return '#' + channels.map((c) => c.toString(16).padStart(2, '0')).join('');
+}
+
 // [foreground token, background token, minimum, description]
 const PAIRS = [
     ['--text-primary', '--bg-canvas', 4.5, 'body text on page bg'],
@@ -110,6 +126,47 @@ describe.each([
         expect(
             ratio,
             `${themeName}: "${label}" is ${ratio.toFixed(2)}:1 (${fg} on ${bg}), needs ${min}:1`,
+        ).toBeGreaterThanOrEqual(min);
+    });
+});
+
+// [foreground token, tint token, surface token, minimum, description]
+//
+// Status text is frequently painted in the status colour on its own tinted
+// background (badges, chips, callouts). The tint lightens or darkens the
+// surface underneath it, so the pair has to be checked after compositing —
+// checking the colour against the plain surface would miss it.
+const TINT_PAIRS = [
+    ['--success', '--success-soft', '--surface-1', 4.5, 'success text on success tint'],
+    ['--success', '--success-soft', '--surface-2', 4.5, 'success text on success tint (sunken)'],
+    ['--danger', '--danger-soft', '--surface-1', 4.5, 'danger text on danger tint'],
+    ['--danger', '--danger-soft', '--surface-2', 4.5, 'danger text on danger tint (sunken)'],
+    ['--warning', '--warning-soft', '--surface-1', 4.5, 'warning text on warning tint'],
+    ['--accent', '--accent-soft', '--surface-1', 4.5, 'accent text on accent tint'],
+    ['--accent', '--accent-soft-strong', '--surface-1', 4.5, 'accent text on strong accent tint'],
+    ['--info', '--info-soft', '--surface-1', 4.5, 'info text on info tint'],
+    ['--purple', '--purple-soft', '--surface-1', 4.5, 'purple text on purple tint'],
+    ['--accent-gold-strong', '--accent-soft', '--surface-1', 4.5, 'deep gold text on accent tint'],
+    ['--accent-gold-strong', '--warning-soft', '--surface-1', 4.5, 'deep gold text on warning tint'],
+];
+
+describe.each([
+    ['light', light],
+    ['dark', dark],
+])('%s theme contrast on tinted surfaces', (themeName, vars) => {
+    it.each(TINT_PAIRS)('%s on %s (%s:1 min)', (fgVar, tintVar, surfaceVar, min, label) => {
+        const fg = vars[fgVar];
+        const tint = vars[tintVar];
+        const surface = vars[surfaceVar];
+        expect(fg, `${themeName}: missing token ${fgVar}`).toBeTruthy();
+        expect(tint, `${themeName}: missing token ${tintVar}`).toBeTruthy();
+        expect(surface, `${themeName}: missing token ${surfaceVar}`).toBeTruthy();
+
+        const painted = composite(tint, surface);
+        const ratio = contrast(fg, painted);
+        expect(
+            ratio,
+            `${themeName}: "${label}" is ${ratio.toFixed(2)}:1 (${fg} on ${painted}), needs ${min}:1`,
         ).toBeGreaterThanOrEqual(min);
     });
 });

@@ -343,6 +343,20 @@ function PracticeSession({ mode, targetQuestionId }) {
         return `${m}:${s < 10 ? '0' : ''}${s}`;
     };
 
+    /* The page heading adapts to the mode so the reader always knows which
+       kind of run they are in. */
+    const simTitle = mode === 'exam'
+        ? 'Timed exam simulation'
+        : mode === 'weakness'
+            ? 'Weak-area review'
+            : 'Practice set';
+
+    const simLede = mode === 'exam'
+        ? `${EXAM_LENGTH} questions in ${EXAM_SECONDS / 60} minutes, one attempt, no explanations until you submit.`
+        : mode === 'weakness'
+            ? 'Drill the questions you have answered incorrectly in the simulator.'
+            : 'Untimed questions from the wider pool, with an explanation after every answer.';
+
     /* ------------------------------------------------------------ empty set */
 
     if (activeSet.length === 0) {
@@ -352,7 +366,7 @@ function PracticeSession({ mode, targetQuestionId }) {
                     <div className="empty-state__icon">
                         <i className="fa-solid fa-circle-check" aria-hidden="true"></i>
                     </div>
-                    <h3>No failed questions to review</h3>
+                    <h1>No failed questions to review</h1>
                     <p>
                         Weakness review is built from questions you have answered incorrectly in
                         the simulator. You have none recorded, so there is nothing to drill yet.
@@ -380,7 +394,7 @@ function PracticeSession({ mode, targetQuestionId }) {
                                 aria-hidden="true"
                             ></i>
                         </div>
-                        <h2>{examResult.pass ? 'Practice exam passed' : 'Practice exam not yet passing'}</h2>
+                        <h1>{examResult.pass ? 'Practice exam passed' : 'Practice exam not yet passing'}</h1>
                         <p>
                             {examResult.pass
                                 ? 'You cleared the 70% bar on this run. Timed practice only — this is not an official AWS result.'
@@ -421,7 +435,7 @@ function PracticeSession({ mode, targetQuestionId }) {
                     <div className="session-summary__icon">
                         <i className="fa-solid fa-trophy" aria-hidden="true"></i>
                     </div>
-                    <h2>Set complete</h2>
+                    <h1>Set complete</h1>
                     <p>
                         You finished this set. These totals are the simulator's own history and are
                         tracked separately from your curriculum practice.
@@ -458,6 +472,12 @@ function PracticeSession({ mode, targetQuestionId }) {
     return (
         <div className="page">
             <div className="sim">
+                <header className="sim__head">
+                    <p className="eyebrow">CLF-C02 practice</p>
+                    <h1>{simTitle}</h1>
+                    <p className="sim__lede">{simLede}</p>
+                </header>
+
                 <div className="sim__bar">
                     <div className="sim__meta">
                         <span className={`badge ${mode === 'exam' ? 'badge--warning' : 'badge--accent'}`}>

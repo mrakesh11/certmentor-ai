@@ -17,14 +17,14 @@
 .nav__inner {
     display: flex;
     align-items: center;
-    gap: var(--sp-4);
+    gap: var(--sp-3);
     height: var(--nav-height);
     max-width: var(--content-max);
     margin: 0 auto;
-    padding: 0 5%;
+    padding: 0 var(--gutter);
 }
 
-/* ---- Brand ---- */
+/* ---- Brand: dark monogram tile + engine slug + spec badge ---- */
 
 .nav__brand {
     display: flex;
@@ -38,36 +38,77 @@
     flex: none;
 }
 
-.nav__brand i {
-    font-size: 1.4rem;
+.nav__brand-mark {
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: var(--radius-sm);
+    background: var(--text-primary);
     color: var(--brand-aws);
+    font-size: 0.85rem;
 }
 
 .nav__brand-name {
-    font-weight: 700;
+    font-weight: 600;
     letter-spacing: var(--tracking-tight);
+}
+
+.nav__brand-suffix {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    font-weight: 400;
+    color: var(--accent);
+    margin-left: 0.1em;
+}
+
+.nav__version {
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-tertiary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.25rem;
+    padding: 0.1rem 0.3rem;
 }
 
 .nav__brand:hover {
     color: var(--text-primary);
 }
 
-.nav__brand span.sub {
-    color: var(--text-tertiary);
-    font-weight: 500;
-    padding-left: var(--sp-2);
-    margin-left: var(--sp-1);
-    border-left: 1px solid var(--border-default);
-}
-
-/* ---- Right-hand tools (theme) ---- */
+/* ---- Right-hand tools: launch action and theme switch ---- */
 
 .nav__tools {
     display: flex;
     align-items: center;
-    gap: var(--sp-3);
-    order: 3;
+    gap: var(--sp-2);
     flex: none;
+}
+
+.nav__launch {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.6rem;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--surface-1);
+    background: var(--text-primary);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--dur-fast) var(--ease);
+}
+
+.nav__launch:hover {
+    background: color-mix(in srgb, var(--text-primary) 86%, var(--accent));
+    color: var(--surface-1);
+}
+
+.nav__launch i {
+    font-size: 0.65rem;
 }
 
 /* ---- Grouped links + search ---- */
@@ -75,26 +116,31 @@
 .nav__content {
     display: flex;
     align-items: center;
-    gap: var(--sp-5);
-    margin-left: auto;
+    gap: var(--sp-3);
+    margin-left: var(--sp-3);
+    flex: 1;
+    min-width: 0;
 }
 
 .nav__links {
     display: flex;
     align-items: center;
-    gap: var(--sp-1);
-    order: 1;
+    gap: 2px;
+    border-left: 1px solid var(--border-subtle);
+    padding-left: var(--sp-2);
+    flex: none;
 }
 
 .nav__link {
     position: relative;
     display: block;
-    padding: 0.45rem 0.75rem;
-    font-size: var(--fs-base);
+    padding: 0.35rem 0.45rem;
+    font-size: var(--fs-sm);
     font-weight: 500;
     color: var(--text-secondary);
     text-decoration: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
+    white-space: nowrap;
     transition: color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease);
 }
 
@@ -103,31 +149,25 @@
     background: var(--surface-2);
 }
 
-/* Active route: colour + weight + an underline rule, not colour alone. */
+/* Active route: tinted pill + heavier weight, never colour alone. */
 .nav__link.is-active {
     color: var(--text-primary);
+    background: var(--surface-2);
     font-weight: 600;
 }
 
-.nav__link.is-active::after {
-    content: '';
-    position: absolute;
-    left: 0.75rem;
-    right: 0.75rem;
-    bottom: -0.35rem;
-    height: 2px;
-    background: var(--accent);
-    border-radius: var(--radius-pill);
-}
-
-/* ---- Search ---- */
+/* ---- Search ----
+   The field is the flexible part of the bar: it grows into whatever room
+   the brand, links and tools leave, and shrinks to a minimum instead of
+   pushing the actions off the edge of the screen. */
 
 .nav__search {
     position: relative;
     display: flex;
     align-items: center;
-    order: 2;
-    flex: none;
+    flex: 1 1 9rem;
+    min-width: 7rem;
+    max-width: 13rem;
 }
 
 .nav__search > i {
@@ -139,9 +179,11 @@
 }
 
 .nav__search input {
-    width: 15rem;
-    padding: 0.45rem 0.75rem 0.45rem 2rem;
-    background: var(--surface-2);
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    padding: 0.45rem 0.6rem 0.45rem 2rem;
+    background: var(--surface-1);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-md);
     color: var(--text-primary);
@@ -157,6 +199,21 @@
     outline: none;
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* The shortcut hint sits beside the field rather than on top of it, so it can
+   never cover the text being typed. */
+.nav__search-kbd {
+    flex: none;
+    margin-left: 0.35rem;
+    padding: 0.15rem 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.5625rem;
+    color: var(--text-tertiary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.25rem;
+    pointer-events: none;
 }
 
 .search-dropdown {
@@ -267,15 +324,29 @@
     transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ---- Responsive ---- */
+/* ---- Responsive ----
+   The bar sheds optional parts in order of importance as the viewport narrows:
+   the exam badge first, then the keyboard hint, and finally the whole link
+   row folds into the menu panel at 1080px. The search field is the only
+   flexible piece, so the actions on the right are never pushed off-screen. */
 
-@media (max-width: 900px) {
-    .nav__search input {
-        width: 12.5rem;
+@media (max-width: 1400px) {
+    .nav__version {
+        display: none;
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1200px) {
+    .nav__search-kbd {
+        display: none;
+    }
+
+    .nav__search {
+        max-width: 12rem;
+    }
+}
+
+@media (max-width: 1080px) {
     .nav__toggle {
         display: flex;
     }
@@ -290,7 +361,7 @@
         align-items: stretch;
         gap: var(--sp-3);
         margin-left: 0;
-        padding: var(--sp-4) 5% var(--sp-5);
+        padding: var(--sp-4) var(--gutter) var(--sp-5);
         background: var(--surface-1);
         border-bottom: 1px solid var(--border-default);
         box-shadow: var(--shadow-lg);
@@ -301,8 +372,10 @@
     }
 
     .nav__search {
-        order: 0;
+        margin-left: 0;
         width: 100%;
+        max-width: none;
+        flex: none;
     }
 
     .nav__search input {
@@ -316,45 +389,65 @@
     }
 
     .nav__links {
-        order: 1;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
+        border-left: none;
         border-top: 1px solid var(--border-subtle);
+        padding-left: 0;
         padding-top: var(--sp-2);
     }
 
     .nav__link {
-        padding: 0.75rem 0.5rem;
+        padding: 0.7rem 0.5rem;
         font-size: var(--fs-md);
     }
 
-    .nav__link.is-active::after {
-        left: 0.5rem;
-        right: auto;
-        bottom: 0.5rem;
-        width: 3px;
-        height: auto;
-        top: 0.5rem;
+    .nav__tools {
+        flex-wrap: wrap;
+        gap: var(--sp-3);
+    }
+
+    /* Touch-sized controls inside the panel. */
+    .nav__launch {
+        min-height: 2.5rem;
+        padding: 0.55rem 0.9rem;
+    }
+
+    .theme-switch__option {
+        height: 2.25rem;
     }
 }
 
-/* ---- Theme toggle button ---- */
+/* ---- Theme switch: explicit light / dark / auto segmented control ---- */
 
-.theme-toggle {
+.theme-switch {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    /* Sized in rem: scales with the page's fluid root font-size along with
-       every other control, no separate viewport maths needed. */
-    width: 2.4rem;
-    height: 2.4rem;
-    padding: 0;
+    gap: 2px;
+    padding: 2px;
     background: var(--surface-2);
     border: 1px solid var(--border-default);
     border-radius: var(--radius-pill);
-    color: var(--text-secondary);
-    font-size: 1.15rem;
+}
+
+.theme-switch__option {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    /* Sized in rem: scales with the page's fluid root font-size along with
+       every other control, no separate viewport maths needed. */
+    min-width: 1.9rem;
+    height: 1.9rem;
+    padding: 0 0.35rem;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    color: var(--text-tertiary);
+    font-family: inherit;
+    font-size: 0.8rem;
+    line-height: 1;
     cursor: pointer;
     transition:
         background var(--dur-fast) var(--ease),
@@ -362,97 +455,196 @@
         color var(--dur-fast) var(--ease);
 }
 
-.theme-toggle:hover {
+.theme-switch__option:hover {
+    color: var(--text-primary);
     background: var(--surface-1);
-    border-color: var(--border-strong);
-    color: var(--accent);
 }
 
-.theme-toggle:focus-visible {
+.theme-switch__option:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
 
-/* The two glyphs cross-fade and rotate; only the correct one is visible.
-   Sized in `em` so the icon scales together with the button's fluid font-size
-   and the whole control stays proportional at every screen width. */
-.theme-toggle__icons {
-    position: relative;
-    display: block;
-    width: 1em;
-    height: 1em;
+.theme-switch__icon {
+    display: grid;
+    place-items: center;
+    width: 0.95rem;
+    height: 0.95rem;
 }
 
-.theme-toggle__icon {
-    position: absolute;
-    inset: 0;
+.theme-switch__icon svg {
     width: 100%;
     height: 100%;
-    transform-origin: center;
-    transition:
-        opacity var(--dur-base) var(--ease),
-        transform var(--dur-base) var(--ease);
 }
 
-/* Light mode → show the moon (tap switches to dark). */
-.theme-toggle__icon--moon {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
+/* The chosen preference: a raised chip on the light surface. */
+.theme-switch__option.is-selected {
+    color: var(--text-primary);
+    background: var(--surface-1);
+    border-color: var(--border-default);
+    box-shadow: var(--shadow-sm);
 }
 
-.theme-toggle__icon--sun {
-    opacity: 0;
-    transform: rotate(-90deg) scale(0.6);
+/* In Auto mode the theme actually on screen is still tinted, so the state of
+   the page is never hidden behind the "follows the system" setting. */
+.theme-switch__option.is-applied {
+    color: var(--accent);
 }
 
-/* Dark mode → show the sun (tap switches to light). */
-.theme-toggle.is-dark .theme-toggle__icon--sun {
-    opacity: 1;
-    transform: rotate(0deg) scale(1);
+.theme-switch__label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
 }
 
-.theme-toggle.is-dark .theme-toggle__icon--moon {
-    opacity: 0;
-    transform: rotate(90deg) scale(0.6);
+/* Labelled form (footer): words next to the glyphs. */
+.theme-switch--labeled {
+    gap: 2px;
+    padding: 3px;
 }
 
-/* ---- Footer ---- */
+.theme-switch--labeled .theme-switch__option {
+    min-width: 0;
+    height: 2rem;
+    padding: 0 0.7rem;
+}
+
+/* ---- Footer: four-column enterprise chrome ---- */
 
 .footer {
     margin-top: auto;
-    padding: var(--sp-6) 5%;
+    padding: var(--sp-7) var(--gutter) var(--sp-5);
     border-top: 1px solid var(--border-subtle);
-    background: var(--bg-canvas);
+    background: var(--surface-1);
 }
 
 .footer__inner {
     max-width: var(--content-max);
     margin: 0 auto;
-    display: flex;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: var(--sp-6);
+}
+
+.footer__brand {
+    font-size: var(--fs-md);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
+    color: var(--text-primary);
+}
+
+.footer__brand-suffix {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    font-weight: 400;
+    color: var(--accent);
+}
+
+.footer__blurb {
+    margin-top: var(--sp-2);
+    max-width: 34ch;
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+    line-height: var(--lh-relaxed);
+}
+
+.footer__vault {
+    display: inline-flex;
     align-items: center;
+    gap: 0.4rem;
+    margin-top: var(--sp-3);
+    padding: 0.25rem 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--success);
+    background: var(--success-soft);
+    border: 1px solid color-mix(in srgb, var(--success) 40%, transparent);
+    border-radius: var(--radius-sm);
+}
+
+/* Appearance: labelled theme switch under the footer brand block. */
+.footer__appearance {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-top: var(--sp-4);
+}
+
+.footer__appearance-label {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--text-tertiary);
+}
+
+.footer__col-title {
+    margin-bottom: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--text-primary);
+}
+
+.footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+}
+
+.footer__list a {
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+}
+
+.footer__list a:hover {
+    color: var(--accent);
+}
+
+.footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: space-between;
     gap: var(--sp-4);
-    flex-wrap: wrap;
+    margin-top: var(--sp-6);
+    padding-top: var(--sp-4);
+    border-top: 1px solid var(--border-subtle);
 }
 
-.footer p {
-    font-size: var(--fs-sm);
+.footer__disclaimer {
+    max-width: 62ch;
+    font-size: var(--fs-xs);
     color: var(--text-tertiary);
-    line-height: var(--lh-snug);
+    line-height: var(--lh-normal);
 }
 
-.footer__links {
-    display: flex;
-    gap: var(--sp-4);
-}
-
-.footer__links a {
-    font-size: var(--fs-sm);
+.footer__copy {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
     color: var(--text-tertiary);
+    white-space: nowrap;
 }
 
-.footer__links a:hover {
-    color: var(--accent);
+@media (max-width: 900px) {
+    .footer__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .footer__grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ---- Skip target gets clearance under the fixed nav ---- */

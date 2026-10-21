@@ -52,19 +52,12 @@ const Card = ({ data, onSwipe, active, index }) => {
 
     return (
         <motion.div
+            className="flash-card-layer"
             style={{
-                position: 'absolute',
-                top: 0,
                 x,
                 rotate,
                 opacity,
                 zIndex: active ? 10 : 5,
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transformOrigin: 'bottom center',
                 scale: active ? 1 : 0.95,
                 y: active ? 0 : 20,
             }}
@@ -77,37 +70,29 @@ const Card = ({ data, onSwipe, active, index }) => {
             }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
         >
-            <motion.div 
+            <motion.div
+                className="flash-card"
                 style={{
                     backgroundColor,
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: 'var(--radius-xl)',
-                    padding: '1.5rem',
-                    border: '1px solid var(--border-default)',
-                    boxShadow: 'var(--shadow-lg)',
-                    display: 'flex',
-                    flexDirection: 'column',
                     cursor: active ? 'grab' : 'auto',
-                    overflow: 'hidden'
                 }}
                 whileTap={{ cursor: 'grabbing' }}
             >
                 {!flipped ? (
-                    <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', textAlign: 'left', overflowY: 'auto' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent)' }}>{data.id}</span>
-                            <span style={{ fontSize: '0.75rem', color: hasSelection ? 'var(--accent)' : 'var(--text-tertiary)' }}>
+                    <div className="flash-card__face">
+                        <div className="flash-card__head">
+                            <span className="flash-card__id">{data.id}</span>
+                            <span className={`flash-card__status ${hasSelection ? 'is-ready' : ''}`}>
                                 {hasSelection ? 'Option selected · Ready to flip' : 'Select an option'}
                             </span>
                         </div>
 
-                        <p style={{ fontSize: '0.95rem', color: 'var(--text-primary)', lineHeight: '1.5', marginBottom: '0.85rem', fontWeight: 500 }}>
+                        <p className="flash-card__text">
                             {data.text}
                         </p>
 
                         {data.options && data.options.length > 0 && (
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginBottom: '0.85rem' }}>
+                            <div className="flash-card__options">
                                 {data.options.map((opt) => {
                                     const isSelected = isMulti
                                         ? Array.isArray(selectedOption) && selectedOption.includes(opt.id)
@@ -117,93 +102,53 @@ const Card = ({ data, onSwipe, active, index }) => {
                                             key={opt.id}
                                             type="button"
                                             onClick={(e) => handleSelectOption(opt.id, e)}
-                                            style={{
-                                                display: 'flex',
-                                                alignItems: 'flex-start',
-                                                gap: '0.5rem',
-                                                padding: '0.45rem 0.65rem',
-                                                borderRadius: 'var(--radius-md, 8px)',
-                                                border: isSelected ? '1.5px solid var(--accent)' : '1px solid var(--border-default)',
-                                                background: isSelected ? 'var(--accent-soft, rgba(0, 210, 255, 0.15))' : 'var(--surface-2)',
-                                                color: 'var(--text-primary)',
-                                                textAlign: 'left',
-                                                cursor: 'pointer',
-                                                fontSize: '0.85rem',
-                                                lineHeight: '1.4',
-                                                transition: 'all 0.15s ease',
-                                            }}
+                                            className={`flash-option ${isSelected ? 'is-selected' : ''}`}
+                                            aria-pressed={isSelected}
                                         >
-                                            <span
-                                                style={{
-                                                    flex: 'none',
-                                                    display: 'inline-flex',
-                                                    alignItems: 'center',
-                                                    justifyContent: 'center',
-                                                    width: '1.25rem',
-                                                    height: '1.25rem',
-                                                    borderRadius: 'var(--radius-sm, 4px)',
-                                                    background: isSelected ? 'var(--accent)' : 'var(--surface-3)',
-                                                    color: isSelected ? '#fff' : 'var(--text-secondary)',
-                                                    fontWeight: 'bold',
-                                                    fontSize: '0.75rem',
-                                                }}
-                                            >
-                                                {opt.id}
-                                            </span>
-                                            <span style={{ flex: 1 }}>{opt.text}</span>
+                                            <span className="flash-option__key">{opt.id}</span>
+                                            <span className="flash-option__text">{opt.text}</span>
                                         </button>
                                     );
                                 })}
                             </div>
                         )}
 
-                        <div style={{ marginTop: 'auto', paddingTop: '0.5rem', textAlign: 'center' }}>
+                        <div className="flash-card__footer">
                             <button
                                 type="button"
-                                className="btn btn--primary btn--sm"
+                                className="btn btn--primary btn--block"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     if (!hasSelection) return;
                                     setFlipped(true);
                                 }}
                                 disabled={!hasSelection}
-                                style={{
-                                    width: '100%',
-                                    opacity: !hasSelection ? 0.6 : 1,
-                                    cursor: !hasSelection ? 'not-allowed' : 'pointer'
-                                }}
                             >
                                 {hasSelection
-                                    ? 'Check Answer & Flip Card'
+                                    ? 'Check answer & flip card'
                                     : 'Select an option to check answer'}
                             </button>
                         </div>
                     </div>
                 ) : (
-                    <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', textAlign: 'left', overflowY: 'auto' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--accent)' }}>{data.id}</span>
+                    <div className="flash-card__face">
+                        <div className="flash-card__head">
+                            <span className="flash-card__id">{data.id}</span>
                             {hasSelection ? (
-                                <span
-                                    style={{
-                                        fontSize: '0.75rem',
-                                        fontWeight: 'bold',
-                                        padding: '0.2rem 0.55rem',
-                                        borderRadius: '12px',
-                                        background: isUserCorrect ? 'var(--success-soft)' : 'var(--danger-soft)',
-                                        color: isUserCorrect ? 'var(--success)' : 'var(--danger)',
-                                    }}
-                                >
-                                    <i className={isUserCorrect ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'} style={{ marginRight: '0.25rem' }}></i>
+                                <span className={`flash-card__verdict ${isUserCorrect ? 'is-correct' : 'is-wrong'}`}>
+                                    <i
+                                        className={isUserCorrect ? 'fa-solid fa-circle-check' : 'fa-solid fa-circle-xmark'}
+                                        aria-hidden="true"
+                                    ></i>
                                     {isUserCorrect ? 'Correct!' : 'Incorrect'}
                                 </span>
                             ) : (
-                                <span style={{ fontSize: '0.75rem', color: 'var(--text-tertiary)' }}>Answer key</span>
+                                <span className="flash-card__status">Answer key</span>
                             )}
                         </div>
 
                         {data.options && data.options.length > 0 && (
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem', marginBottom: '0.65rem' }}>
+                            <div className="flash-card__options">
                                 {data.options.map((opt) => {
                                     const isCorrectAnswer = Array.isArray(data.answer)
                                         ? data.answer.includes(opt.id)
@@ -211,74 +156,48 @@ const Card = ({ data, onSwipe, active, index }) => {
                                     const isSelected = isMulti
                                         ? Array.isArray(selectedOption) && selectedOption.includes(opt.id)
                                         : selectedOption === opt.id;
-                                    
-                                    let bg = 'transparent';
-                                    let border = '1px solid var(--border-default)';
-                                    let color = 'var(--text-secondary)';
-                                    
-                                    if (isCorrectAnswer) {
-                                        bg = 'var(--success-soft, rgba(46, 204, 113, 0.15))';
-                                        border = '1.5px solid var(--success, #2ecc71)';
-                                        color = 'var(--text-primary)';
-                                    } else if (isSelected && !isCorrectAnswer) {
-                                        bg = 'var(--danger-soft, rgba(231, 76, 60, 0.15))';
-                                        border = '1.5px solid var(--danger, #e74c3c)';
-                                        color = 'var(--text-primary)';
-                                    }
+
+                                    const state = isCorrectAnswer
+                                        ? 'is-correct'
+                                        : isSelected
+                                            ? 'is-wrong'
+                                            : '';
 
                                     return (
-                                        <div
-                                            key={opt.id}
-                                            style={{
-                                                display: 'flex',
-                                                alignItems: 'flex-start',
-                                                gap: '0.5rem',
-                                                padding: '0.4rem 0.6rem',
-                                                borderRadius: 'var(--radius-sm, 6px)',
-                                                background: bg,
-                                                border: border,
-                                                color: color,
-                                                fontSize: '0.82rem',
-                                                lineHeight: '1.4',
-                                            }}
-                                        >
-                                            <strong style={{ color: isCorrectAnswer ? 'var(--success, #2ecc71)' : isSelected ? 'var(--danger, #e74c3c)' : 'var(--accent)' }}>
-                                                {opt.id}:
-                                            </strong>
-                                            <span style={{ flex: 1 }}>{opt.text}</span>
-                                            {isCorrectAnswer && <i className="fa-solid fa-check" style={{ color: 'var(--success, #2ecc71)' }}></i>}
-                                            {isSelected && !isCorrectAnswer && <i className="fa-solid fa-xmark" style={{ color: 'var(--danger, #e74c3c)' }}></i>}
+                                        <div key={opt.id} className={`flash-option flash-option--answer ${state}`}>
+                                            <span className="flash-option__key">{opt.id}</span>
+                                            <span className="flash-option__text">{opt.text}</span>
+                                            {isCorrectAnswer && <i className="fa-solid fa-check" aria-hidden="true"></i>}
+                                            {isSelected && !isCorrectAnswer && <i className="fa-solid fa-xmark" aria-hidden="true"></i>}
                                         </div>
                                     );
                                 })}
                             </div>
                         )}
 
-                        <div style={{ margin: '0.35rem 0', fontSize: '0.88rem' }}>
-                            <strong style={{ color: 'var(--accent)' }}>
-                                Correct Answer: {Array.isArray(data.answer) ? data.answer.join(', ') : data.answer}
-                            </strong>
-                        </div>
+                        <p className="flash-card__key">
+                            Correct answer: {Array.isArray(data.answer) ? data.answer.join(', ') : data.answer}
+                        </p>
 
                         {data.explanation && (
-                            <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)', lineHeight: '1.4', marginBottom: '0.65rem', background: 'var(--surface-2)', padding: '0.45rem', borderRadius: 'var(--radius-sm, 6px)' }}>
+                            <p className="flash-card__explanation">
                                 {typeof data.explanation === 'string'
                                     ? data.explanation
                                     : (data.explanation.whyCorrect || data.explanation.summary || '')}
                             </p>
                         )}
 
-                        <div style={{ marginTop: 'auto', textAlign: 'center' }}>
+                        <div className="flash-card__footer">
                             <button
                                 type="button"
-                                className="btn btn--ghost btn--sm"
+                                className="btn btn--ghost btn--block"
                                 onClick={(e) => {
                                     e.stopPropagation();
                                     setFlipped(false);
                                 }}
-                                style={{ width: '100%' }}
                             >
-                                <i className="fa-solid fa-rotate-left" style={{ marginRight: '0.35rem' }}></i> Flip back to question
+                                <i className="fa-solid fa-rotate-left" aria-hidden="true"></i>
+                                Flip back to question
                             </button>
                         </div>
                     </div>
@@ -326,7 +245,7 @@ export default function Flashcards() {
                     <div className="session-summary__icon">
                         <i className="fa-solid fa-fire" aria-hidden="true"></i>
                     </div>
-                    <h2>Flashcard session complete</h2>
+                    <h1>Flashcard session complete</h1>
                     <p>
                         You swiped through this deck and marked {total} concept
                         {total === 1 ? '' : 's'} as memorized.
@@ -400,7 +319,7 @@ export default function Flashcards() {
                     </AnimatePresence>
                 </div>
 
-                <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', marginTop: '2.5rem' }}>
+                <div className="flashcards__actions">
                     <button
                         type="button"
                         className="btn btn--secondary"

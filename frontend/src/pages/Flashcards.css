@@ -1,7 +1,7 @@
 /* ==========================================================================
    Flashcards — a single swipeable deck.
-   Layout and chrome only: the card's own colours are driven inline by the
-   drag motion value, so they stay in sync with the gesture.
+   The card's own background is driven inline by the drag motion value so it
+   stays in sync with the gesture; everything else lives here.
    ========================================================================== */
 
 .flashcards {
@@ -60,5 +60,219 @@
 @media (max-height: 700px) {
     .flashcards__stage {
         height: 27rem;
+    }
+}
+
+/* ------------------------------------------------------------- The card */
+
+/* Positioning layer for the drag gesture. */
+.flash-card-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: bottom center;
+}
+
+.flash-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: var(--sp-5);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+.flash-card__face {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    overflow-y: auto;
+}
+
+.flash-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    margin-bottom: var(--sp-3);
+}
+
+.flash-card__id {
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.flash-card__status {
+    font-size: var(--fs-xs);
+    color: var(--text-tertiary);
+}
+
+.flash-card__status.is-ready {
+    color: var(--accent);
+}
+
+.flash-card__text {
+    margin-bottom: var(--sp-4);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    line-height: var(--lh-normal);
+    color: var(--text-primary);
+}
+
+.flash-card__options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-4);
+}
+
+/* One answer row — a button while the card is face up, a read-only row once
+   it has been flipped. */
+.flash-option {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    width: 100%;
+    padding: 0.5rem 0.7rem;
+    font-family: inherit;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-snug);
+    text-align: left;
+    color: var(--text-primary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+
+.flash-option:hover {
+    border-color: var(--border-strong);
+}
+
+.flash-option.is-selected {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+}
+
+.flash-option__key {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--text-secondary);
+    background: var(--surface-3);
+    border-radius: var(--radius-sm);
+}
+
+.flash-option.is-selected .flash-option__key {
+    color: var(--surface-1);
+    background: var(--accent);
+}
+
+.flash-option__text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Answer state after the card is flipped. */
+.flash-option--answer {
+    cursor: default;
+    color: var(--text-secondary);
+    background: transparent;
+}
+
+.flash-option--answer.is-correct {
+    color: var(--text-primary);
+    background: var(--success-soft);
+    border-color: var(--success);
+}
+
+.flash-option--answer.is-correct .flash-option__key {
+    color: var(--surface-1);
+    background: var(--success);
+}
+
+.flash-option--answer.is-wrong {
+    color: var(--text-primary);
+    background: var(--danger-soft);
+    border-color: var(--danger);
+}
+
+.flash-option--answer.is-wrong .flash-option__key {
+    color: var(--surface-1);
+    background: var(--danger);
+}
+
+.flash-card__verdict {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.55rem;
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    border-radius: var(--radius-pill);
+}
+
+.flash-card__verdict.is-correct {
+    color: var(--success);
+    background: var(--success-soft);
+}
+
+.flash-card__verdict.is-wrong {
+    color: var(--danger);
+    background: var(--danger-soft);
+}
+
+.flash-card__key {
+    margin-bottom: var(--sp-3);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.flash-card__explanation {
+    margin-bottom: var(--sp-4);
+    padding: var(--sp-3);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-snug);
+    color: var(--text-secondary);
+    background: var(--surface-2);
+    border-radius: var(--radius-sm);
+}
+
+.flash-card__footer {
+    margin-top: auto;
+    padding-top: var(--sp-3);
+}
+
+/* The two session actions under the card. */
+.flashcards__actions {
+    display: flex;
+    gap: var(--sp-3);
+    justify-content: center;
+    margin-top: var(--sp-5);
+}
+
+.flashcards__actions .btn {
+    flex: 1;
+}
+
+@media (max-width: 30rem) {
+    .flashcards__actions {
+        flex-direction: column;
     }
 }

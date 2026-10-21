@@ -724,79 +724,10 @@
     text-decoration-color: var(--border-strong);
 }
 
-/* ---- Actions ---- */
-
-.practice-actions {
-    display: flex;
-    gap: var(--sp-3);
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.practice-actions .kbd-help {
-    margin-left: auto;
-    font-size: var(--fs-xs);
-    color: var(--text-tertiary);
-}
-
-kbd {
-    display: inline-block;
-    min-width: 1.25rem;
-    padding: 0.05rem 0.3rem;
-    font-family: var(--font-mono);
-    font-size: var(--fs-xs);
-    line-height: 1.4;
-    text-align: center;
-    color: var(--text-secondary);
-    background: var(--surface-2);
-    border: 1px solid var(--border-default);
-    border-bottom-width: 2px;
-    border-radius: var(--radius-sm);
-}
-
-/* ---- Session summary ---- */
-
-.session-summary {
-    padding: var(--sp-5);
-    background: var(--surface-1);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-}
-
-.session-summary__icon {
-    font-size: var(--fs-xl);
-    margin-bottom: var(--sp-3);
-}
-
-.session-summary--clean .session-summary__icon { color: var(--success); }
-.session-summary--mixed .session-summary__icon { color: var(--accent); }
-
-.session-summary h2 {
-    font-size: var(--fs-xl);
-    margin-bottom: var(--sp-3);
-}
-
-.session-summary > p {
-    color: var(--text-secondary);
-    font-size: var(--fs-base);
-    line-height: var(--lh-relaxed);
-    max-width: var(--measure);
-    margin-bottom: var(--sp-4);
-}
-
-.session-summary__stats {
-    display: flex;
-    gap: var(--sp-5);
-    flex-wrap: wrap;
-    padding: var(--sp-4) 0;
-    margin-bottom: var(--sp-4);
-    border-top: 1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-}
-
-.session-summary__stats .stat__value {
-    font-size: var(--fs-2xl);
-}
+/* ---- Actions ----
+   .practice-actions, .session-summary and the kbd key style are shared
+   primitives and live in styles/components.css, so every page that ends a
+   run renders them the same way. */
 
 /* ============================================== Responsive ============= */
 
@@ -811,10 +742,6 @@ kbd {
 
     .domain-head h2 {
         font-size: var(--fs-lg);
-    }
-
-    .practice-actions .kbd-help {
-        display: none;
     }
 }
 
@@ -872,19 +799,6 @@ kbd {
 
     .topic-progress-line .spacer {
         margin-left: 0;
-        width: 100%;
-    }
-
-    .session-summary__stats {
-        gap: var(--sp-4);
-    }
-
-    .practice-actions {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .practice-actions .btn {
         width: 100%;
     }
 }
