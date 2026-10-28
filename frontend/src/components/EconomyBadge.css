@@ -1,0 +1,81 @@
+.economy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2, 0.5rem);
+    background: var(--surface-primary, #ffffff);
+    border: 1px solid var(--border-color, rgba(148, 163, 184, 0.25));
+    border-radius: var(--radius-pill, 999px);
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-primary, #0f172a);
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    line-height: 1;
+    transition:
+        background var(--dur-base, 180ms) var(--ease, ease),
+        border-color var(--dur-base, 180ms) var(--ease, ease),
+        box-shadow var(--dur-base, 180ms) var(--ease, ease),
+        transform var(--dur-base, 180ms) var(--ease, ease),
+        backdrop-filter var(--dur-base, 180ms) var(--ease, ease);
+}
+
+.economy-badge:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(245, 158, 11, 0.6);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 6px 18px -2px rgba(245, 158, 11, 0.25),
+        inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-1.5px);
+}
+
+[data-theme='dark'] .economy-badge {
+    background: var(--surface-2, #303030);
+    border-color: var(--border-subtle, #3d3d3d);
+    color: #f1f5f9;
+}
+
+[data-theme='dark'] .economy-badge:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(245, 158, 11, 0.7);
+    box-shadow:
+        0 6px 18px -2px rgba(245, 158, 11, 0.35),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.economy-badge:active {
+    transform: translateY(0);
+}
+
+.economy-badge__streak {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #ef4444;
+}
+
+.economy-badge__divider {
+    width: 1px;
+    height: 12px;
+    background: var(--border-color, rgba(148, 163, 184, 0.3));
+}
+
+.economy-badge__credits {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    color: #d97706;
+}
+
+.economy-badge .bolt {
+    font-size: 0.85rem;
+    color: #f59e0b;
+}
+
+.credits-unit {
+    font-size: 0.68rem;
+    color: var(--text-tertiary, #94a3b8);
+    font-weight: 600;
+}

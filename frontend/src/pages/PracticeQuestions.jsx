@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 import { getSimulatorQuestions } from '../lib/questionEligibility.js';
+import { awardFirstTryCorrect, awardRetryCleared, awardSimulatorExamPass } from '../lib/economy.js';
 import './PracticeQuestions.css';
 
 const EXAM_SECONDS = 90 * 60;
@@ -197,6 +198,9 @@ function PracticeSession({ mode, targetQuestionId }) {
             return next;
         });
         window.dispatchEvent(new Event('storage'));
+        if (examResult.pass) {
+            awardSimulatorExamPass(Math.round((examResult.score / activeSet.length) * 100));
+        }
         confetti({
             particleCount: examResult.pass ? 300 : 120,
             spread: examResult.pass ? 120 : 80,
@@ -234,6 +238,9 @@ function PracticeSession({ mode, targetQuestionId }) {
             playSound('correct');
             if (mode === 'weakness') {
                 next.incorrectIds = next.incorrectIds.filter((id) => id !== curQ.id);
+                awardRetryCleared(curQ.id);
+            } else {
+                awardFirstTryCorrect(curQ.id);
             }
         } else {
             playSound('wrong');

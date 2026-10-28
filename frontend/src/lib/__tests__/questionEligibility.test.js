@@ -7,9 +7,9 @@ import {
 } from '../questionEligibility';
 
 describe('questionEligibility', () => {
-    it('returns exactly 321 verified questions for the curriculum', () => {
+    it('returns exactly 490 verified questions for the curriculum', () => {
         const curriculumQuestions = getCurriculumQuestions();
-        expect(curriculumQuestions.length).toBe(321);
+        expect(curriculumQuestions.length).toBe(490);
         for (const q of curriculumQuestions) {
             expect(isCurriculumEligible(q)).toBe(true);
             expect(q.id).toBeDefined();
@@ -20,15 +20,15 @@ describe('questionEligibility', () => {
 
     it('filters out blocked questions from the simulator bank', () => {
         const simulatorQuestions = getSimulatorQuestions();
-        // Total normalized is 495; 5 blocked questions are excluded, leaving 490 valid questions
-        expect(simulatorQuestions.length).toBe(490);
+        // Total normalized is 495; 4 corrupt blocked questions are excluded, leaving 491 questions
+        expect(simulatorQuestions.length).toBe(491);
 
         // Verify known corrupt questions are excluded
         const ids = new Set(simulatorQuestions.map((q) => q.id));
         expect(ids.has('q200')).toBe(false); // corrupted answer string
         expect(ids.has('q250')).toBe(false); // corrupted answer string
         expect(ids.has('q269')).toBe(false); // corrupted answer string
-        expect(ids.has('q339')).toBe(false); // missing option C in options
+        expect(ids.has('q626')).toBe(false); // corrupted answer string
     });
 
     it('ensures questions with previously empty options now have recovered options', () => {

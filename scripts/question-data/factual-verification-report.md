@@ -1,6 +1,6 @@
 # Factual Verification Report
 
-Generated: 2026-10-12T19:22:09.724Z
+Generated: 2026-10-15T18:11:18.270Z
 Generator: `scripts/question-data/verifyQuestions.mjs` (report version 1.0.0)
 
 > This report records which questions have been checked against retrieved official AWS sources, and which have not.
@@ -10,7 +10,7 @@ Generator: `scripts/question-data/verifyQuestions.mjs` (report version 1.0.0)
 
 | Input | Path | SHA-256 |
 | --- | --- | --- |
-| questions | `frontend/src/data/questions.enriched.json` | `ce5a095b15607d0b…` |
+| questions | `frontend/src/data/questions.enriched.json` | `a3deafb2049f9c2a…` |
 | enrichmentQualityReport | `scripts/question-data/enrichment-quality-report.json` | `e419c0cf1fd58f1c…` |
 | questionReviewReport | `scripts/question-data/question-review-report.json` | `ca8c7f034705c418…` |
 

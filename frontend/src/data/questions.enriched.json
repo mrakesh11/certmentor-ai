@@ -16742,7 +16742,11 @@
       },
       {
         "id": "B",
-        "text": "Amazon CloudFront C. AWS Global Accelerator"
+        "text": "Amazon CloudFront"
+      },
+      {
+        "id": "C",
+        "text": "AWS Global Accelerator"
       },
       {
         "id": "D",

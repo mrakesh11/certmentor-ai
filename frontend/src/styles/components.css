@@ -10,126 +10,233 @@
     align-items: center;
     justify-content: center;
     gap: var(--sp-2);
-    padding: 0.6rem 1.1rem;
+    padding: 0.625rem 1.35rem;
     font-size: var(--fs-base);
     font-weight: 600;
     line-height: 1.2;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     border: 1px solid transparent;
     background: transparent;
     color: var(--text-primary);
     cursor: pointer;
     text-decoration: none;
     white-space: nowrap;
+    position: relative;
+    user-select: none;
     transition:
-        background var(--dur-fast) var(--ease),
-        border-color var(--dur-fast) var(--ease),
-        color var(--dur-fast) var(--ease);
+        background var(--dur-base) var(--ease),
+        border-color var(--dur-base) var(--ease),
+        color var(--dur-base) var(--ease),
+        box-shadow var(--dur-base) var(--ease),
+        transform var(--dur-base) var(--ease),
+        backdrop-filter var(--dur-base) var(--ease);
 }
 
 .btn:disabled {
     opacity: 0.45;
     cursor: not-allowed;
+    pointer-events: none;
 }
 
+/* Primary — deep vivid gradient with frosted luminous glass hover */
 .btn--primary {
-    background: var(--accent);
+    background: linear-gradient(180deg, #2563eb 0%, #1d4ed8 100%);
     color: var(--text-on-accent);
-    border-color: var(--accent);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow:
+        0 2px 8px -1px rgba(37, 99, 235, 0.35),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .btn--primary:hover:not(:disabled) {
-    background: var(--accent-hover);
-    border-color: var(--accent-hover);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.92) 0%, rgba(59, 130, 246, 0.85) 100%);
+    border-color: rgba(255, 255, 255, 0.55);
     color: var(--text-on-accent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 8px 24px -2px rgba(37, 99, 235, 0.42),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.7);
+    transform: translateY(-1.5px);
 }
 
 .btn--primary:active:not(:disabled) {
-    background: var(--accent-active);
+    background: linear-gradient(180deg, #1d4ed8 0%, #1e40af 100%);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 2px 4px rgba(37, 99, 235, 0.25),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
 }
 
+/* Secondary — translucent frosted glass with polished rim reflection */
 .btn--secondary {
     background: var(--surface-2);
-    border-color: var(--border-default);
+    border: 1px solid var(--border-default);
     color: var(--text-primary);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .btn--secondary:hover:not(:disabled) {
-    background: var(--surface-3);
-    border-color: var(--border-strong);
-    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: var(--accent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+        0 8px 20px -3px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+    transform: translateY(-1.5px);
 }
 
+[data-theme='dark'] .btn--secondary:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    box-shadow:
+        0 8px 20px -3px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn--secondary:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* Ghost — delicate frosted crystal sheen */
 .btn--ghost {
     background: transparent;
+    border: 1px solid transparent;
     color: var(--text-secondary);
 }
 
 .btn--ghost:hover:not(:disabled) {
-    background: var(--surface-2);
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.65);
     color: var(--text-primary);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow:
+        0 6px 16px -2px rgba(0, 0, 0, 0.05),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.6);
+    transform: translateY(-1.5px);
 }
 
+[data-theme='dark'] .btn--ghost:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow:
+        0 6px 16px -2px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn--ghost:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Danger — translucent ruby frosted glass */
 .btn--danger {
     background: transparent;
-    border-color: var(--border-default);
+    border: 1px solid var(--border-default);
     color: var(--text-tertiary);
 }
 
 .btn--danger:hover:not(:disabled) {
-    border-color: var(--danger);
-    color: var(--danger);
-    background: var(--danger-soft);
+    background: rgba(239, 68, 68, 0.12);
+    border-color: rgba(239, 68, 68, 0.45);
+    color: #dc2626;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow:
+        0 6px 20px -2px rgba(220, 38, 38, 0.22),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+    transform: translateY(-1.5px);
 }
 
+[data-theme='dark'] .btn--danger:hover:not(:disabled) {
+    background: rgba(239, 68, 68, 0.18);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #f87171;
+    box-shadow:
+        0 6px 20px -2px rgba(239, 68, 68, 0.35),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.btn--danger:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Sizing modifiers */
 .btn--sm {
-    padding: 0.35rem 0.7rem;
+    padding: 0.38rem 0.95rem;
     font-size: var(--fs-sm);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
 }
 
 .btn--lg {
-    padding: 0.8rem 1.5rem;
+    padding: 0.85rem 1.85rem;
     font-size: var(--fs-md);
+    border-radius: var(--radius-pill);
 }
 
 .btn--block {
     width: 100%;
 }
 
-/* Legacy alias — older markup references .btn-outline; map it onto the
-   secondary style so nothing renders unstyled during the migration. */
+/* Legacy alias — mapped directly to secondary glassy button */
 .btn-outline {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: var(--sp-2);
-    padding: 0.6rem 1.1rem;
+    padding: 0.625rem 1.35rem;
     font-size: var(--fs-base);
     font-weight: 600;
     line-height: 1.2;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-pill);
     border: 1px solid var(--border-default);
     background: var(--surface-2);
     color: var(--text-primary);
     cursor: pointer;
     text-decoration: none;
     white-space: nowrap;
+    position: relative;
+    user-select: none;
     transition:
-        background var(--dur-fast) var(--ease),
-        border-color var(--dur-fast) var(--ease),
-        color var(--dur-fast) var(--ease);
+        background var(--dur-base) var(--ease),
+        border-color var(--dur-base) var(--ease),
+        color var(--dur-base) var(--ease),
+        box-shadow var(--dur-base) var(--ease),
+        transform var(--dur-base) var(--ease),
+        backdrop-filter var(--dur-base) var(--ease);
 }
 
 .btn-outline:hover:not(:disabled) {
-    background: var(--surface-3);
-    border-color: var(--border-strong);
-    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.75);
+    border-color: rgba(255, 255, 255, 0.9);
+    color: var(--accent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow:
+        0 8px 20px -3px rgba(0, 0, 0, 0.08),
+        inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+    transform: translateY(-1.5px);
+}
+
+[data-theme='dark'] .btn-outline:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.28);
+    color: #ffffff;
+    box-shadow:
+        0 8px 20px -3px rgba(0, 0, 0, 0.35),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .btn-outline:disabled {
     opacity: 0.45;
     cursor: not-allowed;
+    pointer-events: none;
 }
 
 /* --------------------------------------------------------------- Panels */

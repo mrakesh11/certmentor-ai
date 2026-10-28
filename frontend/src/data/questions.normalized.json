@@ -10691,7 +10691,11 @@
       },
       {
         "id": "B",
-        "text": "Amazon CloudFront C. AWS Global Accelerator"
+        "text": "Amazon CloudFront"
+      },
+      {
+        "id": "C",
+        "text": "AWS Global Accelerator"
       },
       {
         "id": "D",
@@ -10709,10 +10713,8 @@
     "originalAnswer": "BC",
     "explanation": "Part of the CLF-C02 Exam Practice Questions (2026).",
     "quality": {
-      "status": "needs-review",
-      "issues": [
-        "answer_references_missing_option"
-      ]
+      "status": "clean",
+      "issues": []
     }
   },
   {

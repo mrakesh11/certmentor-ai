@@ -7,6 +7,7 @@ import { domainSummaries, TOTALS, EXAM_GUIDE_URL } from '../lib/curriculum';
 import { overallSummary, clearAllRetries, loadProgress } from '../lib/progress';
 import { getSimulatorQuestions } from '../lib/questionEligibility';
 import { suggestNextStep, domainProgress } from '../lib/nextStep';
+import { loadEconomy, getReadinessTier } from '../lib/economy';
 import './Dashboard.css';
 
 const cheatsheets = [
@@ -68,6 +69,7 @@ function readSimStats() {
 
 export default function Dashboard() {
     const [examStats, setExamStats] = useState(readSimStats);
+    const [economy, setEconomy] = useState(loadEconomy);
     // Re-render trigger only: bumped whenever storage changes so derived
     // curriculum progress below is recomputed. The value itself is never read.
     const [, setProgressVersion] = useState(0);
@@ -79,10 +81,15 @@ export default function Dashboard() {
     useEffect(() => {
         const refresh = () => {
             setExamStats(readSimStats());
+            setEconomy(loadEconomy());
             setProgressVersion((v) => v + 1);
         };
         window.addEventListener('storage', refresh);
-        return () => window.removeEventListener('storage', refresh);
+        window.addEventListener('certmentor:economy', refresh);
+        return () => {
+            window.removeEventListener('storage', refresh);
+            window.removeEventListener('certmentor:economy', refresh);
+        };
     }, []);
 
     // Navigating here with a hash (the nav "Cheat sheets" link) scrolls to
@@ -101,6 +108,7 @@ export default function Dashboard() {
     const domainRows = domainProgress(loadProgress());
     const domains = domainSummaries();
     const simQuestions = getSimulatorQuestions();
+    const tier = getReadinessTier(economy.lifetimeEarned);
 
     const simulatorAccuracy = examStats.totalAppeared > 0
         ? Math.round((examStats.correct / examStats.totalAppeared) * 100)
@@ -251,6 +259,49 @@ export default function Dashboard() {
                         </Link>
                     </div>
                 )}
+            </section>
+
+            {/* ------------------------------------------- Readiness & CloudCredits */}
+            <section className="dash-section" aria-labelledby="readiness-heading">
+                <div className="section-head">
+                    <div>
+                        <p className="eyebrow">Certification Readiness</p>
+                        <h2 id="readiness-heading">{tier.badge} {tier.name}</h2>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                        <span className="badge badge--success" style={{ fontSize: '0.85rem' }}>
+                            <i className="fa-solid fa-fire" style={{ color: '#ef4444' }}></i> {economy.streak.current}-Day Streak
+                        </span>
+                        <span className="badge badge--warning" style={{ fontSize: '0.85rem' }}>
+                            <i className="fa-solid fa-bolt" style={{ color: '#f59e0b' }}></i> {economy.balance} ⚡ CC Available
+                        </span>
+                    </div>
+                </div>
+
+                <div className="panel" style={{ padding: '1.25rem 1.5rem', background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(59, 130, 246, 0.05))' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '0.9rem', fontWeight: 600 }}>
+                            Tier Progress: <strong>{tier.progressPercent}%</strong>
+                        </span>
+                        <span style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                            {tier.creditsNeeded > 0 ? `${tier.creditsNeeded} CC to ${tier.nextTier}` : 'Max Tier Achieved 🏆'}
+                        </span>
+                    </div>
+                    <div className="progress" style={{ height: '10px', background: 'var(--border-subtle)', borderRadius: '6px' }}>
+                        <div
+                            className="progress__fill"
+                            style={{ width: `${tier.progressPercent}%`, backgroundColor: tier.color, borderRadius: '6px' }}
+                        ></div>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '1rem', flexWrap: 'wrap', gap: '0.75rem', fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                        <span>
+                            <i className="fa-solid fa-circle-check" style={{ color: '#10b981' }}></i> Answer questions right first time (+10 CC) or clear retries (+5 CC) to advance.
+                        </span>
+                        <span>
+                            AI Deep Tutor Tokens: <strong>{economy.unlockedFeatures.aiDeepTutorQueriesRemaining} remaining</strong>
+                        </span>
+                    </div>
+                </div>
             </section>
 
             {/* -------------------------------------------------- Real totals */}

@@ -9,6 +9,7 @@ import DiagramContainers from '../components/DiagramContainers';
 import { getDomain, getTopic, getTopicQuestions } from '../lib/curriculum';
 import { evaluateAnswer, isMultiAnswer, formatAnswer } from '../lib/answers';
 import { topicStats, recordAnswer, resetTopic, clearTopicRetries } from '../lib/progress';
+import { awardFirstTryCorrect, awardRetryCleared } from '../lib/economy';
 import { describeSource } from '../lib/sources';
 import '../components/VPCDiagram.css';
 import './Learn.css';
@@ -101,14 +102,20 @@ export default function TopicLesson() {
     const checkAnswer = useCallback(() => {
         if (!current || selected.length === 0 || graded) return;
         const isCorrect = evaluateAnswer(current, selected);
+        const wasInRetry = (stats.retryIds || []).includes(current.id);
         recordAnswer({ domain: domainNumber, slug: topicSlug, questionId: current.id }, isCorrect);
         setStatsVersion((v) => v + 1);
         setGraded({ isCorrect });
         setSessionSeen((prev) => (prev.includes(current.id) ? prev : [...prev, current.id]));
         if (isCorrect) {
             setSessionCorrect((prev) => (prev.includes(current.id) ? prev : [...prev, current.id]));
+            if (wasInRetry) {
+                awardRetryCleared(current.id);
+            } else {
+                awardFirstTryCorrect(current.id);
+            }
         }
-    }, [current, selected, graded, domainNumber, topicSlug]);
+    }, [current, selected, graded, domainNumber, topicSlug, stats.retryIds]);
 
     const retryCurrent = useCallback(() => {
         setSelected([]);

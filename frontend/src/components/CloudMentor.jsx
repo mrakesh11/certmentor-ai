@@ -5,6 +5,7 @@ import {
     buildQuestionExplanationPrompt,
     getPersonalizedRevisionContext,
 } from '../lib/aiKnowledge';
+import { loadEconomy, consumeDeepTutorQuery } from '../lib/economy';
 import './CloudMentor.css';
 
 const DEFAULT_SUGGESTIONS = [
@@ -33,7 +34,7 @@ function saveFeedback(feedbackMap) {
     }
 }
 
-export default function CloudMentor() {
+export default function CloudMentor({ onOpenRewards }) {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState('');
@@ -42,10 +43,21 @@ export default function CloudMentor() {
     const [error, setError] = useState(null);
     const [feedback, setFeedback] = useState(loadFeedback);
     const [activeTab, setActiveTab] = useState('chat'); // 'chat' | 'compare' | 'revision'
+    const [economy, setEconomy] = useState(loadEconomy);
 
     const messagesEndRef = useRef(null);
     const inputRef = useRef(null);
     const abortControllerRef = useRef(null);
+
+    useEffect(() => {
+        const refresh = () => setEconomy(loadEconomy());
+        window.addEventListener('certmentor:economy', refresh);
+        window.addEventListener('storage', refresh);
+        return () => {
+            window.removeEventListener('certmentor:economy', refresh);
+            window.removeEventListener('storage', refresh);
+        };
+    }, []);
 
     // Check Ollama status on mount
     useEffect(() => {
@@ -264,6 +276,27 @@ Explain:
                             <i className="fa-solid fa-bullseye" aria-hidden="true"></i> My Revision
                         </button>
                     </nav>
+
+                    {/* AI Deep Tutor tokens indicator */}
+                    <div className="cm-credit-strip">
+                        <span className="cm-credit-pill">
+                            <i className="fa-solid fa-brain" aria-hidden="true"></i>{' '}
+                            Deep Tutor: <strong>{economy.unlockedFeatures.aiDeepTutorQueriesRemaining} queries left</strong>
+                        </span>
+                        {onOpenRewards && (
+                            <button
+                                type="button"
+                                className="cm-credit-action"
+                                onClick={() => {
+                                    setIsOpen(false);
+                                    onOpenRewards();
+                                }}
+                                title="Open rewards store to unlock more Deep Tutor queries"
+                            >
+                                ⚡ Store ({economy.balance} CC)
+                            </button>
+                        )}
+                    </div>
 
                     {activeTab === 'compare' ? (
                         <div className="cm-tab-pane">

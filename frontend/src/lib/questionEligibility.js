@@ -52,7 +52,7 @@ export function isSimulatorEligible(question) {
 }
 
 /**
- * Get all verified questions eligible for curriculum practice (321 questions).
+ * Get all verified questions eligible for curriculum practice (490 questions).
  * @returns {object[]}
  */
 export function getCurriculumQuestions() {

@@ -3,6 +3,9 @@ import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import ThemeToggle from './components/ThemeToggle';
 import { ThemeProvider } from './components/ThemeProvider';
+import EconomyBadge from './components/EconomyBadge';
+import RewardModal from './components/RewardModal';
+import RewardToast from './components/RewardToast';
 import { getDomains, getPracticeQuestions } from './lib/curriculum';
 import './App.css';
 
@@ -43,7 +46,7 @@ const NAV_ITEMS = [
     { to: '/#cheatsheets', label: 'Cheat sheets', anchor: true },
 ];
 
-function Navbar() {
+function Navbar({ onOpenRewards }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchOpen, setSearchOpen] = useState(false);
@@ -238,6 +241,7 @@ function Navbar() {
                     </div>
 
                     <div className="nav__tools">
+                        <EconomyBadge onClick={onOpenRewards} />
                         <ThemeToggle />
                     </div>
                 </div>
@@ -272,11 +276,13 @@ function PageFallback() {
 }
 
 function App() {
+    const [isRewardOpen, setIsRewardOpen] = useState(false);
+
     return (
         <ThemeProvider>
             <ErrorBoundary>
                 <a href="#main-content" className="skip-link">Skip to content</a>
-                <Navbar />
+                <Navbar onOpenRewards={() => setIsRewardOpen(true)} />
                 <main id="main-content" style={{ flex: 1 }}>
                     <Suspense fallback={<PageFallback />}>
                         <Routes>
@@ -291,8 +297,10 @@ function App() {
                 </main>
                 <Footer />
                 <Suspense fallback={null}>
-                    <CloudMentor />
+                    <CloudMentor onOpenRewards={() => setIsRewardOpen(true)} />
                 </Suspense>
+                <RewardToast />
+                <RewardModal isOpen={isRewardOpen} onClose={() => setIsRewardOpen(false)} />
             </ErrorBoundary>
         </ThemeProvider>
     );
