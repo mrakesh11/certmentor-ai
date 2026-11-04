@@ -1,7 +1,265 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import confetti from 'canvas-confetti';
+
+// Specimen practice questions for the live hero drill
+const HERO_DRILLS = [
+  {
+    id: 142,
+    domain: 'Billing, Pricing & Support',
+    question: 'Which AWS service provides cost allocation tags to track spending by department and environment?',
+    options: [
+      { text: 'AWS Billing & Cost Management Tags', correct: true },
+      { text: 'Amazon CloudWatch Alarms', correct: false },
+      { text: 'AWS Trusted Advisor', correct: false },
+      { text: 'AWS Cost Explorer Anomaly Detection', correct: false }
+    ],
+    citation: 'Verified with AWS Whitepaper: Cost Management Best Practices',
+    explanation: 'Cost allocation tags allow organizing resource expenses on monthly reports. You activate user-defined tags in the Billing console to group costs by department, environment (dev/prod), or cost center.'
+  },
+  {
+    id: 88,
+    domain: 'Cloud Technology & Services',
+    question: 'A company needs 99.999999999% (11 9s) durability for reproducible secondary backups at the lowest cost. Which S3 tier fits?',
+    options: [
+      { text: 'S3 One Zone-IA', correct: true },
+      { text: 'S3 Standard-IA', correct: false },
+      { text: 'S3 Standard', correct: false },
+      { text: 'S3 Glacier Instant Retrieval', correct: false }
+    ],
+    citation: 'Verified with AWS Documentation: S3 Storage Classes',
+    explanation: 'S3 One Zone-IA stores data in a single Availability Zone at 20% lower cost than Standard-IA while retaining 11 9s durability. It is designed specifically for recreatable backups that do not require multi-AZ physical redundancy.'
+  },
+  {
+    id: 215,
+    domain: 'Security & Compliance',
+    question: 'Under the AWS Shared Responsibility Model, which security task is the customer\'s sole responsibility?',
+    options: [
+      { text: 'Managing IAM user credentials and MFA policies', correct: true },
+      { text: 'Patching physical host hypervisors', correct: false },
+      { text: 'Decommissioning worn magnetic storage drives', correct: false },
+      { text: 'Maintaining physical biometric facility access logs', correct: false }
+    ],
+    citation: 'Verified with AWS Whitepaper: Shared Responsibility Model',
+    explanation: 'Customers are responsible for security IN the cloud: IAM credentials, MFA, guest OS patching, firewall/security group rules, and customer data encryption. AWS manages security OF the cloud (physical data centers, hypervisors, hardware).'
+  }
+];
+
+// Interactive Architecture Schematics for Section 2
+const SCHEMATICS = {
+  vpc: {
+    id: 'vpc',
+    label: 'VPC Multi-AZ',
+    title: 'SCHEMATIC: VPC-MULTI-AZ-TIER',
+    latency: 'STATIC LATENCY: 0ms (LOCAL REPLICA)',
+    subnets: [
+      {
+        name: 'Public Subnet (10.0.1.0/24 • us-east-1a)',
+        route: 'Internet Gateway Route (0.0.0.0/0 → igw-08a9)',
+        nodes: [
+          {
+            name: 'Application Load Balancer [Round-Robin / Path-Based]',
+            tag: 'L7 INGRESS',
+            tip: 'Distributes incoming HTTP/HTTPS traffic across multiple target instances in different AZs.'
+          },
+          {
+            name: 'NAT Gateway [EIP 52.14.88.2]',
+            tag: 'EGRESS ONLY',
+            tip: 'Allows private subnet instances to fetch OS updates without allowing inbound public traffic.'
+          }
+        ]
+      },
+      {
+        name: 'Private Subnet (10.0.2.0/24 • us-east-1b)',
+        route: 'Strict Egress Only via NAT Gateway',
+        nodes: [
+          {
+            name: 'Auto Scaling Group (EC2 Instances x3 across AZ-a & AZ-b)',
+            tag: 'HIGH AVAILABILITY',
+            tip: 'Automatically scales compute fleet capacity dynamically based on CloudWatch CPU metrics.'
+          },
+          {
+            name: 'Amazon Aurora Multi-AZ Cluster [Primary Writer + Read Replica]',
+            tag: 'DATABASE STORAGE',
+            tip: 'Replicates storage 6 ways across 3 AZs with automated sub-30-second failover.'
+          }
+        ]
+      }
+    ]
+  },
+  serverless: {
+    id: 'serverless',
+    label: 'Serverless Core',
+    title: 'SCHEMATIC: SERVERLESS-EVENT-CORE',
+    latency: 'COLD START: 0ms (OPTIMIZED SNAPSTART)',
+    subnets: [
+      {
+        name: 'Edge & Ingress Perimeter',
+        route: 'Amazon CloudFront Global PoP Edge Locations',
+        nodes: [
+          {
+            name: 'Amazon API Gateway [HTTP API / JWT Authorizer]',
+            tag: 'REST/HTTP API',
+            tip: 'Performs token authorization and rate-limiting before forwarding payload to Lambda.'
+          },
+          {
+            name: 'AWS WAF [Web Access Control List]',
+            tag: 'DDoS & OWASP',
+            tip: 'Filters SQL injection, cross-site scripting (XSS), and rate-limits abusive clients.'
+          }
+        ]
+      },
+      {
+        name: 'Stateless Compute & Data Layer',
+        route: 'Managed Amazon EventBridge Event Router',
+        nodes: [
+          {
+            name: 'AWS Lambda [Arm64 Graviton3 / MicroVM]',
+            tag: 'SCALE-TO-ZERO',
+            tip: 'Executes event-driven code in isolated Firecracker microVMs without server management.'
+          },
+          {
+            name: 'Amazon DynamoDB [Single-Digit Millisecond Latency]',
+            tag: 'NOSQL DATABASE',
+            tip: 'Fully managed key-value store with on-demand autoscaling and Point-in-Time Recovery.'
+          }
+        ]
+      }
+    ]
+  },
+  decoupled: {
+    id: 'decoupled',
+    label: 'Decoupled (SQS)',
+    title: 'SCHEMATIC: ASYNCHRONOUS-DECOUPLED-SQS',
+    latency: 'BUFFERING: 100,000 TPS CAPACITY',
+    subnets: [
+      {
+        name: 'Publisher & Message Ingestion',
+        route: 'HTTPS RESTful Ingestion with DLQ Fallback',
+        nodes: [
+          {
+            name: 'Amazon SQS Standard Queue [At-Least-Once Delivery]',
+            tag: 'MESSAGE BUFFER',
+            tip: 'Decouples producer frontend from consumer backend, absorbing sudden traffic spikes safely.'
+          },
+          {
+            name: 'Dead-Letter Queue (DLQ) [maxReceiveCount = 5]',
+            tag: 'FAULT ISOLATION',
+            tip: 'Captures poison messages that fail processing multiple times for engineer inspection.'
+          }
+        ]
+      },
+      {
+        name: 'Worker Fulfillment Pool',
+        route: 'Long-Polling Consumer Loop (WaitTime = 20s)',
+        nodes: [
+          {
+            name: 'Amazon ECS Fargate Workers [Autoscaled on Queue Depth]',
+            tag: 'CONTAINER FLEET',
+            tip: 'Pulls message batches, processes invoices, and explicitly deletes processed messages from queue.'
+          }
+        ]
+      }
+    ]
+  }
+};
+
+// Interactive AI Mentor prompts
+const MENTOR_PROMPTS = [
+  {
+    label: 'S3 Standard-IA vs One Zone-IA',
+    question: 'What is the core distinction between S3 Standard-IA and S3 One Zone-IA on the exam?',
+    answer: 'Both charge retrieval fees, but Standard-IA replicates across ≥3 Availability Zones for 99.999999999% resilience. One Zone-IA stores data in a single AZ, costing 20% less but data will be destroyed if that physical AZ is destroyed. Use One Zone only for easily recreatable backups.'
+  },
+  {
+    label: 'Security Group vs NACL',
+    question: 'How do Security Groups and Network ACLs differ on statefulness?',
+    answer: 'Security Groups are stateful: return traffic is automatically allowed regardless of inbound rules. Network ACLs (NACLs) are stateless: return traffic must be explicitly allowed in both inbound and outbound rule lists.'
+  },
+  {
+    label: 'IAM Roles vs Policies',
+    question: 'When should I use an IAM Role instead of attaching an IAM Policy directly to a user?',
+    answer: 'Use IAM Policies to define permissions (what actions are allowed). Use IAM Roles to grant temporary credentials to AWS services (e.g. EC2, Lambda) or federated users without storing long-term secret access keys.'
+  },
+  {
+    label: 'Aurora Serverless vs RDS Multi-AZ',
+    question: 'When should I choose Aurora Serverless v2 over standard RDS Multi-AZ?',
+    answer: 'Choose Aurora Serverless v2 for unpredictable, intermittent, or spiky workloads where database capacity needs to scale automatically in fine increments (ACUs) without downtime. Choose standard RDS for predictable, constant enterprise database traffic.'
+  }
+];
+
+/** Minimal Web Audio API sound generator for tactile micro-feedback */
+function playSound(type) {
+  try {
+    const Ctx = window.AudioContext || window.webkitAudioContext;
+    if (!Ctx) return;
+    const actx = new Ctx();
+    const osc = actx.createOscillator();
+    const gain = actx.createGain();
+    osc.connect(gain);
+    gain.connect(actx.destination);
+    const shapes = {
+      correct: { wave: 'sine', from: 580, to: 1100, dur: 0.12, vol: 0.08 },
+      wrong: { wave: 'sawtooth', from: 260, to: 130, dur: 0.16, vol: 0.08 },
+      pop: { wave: 'sine', from: 750, to: 750, dur: 0.04, vol: 0.04 }
+    };
+    const spec = shapes[type];
+    if (!spec) return;
+    const now = actx.currentTime;
+    osc.type = spec.wave;
+    osc.frequency.setValueAtTime(spec.from, now);
+    if (spec.to !== spec.from) {
+      osc.frequency.exponentialRampToValueAtTime(spec.to, now + spec.dur);
+    }
+    gain.gain.setValueAtTime(spec.vol, now);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + spec.dur);
+    osc.start();
+    osc.stop(now + spec.dur);
+  } catch {
+    // Audio is a subtle enhancement; silently skip if restricted by browser policy
+  }
+}
 
 export default function Landing() {
+  // Live Hero Drill State
+  const [drillIndex, setDrillIndex] = useState(0);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [solvedCount, setSolvedCount] = useState(0);
+
+  // Interactive Architecture Schematic State
+  const [activeSchematic, setActiveSchematic] = useState('vpc');
+  const [activeTooltip, setActiveTooltip] = useState(null);
+
+  // Interactive Mentor State
+  const [activePromptIndex, setActivePromptIndex] = useState(0);
+
+  const currentDrill = HERO_DRILLS[drillIndex];
+
+  const handleSelectOption = (index) => {
+    if (selectedOption !== null) return; // Prevent changing after grade
+    setSelectedOption(index);
+    const isCorrect = currentDrill.options[index].correct;
+
+    if (isCorrect) {
+      playSound('correct');
+      setSolvedCount((c) => c + 1);
+      confetti({
+        particleCount: 50,
+        spread: 55,
+        origin: { y: 0.35, x: 0.75 },
+        colors: ['#10B981', '#0284C7', '#64748B']
+      });
+    } else {
+      playSound('wrong');
+    }
+  };
+
+  const handleNextDrill = () => {
+    playSound('pop');
+    setSelectedOption(null);
+    setDrillIndex((prev) => (prev + 1) % HERO_DRILLS.length);
+  };
+
   return (
     <div className="min-h-screen bg-canvas font-sans antialiased text-text-primary selection:bg-slate-200 selection:text-slate-900">
       {/* Minimal Header */}
@@ -38,7 +296,7 @@ export default function Landing() {
       </header>
 
       <main className="w-full pt-16">
-        {/* HERO SECTION: Asymmetrical Two-Column */}
+        {/* HERO SECTION: Asymmetrical Two-Column with Live Interactive Drill */}
         <section className="max-w-6xl mx-auto px-6 pt-16 pb-24 md:pt-24 md:pb-32 border-b border-border">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
             {/* Hero Left Column */}
@@ -91,7 +349,7 @@ export default function Landing() {
               </div>
             </div>
 
-            {/* Hero Right Column: Modular Studio Inspection Card */}
+            {/* Hero Right Column: LIVE Interactive Studio Inspection Card */}
             <div className="lg:col-span-6 w-full">
               <div className="bg-surface rounded-xl border border-border shadow-[0_4px_24px_-4px_rgba(15,23,42,0.05)] overflow-hidden">
                 {/* Studio Window Bar */}
@@ -105,8 +363,9 @@ export default function Landing() {
                     <span className="material-symbols-outlined text-[13px]">lock</span>
                     <span>clf-c02.workbench.local</span>
                   </div>
-                  <div className="text-[11px] font-mono text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
-                    ACTIVE
+                  <div className="text-[11px] font-mono text-emerald-600 font-medium bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+                    LIVE DRILL
                   </div>
                 </div>
 
@@ -161,28 +420,101 @@ export default function Landing() {
                     </div>
                   </div>
 
-                  {/* Mini Sample Question Card */}
-                  <div className="p-4 rounded-lg bg-slate-50/80 border border-border space-y-3">
+                  {/* LIVE INTERACTIVE DRILL COMPONENT */}
+                  <div className="p-4 rounded-lg bg-slate-50/90 border border-border space-y-3 transition-all duration-300">
                     <div className="flex items-center justify-between text-[11px] font-mono text-text-muted">
-                      <span>SAMPLE DRILL #142</span>
-                      <span className="text-slate-600 bg-white px-2 py-0.5 rounded border border-border">SINGLE SELECT</span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-text-primary">SAMPLE DRILL #{currentDrill.id}</span>
+                        <span className="text-[10px] bg-slate-200/70 text-slate-700 px-1.5 py-0.5 rounded">
+                          {currentDrill.domain}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {solvedCount > 0 && (
+                          <span className="text-emerald-700 bg-emerald-50 border border-emerald-200 px-1.5 py-0.5 rounded text-[10px]">
+                            {solvedCount} solved
+                          </span>
+                        )}
+                        <span className="text-slate-600 bg-white px-2 py-0.5 rounded border border-border">
+                          TAP TO TEST
+                        </span>
+                      </div>
                     </div>
+
                     <p className="text-[13px] text-text-primary leading-snug font-medium">
-                      Which AWS service provides cost allocation tags to track spending by department and environment?
+                      {currentDrill.question}
                     </p>
-                    <div className="space-y-1.5 pt-1">
-                      <div className="p-2 rounded bg-white border border-emerald-500/60 text-[12px] flex items-center justify-between text-text-primary">
-                        <span className="font-medium">AWS Billing &amp; Cost Management Tags</span>
-                        <span className="material-symbols-outlined text-[15px] text-emerald-600">check_circle</span>
-                      </div>
-                      <div className="p-2 rounded bg-white/60 border border-border text-[12px] text-text-secondary">
-                        Amazon CloudWatch Alarms
-                      </div>
+
+                    {/* Interactive Options */}
+                    <div className="space-y-2 pt-1">
+                      {currentDrill.options.map((opt, i) => {
+                        const isChosen = selectedOption === i;
+                        const isAnswered = selectedOption !== null;
+
+                        let styleClasses = "p-2.5 rounded-lg border text-[12px] flex items-center justify-between cursor-pointer transition-all duration-200 ";
+
+                        if (!isAnswered) {
+                          styleClasses += "bg-white hover:bg-slate-100/80 border-border text-text-primary hover:border-slate-400";
+                        } else if (opt.correct) {
+                          styleClasses += "bg-emerald-50/80 border-emerald-500 text-emerald-900 font-medium shadow-sm";
+                        } else if (isChosen && !opt.correct) {
+                          styleClasses += "bg-rose-50 border-rose-400 text-rose-900 line-through opacity-80";
+                        } else {
+                          styleClasses += "bg-white/50 border-border text-text-muted opacity-50";
+                        }
+
+                        return (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => handleSelectOption(i)}
+                            disabled={isAnswered}
+                            className={`w-full text-left ${styleClasses}`}
+                          >
+                            <span className="flex items-center gap-2">
+                              <span className="font-mono text-[11px] text-text-muted">
+                                {String.fromCharCode(65 + i)}.
+                              </span>
+                              <span>{opt.text}</span>
+                            </span>
+                            {isAnswered && opt.correct && (
+                              <span className="material-symbols-outlined text-[16px] text-emerald-600 animate-bounce">
+                                check_circle
+                              </span>
+                            )}
+                            {isAnswered && isChosen && !opt.correct && (
+                              <span className="material-symbols-outlined text-[16px] text-rose-500">
+                                cancel
+                              </span>
+                            )}
+                          </button>
+                        );
+                      })}
                     </div>
-                    <div className="text-[11px] text-text-muted pt-1 flex items-center gap-1.5 font-mono">
-                      <span className="material-symbols-outlined text-[13px] text-emerald-600">verified</span>
-                      <span>Verified with AWS Whitepaper: Cost Management Best Practices</span>
-                    </div>
+
+                    {/* Reveal Proof & Explanation on selection */}
+                    {selectedOption !== null && (
+                      <div className="pt-2 border-t border-slate-200/80 space-y-2">
+                        <div className="text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200/80 font-sans leading-relaxed">
+                          <strong className="font-mono block mb-1">COGNITIVE BREAKDOWN:</strong>
+                          {currentDrill.explanation}
+                        </div>
+                        <div className="flex items-center justify-between pt-1">
+                          <div className="text-[10px] text-text-muted flex items-center gap-1 font-mono">
+                            <span className="material-symbols-outlined text-[12px] text-emerald-600">verified</span>
+                            <span>{currentDrill.citation}</span>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={handleNextDrill}
+                            className="inline-flex items-center gap-1 text-[11px] font-mono font-medium text-brand hover:text-brand-accent bg-white px-2 py-1 rounded border border-border shadow-xs hover:border-slate-400 transition-colors"
+                          >
+                            <span>Next Question</span>
+                            <span className="material-symbols-outlined text-[12px]">navigate_next</span>
+                          </button>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
                   {/* Status footer */}
@@ -199,7 +531,7 @@ export default function Landing() {
           </div>
         </section>
 
-        {/* SECTION 2: FEATURE SHOWCASE */}
+        {/* SECTION 2: FEATURE SHOWCASE (With Interactive Architecture Labs & Local AI Mentor) */}
         <section className="max-w-6xl mx-auto px-6 py-24 border-b border-border" id="modules">
           <div className="max-w-2xl mb-16">
             <span className="text-[11px] font-mono uppercase tracking-wider text-text-muted font-medium block mb-2">Core Modules</span>
@@ -212,7 +544,7 @@ export default function Landing() {
           </div>
 
           <div className="space-y-16">
-            {/* Module 1 */}
+            {/* Module 1: Interactive Architecture Labs */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-16 border-b border-border-subtle">
               <div className="md:col-span-5 space-y-4">
                 <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-text-primary">
@@ -222,41 +554,76 @@ export default function Landing() {
                 <p className="text-[14px] text-text-secondary leading-relaxed">
                   Step through the curriculum mapped directly to the official AWS exam guide domains. Inspect 6 live visual architectures—including VPC boundaries, multi-AZ Auto Scaling, and ALB health-checks.
                 </p>
-                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-mono text-text-secondary">
-                  <span className="bg-surface px-2.5 py-1 rounded border border-border">VPC Topology</span>
-                  <span className="bg-surface px-2.5 py-1 rounded border border-border">ALB &amp; Target Groups</span>
-                  <span className="bg-surface px-2.5 py-1 rounded border border-border">IAM Roles &amp; Policies</span>
+
+                {/* Interactive Schematic Selector Tabs */}
+                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-mono">
+                  {Object.values(SCHEMATICS).map((sch) => (
+                    <button
+                      key={sch.id}
+                      type="button"
+                      onClick={() => {
+                        playSound('pop');
+                        setActiveSchematic(sch.id);
+                        setActiveTooltip(null);
+                      }}
+                      className={`px-2.5 py-1 rounded border transition-all ${
+                        activeSchematic === sch.id
+                          ? 'bg-brand text-white border-brand shadow-xs font-semibold'
+                          : 'bg-surface text-text-secondary border-border hover:bg-slate-100 hover:text-text-primary'
+                      }`}
+                    >
+                      {sch.label}
+                    </button>
+                  ))}
                 </div>
               </div>
 
+              {/* Interactive Schematic Visualizer Card */}
               <div className="md:col-span-7">
-                <div className="bg-surface p-5 rounded-xl border border-border shadow-sm font-mono text-[12px] space-y-3">
+                <div className="bg-surface p-5 rounded-xl border border-border shadow-sm font-mono text-[12px] space-y-3 transition-all duration-300">
                   <div className="flex items-center justify-between text-text-muted border-b border-border pb-2.5">
-                    <span>SCHEMATIC: VPC-MULTI-AZ-TIER</span>
-                    <span className="text-emerald-600">STATIC LATENCY: 0ms (LOCAL)</span>
+                    <span className="font-medium text-text-primary">{SCHEMATICS[activeSchematic].title}</span>
+                    <span className="text-emerald-600">{SCHEMATICS[activeSchematic].latency}</span>
                   </div>
-                  <div className="p-3 bg-slate-50 rounded-lg border border-border space-y-2 text-text-secondary">
-                    <div className="flex items-center justify-between">
-                      <span className="text-text-primary font-medium">Public Subnet (10.0.1.0/24)</span>
-                      <span className="text-[11px] text-text-muted">Internet Gateway Route</span>
-                    </div>
-                    <div className="pl-4 border-l-2 border-slate-300 space-y-1 text-[11px]">
-                      <div>└─ Application Load Balancer [Round-Robin / Path-Based]</div>
-                      <div>└─ NAT Gateway [EIP 52.14.88.2]</div>
-                    </div>
-                    <div className="flex items-center justify-between pt-1">
-                      <span className="text-text-primary font-medium">Private Subnet (10.0.2.0/24)</span>
-                      <span className="text-[11px] text-text-muted">Strict Egress Only</span>
-                    </div>
-                    <div className="pl-4 border-l-2 border-slate-300 text-[11px]">
-                      <div>└─ Auto Scaling Group (EC2 Instances x3 across AZ-a &amp; AZ-b)</div>
+
+                  <div className="p-3 bg-slate-50 rounded-lg border border-border space-y-3 text-text-secondary">
+                    {SCHEMATICS[activeSchematic].subnets.map((sub, sIdx) => (
+                      <div key={sIdx} className="space-y-1.5">
+                        <div className="flex items-center justify-between">
+                          <span className="text-text-primary font-medium">{sub.name}</span>
+                          <span className="text-[10px] text-text-muted">{sub.route}</span>
+                        </div>
+                        <div className="pl-3 border-l-2 border-slate-300 space-y-2 text-[11px]">
+                          {sub.nodes.map((node, nIdx) => (
+                            <div
+                              key={nIdx}
+                              onMouseEnter={() => setActiveTooltip(node.tip)}
+                              onMouseLeave={() => setActiveTooltip(null)}
+                              className="p-1.5 rounded bg-white border border-slate-200/90 hover:border-brand-accent transition-colors cursor-help flex items-center justify-between gap-2"
+                            >
+                              <span className="text-text-primary font-sans font-medium">{node.name}</span>
+                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 shrink-0">
+                                {node.tag}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+
+                    {/* Live Inspector Tooltip Bar */}
+                    <div className="pt-2 border-t border-slate-200 text-[11px] font-sans text-slate-700 min-h-[36px] flex items-center bg-white px-2.5 py-1.5 rounded border border-slate-200">
+                      <span className="material-symbols-outlined text-[14px] text-brand-accent mr-1.5 shrink-0">info</span>
+                      <span>
+                        {activeTooltip || "Hover over any architectural component above to inspect its exam rationale."}
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Module 2 */}
+            {/* Module 2: Real Exam Simulator */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center pb-16 border-b border-border-subtle" id="simulator">
               <div className="md:col-span-5 md:order-2 space-y-4">
                 <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-text-primary">
@@ -300,7 +667,7 @@ export default function Landing() {
               </div>
             </div>
 
-            {/* Module 3 */}
+            {/* Module 3: Interactive Local AI Mentor */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center" id="mentor">
               <div className="md:col-span-5 space-y-4">
                 <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center text-text-primary">
@@ -308,31 +675,54 @@ export default function Landing() {
                 </div>
                 <h3 className="text-xl font-semibold text-text-primary">Private Local AI Mentor</h3>
                 <p className="text-[14px] text-text-secondary leading-relaxed">
-                  Connect to your local Ollama runtime (or use direct WebLLM in browser). Ask deep comparative questions like <em>&quot;Why choose Aurora Serverless v2 over RDS multi-AZ here?&quot;</em> without leaking proprietary thoughts or study telemetry.
+                  Connect to your local Ollama runtime. Ask deep comparative questions without leaking proprietary thoughts or study telemetry. Test live sample prompts below:
                 </p>
-                <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-mono text-text-secondary">
-                  <span className="bg-surface px-2.5 py-1 rounded border border-border">Llama 3 / Mistral / Gemma</span>
-                  <span className="bg-surface px-2.5 py-1 rounded border border-border">Zero External API Calls</span>
+
+                {/* Clickable Sample Prompts */}
+                <div className="space-y-1.5 pt-1">
+                  <span className="text-[11px] font-mono text-text-muted uppercase tracking-wider block mb-1">
+                    Select a question to test response:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {MENTOR_PROMPTS.map((prompt, pIdx) => (
+                      <button
+                        key={pIdx}
+                        type="button"
+                        onClick={() => {
+                          playSound('pop');
+                          setActivePromptIndex(pIdx);
+                        }}
+                        className={`text-[11px] font-mono px-2.5 py-1 rounded border transition-all ${
+                          activePromptIndex === pIdx
+                            ? 'bg-brand text-white border-brand shadow-xs'
+                            : 'bg-surface text-text-secondary border-border hover:bg-slate-100'
+                        }`}
+                      >
+                        {prompt.label}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
+              {/* Dynamic Mentor Conversation Terminal */}
               <div className="md:col-span-7">
                 <div className="bg-surface p-5 rounded-xl border border-border shadow-sm space-y-3 font-mono text-[12px]">
                   <div className="flex items-center justify-between text-text-muted border-b border-border pb-2.5">
                     <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                       ollama://localhost:11434 (llama3:8b)
                     </span>
                     <span className="text-slate-500">100% AIR-GAPPED</span>
                   </div>
                   <div className="space-y-2">
-                    <div className="p-2.5 bg-slate-100/70 rounded border border-slate-200 text-text-primary">
+                    <div className="p-2.5 bg-slate-100/70 rounded border border-slate-200 text-text-primary font-mono text-[12px]">
                       <span className="text-text-muted mr-1.5">&gt; user:</span>
-                      What is the core distinction between S3 Standard-IA and S3 One Zone-IA on the exam?
+                      {MENTOR_PROMPTS[activePromptIndex].question}
                     </div>
-                    <div className="p-2.5 bg-slate-50 rounded border border-border text-text-secondary leading-relaxed font-sans text-[13px]">
+                    <div className="p-2.5 bg-slate-50 rounded border border-border text-text-secondary leading-relaxed font-sans text-[13px] animate-fadeIn">
                       <span className="font-mono text-text-primary font-medium block mb-1 text-[11px]">MENTOR RATIONALE:</span>
-                      Both charge retrieval fees, but <strong>Standard-IA</strong> replicates across &ge;3 Availability Zones for 99.999999999% resilience. <strong>One Zone-IA</strong> stores data in a single AZ, costing 20% less but data will be destroyed if that specific physical AZ is destroyed. Use One Zone only for easily recreatable backups.
+                      {MENTOR_PROMPTS[activePromptIndex].answer}
                     </div>
                   </div>
                 </div>
