@@ -1,0 +1,798 @@
+/* ==========================================================================
+   Cheat-sheet content.
+
+   The sheets in /sheets are standalone HTML documents that carry their own
+   inline <style> blocks. Those blocks are stripped before the document body
+   is injected (see CheatsheetViewer.jsx), so every class the documents rely
+   on has to be restated here — mapped onto the app's tokens, so a sheet
+   follows the active theme instead of shipping hard-coded colours.
+
+   Class names are kept exactly as the documents spell them: they are the
+   contract between the files in /sheets and this stylesheet.
+   ========================================================================== */
+
+/* --------------------------------------------------------- Document frame */
+
+.cheatsheet-content .container {
+    display: block;
+    width: 100%;
+    max-width: 62.5rem;
+    margin: 0 auto;
+    padding: var(--sp-6);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+/* The documents use a bare <header> element for their title band. */
+.cheatsheet-content header {
+    position: relative;
+    padding: var(--sp-5) var(--sp-4);
+    margin-bottom: var(--sp-5);
+    text-align: center;
+    background: var(--surface-2);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+}
+
+.cheatsheet-content header h1 {
+    margin-bottom: var(--sp-1);
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.cheatsheet-content .subtitle {
+    font-size: var(--fs-base);
+    color: var(--accent);
+}
+
+.cheatsheet-content .aws-logo {
+    position: absolute;
+    top: var(--sp-4);
+    left: var(--sp-4);
+    width: auto;
+    height: 2rem;
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content footer {
+    padding: var(--sp-5) 0 0;
+    margin-top: var(--sp-6);
+    text-align: center;
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+    border-top: 1px solid var(--border-subtle);
+}
+
+.cheatsheet-content .section {
+    margin-bottom: var(--sp-6);
+    padding-bottom: var(--sp-5);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.cheatsheet-content .section:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.cheatsheet-content .section-title {
+    margin-bottom: var(--sp-3);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .category-heading {
+    padding: var(--sp-3) var(--sp-4);
+    margin: var(--sp-5) 0 var(--sp-4);
+    font-size: var(--fs-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-sm);
+}
+
+/* ----------------------------------------------------------- Cards & grids */
+
+.cheatsheet-content .grid-container,
+.cheatsheet-content .grid,
+.cheatsheet-content .services,
+.cheatsheet-content .db-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-4);
+}
+
+.cheatsheet-content .domain-container,
+.cheatsheet-content .perspective-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+    justify-content: center;
+    margin-top: var(--sp-4);
+}
+
+.cheatsheet-content .card,
+.cheatsheet-content .db-card,
+.cheatsheet-content .domain-card,
+.cheatsheet-content .perspective-card,
+.cheatsheet-content .service-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--sp-4);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--dur-fast) var(--ease), box-shadow var(--dur-fast) var(--ease);
+}
+
+.cheatsheet-content .card:hover,
+.cheatsheet-content .db-card:hover,
+.cheatsheet-content .domain-card:hover,
+.cheatsheet-content .perspective-card:hover,
+.cheatsheet-content .service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.cheatsheet-content .card-content {
+    font-size: var(--fs-sm);
+    line-height: var(--lh-normal);
+    color: var(--text-secondary);
+}
+
+.cheatsheet-content .card-content > *:first-child {
+    margin-top: 0;
+}
+
+/* The documents colour a card's left edge by family. */
+.cheatsheet-content .card.network { border-left: 3px solid var(--accent); }
+.cheatsheet-content .card.security { border-left: 3px solid var(--danger); }
+.cheatsheet-content .card.monitoring { border-left: 3px solid var(--warning); }
+.cheatsheet-content .card.compliance { border-left: 3px solid var(--success); }
+.cheatsheet-content .card.encryption { border-left: 3px solid var(--purple); }
+.cheatsheet-content .card.detection { border-left: 3px solid var(--warning); }
+.cheatsheet-content .card.protection { border-left: 3px solid var(--danger); }
+.cheatsheet-content .card.management { border-left: 3px solid var(--purple); }
+.cheatsheet-content .card.governance { border-left: 3px solid var(--purple); }
+.cheatsheet-content .card.organization { border-left: 3px solid var(--purple); }
+.cheatsheet-content .card.operations { border-left: 3px solid var(--accent); }
+.cheatsheet-content .card.people { border-left: 3px solid var(--success); }
+.cheatsheet-content .card.process { border-left: 3px solid var(--success); }
+.cheatsheet-content .card.business { border-left: 3px solid var(--accent); }
+.cheatsheet-content .card.platform { border-left: 3px solid var(--purple); }
+.cheatsheet-content .card.product { border-left: 3px solid var(--purple); }
+.cheatsheet-content .card.security { border-left: 3px solid var(--danger); }
+
+.cheatsheet-content .db-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-3);
+    margin: calc(var(--sp-4) * -1) calc(var(--sp-4) * -1) var(--sp-3);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--text-primary);
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+}
+
+.cheatsheet-content .service-name {
+    margin: 0;
+    font-size: var(--fs-base);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ------------------------------------------------------------- Iconography */
+
+/* The source documents point their icons at a placeholder service that no
+   longer exists, so they are replaced with a lettered badge at injection
+   time. The badge inherits the theme like everything else. */
+.cheatsheet-content .service-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-right: var(--sp-3);
+    font-family: var(--font-mono);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-soft-strong);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .service-icon-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--sp-3);
+}
+
+.cheatsheet-content .icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: var(--sp-2);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--text-on-accent);
+    background: var(--accent);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: var(--sp-2);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--text-on-accent);
+    background: var(--brand-aws);
+    border-radius: var(--radius-pill);
+}
+
+.cheatsheet-content .arrow {
+    font-size: var(--fs-xl);
+    color: var(--accent);
+}
+
+.cheatsheet-content .emoji {
+    margin-right: 0.3rem;
+    font-size: 1.2rem;
+}
+
+/* ------------------------------------------------------------- Callouts */
+
+.cheatsheet-content .mnemonic,
+.cheatsheet-content .memory-tip,
+.cheatsheet-content .memory-tips {
+    padding: var(--sp-3);
+    margin: var(--sp-3) 0;
+    font-size: var(--fs-sm);
+    font-style: italic;
+    line-height: var(--lh-normal);
+    color: var(--text-secondary);
+    background: var(--surface-2);
+    border: 1px dashed var(--border-default);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .mnemonic b,
+.cheatsheet-content .memory-tip b,
+.cheatsheet-content .memory-tips b {
+    color: var(--text-primary);
+    font-style: normal;
+}
+
+.cheatsheet-content .important {
+    padding: var(--sp-3) var(--sp-4);
+    margin: var(--sp-4) 0;
+    background: var(--danger-soft);
+    border-left: 4px solid var(--danger);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.cheatsheet-content .important strong {
+    color: var(--danger);
+}
+
+.cheatsheet-content .exam-tip {
+    padding: var(--sp-3) var(--sp-4);
+    margin: var(--sp-4) 0;
+    font-size: var(--fs-sm);
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.cheatsheet-content .exam-tips {
+    padding: var(--sp-4);
+    margin: var(--sp-5) 0;
+    background: var(--warning-soft);
+    border-left: 4px solid var(--warning);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.cheatsheet-content .exam-focus {
+    display: inline-block;
+    padding: 0.2rem var(--sp-2);
+    margin-top: var(--sp-1);
+    font-size: var(--fs-xs);
+    color: var(--text-secondary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .use-case {
+    padding: var(--sp-3);
+    margin: var(--sp-3) 0;
+    font-size: var(--fs-sm);
+    background: var(--success-soft);
+    border-left: 3px solid var(--success);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .note,
+.cheatsheet-content .tip {
+    padding: var(--sp-3);
+    margin: var(--sp-3) 0;
+    font-size: var(--fs-sm);
+    background: var(--warning-soft);
+    border-left: 3px solid var(--warning);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .remember {
+    padding: var(--sp-3);
+    margin-top: var(--sp-5);
+    text-align: center;
+    font-size: var(--fs-sm);
+    background: var(--accent-soft);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .root-privileges {
+    padding: var(--sp-3);
+    margin-top: var(--sp-5);
+    background: var(--danger-soft);
+    border: 1px dashed var(--danger);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .root-privileges h3 {
+    margin-top: 0;
+    color: var(--danger);
+}
+
+.cheatsheet-content .example {
+    font-style: italic;
+    color: var(--accent);
+}
+
+.cheatsheet-content .scenario {
+    padding: var(--sp-3);
+    margin-top: var(--sp-3);
+    background: var(--surface-2);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-sm);
+}
+
+.cheatsheet-content .scenario h4 {
+    margin-top: 0;
+    color: var(--accent);
+}
+
+.cheatsheet-content .box {
+    padding: var(--sp-4);
+    margin: var(--sp-4) 0;
+    background: var(--surface-2);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* A callout is a tinted block: its own heading belongs to the text colours,
+   not to the accent, so it stays readable on the tint. */
+.cheatsheet-content .exam-tip h3,
+.cheatsheet-content .exam-tip h4,
+.cheatsheet-content .exam-tips h3,
+.cheatsheet-content .exam-tips h4,
+.cheatsheet-content .important h3,
+.cheatsheet-content .important h4,
+.cheatsheet-content .use-case h3,
+.cheatsheet-content .use-case h4,
+.cheatsheet-content .note h3,
+.cheatsheet-content .note h4,
+.cheatsheet-content .tip h3,
+.cheatsheet-content .tip h4,
+.cheatsheet-content .box h3,
+.cheatsheet-content .box h4,
+.cheatsheet-content .mnemonic h3,
+.cheatsheet-content .mnemonic h4,
+.cheatsheet-content .memory-tip h3,
+.cheatsheet-content .memory-tip h4,
+.cheatsheet-content .memory-tips h3,
+.cheatsheet-content .memory-tips h4,
+.cheatsheet-content .root-privileges h3,
+.cheatsheet-content .root-privileges h4,
+.cheatsheet-content .scenario h3,
+.cheatsheet-content .scenario h4 {
+    color: var(--text-primary);
+}
+
+/* ----------------------------------------------------------- Key material */
+
+.cheatsheet-content .key-point {
+    font-weight: 600;
+    color: var(--danger);
+}
+
+.cheatsheet-content .key-term {
+    font-weight: 600;
+    color: var(--accent-gold-text);
+}
+
+.cheatsheet-content .key {
+    font-weight: 600;
+    color: var(--danger);
+}
+
+.cheatsheet-content .key-blue,
+.cheatsheet-content .primary {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.cheatsheet-content .key-green,
+.cheatsheet-content .benefit {
+    font-weight: 600;
+    color: var(--success);
+}
+
+.cheatsheet-content .key-purple,
+.cheatsheet-content .accent {
+    font-weight: 600;
+    color: var(--purple);
+}
+
+.cheatsheet-content .secondary {
+    font-weight: 600;
+    color: var(--warning);
+}
+
+.cheatsheet-content .concept,
+.cheatsheet-content .property-name {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.cheatsheet-content .property-name {
+    flex: none;
+    width: 7rem;
+}
+
+.cheatsheet-content .property {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-2);
+    margin: var(--sp-2) 0;
+}
+
+.cheatsheet-content .detail {
+    margin-top: var(--sp-1);
+    padding-left: var(--sp-3);
+    font-size: var(--fs-sm);
+    color: var(--text-tertiary);
+    border-left: 2px dotted var(--border-default);
+}
+
+.cheatsheet-content .item {
+    padding-left: var(--sp-3);
+    margin-bottom: var(--sp-3);
+    border-left: 3px solid var(--accent);
+}
+
+/* ------------------------------------------------- Inline highlights
+
+   A tinted chip keeps its meaning through the tint, and the text inside it
+   stays a text colour: a hue on its own tint loses contrast the moment the
+   chip sits on another tinted block. */
+
+.cheatsheet-content .highlight {
+    padding: 0.1rem var(--sp-1);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    background: var(--accent-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .highlight.blue { background: var(--accent-soft); }
+.cheatsheet-content .highlight.green { background: var(--success-soft); }
+.cheatsheet-content .highlight.orange { background: var(--warning-soft); }
+.cheatsheet-content .highlight.purple { background: var(--purple-soft); }
+.cheatsheet-content .highlight.red { background: var(--danger-soft); }
+
+.cheatsheet-content .keyword {
+    padding: 0.1rem var(--sp-1);
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    background: var(--surface-3);
+    color: var(--text-primary);
+}
+
+/* ------------------------------------------------------ Family categories
+
+   These names are used in two roles across the documents: as a standalone
+   category badge, and as a modifier on a card (".card security"). The tint
+   is for the badge; a card keeps its own surface and takes the colour as a
+   border instead, so a chip sitting on it stays legible. */
+
+.cheatsheet-content .compliance:not(.card),
+.cheatsheet-content .key-compliance {
+    background: var(--success-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .detection:not(.card),
+.cheatsheet-content .key-detection {
+    background: var(--warning-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .encryption:not(.card),
+.cheatsheet-content .key-encryption {
+    background: var(--accent-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .management:not(.card),
+.cheatsheet-content .key-management {
+    background: var(--purple-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .protection:not(.card),
+.cheatsheet-content .key-protection {
+    background: var(--danger-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .key-tracking,
+.cheatsheet-content .tracking {
+    background: var(--success-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .monitoring:not(.card),
+.cheatsheet-content .cost {
+    background: var(--warning-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .governance:not(.card),
+.cheatsheet-content .organization:not(.card) {
+    background: var(--purple-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .operations:not(.card),
+.cheatsheet-content .business:not(.card) {
+    background: var(--accent-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .people:not(.card),
+.cheatsheet-content .process:not(.card) {
+    background: var(--success-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .platform:not(.card),
+.cheatsheet-content .product:not(.card) {
+    background: var(--purple-soft);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .security:not(.card) {
+    background: var(--danger-soft);
+    color: var(--text-primary);
+}
+
+/* ---------------------------------------------------------- Structures */
+
+.cheatsheet-content .pillar {
+    padding: var(--sp-4) var(--sp-5);
+    margin: var(--sp-4) 0;
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-left: 6px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.cheatsheet-content .pillar h2 {
+    margin-top: 0;
+    font-size: var(--fs-lg);
+    color: var(--text-primary);
+}
+
+.cheatsheet-content .pillar-name {
+    display: inline-block;
+    padding: var(--sp-1) var(--sp-3);
+    margin: var(--sp-1);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-pill);
+}
+
+.cheatsheet-content .pillars-summary {
+    padding: var(--sp-4) var(--sp-5);
+    margin: var(--sp-5) 0;
+    text-align: center;
+    background: var(--surface-2);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+}
+
+.cheatsheet-content .plan-container {
+    padding: var(--sp-4);
+    margin-bottom: var(--sp-5);
+    background: var(--surface-1);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+}
+
+.cheatsheet-content .plan-name {
+    padding-bottom: var(--sp-2);
+    margin-bottom: var(--sp-3);
+    font-size: var(--fs-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.cheatsheet-content .pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    padding: var(--sp-4);
+    margin: var(--sp-5) 0;
+    background: var(--surface-2);
+    border-radius: var(--radius-md);
+}
+
+.cheatsheet-content .pipeline-step {
+    flex: 1 1 8rem;
+    text-align: center;
+}
+
+.cheatsheet-content .capabilities {
+    list-style-type: square;
+}
+
+.cheatsheet-content .features {
+    margin-left: var(--sp-5);
+}
+
+.cheatsheet-content .features li {
+    margin-bottom: var(--sp-1);
+}
+
+/* -------------------------------------------------------------- Tables */
+
+.cheatsheet-content .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--sp-4) 0;
+}
+
+.cheatsheet-content .comparison-table th,
+.cheatsheet-content .comparison-table td {
+    padding: var(--sp-2) var(--sp-3);
+    text-align: left;
+    border: 1px solid var(--border-subtle);
+}
+
+.cheatsheet-content .comparison-table th {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--surface-2);
+}
+
+.cheatsheet-content .comparison-table tr:nth-child(even) td {
+    background: var(--surface-2);
+}
+
+.cheatsheet-content .compare-yes {
+    font-weight: 600;
+    color: var(--success);
+}
+
+.cheatsheet-content .compare-no {
+    font-weight: 600;
+    color: var(--danger);
+}
+
+.cheatsheet-content .compare-limited {
+    font-weight: 600;
+    color: var(--warning);
+}
+
+.cheatsheet-content .compare-highlight {
+    background: var(--accent-soft);
+}
+
+/* ==========================================================================
+   Utility layer.
+
+   One of the sheets was authored with Tailwind-style utility classes
+   instead of semantic ones. Rather than editing the source document, the
+   handful of utilities it uses are implemented here so the sheet renders
+   as designed.
+   ========================================================================== */
+
+.cheatsheet-content .max-w-5xl { max-width: 64rem; }
+.cheatsheet-content .mx-auto { margin-left: auto; margin-right: auto; }
+.cheatsheet-content .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.cheatsheet-content .gap-4 { gap: var(--sp-4); }
+.cheatsheet-content .p-4 { padding: var(--sp-4); }
+.cheatsheet-content .p-6 { padding: var(--sp-6); }
+.cheatsheet-content .pl-6 { padding-left: var(--sp-6); }
+.cheatsheet-content .mb-2 { margin-bottom: var(--sp-2); }
+.cheatsheet-content .mb-4 { margin-bottom: var(--sp-4); }
+.cheatsheet-content .mb-8 { margin-bottom: var(--sp-6); }
+.cheatsheet-content .mt-1 { margin-top: var(--sp-1); }
+.cheatsheet-content .mt-2 { margin-top: var(--sp-2); }
+.cheatsheet-content .text-center { text-align: center; }
+.cheatsheet-content .font-bold { font-weight: 700; }
+.cheatsheet-content .font-semibold { font-weight: 600; }
+.cheatsheet-content .italic { font-style: italic; }
+.cheatsheet-content .list-disc { list-style-type: disc; }
+.cheatsheet-content .rounded-xl { border-radius: var(--radius-lg); }
+.cheatsheet-content .shadow-md { box-shadow: var(--shadow-md); }
+.cheatsheet-content .border-l-4 { border-left: 4px solid var(--border-default); }
+.cheatsheet-content .border-blue-500 { border-color: var(--accent); }
+.cheatsheet-content .bg-white { background: var(--surface-1); }
+.cheatsheet-content .bg-gray-100 { background: var(--surface-2); }
+.cheatsheet-content .bg-blue-100 { background: var(--accent-soft); }
+.cheatsheet-content .text-sm { font-size: var(--fs-sm); }
+.cheatsheet-content .text-xl { font-size: var(--fs-xl); }
+.cheatsheet-content .text-2xl { font-size: var(--fs-2xl); }
+.cheatsheet-content .text-4xl { font-size: var(--fs-3xl); }
+.cheatsheet-content .text-gray-600 { color: var(--text-tertiary); }
+.cheatsheet-content .text-gray-700 { color: var(--text-secondary); }
+.cheatsheet-content .text-gray-800 { color: var(--text-primary); }
+.cheatsheet-content .text-blue-500 { color: var(--accent); }
+.cheatsheet-content .text-blue-700 { color: var(--accent); }
+.cheatsheet-content .text-green-600 { color: var(--success); }
+.cheatsheet-content .text-green-700 { color: var(--success); }
+.cheatsheet-content .text-red-600 { color: var(--danger); }
+.cheatsheet-content .text-red-700 { color: var(--danger); }
+.cheatsheet-content .text-yellow-600 { color: var(--accent-gold-strong); }
+.cheatsheet-content .text-yellow-700 { color: var(--accent-gold-strong); }
+
+/* ---------------------------------------------------------- Responsive */
+
+@media (max-width: 768px) {
+    .cheatsheet-content .container {
+        padding: var(--sp-4);
+    }
+
+    .cheatsheet-content .grid-container,
+    .cheatsheet-content .grid,
+    .cheatsheet-content .services,
+    .cheatsheet-content .db-container {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .cheatsheet-content .aws-logo {
+        position: static;
+        display: block;
+        margin: 0 auto var(--sp-3);
+    }
+
+    .cheatsheet-content .comparison-table {
+        display: block;
+        overflow-x: auto;
+    }
+}

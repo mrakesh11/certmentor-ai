@@ -13,6 +13,24 @@
     margin: 0 auto;
 }
 
+/* ---- Page head: what this run is ---- */
+
+.sim__head {
+    margin-bottom: var(--sp-2);
+}
+
+.sim__head h1 {
+    font-size: var(--fs-xl);
+    margin-bottom: var(--sp-1);
+}
+
+.sim__lede {
+    max-width: 60ch;
+    font-size: var(--fs-sm);
+    line-height: var(--lh-normal);
+    color: var(--text-tertiary);
+}
+
 /* ---- Top bar: mode, position, tools ---- */
 
 .sim__bar {

@@ -239,7 +239,9 @@ describe('applyTheme', () => {
         applyTheme('dark');
         expect(themeColorMeta.content).toBe('#1f1f1f');
         applyTheme('light');
-        expect(themeColorMeta.content).toBe('#f7f7f5');
+        // Matches the light canvas token (--bg-canvas) so the address bar and
+        // the page share one paper tone.
+        expect(themeColorMeta.content).toBe('#fcfcfd');
     });
 
     it('does nothing when there is no document', () => {

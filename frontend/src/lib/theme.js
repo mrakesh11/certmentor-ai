@@ -90,7 +90,7 @@ export function applyTheme(applied) {
     document.documentElement.dataset.theme = applied;
     // Keep the browser UI (address bar, form controls) in step.
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute('content', applied === 'dark' ? '#1f1f1f' : '#f7f7f5');
+    if (meta) meta.setAttribute('content', applied === 'dark' ? '#1f1f1f' : '#fcfcfd');
 }
 
 function defaultStorage() {

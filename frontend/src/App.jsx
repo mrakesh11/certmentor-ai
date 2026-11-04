@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, lazy, Suspense } from 'react';
+import { useState, useEffect, useMemo, useRef, lazy, Suspense } from 'react';
 import { Routes, Route, Link, NavLink, useLocation } from 'react-router-dom';
 import ErrorBoundary from './components/ErrorBoundary';
 import ThemeToggle from './components/ThemeToggle';
@@ -9,6 +9,8 @@ import RewardToast from './components/RewardToast';
 import { getDomains, getPracticeQuestions } from './lib/curriculum';
 import './App.css';
 
+const Landing = lazy(() => import('./pages/Landing'));
+const Login = lazy(() => import('./pages/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const PracticeQuestions = lazy(() => import('./pages/PracticeQuestions'));
 const CheatsheetViewer = lazy(() => import('./pages/CheatsheetViewer'));
@@ -37,21 +39,33 @@ const cheatsheets = [
 ];
 
 const NAV_ITEMS = [
-    { to: '/', label: 'Dashboard', end: true },
+    { to: '/dashboard', label: 'Dashboard', end: true },
     { to: '/learn', label: 'Curriculum' },
     { to: '/flashcards', label: 'Flashcards' },
-    { to: '/practice-questions', label: 'Exam Simulator' },
     // In-page anchor on the dashboard rather than a route, so it renders as a
     // plain link and never carries a route's active state.
-    { to: '/#cheatsheets', label: 'Cheat sheets', anchor: true },
+    { to: '/dashboard#cheatsheets', label: 'Cheat sheets', anchor: true },
 ];
 
-function Navbar({ onOpenRewards }) {
+
+/**
+ * The shortcut hint has to name the key the reader actually has: Command on
+ * Apple hardware, Control everywhere else.
+ */
+function shortcutLabel() {
+    if (typeof navigator === 'undefined') return 'Ctrl K';
+    const platform = navigator.userAgentData?.platform || navigator.platform || navigator.userAgent || '';
+    return /mac|iphone|ipad|ipod/i.test(platform) ? '⌘K' : 'Ctrl K';
+}
+
+function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [searchOpen, setSearchOpen] = useState(false);
     const location = useLocation();
     const searchRef = useRef(null);
+    const inputRef = useRef(null);
+    const shortcut = useMemo(() => shortcutLabel(), []);
 
     // Close menus on navigation so a tap on a link never leaves the panel
     // open. Done by adjusting state during render (React's recommended
@@ -64,6 +78,26 @@ function Navbar({ onOpenRewards }) {
         if (searchOpen) setSearchOpen(false);
         if (searchQuery) setSearchQuery('');
     }
+
+    // ⌘K / Ctrl+K focuses search, the quick-jump shortcut advertised in the
+    // navigation chrome.
+    useEffect(() => {
+        const onKey = (event) => {
+            if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') {
+                event.preventDefault();
+                setSearchOpen(true);
+                // On a narrow viewport the field lives inside the menu panel,
+                // so the panel has to open before it can take focus.
+                if (typeof window.matchMedia === 'function'
+                    && window.matchMedia(MOBILE_NAV_QUERY).matches) {
+                    setMenuOpen(true);
+                }
+                window.requestAnimationFrame(() => inputRef.current?.focus());
+            }
+        };
+        window.addEventListener('keydown', onKey);
+        return () => window.removeEventListener('keydown', onKey);
+    }, []);
 
     // Close the search dropdown on outside click / Escape.
     useEffect(() => {
@@ -116,13 +150,51 @@ function Navbar({ onOpenRewards }) {
         && results.cheats.length === 0
         && results.questions.length === 0;
 
+    const resultCount = results.topics.length + results.cheats.length + results.questions.length;
+
+    /**
+     * Move focus through the result links with the arrow keys. Focus leaves
+     * the field and walks the results; Escape brings it back to the field.
+     */
+    const moveFocus = (delta) => {
+        const items = [...(searchRef.current?.querySelectorAll('.search-item:not(.search-item--empty)') ?? [])];
+        if (items.length === 0) return;
+        const current = items.indexOf(document.activeElement);
+        const next = current === -1
+            ? (delta > 0 ? 0 : items.length - 1)
+            : (current + delta + items.length) % items.length;
+        items[next].focus();
+    };
+
+    const onSearchKeyDown = (event) => {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            event.preventDefault();
+            moveFocus(event.key === 'ArrowDown' ? 1 : -1);
+        }
+    };
+
+    const onResultsKeyDown = (event) => {
+        if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            event.preventDefault();
+            moveFocus(event.key === 'ArrowDown' ? 1 : -1);
+        } else if (event.key === 'Escape') {
+            event.preventDefault();
+            setSearchOpen(false);
+            inputRef.current?.focus();
+        }
+    };
+
     return (
         <nav className="nav" aria-label="Primary">
             <div className="nav__inner">
                 <Link to="/" className="nav__brand">
-                    <i className="fa-brands fa-aws" aria-hidden="true"></i>
-                    <span className="nav__brand-name">CLF-C02</span>
-                    <span className="sub">Study Workspace</span>
+                    <span className="nav__brand-mark" aria-hidden="true">
+                        <i className="fa-brands fa-aws"></i>
+                    </span>
+                    <span className="nav__brand-name">
+                        CertMentor<span className="nav__brand-suffix">/engine</span>
+                    </span>
+                    <span className="nav__version">CLF-C02</span>
                 </Link>
 
                 <button
@@ -140,11 +212,12 @@ function Navbar({ onOpenRewards }) {
                     <div className="nav__search" ref={searchRef}>
                         <i className="fa-solid fa-search" aria-hidden="true"></i>
                         <input
+                            ref={inputRef}
                             type="search"
-                            role="combobox"
-                            aria-expanded={searchOpen && hasQuery}
-                            aria-controls="nav-search-results"
+                            role="searchbox"
                             aria-label="Search topics, cheatsheets and questions"
+                            aria-keyshortcuts="Control+K Meta+K"
+                            aria-describedby="nav-search-status"
                             placeholder="Search topics, sheets, questions…"
                             value={searchQuery}
                             onChange={(event) => {
@@ -152,12 +225,19 @@ function Navbar({ onOpenRewards }) {
                                 setSearchOpen(true);
                             }}
                             onFocus={() => setSearchOpen(true)}
+                            onKeyDown={onSearchKeyDown}
                         />
+                        <kbd className="nav__search-kbd" aria-hidden="true">{shortcut}</kbd>
+                        <p id="nav-search-status" className="visually-hidden" role="status">
+                            {hasQuery
+                                ? `${resultCount} result${resultCount === 1 ? '' : 's'} for “${searchQuery.trim()}”`
+                                : 'Type at least two characters to search topics, cheat sheets and questions.'}
+                        </p>
                         {searchOpen && hasQuery && (
                             <div
                                 id="nav-search-results"
                                 className="search-dropdown"
-                                role="listbox"
+                                onKeyDown={onResultsKeyDown}
                             >
                                     {results.topics.length > 0 && (
                                         <div className="search-section-title">Curriculum topics</div>
@@ -241,7 +321,14 @@ function Navbar({ onOpenRewards }) {
                     </div>
 
                     <div className="nav__tools">
-                        <EconomyBadge onClick={onOpenRewards} />
+                        <Link
+                            to="/practice-questions?mode=exam"
+                            className="nav__launch"
+                            title="Start the 65-question timed simulation"
+                        >
+                            <i className="fa-solid fa-play" aria-hidden="true"></i>
+                            <span>Launch exam</span>
+                        </Link>
                         <ThemeToggle />
                     </div>
                 </div>
@@ -250,14 +337,84 @@ function Navbar({ onOpenRewards }) {
     );
 }
 
+const FOOTER_MODULES = [
+    { to: '/learn', label: '4-domain curriculum' },
+    { to: '/practice-questions?mode=standard', label: 'Exam simulator' },
+    { to: '/flashcards', label: 'Flashcard review' },
+    { to: '/dashboard#interactive-diagram', label: 'Architecture diagrams' },
+];
+
+const FOOTER_ASSETS = [
+    { to: '/cheatsheets/VPC.html', label: 'VPC & networking' },
+    { to: '/cheatsheets/S3_edge_computing.html', label: 'S3 storage classes' },
+    { to: '/cheatsheets/aws_support_plans.html', label: 'AWS support plans' },
+    { to: '/cheatsheets/well_architected_framework.html', label: 'Well-Architected Framework' },
+];
+
 function Footer() {
     return (
         <footer className="footer">
             <div className="footer__inner">
-                <p>&copy; 2026 AWS CLF-C02 Study Workspace. Not affiliated with Amazon Web Services.</p>
-                <div className="footer__links">
-                    <Link to="/learn">Curriculum</Link>
-                    <Link to="/flashcards">Flashcards</Link>
+                <div className="footer__grid">
+                    <div>
+                        <span className="footer__brand">
+                            CertMentor<span className="footer__brand-suffix">/ai</span>
+                        </span>
+                        <p className="footer__blurb">
+                            An AWS Certified Cloud Practitioner (CLF-C02) study workspace built on
+                            fact-checked questions — every explanation cites official AWS
+                            documentation.
+                        </p>
+                        <p className="footer__vault">
+                            <i className="fa-solid fa-lock" aria-hidden="true"></i>
+                            Progress stored locally in your browser
+                        </p>
+                        <div className="footer__appearance">
+                            <span className="footer__appearance-label">Appearance</span>
+                            <ThemeToggle variant="labeled" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="footer__col-title">Engine modules</h2>
+                        <ul className="footer__list">
+                            {FOOTER_MODULES.map((item) => (
+                                <li key={item.to}>
+                                    <Link to={item.to}>{item.label}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 className="footer__col-title">High-yield assets</h2>
+                        <ul className="footer__list">
+                            {FOOTER_ASSETS.map((item) => (
+                                <li key={item.to}>
+                                    <Link to={item.to}>{item.label}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2 className="footer__col-title">Privacy &amp; architecture</h2>
+                        <p className="footer__blurb">
+                            No account and no analytics: study progress and simulator statistics
+                            stay in this browser, and the Socratic mentor talks only to a local
+                            Ollama instance on your machine.
+                        </p>
+                    </div>
+                </div>
+
+                <div className="footer__bottom">
+                    <p className="footer__disclaimer">
+                        Disclaimer: CertMentor is an independent preparation tool and is not
+                        affiliated with, endorsed by, or sponsored by Amazon Web Services, Inc.
+                        AWS and AWS Certified Cloud Practitioner are registered trademarks of
+                        Amazon.com, Inc. or its affiliates.
+                    </p>
+                    <p className="footer__copy">&copy; 2026 CertMentor study workspace.</p>
                 </div>
             </div>
         </footer>
@@ -276,17 +433,19 @@ function PageFallback() {
 }
 
 function App() {
-    const [isRewardOpen, setIsRewardOpen] = useState(false);
-
+    const location = useLocation();
+    const isStandalonePage = location.pathname === '/' || location.pathname === '/login';
     return (
         <ThemeProvider>
             <ErrorBoundary>
-                <a href="#main-content" className="skip-link">Skip to content</a>
-                <Navbar onOpenRewards={() => setIsRewardOpen(true)} />
-                <main id="main-content" style={{ flex: 1 }}>
+                {!isStandalonePage && <a href="#main-content" className="skip-link">Skip to content</a>}
+                {!isStandalonePage && <Navbar />}
+                <main id={isStandalonePage ? undefined : "main-content"} style={{ flex: 1 }}>
                     <Suspense fallback={<PageFallback />}>
                         <Routes>
-                            <Route path="/" element={<Dashboard />} />
+                            <Route path="/" element={<Landing />} />
+                            <Route path="/dashboard" element={<Dashboard />} />
+                            <Route path="/login" element={<Login />} />
                             <Route path="/learn" element={<Learn />} />
                             <Route path="/learn/:domain/:topic" element={<TopicLesson />} />
                             <Route path="/practice-questions" element={<PracticeQuestions />} />
@@ -295,12 +454,12 @@ function App() {
                         </Routes>
                     </Suspense>
                 </main>
-                <Footer />
-                <Suspense fallback={null}>
-                    <CloudMentor onOpenRewards={() => setIsRewardOpen(true)} />
+                {!isStandalonePage && <Footer />}
+                {!isStandalonePage && (
+                    <Suspense fallback={null}>
+                    <CloudMentor />
                 </Suspense>
-                <RewardToast />
-                <RewardModal isOpen={isRewardOpen} onClose={() => setIsRewardOpen(false)} />
+                )}
             </ErrorBoundary>
         </ThemeProvider>
     );
