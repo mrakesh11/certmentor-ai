@@ -3,15 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CertMentor.AI — AWS CLF-C02 Study Workspace</title>
-    <meta name="description" content="Study the AWS Cloud Practitioner (CLF-C02) curriculum and practice fact-checked questions." />
+    <title>CertMentor.AI — Minimalist Studio Certification Workspace</title>
+    <meta name="description" content="Study certifications with calm, deliberate focus. A quiet workspace engineered for understanding over memorization." />
     <meta name="theme-color" content="#fcfcfd" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Tailwind CSS (for Landing & Studio layout) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: ["class", '[data-theme="dark"]'],
+        theme: {
+          extend: {
+            colors: {
+              canvas: "#FCFCFD",
+              surface: "#FFFFFF",
+              border: "#E5E7EB",
+              "border-subtle": "#F1F5F9",
+              brand: "#0F172A",
+              "brand-accent": "#0284C7",
+              "text-primary": "#0F172A",
+              "text-secondary": "#64748B",
+              "text-muted": "#94A3B8",
+              accent: "#10B981"
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'Geist', 'Inter', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace']
+            }
+          }
+        }
+      };
+    </script>
     <!-- Resolve the theme before first paint so there is no flash of the
          wrong scheme. Mirrors src/lib/theme.js: an explicit stored choice
          wins, otherwise "system" follows prefers-color-scheme. -->

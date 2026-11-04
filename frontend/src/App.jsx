@@ -6,6 +6,8 @@ import { ThemeProvider } from './components/ThemeProvider';
 import { getDomains, getPracticeQuestions } from './lib/curriculum';
 import './App.css';
 
+const Landing = lazy(() => import('./pages/Landing'));
+const Login = lazy(() => import('./pages/Login'));
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const PracticeQuestions = lazy(() => import('./pages/PracticeQuestions'));
 const CheatsheetViewer = lazy(() => import('./pages/CheatsheetViewer'));
@@ -34,12 +36,12 @@ const cheatsheets = [
 ];
 
 const NAV_ITEMS = [
-    { to: '/', label: 'Dashboard', end: true },
+    { to: '/dashboard', label: 'Dashboard', end: true },
     { to: '/learn', label: 'Curriculum' },
     { to: '/flashcards', label: 'Flashcards' },
     // In-page anchor on the dashboard rather than a route, so it renders as a
     // plain link and never carries a route's active state.
-    { to: '/#cheatsheets', label: 'Cheat sheets', anchor: true },
+    { to: '/dashboard#cheatsheets', label: 'Cheat sheets', anchor: true },
 ];
 
 // The search field collapses into the mobile menu below this width, so the
@@ -339,7 +341,7 @@ const FOOTER_MODULES = [
     { to: '/learn', label: '4-domain curriculum' },
     { to: '/practice-questions?mode=standard', label: 'Exam simulator' },
     { to: '/flashcards', label: 'Flashcard review' },
-    { to: '/#interactive-diagram', label: 'Architecture diagrams' },
+    { to: '/dashboard#interactive-diagram', label: 'Architecture diagrams' },
 ];
 
 const FOOTER_ASSETS = [
@@ -431,15 +433,19 @@ function PageFallback() {
 }
 
 function App() {
+    const location = useLocation();
+    const isStandalonePage = location.pathname === '/' || location.pathname === '/login';
     return (
         <ThemeProvider>
             <ErrorBoundary>
-                <a href="#main-content" className="skip-link">Skip to content</a>
-                <Navbar />
-                <main id="main-content" style={{ flex: 1 }}>
+                {!isStandalonePage && <a href="#main-content" className="skip-link">Skip to content</a>}
+                {!isStandalonePage && <Navbar />}
+                <main id={isStandalonePage ? undefined : "main-content"} style={{ flex: 1 }}>
                     <Suspense fallback={<PageFallback />}>
                         <Routes>
-                            <Route path="/" element={<Dashboard />} />
+                            <Route path="/" element={<Landing />} />
+                            <Route path="/dashboard" element={<Dashboard />} />
+                            <Route path="/login" element={<Login />} />
                             <Route path="/learn" element={<Learn />} />
                             <Route path="/learn/:domain/:topic" element={<TopicLesson />} />
                             <Route path="/practice-questions" element={<PracticeQuestions />} />
@@ -448,10 +454,12 @@ function App() {
                         </Routes>
                     </Suspense>
                 </main>
-                <Footer />
-                <Suspense fallback={null}>
+                {!isStandalonePage && <Footer />}
+                {!isStandalonePage && (
+                    <Suspense fallback={null}>
                     <CloudMentor />
                 </Suspense>
+                )}
             </ErrorBoundary>
         </ThemeProvider>
     );
